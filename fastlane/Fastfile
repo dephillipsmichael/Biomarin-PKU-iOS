@@ -21,7 +21,7 @@ platform :ios do
     ENV["MATCH_KEYCHAIN_NAME"] = "ios-build.keychain"
     ENV["TEAM_SAGEBIO"] = "4B822CZK9N"
     ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"] = "KA9Z8R6M6K"
-    ENV["APP_ID"] = "org.sagebase.CRFTestApp"
+    ENV["APP_ID"] = "org.sagebionetworks.BiomarinPKU"
     ENV["WORKSPACE"] = "./BiomarinPKU.xcworkspace"
   end
 
