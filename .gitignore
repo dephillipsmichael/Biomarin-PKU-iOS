@@ -66,3 +66,12 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+.DS_Store
+
+# bundle for ruby
+vendor/
+.bundle/
+
+# travis generated files
+travis*.log
+IDEWorkspaceChecks.plist
