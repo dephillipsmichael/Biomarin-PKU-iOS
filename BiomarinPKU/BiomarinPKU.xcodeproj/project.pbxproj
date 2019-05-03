@@ -25,6 +25,9 @@
 		F8087B83227BC7B2005BDDEC /* ResearchUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B81227BC7B2005BDDEC /* ResearchUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8087B85227BC7B2005BDDEC /* ResearchRecorders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */; };
 		F8087B86227BC7B2005BDDEC /* ResearchRecorders.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8087B8F227BCA16005BDDEC /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8087B8D227BCA16005BDDEC /* BridgeInfo-private.plist */; };
+		F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */ = {isa = PBXBuildFile; fileRef = F8087B8E227BCA16005BDDEC /* biomarin-pku.pem */; };
+		F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8087B91227BCA40005BDDEC /* BridgeInfo.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,10 @@
 		F8087B7E227BC7B2005BDDEC /* Research.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Research.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8087B81227BC7B2005BDDEC /* ResearchUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchRecorders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8087B8D227BCA16005BDDEC /* BridgeInfo-private.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "BridgeInfo-private.plist"; path = "../../../iOSPrivateProjectInfo/BiomarinPKU/BridgeInfo-private.plist"; sourceTree = "<group>"; };
+		F8087B8E227BCA16005BDDEC /* biomarin-pku.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "biomarin-pku.pem"; path = "../../../iOSPrivateProjectInfo/BiomarinPKU/biomarin-pku.pem"; sourceTree = "<group>"; };
+		F8087B91227BCA40005BDDEC /* BridgeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BridgeInfo.plist; sourceTree = "<group>"; };
+		F8087B93227BCA92005BDDEC /* BiomarinPKU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BiomarinPKU.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +133,7 @@
 				F806117D227BA025005FCABF /* Main.storyboard */,
 				F8061180227BA026005FCABF /* Assets.xcassets */,
 				F8061182227BA026005FCABF /* LaunchScreen.storyboard */,
-				F8061185227BA026005FCABF /* Info.plist */,
+				F8087B8C227BC9E4005BDDEC /* Support Files */,
 			);
 			path = BiomarinPKU;
 			sourceTree = "<group>";
@@ -143,14 +150,26 @@
 		F8087B88227BC7CB005BDDEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-                F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */,
-                F8087B81227BC7B2005BDDEC /* ResearchUI.framework */,
-                F8087B7E227BC7B2005BDDEC /* Research.framework */,
-                F8087B7B227BC7B2005BDDEC /* MotorControl.framework */,
-                F8087B78227BC7B2005BDDEC /* BridgeApp.framework */,
-                F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */,
+				F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */,
+				F8087B81227BC7B2005BDDEC /* ResearchUI.framework */,
+				F8087B7E227BC7B2005BDDEC /* Research.framework */,
+				F8087B7B227BC7B2005BDDEC /* MotorControl.framework */,
+				F8087B78227BC7B2005BDDEC /* BridgeApp.framework */,
+				F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8087B8C227BC9E4005BDDEC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F8087B93227BCA92005BDDEC /* BiomarinPKU.entitlements */,
+				F8087B91227BCA40005BDDEC /* BridgeInfo.plist */,
+				F8087B8D227BCA16005BDDEC /* BridgeInfo-private.plist */,
+				F8087B8E227BCA16005BDDEC /* biomarin-pku.pem */,
+				F8061185227BA026005FCABF /* Info.plist */,
+			);
+			name = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +223,23 @@
 				TargetAttributes = {
 					F8061175227BA025005FCABF = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					F8061189227BA027005FCABF = {
 						CreatedOnToolsVersion = 10.2;
@@ -236,8 +272,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */,
+				F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */,
+				F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */,
 				F8061181227BA026005FCABF /* Assets.xcassets in Resources */,
 				F806117F227BA025005FCABF /* Main.storyboard in Resources */,
+				F8087B8F227BCA16005BDDEC /* BridgeInfo-private.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +457,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BiomarinPKU/BiomarinPKU.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
 				INFOPLIST_FILE = BiomarinPKU/Info.plist;
@@ -437,6 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BiomarinPKU/BiomarinPKU.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
