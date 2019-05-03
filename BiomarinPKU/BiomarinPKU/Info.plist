@@ -22,6 +22,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>pkYou would like to access your phone's location to help gather data about your movement patterns. Research has shown that someone's movement patterns might be related to their disease burden.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>pkYou would like to access your phone's motion sensors to help gather data during activities.</string>
+	<key>UIBackgroundModes</key>
+	<array/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F806117A227BA025005FCABF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8061179227BA025005FCABF /* AppDelegate.swift */; };
-		F806117C227BA025005FCABF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F806117B227BA025005FCABF /* ViewController.swift */; };
 		F806117F227BA025005FCABF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F806117D227BA025005FCABF /* Main.storyboard */; };
 		F8061181227BA026005FCABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8061180227BA026005FCABF /* Assets.xcassets */; };
 		F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8061182227BA026005FCABF /* LaunchScreen.storyboard */; };
@@ -28,6 +27,10 @@
 		F8087B8F227BCA16005BDDEC /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8087B8D227BCA16005BDDEC /* BridgeInfo-private.plist */; };
 		F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */ = {isa = PBXBuildFile; fileRef = F8087B8E227BCA16005BDDEC /* biomarin-pku.pem */; };
 		F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8087B91227BCA40005BDDEC /* BridgeInfo.plist */; };
+		F8087BA4227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA3227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift */; };
+		F8087BA6227BDC4D005BDDEC /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */; };
+		F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */; };
+		F8087BAD227BEB95005BDDEC /* TaskListScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +65,6 @@
 /* Begin PBXFileReference section */
 		F8061176227BA025005FCABF /* BiomarinPKU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiomarinPKU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8061179227BA025005FCABF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F806117B227BA025005FCABF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F806117E227BA025005FCABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8061180227BA026005FCABF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8061183227BA026005FCABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,6 +82,10 @@
 		F8087B8E227BCA16005BDDEC /* biomarin-pku.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "biomarin-pku.pem"; path = "../../../iOSPrivateProjectInfo/BiomarinPKU/biomarin-pku.pem"; sourceTree = "<group>"; };
 		F8087B91227BCA40005BDDEC /* BridgeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BridgeInfo.plist; sourceTree = "<group>"; };
 		F8087B93227BCA92005BDDEC /* BiomarinPKU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BiomarinPKU.entitlements; sourceTree = "<group>"; };
+		F8087BA3227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalIDRegistrationViewController.swift; sourceTree = "<group>"; };
+		F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
+		F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MotorControl+Bridge.swift"; sourceTree = "<group>"; };
+		F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListScheduleManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,10 +135,11 @@
 			isa = PBXGroup;
 			children = (
 				F8061179227BA025005FCABF /* AppDelegate.swift */,
-				F806117B227BA025005FCABF /* ViewController.swift */,
 				F806117D227BA025005FCABF /* Main.storyboard */,
 				F8061180227BA026005FCABF /* Assets.xcassets */,
 				F8061182227BA026005FCABF /* LaunchScreen.storyboard */,
+				F8087BA7227BDC97005BDDEC /* Model */,
+				F8087BA2227BDA4E005BDDEC /* View Controllers */,
 				F8087B8C227BC9E4005BDDEC /* Support Files */,
 			);
 			path = BiomarinPKU;
@@ -170,6 +177,24 @@
 				F8061185227BA026005FCABF /* Info.plist */,
 			);
 			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		F8087BA2227BDA4E005BDDEC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F8087BA3227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift */,
+				F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F8087BA7227BDC97005BDDEC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */,
+				F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,8 +319,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F806117C227BA025005FCABF /* ViewController.swift in Sources */,
 				F806117A227BA025005FCABF /* AppDelegate.swift in Sources */,
+				F8087BA6227BDC4D005BDDEC /* TaskListTableViewController.swift in Sources */,
+				F8087BA4227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift in Sources */,
+				F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */,
+				F8087BAD227BEB95005BDDEC /* TaskListScheduleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
