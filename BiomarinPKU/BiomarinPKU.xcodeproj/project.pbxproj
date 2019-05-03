@@ -13,6 +13,18 @@
 		F8061181227BA026005FCABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8061180227BA026005FCABF /* Assets.xcassets */; };
 		F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8061182227BA026005FCABF /* LaunchScreen.storyboard */; };
 		F806118F227BA027005FCABF /* BiomarinPKUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F806118E227BA027005FCABF /* BiomarinPKUTests.swift */; };
+		F8087B76227BC7B2005BDDEC /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */; };
+		F8087B77227BC7B2005BDDEC /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8087B79227BC7B2005BDDEC /* BridgeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B78227BC7B2005BDDEC /* BridgeApp.framework */; };
+		F8087B7A227BC7B2005BDDEC /* BridgeApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B78227BC7B2005BDDEC /* BridgeApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8087B7C227BC7B2005BDDEC /* MotorControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B7B227BC7B2005BDDEC /* MotorControl.framework */; };
+		F8087B7D227BC7B2005BDDEC /* MotorControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B7B227BC7B2005BDDEC /* MotorControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8087B7F227BC7B2005BDDEC /* Research.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B7E227BC7B2005BDDEC /* Research.framework */; };
+		F8087B80227BC7B2005BDDEC /* Research.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B7E227BC7B2005BDDEC /* Research.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8087B82227BC7B2005BDDEC /* ResearchUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B81227BC7B2005BDDEC /* ResearchUI.framework */; };
+		F8087B83227BC7B2005BDDEC /* ResearchUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B81227BC7B2005BDDEC /* ResearchUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8087B85227BC7B2005BDDEC /* ResearchRecorders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */; };
+		F8087B86227BC7B2005BDDEC /* ResearchRecorders.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +37,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F8087B87227BC7B2005BDDEC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F8087B7D227BC7B2005BDDEC /* MotorControl.framework in Embed Frameworks */,
+				F8087B86227BC7B2005BDDEC /* ResearchRecorders.framework in Embed Frameworks */,
+				F8087B77227BC7B2005BDDEC /* BridgeSDK.framework in Embed Frameworks */,
+				F8087B7A227BC7B2005BDDEC /* BridgeApp.framework in Embed Frameworks */,
+				F8087B80227BC7B2005BDDEC /* Research.framework in Embed Frameworks */,
+				F8087B83227BC7B2005BDDEC /* ResearchUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		F8061176227BA025005FCABF /* BiomarinPKU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiomarinPKU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8061179227BA025005FCABF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +67,12 @@
 		F806118A227BA027005FCABF /* BiomarinPKUTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiomarinPKUTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F806118E227BA027005FCABF /* BiomarinPKUTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomarinPKUTests.swift; sourceTree = "<group>"; };
 		F8061190227BA027005FCABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BridgeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8087B78227BC7B2005BDDEC /* BridgeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BridgeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8087B7B227BC7B2005BDDEC /* MotorControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MotorControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8087B7E227BC7B2005BDDEC /* Research.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Research.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8087B81227BC7B2005BDDEC /* ResearchUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchRecorders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +80,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8087B7C227BC7B2005BDDEC /* MotorControl.framework in Frameworks */,
+				F8087B85227BC7B2005BDDEC /* ResearchRecorders.framework in Frameworks */,
+				F8087B76227BC7B2005BDDEC /* BridgeSDK.framework in Frameworks */,
+				F8087B79227BC7B2005BDDEC /* BridgeApp.framework in Frameworks */,
+				F8087B7F227BC7B2005BDDEC /* Research.framework in Frameworks */,
+				F8087B82227BC7B2005BDDEC /* ResearchUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +104,7 @@
 			children = (
 				F8061178227BA025005FCABF /* BiomarinPKU */,
 				F806118D227BA027005FCABF /* BiomarinPKUTests */,
+				F8087B88227BC7CB005BDDEC /* Frameworks */,
 				F8061177227BA025005FCABF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +140,19 @@
 			path = BiomarinPKUTests;
 			sourceTree = "<group>";
 		};
+		F8087B88227BC7CB005BDDEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+                F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */,
+                F8087B81227BC7B2005BDDEC /* ResearchUI.framework */,
+                F8087B7E227BC7B2005BDDEC /* Research.framework */,
+                F8087B7B227BC7B2005BDDEC /* MotorControl.framework */,
+                F8087B78227BC7B2005BDDEC /* BridgeApp.framework */,
+                F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +163,7 @@
 				F8061172227BA025005FCABF /* Sources */,
 				F8061173227BA025005FCABF /* Frameworks */,
 				F8061174227BA025005FCABF /* Resources */,
+				F8087B87227BC7B2005BDDEC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
