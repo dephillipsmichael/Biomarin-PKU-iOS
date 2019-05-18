@@ -196,7 +196,6 @@ open class PKUTaskTableviewCell: SBARoundedButtonCell {
         self.titleLabel?.font = designSystem.fontRules.font(for: .fieldHeader)
         self.actionButton.backgroundColor = designSystem.colorRules.palette.secondary.normal.color
         self.actionButton.titleLabel?.font = designSystem.fontRules.font(for: .heading3)
-        // TODO: mdephillips 5/18/19 should this be separatorLine?  If so, how do I customize ColorRules class?
         dividerView?.backgroundColor = designSystem.colorRules.backgroundPrimary.color
     }
 }
