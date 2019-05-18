@@ -35,19 +35,24 @@ import Foundation
 import BridgeApp
 import MotorControl
 
-extension RSDIdentifier {
+public extension RSDIdentifier {
+    static let tappingTask: RSDIdentifier = MCTTaskIdentifier.tapping.identifier
     static let tremorTask: RSDIdentifier = MCTTaskIdentifier.tremor.identifier
+    static let kineticTremorTask: RSDIdentifier = "Kinetic Tremor"
+    static let goNoGoTask: RSDIdentifier = "Go No Go"
+    static let nBackTask: RSDIdentifier = "N Back"
+    static let spatialMemoryTask: RSDIdentifier = "Spatial Memory"
+    static let symbolSubstitutionTask: RSDIdentifier = "Symbol Substitution"
+    static let attentionalBlinkTask: RSDIdentifier = "Attentional Blink"
 }
 
 extension MCTTaskInfo : SBAActivityInfo {
-    
     public var moduleId: SBAModuleIdentifier? {
         return SBAModuleIdentifier(rawValue: self.identifier)
     }
 }
 
 extension MCTTaskIdentifier {
-    
     public var rsdIdentifier : RSDIdentifier {
         return RSDIdentifier(rawValue: self.rawValue)
     }

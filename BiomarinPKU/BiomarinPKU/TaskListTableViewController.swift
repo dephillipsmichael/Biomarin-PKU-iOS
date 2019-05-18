@@ -42,6 +42,21 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     
     var designSystem = (UIApplication.shared.delegate as! AppDelegate).designSystem()
     
+    enum SupplementalRow: Int {
+        case TaskSwitch = 0
+        case ConnectFitbit = 1
+        case RowCount = 2
+        
+        func title() -> String {
+            switch self {
+            case .TaskSwitch:
+                return Localization.localizedString("TASK_SWITCH")
+            default:
+                return Localization.localizedString("CONNECT_FITBIT")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -73,12 +88,15 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     
     func updateHeaderFooterText() {
         let tableHeader = self.tableView.tableHeaderView as? PKUTaskTableHeaderView
-        // TODO: mdephillips 5/18/19 localize?
-        tableHeader?.titleLabel?.text = "A BioMarin PKU Research Study"
-        // TODO: mdephillips 5/18/19 dynamically generate build date
-        // and also app version string
+        tableHeader?.titleLabel?.text = Localization.localizedString("STUDY_TITLE")
+        
+        // Obtain the version and the date that the app was compiled
         let tableFooter = self.tableView.tableFooterView as? PKUTaskTableFooterView
-        tableFooter?.titleLabel?.text = "PKU App Version 0.1\nReleased on 02/02/19"
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        let versionStr = Localization.localizedStringWithFormatKey("RELEASE_VERSION_%@", version)
+        let releaseDate = compileDate() ?? ""
+        let releaseDateStr = Localization.localizedStringWithFormatKey("RELEASE_DATE_%@", releaseDate)
+        tableFooter?.titleLabel?.text = String(format: "%@\n%@", versionStr, releaseDateStr)
     }
 
     // MARK: - Table view data source
@@ -88,15 +106,25 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.scheduleManager.scheduledActivities.count
+        return self.scheduleManager.scheduledActivities.count + SupplementalRow.RowCount.rawValue
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PKUTaskCell", for: indexPath) as! PKUTaskTableviewCell
         
-        let activity = self.scheduleManager.scheduledActivities[indexPath.item]
+        let activitiesSorted = self.scheduleManager.sortActivities(self.scheduleManager.scheduledActivities) ?? []
         
-        cell.titleLabel?.text = activity.activity.label
+        if (indexPath.row >= activitiesSorted.count) {
+            // This is a supplemental row at the bottom of the table
+            if let supplementalRow = SupplementalRow(rawValue: indexPath.row - activitiesSorted.count) {
+                cell.titleLabel?.text = supplementalRow.title()
+            }
+        } else {
+            let activity = activitiesSorted[indexPath.item]
+            cell.titleLabel?.text = activity.activity.label
+        }
+        
+    cell.actionButton.setTitle(Localization.localizedString("BUTTON_TITLE_BEGIN"), for: .normal)
         cell.indexPath = indexPath
         cell.delegate = self
         cell.setDesignSystem(designSystem, with: designSystem.colorRules.backgroundLight)
@@ -105,9 +133,18 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     }
     
     func didTapButton(on cell: RSDButtonCell) {
-        if (cell.indexPath.row == 0) {
-            let activity = self.scheduleManager.scheduledActivities[cell.indexPath.item]
-            
+        let activitiesSorted = self.scheduleManager.sortActivities(self.scheduleManager.scheduledActivities) ?? []
+        let row = cell.indexPath.row
+        
+        if (row >= activitiesSorted.count) {
+            // This is a supplemental row at the bottom of the table
+            if let supplementalRow = SupplementalRow(rawValue: row - activitiesSorted.count) {
+                
+                // TODO: mdephillips 5/18/19 transition to appropriate screen
+            }
+        } else {
+            // This is an activity
+            let activity = activitiesSorted[row]
             let taskViewModel = scheduleManager.instantiateTaskViewModel(for: activity)
             let vc = RSDTaskViewController(taskViewModel: taskViewModel)
             vc.delegate = self

@@ -64,6 +64,15 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         }
     }
     
+    override func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        // Set up localization.
+        let mainBundle = LocalizationBundle(bundle: Bundle.main, tableName: "PKU")
+        Localization.insert(bundle: mainBundle, at: 0)
+        
+        return super.application(application, willFinishLaunchingWithOptions: launchOptions)
+    }
+    
     override func applicationDidBecomeActive(_ application: UIApplication) {
         super.applicationDidBecomeActive(application)
         self.showAppropriateViewController(animated: true)

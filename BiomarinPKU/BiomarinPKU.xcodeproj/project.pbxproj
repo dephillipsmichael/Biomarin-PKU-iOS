@@ -14,6 +14,8 @@
 		CBF8CB53228F844E0089BDF0 /* lato_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB47228F84470089BDF0 /* lato_light.ttf */; };
 		CBF8CB54228F844E0089BDF0 /* lato_lightitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB4B228F84480089BDF0 /* lato_lightitalic.ttf */; };
 		CBF8CB55228F844E0089BDF0 /* lato_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB48228F84470089BDF0 /* lato_regular.ttf */; };
+		CBF8CB5C229053A40089BDF0 /* PKUBuildDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF8CB5B229053A40089BDF0 /* PKUBuildDateUtil.m */; };
+		CBF8CB76229065670089BDF0 /* PKU.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB75229065670089BDF0 /* PKU.strings */; };
 		F806117A227BA025005FCABF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8061179227BA025005FCABF /* AppDelegate.swift */; };
 		F806117F227BA025005FCABF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F806117D227BA025005FCABF /* Main.storyboard */; };
 		F8061181227BA026005FCABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8061180227BA026005FCABF /* Assets.xcassets */; };
@@ -77,6 +79,9 @@
 		CBF8CB47228F84470089BDF0 /* lato_light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_light.ttf; sourceTree = "<group>"; };
 		CBF8CB48228F84470089BDF0 /* lato_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_regular.ttf; sourceTree = "<group>"; };
 		CBF8CB4B228F84480089BDF0 /* lato_lightitalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_lightitalic.ttf; sourceTree = "<group>"; };
+		CBF8CB5A229053A30089BDF0 /* BiomarinPKU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BiomarinPKU-Bridging-Header.h"; sourceTree = "<group>"; };
+		CBF8CB5B229053A40089BDF0 /* PKUBuildDateUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PKUBuildDateUtil.m; sourceTree = "<group>"; };
+		CBF8CB75229065670089BDF0 /* PKU.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = PKU.strings; sourceTree = "<group>"; };
 		F8061176227BA025005FCABF /* BiomarinPKU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiomarinPKU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8061179227BA025005FCABF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F806117E227BA025005FCABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +145,23 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		CBF8CB592290535F0089BDF0 /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				CBF8CB5B229053A40089BDF0 /* PKUBuildDateUtil.m */,
+				CBF8CB5A229053A30089BDF0 /* BiomarinPKU-Bridging-Header.h */,
+			);
+			name = ObjC;
+			sourceTree = "<group>";
+		};
+		CBF8CB74229065520089BDF0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CBF8CB75229065670089BDF0 /* PKU.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		F806116D227BA025005FCABF = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +190,8 @@
 				F8061182227BA026005FCABF /* LaunchScreen.storyboard */,
 				F8087BA7227BDC97005BDDEC /* Model */,
 				F8087BA2227BDA4E005BDDEC /* View Controllers */,
+				CBF8CB74229065520089BDF0 /* Resources */,
+				CBF8CB592290535F0089BDF0 /* ObjC */,
 				F8087B8C227BC9E4005BDDEC /* Support Files */,
 				CBF8CB41228F83FF0089BDF0 /* Fonts */,
 			);
@@ -277,6 +301,7 @@
 				TargetAttributes = {
 					F8061175227BA025005FCABF = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -332,6 +357,7 @@
 				F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */,
 				F8061181227BA026005FCABF /* Assets.xcassets in Resources */,
 				F806117F227BA025005FCABF /* Main.storyboard in Resources */,
+				CBF8CB76229065670089BDF0 /* PKU.strings in Resources */,
 				CBF8CB53228F844E0089BDF0 /* lato_light.ttf in Resources */,
 				CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */,
 				CBF8CB54228F844E0089BDF0 /* lato_lightitalic.ttf in Resources */,
@@ -358,6 +384,7 @@
 				F806117A227BA025005FCABF /* AppDelegate.swift in Sources */,
 				F8087BA6227BDC4D005BDDEC /* TaskListTableViewController.swift in Sources */,
 				F8087BA4227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift in Sources */,
+				CBF8CB5C229053A40089BDF0 /* PKUBuildDateUtil.m in Sources */,
 				F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */,
 				F8087BAD227BEB95005BDDEC /* TaskListScheduleManager.swift in Sources */,
 			);
@@ -521,6 +548,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BiomarinPKU/BiomarinPKU.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
@@ -532,6 +560,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.sagebionetworks.BiomarinPKU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.sagebionetworks.BiomarinPKU";
+				SWIFT_OBJC_BRIDGING_HEADER = "BiomarinPKU/BiomarinPKU-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -541,6 +571,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BiomarinPKU/BiomarinPKU.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -553,6 +584,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.sagebionetworks.BiomarinPKU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Distribution org.sagebionetworks.BiomarinPKU";
+				SWIFT_OBJC_BRIDGING_HEADER = "BiomarinPKU/BiomarinPKU-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

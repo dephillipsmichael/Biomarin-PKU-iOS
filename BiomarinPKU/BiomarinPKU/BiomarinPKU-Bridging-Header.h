@@ -1,5 +1,5 @@
-//
-//  TaskListScheduleManager.swift
+///
+//  BiomarinPKU-Bridging-Header.h
 //  BiomarinPKU
 //
 //  Copyright © 2019 Sage Bionetworks. All rights reserved.
@@ -31,28 +31,12 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-import Foundation
-import BridgeApp
+//  Use this file to import your target's public headers that you would like to expose to Swift.
+//
+#import <Foundation/Foundation.h>
 
-/// Subclass the schedule manager to set up a predicate to filter the schedules.
-class TaskListScheduleManager : SBAScheduleManager {
-    
-    let sortOrder: [RSDIdentifier] = [.tappingTask, .tremorTask, .kineticTremorTask,
-        .attentionalBlinkTask, .symbolSubstitutionTask, .goNoGoTask, .nBackTask,
-        .spatialMemoryTask]
-    
-    override func availablePredicate() -> NSPredicate {
-        return SBBScheduledActivity.notFinishedAvailableNowPredicate()
-    }
-    
-    /// Sort the scheduled activities. By default this will sort by comparing the `scheduledOn` property.
-    override open func sortActivities(_ scheduledActivities: [SBBScheduledActivity]?) -> [SBBScheduledActivity]? {
-        guard (scheduledActivities?.count ?? 0) > 0 else { return nil }
-        return scheduledActivities!.sorted(by: { (scheduleA, scheduleB) -> Bool in
-            let idxA = sortOrder.firstIndex(of: RSDIdentifier(rawValue: scheduleA.activityIdentifier ?? "")) ?? sortOrder.count
-            let idxB = sortOrder.firstIndex(of: RSDIdentifier(rawValue: scheduleB.activityIdentifier ?? "")) ?? sortOrder.count
-            
-            return idxA < idxB
-        })
-    }
-}
+/**
+ @return A string representation of the date the app was built.
+         Example format: May 18 2019
+ */
+NSString* compileDate();
