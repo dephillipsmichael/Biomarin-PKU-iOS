@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
+		CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
+		CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */; };
+		CBF8CB52228F844E0089BDF0 /* lato_italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB46228F84460089BDF0 /* lato_italic.ttf */; };
+		CBF8CB53228F844E0089BDF0 /* lato_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB47228F84470089BDF0 /* lato_light.ttf */; };
+		CBF8CB54228F844E0089BDF0 /* lato_lightitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB4B228F84480089BDF0 /* lato_lightitalic.ttf */; };
+		CBF8CB55228F844E0089BDF0 /* lato_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB48228F84470089BDF0 /* lato_regular.ttf */; };
 		F806117A227BA025005FCABF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8061179227BA025005FCABF /* AppDelegate.swift */; };
 		F806117F227BA025005FCABF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F806117D227BA025005FCABF /* Main.storyboard */; };
 		F8061181227BA026005FCABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8061180227BA026005FCABF /* Assets.xcassets */; };
@@ -63,6 +70,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CBF8CB42228F84460089BDF0 /* lato_black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_black.ttf; sourceTree = "<group>"; };
+		CBF8CB43228F84460089BDF0 /* lato_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bold.ttf; sourceTree = "<group>"; };
+		CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bolditalic.ttf; sourceTree = "<group>"; };
+		CBF8CB46228F84460089BDF0 /* lato_italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_italic.ttf; sourceTree = "<group>"; };
+		CBF8CB47228F84470089BDF0 /* lato_light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_light.ttf; sourceTree = "<group>"; };
+		CBF8CB48228F84470089BDF0 /* lato_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_regular.ttf; sourceTree = "<group>"; };
+		CBF8CB4B228F84480089BDF0 /* lato_lightitalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_lightitalic.ttf; sourceTree = "<group>"; };
 		F8061176227BA025005FCABF /* BiomarinPKU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiomarinPKU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8061179227BA025005FCABF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F806117E227BA025005FCABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,6 +126,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CBF8CB41228F83FF0089BDF0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CBF8CB42228F84460089BDF0 /* lato_black.ttf */,
+				CBF8CB43228F84460089BDF0 /* lato_bold.ttf */,
+				CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */,
+				CBF8CB46228F84460089BDF0 /* lato_italic.ttf */,
+				CBF8CB47228F84470089BDF0 /* lato_light.ttf */,
+				CBF8CB4B228F84480089BDF0 /* lato_lightitalic.ttf */,
+				CBF8CB48228F84470089BDF0 /* lato_regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		F806116D227BA025005FCABF = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +169,7 @@
 				F8087BA7227BDC97005BDDEC /* Model */,
 				F8087BA2227BDA4E005BDDEC /* View Controllers */,
 				F8087B8C227BC9E4005BDDEC /* Support Files */,
+				CBF8CB41228F83FF0089BDF0 /* Fonts */,
 			);
 			path = BiomarinPKU;
 			sourceTree = "<group>";
@@ -296,12 +325,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBF8CB52228F844E0089BDF0 /* lato_italic.ttf in Resources */,
 				F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */,
+				CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */,
 				F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */,
 				F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */,
 				F8061181227BA026005FCABF /* Assets.xcassets in Resources */,
 				F806117F227BA025005FCABF /* Main.storyboard in Resources */,
+				CBF8CB53228F844E0089BDF0 /* lato_light.ttf in Resources */,
+				CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */,
+				CBF8CB54228F844E0089BDF0 /* lato_lightitalic.ttf in Resources */,
+				CBF8CB55228F844E0089BDF0 /* lato_regular.ttf in Resources */,
 				F8087B8F227BCA16005BDDEC /* BridgeInfo-private.plist in Resources */,
+				CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
