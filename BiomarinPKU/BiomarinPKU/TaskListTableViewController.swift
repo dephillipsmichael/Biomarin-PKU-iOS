@@ -42,21 +42,6 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     
     var designSystem = (UIApplication.shared.delegate as! AppDelegate).designSystem()
     
-    enum SupplementalRow: Int {
-        case TaskSwitch = 0
-        case ConnectFitbit = 1
-        case RowCount = 2
-        
-        func title() -> String {
-            switch self {
-            case .TaskSwitch:
-                return Localization.localizedString("TASK_SWITCH")
-            default:
-                return Localization.localizedString("CONNECT_FITBIT")
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -102,29 +87,19 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.scheduleManager.tableSectionCount
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.scheduleManager.scheduledActivities.count + SupplementalRow.RowCount.rawValue
+        return self.scheduleManager.tableRowCount
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PKUTaskCell", for: indexPath) as! PKUTaskTableviewCell
         
-        let activitiesSorted = self.scheduleManager.sortActivities(self.scheduleManager.scheduledActivities) ?? []
-        
-        if (indexPath.row >= activitiesSorted.count) {
-            // This is a supplemental row at the bottom of the table
-            if let supplementalRow = SupplementalRow(rawValue: indexPath.row - activitiesSorted.count) {
-                cell.titleLabel?.text = supplementalRow.title()
-            }
-        } else {
-            let activity = activitiesSorted[indexPath.item]
-            cell.titleLabel?.text = activity.activity.label
-        }
-        
-    cell.actionButton.setTitle(Localization.localizedString("BUTTON_TITLE_BEGIN"), for: .normal)
+        cell.titleLabel?.text = self.scheduleManager.title(for: indexPath)
+        cell.actionButton.setTitle(Localization
+            .localizedString("BUTTON_TITLE_BEGIN"), for: .normal)
         cell.indexPath = indexPath
         cell.delegate = self
         cell.setDesignSystem(designSystem, with: designSystem.colorRules.backgroundLight)
@@ -133,22 +108,16 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     }
     
     func didTapButton(on cell: RSDButtonCell) {
-        let activitiesSorted = self.scheduleManager.sortActivities(self.scheduleManager.scheduledActivities) ?? []
-        let row = cell.indexPath.row
-        
-        if (row >= activitiesSorted.count) {
-            // This is a supplemental row at the bottom of the table
-            if let supplementalRow = SupplementalRow(rawValue: row - activitiesSorted.count) {
-                
-                // TODO: mdephillips 5/18/19 transition to appropriate screen
-            }
-        } else {
+        if (self.scheduleManager.isTaskRow(for: cell.indexPath)) {
             // This is an activity
-            let activity = activitiesSorted[row]
+            guard let activity = self.scheduleManager.sortedScheduledActivity(for: cell.indexPath) else { return }
             let taskViewModel = scheduleManager.instantiateTaskViewModel(for: activity)
             let vc = RSDTaskViewController(taskViewModel: taskViewModel)
             vc.delegate = self
             self.present(vc, animated: true, completion: nil)
+        } else {
+            // TODO: mdephillips 5/18/19 transition to appropriate screen
+            guard let supplementalRow = self.scheduleManager.supplementalRow(for: cell.indexPath) else { return }
         }
     }
 
