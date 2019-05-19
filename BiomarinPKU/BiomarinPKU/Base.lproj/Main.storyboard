@@ -27,15 +27,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="mjf-Wm-C3J" customClass="PKUTaskTableHeaderView" customModule="BiomarinPKU" customModuleProvider="target">
+                        <view key="tableHeaderView" contentMode="scaleAspectFit" id="mjf-Wm-C3J" customClass="PKUTaskTableHeaderView" customModule="BiomarinPKU" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="237"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zr6-3D-a8F" userLabel="CenterContainer">
-                                    <rect key="frame" x="80" y="80" width="254" height="97"/>
+                                    <rect key="frame" x="60" y="80" width="294" height="97"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A BioMarin PKU Research Study" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fQa-Rg-AQT">
-                                            <rect key="frame" x="0.0" y="77" width="254" height="20"/>
+                                            <rect key="frame" x="0.0" y="77" width="294" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="HwW-My-esh"/>
                                             </constraints>
@@ -43,8 +43,8 @@
                                             <color key="textColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="XqL-wy-C8E" userLabel="Header Image">
-                                            <rect key="frame" x="0.0" y="0.0" width="254" height="77"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="XqL-wy-C8E" userLabel="Header Image">
+                                            <rect key="frame" x="0.0" y="0.0" width="294" height="77"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,8 +63,8 @@
                             <constraints>
                                 <constraint firstItem="zr6-3D-a8F" firstAttribute="top" secondItem="mjf-Wm-C3J" secondAttribute="top" constant="80" id="Bty-Ls-klG"/>
                                 <constraint firstAttribute="bottom" secondItem="zr6-3D-a8F" secondAttribute="bottom" constant="60" id="DAi-P0-U3t"/>
-                                <constraint firstAttribute="trailing" secondItem="zr6-3D-a8F" secondAttribute="trailing" constant="80" id="Yji-2d-s5r"/>
-                                <constraint firstItem="zr6-3D-a8F" firstAttribute="leading" secondItem="mjf-Wm-C3J" secondAttribute="leading" constant="80" id="qnJ-v7-k5d"/>
+                                <constraint firstAttribute="trailing" secondItem="zr6-3D-a8F" secondAttribute="trailing" constant="60" id="Yji-2d-s5r"/>
+                                <constraint firstItem="zr6-3D-a8F" firstAttribute="leading" secondItem="mjf-Wm-C3J" secondAttribute="leading" constant="60" id="qnJ-v7-k5d"/>
                             </constraints>
                             <connections>
                                 <outlet property="titleLabel" destination="fQa-Rg-AQT" id="Vvs-ul-6qe"/>
