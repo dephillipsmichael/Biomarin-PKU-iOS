@@ -20,7 +20,7 @@
 		F806117F227BA025005FCABF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F806117D227BA025005FCABF /* Main.storyboard */; };
 		F8061181227BA026005FCABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8061180227BA026005FCABF /* Assets.xcassets */; };
 		F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8061182227BA026005FCABF /* LaunchScreen.storyboard */; };
-		F806118F227BA027005FCABF /* BiomarinPKUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F806118E227BA027005FCABF /* BiomarinPKUTests.swift */; };
+		F806118F227BA027005FCABF /* TaskListScheduleManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F806118E227BA027005FCABF /* TaskListScheduleManagerTests.swift */; };
 		F8087B76227BC7B2005BDDEC /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */; };
 		F8087B77227BC7B2005BDDEC /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8087B79227BC7B2005BDDEC /* BridgeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B78227BC7B2005BDDEC /* BridgeApp.framework */; };
@@ -89,7 +89,7 @@
 		F8061183227BA026005FCABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8061185227BA026005FCABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F806118A227BA027005FCABF /* BiomarinPKUTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiomarinPKUTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F806118E227BA027005FCABF /* BiomarinPKUTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiomarinPKUTests.swift; sourceTree = "<group>"; };
+		F806118E227BA027005FCABF /* TaskListScheduleManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListScheduleManagerTests.swift; sourceTree = "<group>"; };
 		F8061190227BA027005FCABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BridgeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8087B78227BC7B2005BDDEC /* BridgeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BridgeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,7 +201,7 @@
 		F806118D227BA027005FCABF /* BiomarinPKUTests */ = {
 			isa = PBXGroup;
 			children = (
-				F806118E227BA027005FCABF /* BiomarinPKUTests.swift */,
+				F806118E227BA027005FCABF /* TaskListScheduleManagerTests.swift */,
 				F8061190227BA027005FCABF /* Info.plist */,
 			);
 			path = BiomarinPKUTests;
@@ -394,7 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F806118F227BA027005FCABF /* BiomarinPKUTests.swift in Sources */,
+				F806118F227BA027005FCABF /* TaskListScheduleManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

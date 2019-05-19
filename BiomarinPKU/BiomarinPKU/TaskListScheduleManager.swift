@@ -35,13 +35,13 @@ import Foundation
 import BridgeApp
 
 /// Subclass the schedule manager to set up a predicate to filter the schedules.
-class TaskListScheduleManager : SBAScheduleManager {
+public class TaskListScheduleManager : SBAScheduleManager {
     
-    let sortOrder: [RSDIdentifier] = [.tappingTask, .tremorTask, .kineticTremorTask,
+    public let sortOrder: [RSDIdentifier] = [.tappingTask, .tremorTask, .kineticTremorTask,
         .attentionalBlinkTask, .symbolSubstitutionTask, .goNoGoTask, .nBackTask,
         .spatialMemoryTask]
     
-    override func availablePredicate() -> NSPredicate {
+    override public func availablePredicate() -> NSPredicate {
         return SBBScheduledActivity.notFinishedAvailableNowPredicate()
     }
     
