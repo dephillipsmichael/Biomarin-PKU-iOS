@@ -39,6 +39,16 @@ import Research
 @UIApplicationMain
 class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
+    open func designSystem() -> RSDDesignSystem {
+        let palette = instantiateColorPalette()!
+        let colorRules = PKUColorRules(palette: palette, version: 1)
+        let fontRules = PKUFontRules(version: 1)
+        
+        return RSDDesignSystem(version: 1,
+                               colorRules: colorRules,
+                               fontRules: fontRules)
+    }
+    
     override func instantiateColorPalette() -> RSDColorPalette? {
         return RSDColorPalette(version: 1,
                                primary: RSDColorMatrix.shared.colorKey(for: .palette(.butterscotch), shade: .medium),
@@ -52,6 +62,15 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         } else {
             showSignInViewController(animated: animated)
         }
+    }
+    
+    override func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        // Set up localization.
+        let mainBundle = LocalizationBundle(bundle: Bundle.main, tableName: "PKU")
+        Localization.insert(bundle: mainBundle, at: 0)
+        
+        return super.application(application, willFinishLaunchingWithOptions: launchOptions)
     }
     
     override func applicationDidBecomeActive(_ application: UIApplication) {
@@ -94,5 +113,47 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     }
     
     func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {
+    }
+}
+
+open class PKUColorRules: RSDColorRules {
+    
+}
+
+open class PKUFontRules: RSDFontRules {
+    
+    public let latoRegularName      = "Lato-Regular"
+    public let latoBoldName         = "Lato-Bold"
+    public let latoBlackName        = "Lato-Black"
+    public let latoLightName        = "Lato-Italic"
+    public let latoItalicName       = "Lato-Italic"
+    public let latoBoldItalicName   = "Lato-BoldItalic"
+    public let latoLightItalicName  = "Lato-LightItalic"
+    
+    /// Returns the font to use for a given text type.
+    ///
+    /// - parameter textType: The text type for the font.
+    /// - returns: The font to use for this text.
+    override open func font(for textType: RSDDesignSystem.TextType) -> RSDFont {
+        switch textType {
+        case .heading1:
+            return RSDFont(name: latoBoldName, size: 30)!
+        case .heading2:
+            return RSDFont(name: latoBoldName, size: 24)!
+        case .heading3:
+            return RSDFont(name: latoBoldName, size: 20)!
+        case .heading4:
+            return RSDFont(name: latoBoldName, size: 14)!
+        case .fieldHeader:
+            return RSDFont(name: latoBoldName, size: 18)!
+        case .body, .bodyDetail:
+            return RSDFont(name: latoRegularName, size: 18)!
+        case .small:
+            return RSDFont(name: latoRegularName, size: 14)!
+        case .microHeader:
+            return RSDFont(name: latoBoldName, size: 12)!
+        case .counter:
+            return RSDFont(name: latoLightName, size: 80)!
+        }
     }
 }

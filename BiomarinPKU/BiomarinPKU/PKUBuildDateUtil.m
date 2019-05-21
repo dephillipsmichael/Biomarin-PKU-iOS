@@ -1,5 +1,5 @@
-//
-//  MotorControl+Bridge.swift
+///
+//  PKUBuildDateUtil.m
 //  BiomarinPKU
 //
 //  Copyright © 2019 Sage Bionetworks. All rights reserved.
@@ -31,29 +31,12 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-import Foundation
-import BridgeApp
-import MotorControl
+#import <Foundation/Foundation.h>
 
-public extension RSDIdentifier {
-    static let tappingTask: RSDIdentifier = MCTTaskIdentifier.tapping.identifier
-    static let tremorTask: RSDIdentifier = MCTTaskIdentifier.tremor.identifier
-    static let kineticTremorTask: RSDIdentifier = "Kinetic Tremor"
-    static let goNoGoTask: RSDIdentifier = "Go No Go"
-    static let nBackTask: RSDIdentifier = "N Back"
-    static let spatialMemoryTask: RSDIdentifier = "Spatial Memory"
-    static let symbolSubstitutionTask: RSDIdentifier = "Symbol Substitution"
-    static let attentionalBlinkTask: RSDIdentifier = "Attentional Blink"
-}
-
-extension MCTTaskInfo : SBAActivityInfo {
-    public var moduleId: SBAModuleIdentifier? {
-        return SBAModuleIdentifier(rawValue: self.identifier)
-    }
-}
-
-extension MCTTaskIdentifier {
-    public var rsdIdentifier : RSDIdentifier {
-        return RSDIdentifier(rawValue: self.rawValue)
-    }
+/**
+ The __DATE__ macro will return a string representation
+ of the date the app was built.
+ */
+NSString *compileDate() {
+    return [NSString stringWithUTF8String:__DATE__];
 }

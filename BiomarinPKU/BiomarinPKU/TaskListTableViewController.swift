@@ -36,49 +36,89 @@ import BridgeApp
 import BridgeSDK
 import MotorControl
 
-class TaskListTableViewController: UITableViewController, RSDTaskViewControllerDelegate {
-
+class TaskListTableViewController: UITableViewController, RSDTaskViewControllerDelegate, RSDButtonCellDelegate {
+    
     let scheduleManager = TaskListScheduleManager()
-
+    
+    var designSystem = (UIApplication.shared.delegate as! AppDelegate).designSystem()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Install the tremor task in the app config. This hooks up the tremor task so that it will
         // use the appropriate factory.
-         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.tremor).task)
+        SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.tremor).task)
         
         // reload the schedules and add an observer to observe changes.
         scheduleManager.reloadData()
         NotificationCenter.default.addObserver(forName: .SBAUpdatedScheduledActivities, object: scheduleManager, queue: OperationQueue.main) { (notification) in
             self.tableView.reloadData()
         }
+        
+        updateDesignSystem()
+        updateHeaderFooterText()
+    }
+    
+    func updateDesignSystem() {
+        self.view.backgroundColor = designSystem.colorRules.backgroundPrimary.color
+        
+        let tableHeader = self.tableView.tableHeaderView as? PKUTaskTableHeaderView
+        tableHeader?.titleLabel?.textColor = designSystem.colorRules.textColor(on: designSystem.colorRules.backgroundLight, for: .heading4)
+        tableHeader?.titleLabel?.font = designSystem.fontRules.font(for: .heading4)
+        
+        let tableFooter = self.tableView.tableFooterView as? PKUTaskTableFooterView
+        tableFooter?.titleLabel?.textColor = designSystem.colorRules.textColor(on: designSystem.colorRules.backgroundLight, for: .heading4)
+        tableFooter?.titleLabel?.font = designSystem.fontRules.font(for: .small)
+    }
+    
+    func updateHeaderFooterText() {
+        let tableHeader = self.tableView.tableHeaderView as? PKUTaskTableHeaderView
+        tableHeader?.titleLabel?.text = Localization.localizedString("STUDY_TITLE")
+        
+        // Obtain the version and the date that the app was compiled
+        let tableFooter = self.tableView.tableFooterView as? PKUTaskTableFooterView
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        let versionStr = Localization.localizedStringWithFormatKey("RELEASE_VERSION_%@", version)
+        let releaseDate = compileDate() ?? ""
+        let releaseDateStr = Localization.localizedStringWithFormatKey("RELEASE_DATE_%@", releaseDate)
+        tableFooter?.titleLabel?.text = String(format: "%@\n%@", versionStr, releaseDateStr)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.scheduleManager.tableSectionCount
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.scheduleManager.scheduledActivities.count
+        return self.scheduleManager.tableRowCount
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath)
-        let activity = self.scheduleManager.scheduledActivities[indexPath.item]
-        cell.textLabel?.text = activity.activity.label
-        cell.detailTextLabel?.text = activity.activity.labelDetail
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PKUTaskCell", for: indexPath) as! PKUTaskTableviewCell
+        
+        cell.titleLabel?.text = self.scheduleManager.title(for: indexPath)
+        cell.actionButton.setTitle(Localization
+            .localizedString("BUTTON_TITLE_BEGIN"), for: .normal)
+        cell.indexPath = indexPath
+        cell.delegate = self
+        cell.setDesignSystem(designSystem, with: designSystem.colorRules.backgroundLight)
+        
         return cell
     }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let activity = self.scheduleManager.scheduledActivities[indexPath.item]
-        
-        let taskViewModel = scheduleManager.instantiateTaskViewModel(for: activity)
-        let vc = RSDTaskViewController(taskViewModel: taskViewModel)
-        vc.delegate = self
-        self.present(vc, animated: true, completion: nil)
+    
+    func didTapButton(on cell: RSDButtonCell) {
+        if (self.scheduleManager.isTaskRow(for: cell.indexPath)) {
+            // This is an activity
+            guard let activity = self.scheduleManager.sortedScheduledActivity(for: cell.indexPath) else { return }
+            let taskViewModel = scheduleManager.instantiateTaskViewModel(for: activity)
+            let vc = RSDTaskViewController(taskViewModel: taskViewModel)
+            vc.delegate = self
+            self.present(vc, animated: true, completion: nil)
+        } else {
+            // TODO: mdephillips 5/18/19 transition to appropriate screen
+            guard let supplementalRow = self.scheduleManager.supplementalRow(for: cell.indexPath) else { return }
+        }
     }
 
     func taskController(_ taskController: RSDTaskController, didFinishWith reason: RSDTaskFinishReason, error: Error?) {
@@ -96,4 +136,45 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {
         scheduleManager.taskController(taskController, readyToSave: taskViewModel)
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 112.0
+    }
+}
+
+open class PKUTaskTableviewCell: SBARoundedButtonCell {
+    open var backgroundTile = RSDGrayScale().white
+    
+    /// Title label that is associated with this cell.
+    @IBOutlet open var titleLabel: UILabel?
+    
+    /// Divider view that is associated with this cell.
+    @IBOutlet open var dividerView: UIView?
+    
+    override open func setDesignSystem(_ designSystem: RSDDesignSystem, with background: RSDColorTile) {
+        super.setDesignSystem(designSystem, with: background)
+        self.backgroundTile = background
+        self.contentView.backgroundColor = background.color
+        updateColors()
+    }
+    
+    func updateColors() {
+        let designSystem = self.designSystem ?? RSDDesignSystem()
+        let background = self.backgroundColorTile ?? RSDGrayScale().white
+        self.titleLabel?.textColor = designSystem.colorRules.textColor(on: background, for: .fieldHeader)
+        self.titleLabel?.font = designSystem.fontRules.font(for: .fieldHeader)
+        self.actionButton.backgroundColor = designSystem.colorRules.palette.secondary.normal.color
+        self.actionButton.titleLabel?.font = designSystem.fontRules.font(for: .heading3)
+        dividerView?.backgroundColor = designSystem.colorRules.backgroundPrimary.color
+    }
+}
+
+open class PKUTaskTableHeaderView: UIView {
+    /// Title label that is associated with this cell.
+    @IBOutlet open var titleLabel: UILabel?
+}
+
+open class PKUTaskTableFooterView: UIView {
+    /// Title label that is associated with this cell.
+    @IBOutlet open var titleLabel: UILabel?
 }
