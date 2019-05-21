@@ -49,6 +49,8 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
         // use the appropriate factory.
         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.tremor).task)
         
+        SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.tapping).task)
+        
         // reload the schedules and add an observer to observe changes.
         scheduleManager.reloadData()
         NotificationCenter.default.addObserver(forName: .SBAUpdatedScheduledActivities, object: scheduleManager, queue: OperationQueue.main) { (notification) in
