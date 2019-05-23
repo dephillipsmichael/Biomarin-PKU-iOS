@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB28E6902296F2C700C5ADFF /* PKURoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28E68F2296F2C700C5ADFF /* PKURoundedButton.swift */; };
 		CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
 		CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
 		CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */; };
@@ -72,6 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CB28E68F2296F2C700C5ADFF /* PKURoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKURoundedButton.swift; sourceTree = "<group>"; };
 		CBF8CB42228F84460089BDF0 /* lato_black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_black.ttf; sourceTree = "<group>"; };
 		CBF8CB43228F84460089BDF0 /* lato_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bold.ttf; sourceTree = "<group>"; };
 		CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bolditalic.ttf; sourceTree = "<group>"; };
@@ -131,6 +133,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB28E68E2296F2AF00C5ADFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB28E68F2296F2C700C5ADFF /* PKURoundedButton.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		CBF8CB41228F83FF0089BDF0 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +200,7 @@
 				F8061182227BA026005FCABF /* LaunchScreen.storyboard */,
 				F8087BA7227BDC97005BDDEC /* Model */,
 				F8087BA2227BDA4E005BDDEC /* View Controllers */,
+				CB28E68E2296F2AF00C5ADFF /* View */,
 				CBF8CB74229065520089BDF0 /* Resources */,
 				CBF8CB592290535F0089BDF0 /* ObjC */,
 				F8087B8C227BC9E4005BDDEC /* Support Files */,
@@ -383,6 +394,7 @@
 			files = (
 				F806117A227BA025005FCABF /* AppDelegate.swift in Sources */,
 				F8087BA6227BDC4D005BDDEC /* TaskListTableViewController.swift in Sources */,
+				CB28E6902296F2C700C5ADFF /* PKURoundedButton.swift in Sources */,
 				F8087BA4227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift in Sources */,
 				CBF8CB5C229053A40089BDF0 /* PKUBuildDateUtil.m in Sources */,
 				F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */,

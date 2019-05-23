@@ -39,8 +39,10 @@ import Research
 @UIApplicationMain
 class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
-    open func designSystem() -> RSDDesignSystem {
-        let palette = instantiateColorPalette()!
+    static let designSystem = createDesignSystem()
+    
+    private static func createDesignSystem() -> RSDDesignSystem {
+        let palette = createColorPalette()
         let colorRules = PKUColorRules(palette: palette, version: 1)
         let fontRules = PKUFontRules(version: 1)
         
@@ -49,11 +51,15 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
                                fontRules: fontRules)
     }
     
-    override func instantiateColorPalette() -> RSDColorPalette? {
+    private static func createColorPalette() -> RSDColorPalette {
         return RSDColorPalette(version: 1,
                                primary: RSDColorMatrix.shared.colorKey(for: .palette(.butterscotch), shade: .medium),
                                secondary: RSDColorMatrix.shared.colorKey(for: .palette(.lavender), shade: .dark),
                                accent: RSDColorMatrix.shared.colorKey(for: .palette(.rose), shade: .dark))
+    }
+    
+    override func instantiateColorPalette() -> RSDColorPalette? {
+        return AppDelegate.createColorPalette()
     }
     
     func showAppropriateViewController(animated: Bool) {

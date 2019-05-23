@@ -107,7 +107,7 @@
                                                     <color key="textColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yV-vj-ocN" customClass="RSDRoundedButton" customModule="ResearchUI">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yV-vj-ocN" customClass="PKURoundedButton" customModule="BiomarinPKU" customModuleProvider="target">
                                                     <rect key="frame" x="287" y="30" width="109" height="52"/>
                                                     <color key="backgroundColor" red="0.25490196078431371" green="0.40784313725490196" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
