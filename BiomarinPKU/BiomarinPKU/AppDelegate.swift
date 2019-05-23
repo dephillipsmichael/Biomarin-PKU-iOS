@@ -39,27 +39,19 @@ import Research
 @UIApplicationMain
 class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
-    static let designSystem = createDesignSystem()
-    
-    private static func createDesignSystem() -> RSDDesignSystem {
-        let palette = createColorPalette()
-        let colorRules = PKUColorRules(palette: palette, version: 1)
-        let fontRules = PKUFontRules(version: 1)
-        
-        return RSDDesignSystem(version: 1,
-                               colorRules: colorRules,
-                               fontRules: fontRules)
-    }
-    
-    private static func createColorPalette() -> RSDColorPalette {
-        return RSDColorPalette(version: 1,
-                               primary: RSDColorMatrix.shared.colorKey(for: .palette(.butterscotch), shade: .medium),
-                               secondary: RSDColorMatrix.shared.colorKey(for: .palette(.lavender), shade: .dark),
-                               accent: RSDColorMatrix.shared.colorKey(for: .palette(.rose), shade: .dark))
-    }
-    
+    static let colorPalette = RSDColorPalette(version: 1,
+                                              primary: RSDColorMatrix.shared.colorKey(for: .palette(.butterscotch),
+                                                                                      shade: .medium),
+                                              secondary: RSDColorMatrix.shared.colorKey(for: .palette(.lavender),
+                                                                                        shade: .dark),
+                                              accent: RSDColorMatrix.shared.colorKey(for: .palette(.rose),
+                                                                                     shade: .dark))
+    static let designSystem = RSDDesignSystem(version: 1,
+                                              colorRules: PKUColorRules(palette: palette, version: 1),
+                                              fontRules: PKUFontRules(version: 1))
+
     override func instantiateColorPalette() -> RSDColorPalette? {
-        return AppDelegate.createColorPalette()
+        return AppDelegate.colorPalette
     }
     
     func showAppropriateViewController(animated: Bool) {
