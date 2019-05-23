@@ -47,7 +47,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
                                               accent: RSDColorMatrix.shared.colorKey(for: .palette(.rose),
                                                                                      shade: .dark))
     static let designSystem = RSDDesignSystem(version: 1,
-                                              colorRules: PKUColorRules(palette: palette, version: 1),
+                                              colorRules: PKUColorRules(palette: colorPalette, version: 1),
                                               fontRules: PKUFontRules(version: 1))
 
     override func instantiateColorPalette() -> RSDColorPalette? {

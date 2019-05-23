@@ -42,7 +42,7 @@ public class TaskListScheduleManager : SBAScheduleManager {
         .spatialMemoryTask]
     
     ///
-    /// - Returns: the total table row count including activities
+    /// - returns: the total table row count including activities
     ///         and the supplemental rows that go after them
     ///
     public var tableRowCount: Int {
@@ -64,7 +64,7 @@ public class TaskListScheduleManager : SBAScheduleManager {
     ///
     /// - parameter scheduledActivities: the raw activities
     ///
-    /// - Returns: sorted activities
+    /// - returns: sorted activities
     ///
     override open func sortActivities(_ scheduledActivities: [SBBScheduledActivity]?) -> [SBBScheduledActivity]? {
         guard (scheduledActivities?.count ?? 0) > 0 else { return nil }
@@ -79,7 +79,7 @@ public class TaskListScheduleManager : SBAScheduleManager {
     ///
     /// - parameter indexPath: from the table view
     ///
-    /// - Returns: true if this index is for a task row, false otherwise
+    /// - returns: true if this index is for a task row, false otherwise
     ///
     open func isTaskRow(for indexPath: IndexPath) -> Bool {
         return indexPath.row < self.scheduledActivities.count
@@ -88,7 +88,7 @@ public class TaskListScheduleManager : SBAScheduleManager {
     ///
     /// - parameter indexPath: from the table view
     ///
-    /// - Returns: true if this index is for a supplemental row, false otherwise
+    /// - returns: true if this index is for a supplemental row, false otherwise
     ///
     open func isTaskSupplementalRow(for indexPath: IndexPath) -> Bool {
         return indexPath.row >= self.scheduledActivities.count
@@ -97,7 +97,7 @@ public class TaskListScheduleManager : SBAScheduleManager {
     ///
     /// - parameter indexPath: from the table view
     ///
-    /// - Returns: the supplemental row if the index points at one, nil otherwise
+    /// - returns: the supplemental row if the index points at one, nil otherwise
     ///
     open func sortedScheduledActivity(for indexPath: IndexPath) -> SBBScheduledActivity? {
         let sorted = self.sortActivities(self.scheduledActivities)
@@ -108,7 +108,7 @@ public class TaskListScheduleManager : SBAScheduleManager {
     ///
     /// - parameter indexPath: from the table view
     ///
-    /// - Returns: the supplemental row if the index points at one, nil otherwise
+    /// - returns: the supplemental row if the index points at one, nil otherwise
     ///
     open func supplementalRow(for indexPath: IndexPath) -> TaskListSupplementalRow? {
         return TaskListSupplementalRow(rawValue: supplementalRowIndex(for: indexPath))
@@ -117,7 +117,7 @@ public class TaskListScheduleManager : SBAScheduleManager {
     ///
     /// - parameter indexPath: from the table view
     ///
-    /// - Returns: the row index within the TaskListSupplementalRow enum space
+    /// - returns: the row index within the TaskListSupplementalRow enum space
     ///         the first supplemental row index will be 0
     ///
     open func supplementalRowIndex(for indexPath: IndexPath) -> Int {
@@ -128,7 +128,7 @@ public class TaskListScheduleManager : SBAScheduleManager {
     ///
     /// - parameter indexPath: from the table view
     ///
-    /// - Returns: the title for the task list row, this may be an activity label
+    /// - returns: the title for the task list row, this may be an activity label
     ///         or a supplemental row title depending on the index path
     ///
     open func title(for indexPath: IndexPath) -> String? {
