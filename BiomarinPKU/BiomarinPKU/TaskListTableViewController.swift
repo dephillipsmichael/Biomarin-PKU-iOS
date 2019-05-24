@@ -120,6 +120,9 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
         } else {
             // TODO: mdephillips 5/18/19 transition to appropriate screen
             guard let supplementalRow = self.scheduleManager.supplementalRow(for: cell.indexPath) else { return }
+            if (supplementalRow == .ConnectFitbit) {
+                (AppDelegate.shared as? AppDelegate)?.connectToFitbit()
+            }
         }
     }
 
