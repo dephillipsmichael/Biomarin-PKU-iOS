@@ -39,21 +39,19 @@ import Research
 @UIApplicationMain
 class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
-    open func designSystem() -> RSDDesignSystem {
-        let palette = instantiateColorPalette()!
-        let colorRules = PKUColorRules(palette: palette, version: 1)
-        let fontRules = PKUFontRules(version: 1)
-        
-        return RSDDesignSystem(version: 1,
-                               colorRules: colorRules,
-                               fontRules: fontRules)
-    }
-    
+    static let colorPalette = RSDColorPalette(version: 1,
+                                              primary: RSDColorMatrix.shared.colorKey(for: .palette(.butterscotch),
+                                                                                      shade: .medium),
+                                              secondary: RSDColorMatrix.shared.colorKey(for: .palette(.lavender),
+                                                                                        shade: .dark),
+                                              accent: RSDColorMatrix.shared.colorKey(for: .palette(.rose),
+                                                                                     shade: .dark))
+    static let designSystem = RSDDesignSystem(version: 1,
+                                              colorRules: PKUColorRules(palette: colorPalette, version: 1),
+                                              fontRules: PKUFontRules(version: 1))
+
     override func instantiateColorPalette() -> RSDColorPalette? {
-        return RSDColorPalette(version: 1,
-                               primary: RSDColorMatrix.shared.colorKey(for: .palette(.butterscotch), shade: .medium),
-                               secondary: RSDColorMatrix.shared.colorKey(for: .palette(.lavender), shade: .dark),
-                               accent: RSDColorMatrix.shared.colorKey(for: .palette(.rose), shade: .dark))
+        return AppDelegate.colorPalette
     }
     
     func showAppropriateViewController(animated: Bool) {
@@ -130,6 +128,15 @@ open class PKUFontRules: RSDFontRules {
     public let latoBoldItalicName   = "Lato-BoldItalic"
     public let latoLightItalicName  = "Lato-LightItalic"
     
+    open func font(for buttonType: RSDDesignSystem.ButtonType) -> RSDFont {
+        switch buttonType {
+        case .primary:
+            return RSDFont(name: latoBoldName, size: 20)!
+        case .secondary:
+            return RSDFont(name: latoBoldName, size: 20)!
+        }
+    }
+    
     /// Returns the font to use for a given text type.
     ///
     /// - parameter textType: The text type for the font.
@@ -137,17 +144,19 @@ open class PKUFontRules: RSDFontRules {
     override open func font(for textType: RSDDesignSystem.TextType) -> RSDFont {
         switch textType {
         case .heading1:
-            return RSDFont(name: latoBoldName, size: 30)!
-        case .heading2:
             return RSDFont(name: latoBoldName, size: 24)!
-        case .heading3:
-            return RSDFont(name: latoBoldName, size: 20)!
-        case .heading4:
-            return RSDFont(name: latoBoldName, size: 14)!
-        case .fieldHeader:
+        case .heading2:
             return RSDFont(name: latoBoldName, size: 18)!
-        case .body, .bodyDetail:
-            return RSDFont(name: latoRegularName, size: 18)!
+        case .heading3:
+            return RSDFont(name: latoBoldName, size: 16)!
+        case .heading4:
+            return RSDFont(name: latoRegularName, size: 14)!
+        case .fieldHeader:
+            return RSDFont(name: latoBoldName, size: 16)!
+        case .body:
+             return RSDFont(name: latoRegularName, size: 18)!
+        case .bodyDetail:
+            return RSDFont(name: latoRegularName, size: 16)!
         case .small:
             return RSDFont(name: latoRegularName, size: 14)!
         case .microHeader:

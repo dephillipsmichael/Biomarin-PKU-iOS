@@ -40,8 +40,6 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     
     let scheduleManager = TaskListScheduleManager()
     
-    var designSystem = (UIApplication.shared.delegate as! AppDelegate).designSystem()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,11 +60,13 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     }
     
     func updateDesignSystem() {
+        let designSystem = AppDelegate.designSystem
+        
         self.view.backgroundColor = designSystem.colorRules.backgroundPrimary.color
         
         let tableHeader = self.tableView.tableHeaderView as? PKUTaskTableHeaderView
-        tableHeader?.titleLabel?.textColor = designSystem.colorRules.textColor(on: designSystem.colorRules.backgroundLight, for: .heading4)
-        tableHeader?.titleLabel?.font = designSystem.fontRules.font(for: .heading4)
+        tableHeader?.titleLabel?.textColor = designSystem.colorRules.textColor(on: designSystem.colorRules.backgroundLight, for: .heading3)
+        tableHeader?.titleLabel?.font = designSystem.fontRules.font(for: .heading3)
         
         let tableFooter = self.tableView.tableFooterView as? PKUTaskTableFooterView
         tableFooter?.titleLabel?.textColor = designSystem.colorRules.textColor(on: designSystem.colorRules.backgroundLight, for: .heading4)
@@ -104,7 +104,7 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
             .localizedString("BUTTON_TITLE_BEGIN"), for: .normal)
         cell.indexPath = indexPath
         cell.delegate = self
-        cell.setDesignSystem(designSystem, with: designSystem.colorRules.backgroundLight)
+        cell.setDesignSystem(AppDelegate.designSystem, with: AppDelegate.designSystem.colorRules.backgroundLight)
         
         return cell
     }
@@ -144,7 +144,7 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     }
 }
 
-open class PKUTaskTableviewCell: SBARoundedButtonCell {
+open class PKUTaskTableviewCell: RSDButtonCell {
     open var backgroundTile = RSDGrayScale().white
     
     /// Title label that is associated with this cell.
@@ -155,19 +155,18 @@ open class PKUTaskTableviewCell: SBARoundedButtonCell {
     
     override open func setDesignSystem(_ designSystem: RSDDesignSystem, with background: RSDColorTile) {
         super.setDesignSystem(designSystem, with: background)
-        self.backgroundTile = background
-        self.contentView.backgroundColor = background.color
-        updateColors()
+        let cellBackground = self.backgroundColorTile ?? designSystem.colorRules.backgroundLight
+        updateColorsAndFonts(designSystem, cellBackground, background)
     }
     
-    func updateColors() {
-        let designSystem = self.designSystem ?? RSDDesignSystem()
-        let background = self.backgroundColorTile ?? RSDGrayScale().white
-        self.titleLabel?.textColor = designSystem.colorRules.textColor(on: background, for: .fieldHeader)
-        self.titleLabel?.font = designSystem.fontRules.font(for: .fieldHeader)
-        self.actionButton.backgroundColor = designSystem.colorRules.palette.secondary.normal.color
-        self.actionButton.titleLabel?.font = designSystem.fontRules.font(for: .heading3)
+    func updateColorsAndFonts(_ designSystem: RSDDesignSystem, _ background: RSDColorTile, _ tableBackground: RSDColorTile) {
+        
+        // Set the title label and divider.
+        self.titleLabel?.textColor = designSystem.colorRules.textColor(on: background, for: .heading2)
+        self.titleLabel?.font = designSystem.fontRules.font(for: .heading2)
         dividerView?.backgroundColor = designSystem.colorRules.backgroundPrimary.color
+        
+        (self.actionButton as? RSDRoundedButton)?.setDesignSystem(designSystem, with: background)
     }
 }
 
