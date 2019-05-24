@@ -128,6 +128,15 @@ open class PKUFontRules: RSDFontRules {
     public let latoBoldItalicName   = "Lato-BoldItalic"
     public let latoLightItalicName  = "Lato-LightItalic"
     
+    open func font(for buttonType: RSDDesignSystem.ButtonType) -> RSDFont {
+        switch buttonType {
+        case .primary:
+            return RSDFont(name: latoBoldName, size: 20)!
+        case .secondary:
+            return RSDFont(name: latoBoldName, size: 20)!
+        }
+    }
+    
     /// Returns the font to use for a given text type.
     ///
     /// - parameter textType: The text type for the font.
@@ -135,17 +144,19 @@ open class PKUFontRules: RSDFontRules {
     override open func font(for textType: RSDDesignSystem.TextType) -> RSDFont {
         switch textType {
         case .heading1:
-            return RSDFont(name: latoBoldName, size: 30)!
-        case .heading2:
             return RSDFont(name: latoBoldName, size: 24)!
-        case .heading3:
-            return RSDFont(name: latoBoldName, size: 20)!
-        case .heading4:
-            return RSDFont(name: latoBoldName, size: 14)!
-        case .fieldHeader:
+        case .heading2:
             return RSDFont(name: latoBoldName, size: 18)!
-        case .body, .bodyDetail:
-            return RSDFont(name: latoRegularName, size: 18)!
+        case .heading3:
+            return RSDFont(name: latoBoldName, size: 16)!
+        case .heading4:
+            return RSDFont(name: latoRegularName, size: 14)!
+        case .fieldHeader:
+            return RSDFont(name: latoBoldName, size: 16)!
+        case .body:
+             return RSDFont(name: latoRegularName, size: 18)!
+        case .bodyDetail:
+            return RSDFont(name: latoRegularName, size: 16)!
         case .small:
             return RSDFont(name: latoRegularName, size: 14)!
         case .microHeader:

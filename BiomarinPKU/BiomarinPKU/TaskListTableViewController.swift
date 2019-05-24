@@ -65,8 +65,8 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
         self.view.backgroundColor = designSystem.colorRules.backgroundPrimary.color
         
         let tableHeader = self.tableView.tableHeaderView as? PKUTaskTableHeaderView
-        tableHeader?.titleLabel?.textColor = designSystem.colorRules.textColor(on: designSystem.colorRules.backgroundLight, for: .heading4)
-        tableHeader?.titleLabel?.font = designSystem.fontRules.font(for: .heading4)
+        tableHeader?.titleLabel?.textColor = designSystem.colorRules.textColor(on: designSystem.colorRules.backgroundLight, for: .heading3)
+        tableHeader?.titleLabel?.font = designSystem.fontRules.font(for: .heading3)
         
         let tableFooter = self.tableView.tableFooterView as? PKUTaskTableFooterView
         tableFooter?.titleLabel?.textColor = designSystem.colorRules.textColor(on: designSystem.colorRules.backgroundLight, for: .heading4)
@@ -162,8 +162,8 @@ open class PKUTaskTableviewCell: RSDButtonCell {
     func updateColorsAndFonts(_ designSystem: RSDDesignSystem, _ background: RSDColorTile, _ tableBackground: RSDColorTile) {
         
         // Set the title label and divider.
-        self.titleLabel?.textColor = designSystem.colorRules.textColor(on: background, for: .fieldHeader)
-        self.titleLabel?.font = designSystem.fontRules.font(for: .fieldHeader)
+        self.titleLabel?.textColor = designSystem.colorRules.textColor(on: background, for: .heading2)
+        self.titleLabel?.font = designSystem.fontRules.font(for: .heading2)
         dividerView?.backgroundColor = designSystem.colorRules.backgroundPrimary.color
         
         (self.actionButton as? RSDRoundedButton)?.setDesignSystem(designSystem, with: background)

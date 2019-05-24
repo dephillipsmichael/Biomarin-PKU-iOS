@@ -46,8 +46,8 @@ open class PKURoundedButton: RSDRoundedButton {
     }
     
     private func updateFont() {
-        if let design = designSystem {
-            self.titleLabel?.font = design.fontRules.font(for: .heading3)
+        if let pkuFontRules = designSystem?.fontRules as? PKUFontRules {
+            self.titleLabel?.font = pkuFontRules.font(for: .primary)
         }
     }
 }
