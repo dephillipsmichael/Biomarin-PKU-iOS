@@ -81,6 +81,9 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         let mainBundle = LocalizationBundle(bundle: Bundle.main, tableName: "PKU")
         Localization.insert(bundle: mainBundle, at: 0)
         
+        // Set up font rules.
+        RSDStudyConfiguration.shared.fontRules = PKUFontRules(version: 0)
+        
         return super.application(application, willFinishLaunchingWithOptions: launchOptions)
     }
     

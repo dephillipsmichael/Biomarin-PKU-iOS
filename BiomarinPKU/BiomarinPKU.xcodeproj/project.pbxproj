@@ -32,8 +32,6 @@
 		F8087B80227BC7B2005BDDEC /* Research.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B7E227BC7B2005BDDEC /* Research.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8087B82227BC7B2005BDDEC /* ResearchUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B81227BC7B2005BDDEC /* ResearchUI.framework */; };
 		F8087B83227BC7B2005BDDEC /* ResearchUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B81227BC7B2005BDDEC /* ResearchUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F8087B85227BC7B2005BDDEC /* ResearchRecorders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */; };
-		F8087B86227BC7B2005BDDEC /* ResearchRecorders.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8087B8F227BCA16005BDDEC /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8087B8D227BCA16005BDDEC /* BridgeInfo-private.plist */; };
 		F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */ = {isa = PBXBuildFile; fileRef = F8087B8E227BCA16005BDDEC /* biomarin-pku.pem */; };
 		F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8087B91227BCA40005BDDEC /* BridgeInfo.plist */; };
@@ -41,6 +39,8 @@
 		F8087BA6227BDC4D005BDDEC /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */; };
 		F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */; };
 		F8087BAD227BEB95005BDDEC /* TaskListScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */; };
+		F83EEBBC229DA96500476F7F /* ResearchMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; };
+		F83EEBBD229DA96500476F7F /* ResearchMotion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,9 +61,9 @@
 			dstSubfolderSpec = 10;
 			files = (
 				F8087B7D227BC7B2005BDDEC /* MotorControl.framework in Embed Frameworks */,
-				F8087B86227BC7B2005BDDEC /* ResearchRecorders.framework in Embed Frameworks */,
 				F8087B77227BC7B2005BDDEC /* BridgeSDK.framework in Embed Frameworks */,
 				F8087B7A227BC7B2005BDDEC /* BridgeApp.framework in Embed Frameworks */,
+				F83EEBBD229DA96500476F7F /* ResearchMotion.framework in Embed Frameworks */,
 				F8087B80227BC7B2005BDDEC /* Research.framework in Embed Frameworks */,
 				F8087B83227BC7B2005BDDEC /* ResearchUI.framework in Embed Frameworks */,
 			);
@@ -98,7 +98,6 @@
 		F8087B7B227BC7B2005BDDEC /* MotorControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MotorControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8087B7E227BC7B2005BDDEC /* Research.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Research.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8087B81227BC7B2005BDDEC /* ResearchUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchRecorders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8087B8D227BCA16005BDDEC /* BridgeInfo-private.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "BridgeInfo-private.plist"; path = "../../../iOSPrivateProjectInfo/BiomarinPKU/BridgeInfo-private.plist"; sourceTree = "<group>"; };
 		F8087B8E227BCA16005BDDEC /* biomarin-pku.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "biomarin-pku.pem"; path = "../../../iOSPrivateProjectInfo/BiomarinPKU/biomarin-pku.pem"; sourceTree = "<group>"; };
 		F8087B91227BCA40005BDDEC /* BridgeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BridgeInfo.plist; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 		F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
 		F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MotorControl+Bridge.swift"; sourceTree = "<group>"; };
 		F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListScheduleManager.swift; sourceTree = "<group>"; };
+		F83EEBBB229DA96500476F7F /* ResearchMotion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchMotion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +115,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8087B7C227BC7B2005BDDEC /* MotorControl.framework in Frameworks */,
-				F8087B85227BC7B2005BDDEC /* ResearchRecorders.framework in Frameworks */,
 				F8087B76227BC7B2005BDDEC /* BridgeSDK.framework in Frameworks */,
 				F8087B79227BC7B2005BDDEC /* BridgeApp.framework in Frameworks */,
+				F83EEBBC229DA96500476F7F /* ResearchMotion.framework in Frameworks */,
 				F8087B7F227BC7B2005BDDEC /* Research.framework in Frameworks */,
 				F8087B82227BC7B2005BDDEC /* ResearchUI.framework in Frameworks */,
 			);
@@ -175,6 +175,7 @@
 		F806116D227BA025005FCABF = {
 			isa = PBXGroup;
 			children = (
+				F83EEBBB229DA96500476F7F /* ResearchMotion.framework */,
 				F8061178227BA025005FCABF /* BiomarinPKU */,
 				F806118D227BA027005FCABF /* BiomarinPKUTests */,
 				F8087B88227BC7CB005BDDEC /* Frameworks */,
@@ -221,7 +222,6 @@
 		F8087B88227BC7CB005BDDEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F8087B84227BC7B2005BDDEC /* ResearchRecorders.framework */,
 				F8087B81227BC7B2005BDDEC /* ResearchUI.framework */,
 				F8087B7E227BC7B2005BDDEC /* Research.framework */,
 				F8087B7B227BC7B2005BDDEC /* MotorControl.framework */,
