@@ -174,7 +174,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
     func connectToFitbit(completionHandler: FitbitCompletionHandler? = nil) {
         // Fitbit Authorization Code Grant Flow URL
-        guard let authURL = URL(string: "https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=22DJ23&redirect_uri=org.sagebase.BiomarinPKU%3A%2F%2Foauth2&scope=activity%20heartrate&expires_in=604800") else { return }
+        guard let authURL = URL(string: "https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=22DJ23&redirect_uri=org.sagebase.BiomarinPKU%3A%2F%2Foauth2&scope=activity%20heartrate%20sleep&expires_in=604800") else { return }
         
         fitbitCompletionHandler = completionHandler
         
