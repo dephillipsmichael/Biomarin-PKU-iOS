@@ -1,0 +1,74 @@
+{
+  "version" : 3,
+  "score_version": "v2",
+  "letter_duration" : 2000,
+  "blank_duration" : 1000,
+  "feedback_duration" : 750,
+  "experiment" : [
+    "practice_ob1",
+    "test_ob1",
+    "practice_tb1",
+    "test_tb1"
+  ],
+  "blocks" : {
+    "practice_ob1" : {
+      "practice" : true,
+      "randomize" : true,
+      "n_skip" : 1,
+      "trialset" : "practice_ob",
+      "info_views" : [
+        "global",
+        "practice1"
+      ]
+    },
+    "test_ob1" : {
+      "practice" : false,
+      "randomize" : true,
+      "n_skip" : 1,
+      "trialset" : "test_ob",
+      "info_views" : [
+        "test1"
+      ]
+    },
+    "practice_tb1" : {
+      "practice" : true,
+      "randomize" : true,
+      "n_skip" : 2,
+      "trialset" : "practice_tb",
+      "info_views" : [
+        "practice2"
+      ]
+    },
+    "test_tb1" : {
+      "practice" : false,
+      "randomize" : true,
+      "n_skip" : 2,
+      "trialset" : "test_tb",
+      "info_views" : [
+        "test2"
+      ]
+    }
+  },
+  "trialsets" : {
+    "practice_ob" : [
+      "m t p p d h h m h r r c g"
+    ],
+    "test_ob" : [
+      "g m m h m b g c k k l l g f f l l m l k",
+      "h j l f h b c c d d h h h d d k b f b j",
+      "j c f j c c b f f l j f f j k h h d d h",
+      "d l l l k j j b f j l j k g g c c m l g",
+      "c b b m h k k j f g g g k m h h g f g f"
+    ],
+    "practice_tb" : [
+      "b k d p d s d m t m s f s"
+    ],
+    "test_tb" : [
+      "b h b k b j m b g l j l j f f g b d l d",
+      "k m b f f l m c m j m l m f g h g h k c",
+      "d m d k f j f g h j m c c m l c l d l d",
+      "h m j c j d b c b d b h d m g m h m g g",
+      "b c b f b f l h c h c b k m j l d g m b"
+    ]
+  }
+}

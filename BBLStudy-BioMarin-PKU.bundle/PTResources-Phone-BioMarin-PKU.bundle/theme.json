@@ -1,0 +1,242 @@
+{
+    "version" : 4,
+    "constants" :
+    {
+        "black" : [0.0, 0.0, 0.0],
+        "white" : [1.0, 1.0, 1.0],
+        
+        "disabled" : [0.66, 0.66, 0.66],
+        
+        "dark-grey": "#4A4A4A",
+
+        "theme-color" : "#4A4A4A",
+
+        "response-color" : "$theme-color",
+
+        "text-color" : "$dark-grey",
+      
+        "button-font" :
+        {
+            "name" : "System",
+            "size" : 16
+        }
+    },
+    "profiles" :
+    {
+        "pt-button-default" :
+        {
+            "edge-insets" : [0, 5, 0, 5],
+
+            "normal-control-state":
+            {
+                "text-attributes":
+                {
+                    "font" : "$button-font",
+                    "text-color" : "$black"
+                }
+            },
+            "highlighted-control-state":
+            {
+                "text-attributes":
+                {
+                    "font" : "$button-font",
+                    "text-color" : "$white"
+                }
+            },
+            "disabled-control-state":
+            {
+                "text-attributes":
+                {
+                    "font" : "$button-font",
+                    "text-color" : "$disabled"
+                }
+            }
+        },
+        "nav-button-default" :
+        {
+            "extends" : "pt-button-default",
+
+            "border-width" : 1,
+            "corner-radius" : 4,
+
+            "normal-control-state":
+            {
+                "background-color" : "$white",
+                "border-color" : "$theme-color",
+
+                "text-attributes":
+                {
+                    "text-color" : "$theme-color"
+                }
+            },
+            "highlighted-control-state":
+            {
+                "background-color" : "$theme-color",
+                "border-color" : "$theme-color"
+            },
+            "disabled-control-state":
+            {
+                "background-color" : "$white",
+                "border-color" : "$disabled"
+            }
+        },
+        "response-button-default" :
+        {
+            "extends" : "pt-button-default",
+            
+            "border-width" : 1,
+            "corner-radius" : 4,
+
+            "normal-control-state":
+            {
+                "background-color" : "$white",
+                "border-color" : "$response-color",
+                
+                "text-attributes":
+                {
+                    "text-color" : "$response-color"
+                }
+            },
+            "highlighted-control-state":
+            {
+                "background-color" : "$response-color",
+                "border-color" : "$response-color"
+            },
+            "highlighted-disabled-control-state":
+            {
+                "background-color" : "$response-color",
+                "border-color" : "$response-color",
+                
+                "text-attributes":
+                {
+                    "font" : "$button-font",
+                    "text-color" : "$white"
+                }
+            },
+            "disabled-control-state":
+            {
+                "background-color" : "$white",
+                "border-color" : "$disabled"
+            }
+        },
+        "pt-label-default" :
+        {
+            "text-attributes":
+            {
+                "text-color" : "$text-color",
+                "font" :
+                {
+                    "name" : "HelveticaNeue",
+                    "size" : 96
+                }
+            }
+        },
+        "pt-label-text" :
+        {
+            "text-attributes":
+            {
+                "text-color" : "$text-color",
+                "font" :
+                {
+                    "name" : "Avenir-Light",
+                    "size" : 20
+                }
+            }
+        },
+        "pt-label-test-complete" :
+        {
+            "text-attributes":
+            {
+                "text-color" : "$text-color",
+                "font" :
+                {
+                    "name" : "Avenir-Heavy",
+                    "size" : 36
+                }
+            }
+        },
+        "pt-label-small" :
+        {
+            "text-attributes":
+            {
+                "text-color" : "$text-color",
+                "font" :
+                {
+                    "name" : "HelveticaNeue",
+                    "size" : 17
+                }
+            }
+        },
+        "pt-label-test-complete" :
+        {
+            "text-attributes":
+            {
+                "text-color" : "$text-color",
+                "font" :
+                {
+                    "name" : "Avenir-Heavy",
+                    "size" : 36
+                }
+            }
+        },
+        "fixation-label-default" :
+        {
+            "extends" : "pt-label-default"
+        },
+        "feedback-label-default" :
+        {
+            "extends" : "pt-label-default"
+        },
+        "holster-image-view" :
+        {
+            "background-image": "phone-holster-instruction.png"
+        },
+        "pt-text-default" :
+        {
+            "text-attributes":
+            {
+                "text-color" : "$text-color",
+                "font" :
+                {
+                    "name" : "Avenir-Light",
+                    "size" : 20
+                }
+            }
+        },
+        "info-view-text-default" :
+        {
+            "extends" : "pt-text-default"
+        },
+        "info-view-text-smaller":
+        {
+            "extends": "info-view-text-default",
+            "text-attributes":
+            {
+                "font" :
+                {
+                    "name" : "Avenir-Light",
+                    "size" : 19
+                }
+            }
+        },
+        "info-view-text-header" :
+        {
+            "extends" : "pt-text-default",
+            
+            "text-attributes":
+            {
+                "text-color" : "$theme-color",
+                "font" :
+                {
+                    "name" : "Avenir-Heavy",
+                    "size" : 20
+                }
+            }
+        },
+        "ptfoundation.controller.nav-bar" :
+        {
+            "tint-color" : "$theme-color",
+            "title-color" : "$text-color"
+        }
+    }
+}

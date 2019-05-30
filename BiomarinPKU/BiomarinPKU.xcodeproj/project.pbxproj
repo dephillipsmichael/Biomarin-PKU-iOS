@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CB28E6902296F2C700C5ADFF /* PKURoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28E68F2296F2C700C5ADFF /* PKURoundedButton.swift */; };
+		CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
+		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
+		CB5510F422A091B40036CD6F /* BrainBaseline.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CB5510F722A0921A0036CD6F /* BrainBaseline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */; };
 		CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
 		CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
 		CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */; };
@@ -60,6 +64,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				CB5510F422A091B40036CD6F /* BrainBaseline.framework in Embed Frameworks */,
 				F8087B7D227BC7B2005BDDEC /* MotorControl.framework in Embed Frameworks */,
 				F8087B77227BC7B2005BDDEC /* BridgeSDK.framework in Embed Frameworks */,
 				F8087B7A227BC7B2005BDDEC /* BridgeApp.framework in Embed Frameworks */,
@@ -74,6 +79,9 @@
 
 /* Begin PBXFileReference section */
 		CB28E68F2296F2C700C5ADFF /* PKURoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKURoundedButton.swift; sourceTree = "<group>"; };
+		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
+		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
+		CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrainBaseline.framework; sourceTree = "<group>"; };
 		CBF8CB42228F84460089BDF0 /* lato_black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_black.ttf; sourceTree = "<group>"; };
 		CBF8CB43228F84460089BDF0 /* lato_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bold.ttf; sourceTree = "<group>"; };
 		CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bolditalic.ttf; sourceTree = "<group>"; };
@@ -114,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB5510F722A0921A0036CD6F /* BrainBaseline.framework in Frameworks */,
 				F8087B7C227BC7B2005BDDEC /* MotorControl.framework in Frameworks */,
 				F8087B76227BC7B2005BDDEC /* BridgeSDK.framework in Frameworks */,
 				F8087B79227BC7B2005BDDEC /* BridgeApp.framework in Frameworks */,
@@ -139,6 +148,14 @@
 				CB28E68F2296F2C700C5ADFF /* PKURoundedButton.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		CB5510E322A08AC30036CD6F /* BrainBaseline */ = {
+			isa = PBXGroup;
+			children = (
+				CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */,
+			);
+			name = BrainBaseline;
 			sourceTree = "<group>";
 		};
 		CBF8CB41228F83FF0089BDF0 /* Fonts */ = {
@@ -176,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				F83EEBBB229DA96500476F7F /* ResearchMotion.framework */,
+				CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */,
 				F8061178227BA025005FCABF /* BiomarinPKU */,
 				F806118D227BA027005FCABF /* BiomarinPKUTests */,
 				F8087B88227BC7CB005BDDEC /* Frameworks */,
@@ -202,6 +220,7 @@
 				F8087BA7227BDC97005BDDEC /* Model */,
 				F8087BA2227BDA4E005BDDEC /* View Controllers */,
 				CB28E68E2296F2AF00C5ADFF /* View */,
+				CB5510E322A08AC30036CD6F /* BrainBaseline */,
 				CBF8CB74229065520089BDF0 /* Resources */,
 				CBF8CB592290535F0089BDF0 /* ObjC */,
 				F8087B8C227BC9E4005BDDEC /* Support Files */,
@@ -222,6 +241,7 @@
 		F8087B88227BC7CB005BDDEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */,
 				F8087B81227BC7B2005BDDEC /* ResearchUI.framework */,
 				F8087B7E227BC7B2005BDDEC /* Research.framework */,
 				F8087B7B227BC7B2005BDDEC /* MotorControl.framework */,
@@ -365,6 +385,7 @@
 				F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */,
 				CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */,
 				F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */,
+				CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */,
 				F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */,
 				F8061181227BA026005FCABF /* Assets.xcassets in Resources */,
 				F806117F227BA025005FCABF /* Main.storyboard in Resources */,
@@ -399,6 +420,7 @@
 				CBF8CB5C229053A40089BDF0 /* PKUBuildDateUtil.m in Sources */,
 				F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */,
 				F8087BAD227BEB95005BDDEC /* TaskListScheduleManager.swift in Sources */,
+				CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +586,10 @@
 				CODE_SIGN_ENTITLEMENTS = BiomarinPKU/BiomarinPKU.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = BiomarinPKU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -588,6 +614,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = BiomarinPKU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

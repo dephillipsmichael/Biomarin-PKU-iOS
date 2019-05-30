@@ -36,6 +36,7 @@ import BridgeApp
 import BridgeSDK
 import Research
 import SafariServices
+import BrainBaseline
 
 typealias FitbitCompletionHandler = (_ accessToken: String?, _ error: Error?) -> ()
 
@@ -84,9 +85,25 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         // Set up font rules.
         RSDStudyConfiguration.shared.fontRules = PKUFontRules(version: 0)
         
+        // Register for BrainBasline results
+        let bblContext = BrainBaselineManager.brainBaselineContext
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.BBLContextDidUpdatePsychTestResult, object: bblContext, queue: OperationQueue.main) { (note) in
+            guard let resultId = note.userInfo?[BBLContextDidUpdatePsychTestResultNotificationResultIDKey] as? BBLPsychTestResultID
+                else { return }
+            debugPrint("received update for resultId=\(resultId)")
+            
+            do {
+                let result = try BBLPsychTestResult(id: resultId, in: bblContext)
+                debugPrint("received brain baseline result=\(result)")
+            }
+            catch let error {
+                assertionFailure("expecting to find a result for id=\(resultId), error=\(error)")
+            }
+        }
+        
         return super.application(application, willFinishLaunchingWithOptions: launchOptions)
     }
-    
+
     override func applicationDidBecomeActive(_ application: UIApplication) {
         super.applicationDidBecomeActive(application)
         self.showAppropriateViewController(animated: true)

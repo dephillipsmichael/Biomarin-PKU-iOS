@@ -1,0 +1,32 @@
+{
+  "version" : 2,    
+  "score_version": "v2",
+  "blank_base" : 500,
+  "blank_cap" : 1850,
+  "blank_interval" : 150,
+  "probe_duration" : 1500,
+  "feedback_duration" : 750,
+  "experiment" : [ "practice1", "test1" ],
+  "blocks" : {
+    "practice1" : {
+      "practice" : true,
+      "randomize" : true,
+      "iterations" : 1,
+      "pct_incongruent" : 20,
+      "info_views" : [
+        "global",
+        "practice1",
+        "practice2"
+      ]
+    },
+    "test1" : {
+      "practice" : false,
+      "randomize" : true,
+      "iterations" : 5,
+      "pct_incongruent" : 20,
+      "info_views" : [
+        "test1"
+      ]
+    }
+  }
+}

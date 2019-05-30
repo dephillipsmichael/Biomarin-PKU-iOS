@@ -1,0 +1,5 @@
+framework module BrainBaseline {
+    umbrella header "BrainBaseline.h"
+    export *
+    module * { export * }
+}

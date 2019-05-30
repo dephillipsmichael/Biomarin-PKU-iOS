@@ -1,0 +1,18 @@
+#JSGF V1.0;
+
+grammar keywords;
+
+public <command> = <keyword> | <garbage>*;
+
+<garbage> = __REJ;
+
+<keyword> = ONE
+ | TWO
+ | THREE
+ | FOUR
+ | FIVE
+ | SIX
+ | SEVEN
+ | EIGHT
+ | NINE
+;
