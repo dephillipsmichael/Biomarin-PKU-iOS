@@ -38,7 +38,7 @@ extension RSDStepType {
 }
 
 open class PKUTaskFactory: SBAFactory {
-    /// Override the base factory to vend the MCT step objects.
+    /// Override the base factory to vend PKU specific step objects.
     override open func decodeStep(from decoder: Decoder, with type: RSDStepType) throws -> RSDStep? {
         switch type {
         case .brainBaseline:
