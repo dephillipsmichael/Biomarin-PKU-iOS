@@ -1,0 +1,12 @@
+{
+    "taskIdentifier"            : "Go No Go",
+    "schemaIdentifier"          : "Go No Go",
+    "steps":
+    [
+     {
+     "identifier"   : "Brain Baseline",
+     "type"         : "brainBaseline",
+     "testName"     : "PTFaceTask-Phone-BioMarin-PKU"
+     }
+    ]
+}

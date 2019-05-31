@@ -12,6 +12,14 @@
 		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
 		CB5510F422A091B40036CD6F /* BrainBaseline.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CB5510F722A0921A0036CD6F /* BrainBaseline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */; };
+		CB55110B22A095440036CD6F /* BrainBaselineStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55110A22A095440036CD6F /* BrainBaselineStepViewController.swift */; };
+		CB55111922A0A11C0036CD6F /* BrainBaselineStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB55111822A0A11C0036CD6F /* BrainBaselineStepViewController.xib */; };
+		CB55113822A0B7ED0036CD6F /* Attentional Blink.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55113622A0B7ED0036CD6F /* Attentional Blink.json */; };
+		CB55114422A0B9920036CD6F /* PKUTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55114322A0B9920036CD6F /* PKUTaskFactory.swift */; };
+		CB55116122A0D34F0036CD6F /* N Back.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115922A0D34E0036CD6F /* N Back.json */; };
+		CB55116222A0D34F0036CD6F /* Symbol Substitution.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115B22A0D34E0036CD6F /* Symbol Substitution.json */; };
+		CB55116322A0D34F0036CD6F /* Spatial Memory.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115D22A0D34E0036CD6F /* Spatial Memory.json */; };
+		CB55116422A0D34F0036CD6F /* Go No Go.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115F22A0D34E0036CD6F /* Go No Go.json */; };
 		CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
 		CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
 		CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */; };
@@ -82,6 +90,14 @@
 		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
 		CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrainBaseline.framework; sourceTree = "<group>"; };
+		CB55110A22A095440036CD6F /* BrainBaselineStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineStepViewController.swift; sourceTree = "<group>"; };
+		CB55111822A0A11C0036CD6F /* BrainBaselineStepViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrainBaselineStepViewController.xib; sourceTree = "<group>"; };
+		CB55113722A0B7ED0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Attentional Blink.json"; sourceTree = "<group>"; };
+		CB55114322A0B9920036CD6F /* PKUTaskFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKUTaskFactory.swift; sourceTree = "<group>"; };
+		CB55115A22A0D34E0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/N Back.json"; sourceTree = "<group>"; };
+		CB55115C22A0D34E0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Symbol Substitution.json"; sourceTree = "<group>"; };
+		CB55115E22A0D34E0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Spatial Memory.json"; sourceTree = "<group>"; };
+		CB55116022A0D34F0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Go No Go.json"; sourceTree = "<group>"; };
 		CBF8CB42228F84460089BDF0 /* lato_black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_black.ttf; sourceTree = "<group>"; };
 		CBF8CB43228F84460089BDF0 /* lato_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bold.ttf; sourceTree = "<group>"; };
 		CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bolditalic.ttf; sourceTree = "<group>"; };
@@ -154,8 +170,22 @@
 			isa = PBXGroup;
 			children = (
 				CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */,
+				CB55110A22A095440036CD6F /* BrainBaselineStepViewController.swift */,
+				CB55111822A0A11C0036CD6F /* BrainBaselineStepViewController.xib */,
 			);
 			name = BrainBaseline;
+			sourceTree = "<group>";
+		};
+		CB55113522A0B79A0036CD6F /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				CB55113622A0B7ED0036CD6F /* Attentional Blink.json */,
+				CB55115B22A0D34E0036CD6F /* Symbol Substitution.json */,
+				CB55115F22A0D34E0036CD6F /* Go No Go.json */,
+				CB55115922A0D34E0036CD6F /* N Back.json */,
+				CB55115D22A0D34E0036CD6F /* Spatial Memory.json */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 		CBF8CB41228F83FF0089BDF0 /* Fonts */ = {
@@ -184,6 +214,7 @@
 		CBF8CB74229065520089BDF0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CB55113522A0B79A0036CD6F /* JSON */,
 				CBF8CB75229065670089BDF0 /* PKU.strings */,
 			);
 			name = Resources;
@@ -214,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				F8061179227BA025005FCABF /* AppDelegate.swift */,
+				CB55114322A0B9920036CD6F /* PKUTaskFactory.swift */,
 				F806117D227BA025005FCABF /* Main.storyboard */,
 				F8061180227BA026005FCABF /* Assets.xcassets */,
 				F8061182227BA026005FCABF /* LaunchScreen.storyboard */,
@@ -383,18 +415,24 @@
 			files = (
 				CBF8CB52228F844E0089BDF0 /* lato_italic.ttf in Resources */,
 				F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */,
+				CB55116122A0D34F0036CD6F /* N Back.json in Resources */,
 				CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */,
 				F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */,
 				CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */,
 				F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */,
+				CB55116422A0D34F0036CD6F /* Go No Go.json in Resources */,
 				F8061181227BA026005FCABF /* Assets.xcassets in Resources */,
 				F806117F227BA025005FCABF /* Main.storyboard in Resources */,
 				CBF8CB76229065670089BDF0 /* PKU.strings in Resources */,
+				CB55113822A0B7ED0036CD6F /* Attentional Blink.json in Resources */,
 				CBF8CB53228F844E0089BDF0 /* lato_light.ttf in Resources */,
 				CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */,
 				CBF8CB54228F844E0089BDF0 /* lato_lightitalic.ttf in Resources */,
+				CB55116322A0D34F0036CD6F /* Spatial Memory.json in Resources */,
 				CBF8CB55228F844E0089BDF0 /* lato_regular.ttf in Resources */,
+				CB55116222A0D34F0036CD6F /* Symbol Substitution.json in Resources */,
 				F8087B8F227BCA16005BDDEC /* BridgeInfo-private.plist in Resources */,
+				CB55111922A0A11C0036CD6F /* BrainBaselineStepViewController.xib in Resources */,
 				CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,9 +451,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB55114422A0B9920036CD6F /* PKUTaskFactory.swift in Sources */,
 				F806117A227BA025005FCABF /* AppDelegate.swift in Sources */,
 				F8087BA6227BDC4D005BDDEC /* TaskListTableViewController.swift in Sources */,
 				CB28E6902296F2C700C5ADFF /* PKURoundedButton.swift in Sources */,
+				CB55110B22A095440036CD6F /* BrainBaselineStepViewController.swift in Sources */,
 				F8087BA4227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift in Sources */,
 				CBF8CB5C229053A40089BDF0 /* PKUBuildDateUtil.m in Sources */,
 				F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */,
@@ -443,6 +483,46 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CB55113622A0B7ED0036CD6F /* Attentional Blink.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB55113722A0B7ED0036CD6F /* Base */,
+			);
+			name = "Attentional Blink.json";
+			sourceTree = "<group>";
+		};
+		CB55115922A0D34E0036CD6F /* N Back.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB55115A22A0D34E0036CD6F /* Base */,
+			);
+			name = "N Back.json";
+			sourceTree = "<group>";
+		};
+		CB55115B22A0D34E0036CD6F /* Symbol Substitution.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB55115C22A0D34E0036CD6F /* Base */,
+			);
+			name = "Symbol Substitution.json";
+			sourceTree = "<group>";
+		};
+		CB55115D22A0D34E0036CD6F /* Spatial Memory.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB55115E22A0D34E0036CD6F /* Base */,
+			);
+			name = "Spatial Memory.json";
+			sourceTree = "<group>";
+		};
+		CB55115F22A0D34E0036CD6F /* Go No Go.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB55116022A0D34F0036CD6F /* Base */,
+			);
+			name = "Go No Go.json";
+			sourceTree = "<group>";
+		};
 		F806117D227BA025005FCABF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

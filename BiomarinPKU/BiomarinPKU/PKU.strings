@@ -36,6 +36,6 @@
 "RELEASE_VERSION_%@" = "PKU App Version %@";
 "RELEASE_DATE_%@" = "Released on %@";
 "STUDY_TITLE" = "A BioMarin PKU Research Study";
-"TASK_SWITCH" = "Task Switch";
 "CONNECT_FITBIT" = "Connect Fitbit";
 "BUTTON_TITLE_BEGIN" = "Begin";
+"BRAIN_BASELINE_INSTRUCTION_TEXT" = "Please tilt your device.";

@@ -39,7 +39,7 @@ public class TaskListScheduleManager : SBAScheduleManager {
     
     public let sortOrder: [RSDIdentifier] = [.tappingTask, .tremorTask, .kineticTremorTask,
         .attentionalBlinkTask, .symbolSubstitutionTask, .goNoGoTask, .nBackTask,
-        .spatialMemoryTask]
+        .spatialMemoryTask, .taskSwitchTask]
     
     ///
     /// - returns: the total table row count including activities
@@ -147,14 +147,11 @@ public class TaskListScheduleManager : SBAScheduleManager {
 /// they are not tasks, and go to different places in the app.
 ///
 public enum TaskListSupplementalRow: Int {
-    case TaskSwitch = 0
-    case ConnectFitbit = 1
-    case RowCount = 2
+    case ConnectFitbit = 0
+    case RowCount = 1
     
     func title() -> String {
         switch self {
-        case .TaskSwitch:
-            return Localization.localizedString("TASK_SWITCH")
         default:
             return Localization.localizedString("CONNECT_FITBIT")
         }

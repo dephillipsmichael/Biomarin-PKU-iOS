@@ -1,0 +1,12 @@
+{
+    "taskIdentifier"            : "Attentional Blink",
+    "schemaIdentifier"          : "Attentional Blink",
+    "steps":
+    [
+     {
+     "identifier"   : "Brain Baseline",
+     "type"         : "brainBaseline",
+     "testName"     : "PTSPWM-Phone-BioMarin-PKU"
+     }
+    ]
+}

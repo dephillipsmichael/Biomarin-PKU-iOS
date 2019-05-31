@@ -57,6 +57,15 @@ class BrainBaselineManager: NSObject {
     static let brainBaselineContext: BBLContext = {
         return BBLContext(studyId: studyId, resourceBundle: studyBundle, serverInfo: BBLServerInfo.default())
     }()
+    
+    static let tasks = [
+        RSDIdentifier.spatialMemoryTask.rawValue: "PTSPWM-Phone-BioMarin-PKU",
+        RSDIdentifier.attentionalBlinkTask.rawValue: "PTBlink-Phone-BioMarin-PKU",
+        RSDIdentifier.symbolSubstitutionTask.rawValue: "PTVerbalSymbolSwap-Phone-BioMarin-PKU",
+        RSDIdentifier.nBackTask.rawValue: "PTNBack-Phone-BioMarin-PKU",
+        RSDIdentifier.goNoGoTask.rawValue: "PTFaceTask-Phone-BioMarin-PKU",
+        RSDIdentifier.taskSwitchTask.rawValue: "TODO get it from brain baseline team"
+    ]
 
 //    class func getUser() -> BBLUser {
 //        // Get the current user

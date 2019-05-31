@@ -1,5 +1,5 @@
 //
-//  MotorControl+Bridge.swift
+//  PKUTaskFactory.swift
 //  BiomarinPKU
 //
 //  Copyright © 2019 Sage Bionetworks. All rights reserved.
@@ -31,30 +31,20 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-import Foundation
 import BridgeApp
-import MotorControl
 
-public extension RSDIdentifier {
-    static let tappingTask: RSDIdentifier = MCTTaskIdentifier.tapping.identifier
-    static let tremorTask: RSDIdentifier = MCTTaskIdentifier.tremor.identifier
-    static let kineticTremorTask: RSDIdentifier = "Kinetic Tremor"
-    static let goNoGoTask: RSDIdentifier = "Go No Go"
-    static let nBackTask: RSDIdentifier = "N Back"
-    static let spatialMemoryTask: RSDIdentifier = "Spatial Memory"
-    static let symbolSubstitutionTask: RSDIdentifier = "Symbol Substitution"
-    static let attentionalBlinkTask: RSDIdentifier = "Attentional Blink"
-    static let taskSwitchTask: RSDIdentifier = "Task Switch"
+extension RSDStepType {
+    public static let brainBaseline: RSDStepType = "brainBaseline"
 }
 
-extension MCTTaskInfo : SBAActivityInfo {
-    public var moduleId: SBAModuleIdentifier? {
-        return SBAModuleIdentifier(rawValue: self.identifier)
-    }
-}
-
-extension MCTTaskIdentifier {
-    public var rsdIdentifier : RSDIdentifier {
-        return RSDIdentifier(rawValue: self.rawValue)
+open class PKUTaskFactory: SBAFactory {
+    /// Override the base factory to vend the MCT step objects.
+    override open func decodeStep(from decoder: Decoder, with type: RSDStepType) throws -> RSDStep? {
+        switch type {
+        case .brainBaseline:
+            return try BrainBaselineStepObject(from: decoder)
+        default:
+            return try super.decodeStep(from: decoder, with: type)
+        }
     }
 }
