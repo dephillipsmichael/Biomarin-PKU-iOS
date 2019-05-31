@@ -67,114 +67,72 @@ class BrainBaselineManager: NSObject {
         RSDIdentifier.taskSwitchTask.rawValue: "TODO get it from brain baseline team"
     ]
 
-//    class func getUser() -> BBLUser {
-//        // Get the current user
-//        let bridgeUser = (UIApplication.shared.delegate as! SBAAppDelegate).currentUser
-//        let userName = bridgeUser.uniqueIdentifier()
-//        var user = BBLUser.existingUser(withName: userName, in: self.brainBaselineContext)
-//        if (user == nil) {
-//            user = BBLUser.newUser(withName: userName, in: self.brainBaselineContext)
-//            let properties = brainBaselineProperties(with: bridgeUser)
-//            for (key, value) in properties {
-//                user!.setProperty(key, value: value)
-//            }
-//        } else {
-//            let properties = brainBaselineProperties(with: bridgeUser)
-//            for (key, value) in properties {
-//                user!.setProperty(key, value: value)
-//            }
-//        }
-//        return user!
-//    }
+    class func getUser() -> BBLUser {
+        // Get the current user
+        // TODO: mdephillips 5/30/19 how do you get the user now since currentUser doesn't exist in SBAAppDelegate?
+        //let bridgeUser = (UIApplication.shared.delegate as! SBAAppDelegate).currentUser
+        //let userName = bridgeUser.uniqueIdentifier()
+        let userName = "Tester"
+        var user = BBLUser.existingUser(withName: userName, in: self.brainBaselineContext)
+        if (user == nil) {
+            user = BBLUser.newUser(withName: userName, in: self.brainBaselineContext)
+            let properties = brainBaselineProperties()
+            for (key, value) in properties {
+                user!.setProperty(key, value: value)
+            }
+        } else {
+            let properties = brainBaselineProperties()
+            for (key, value) in properties {
+                user!.setProperty(key, value: value)
+            }
+        }
+        return user!
+    }
     
-//    class func brainBaselineProperties(with bridgeUser: SBAUserWrapper) -> [String: Any] {
-//        var bblProps = [String: Any]()
-//
-//        let dataGroups = bridgeUser.dataGroups ?? []
+    class func brainBaselineProperties() -> [String: Any] {
+        var bblProps = [String: Any]()
+
+        // TODO: mdephillips 5/30/19, what props do we need?
+        bblProps["study_group"] = ["test_user"]
+//        bridgeUser.dataGroups ?? []
 //        bblProps["study_group"] = dataGroups.contains("test_user") ? "test_user" :
 //            dataGroups.contains("ms_patient") ? "ms" :
 //        "control"
+
+        // if user has consented we will have their birthdate (at least the year).
+//        let year = Calendar.current.component(.year, from: bridgeUser.birthdate!)
+//        bblProps["birth_year"] = year.description
 //
-//        // if user has consented we will have their birthdate (at least the year).
-////        let year = Calendar.current.component(.year, from: bridgeUser.birthdate!)
-////        bblProps["birth_year"] = year.description
-////
-////        let gender = SBAProfileManager.shared?.value(forProfileKey: SBAProfileInfoOption.gender.rawValue)
-////        let genderString: String? = (gender as? String) ?? ((gender as? HKBiologicalSex)?.demographicDataValue as String?)
-////        if genderString != nil {
-////            bblProps["gender"] = genderString
-////        }
-////
-////        var bbl_education: String? = nil
-////        if let education = SBAProfileManager.shared?.value(forProfileKey: "education") as? String {
-////            switch education {
-////            case "Some_high_school":
-////                bbl_education = "Some High School"
-////            case "High_school_diploma_GED":
-////                bbl_education = "High School"
-////            case "Some_college":
-////                bbl_education = "Some College"
-////            case "College_degree":
-////                bbl_education = "Bachelor's Degree"
-////            case "Post-graduate_Degree":
-////                bbl_education = "Graduate Degree"
-////            case "Other":
-////                bbl_education = "Other"
-////            default:
-////                assertionFailure("Unrecognized education value: \(education)")
-////                break
-////            }
-////        }
-////        if bbl_education != nil {
-////            bblProps["education"] = bbl_education
-////        }
-//
-//        return bblProps
-//    }
-//}
-//
-//class BrainBaselineStepViewController: SBABrainBaselineStepViewController, BBLPsychTestViewControllerDelegate {
-//
-//    override var result: ORKStepResult? {
-//        guard let stepResult = super.result else { return nil }
-//
-//        let userIdResult = ORKTextQuestionResult(identifier: "userIdentifier")
-//        let bridgeUser = (UIApplication.shared.delegate as! SBAAppDelegate).currentUser
-//        userIdResult.textAnswer = bridgeUser.uniqueIdentifier()
-//        stepResult.addResult(userIdResult)
-//
-//        return stepResult
-//    }
-//
-//    override func createTestViewController() -> UIViewController? {
-//        do {
-//            let user = BrainBaselineManager.getUser()
-//            let controller = try BBLPsychTestViewController(psychTestNamed: self.testName!, in: BrainBaselineManager.brainBaselineContext)
-//            controller.user = user
-//            controller.sessionId = self.taskViewController!.taskRunUUID.uuidString
-//            controller.delegate = self
-//            return controller
+//        let gender = SBAProfileManager.shared?.value(forProfileKey: SBAProfileInfoOption.gender.rawValue)
+//        let genderString: String? = (gender as? String) ?? ((gender as? HKBiologicalSex)?.demographicDataValue as String?)
+//        if genderString != nil {
+//            bblProps["gender"] = genderString
 //        }
-//        catch let error {
-//            print("Error creating the BBLPsychTestViewController: \(error)")
-//        }
-//        return nil
-//    }
 //
-//    func psychTestViewControllerDidFinish(_ controller: BBLPsychTestViewController) {
-//
-//        if let resultIdUnwrapped = controller.psychTestResultID {
-//            do {
-//                let result = try BBLPsychTestResult(id: resultIdUnwrapped, in: BrainBaselineManager.brainBaselineContext)
-//                BrainBaselineManager.updateScores(forResult: result, isExistingResultId: false)
-//            }
-//            catch let error {
-//                assertionFailure("error getting BBLPsychTestResult for id \(resultIdUnwrapped): \(error)")
+//        var bbl_education: String? = nil
+//        if let education = SBAProfileManager.shared?.value(forProfileKey: "education") as? String {
+//            switch education {
+//            case "Some_high_school":
+//                bbl_education = "Some High School"
+//            case "High_school_diploma_GED":
+//                bbl_education = "High School"
+//            case "Some_college":
+//                bbl_education = "Some College"
+//            case "College_degree":
+//                bbl_education = "Bachelor's Degree"
+//            case "Post-graduate_Degree":
+//                bbl_education = "Graduate Degree"
+//            case "Other":
+//                bbl_education = "Other"
+//            default:
+//                assertionFailure("Unrecognized education value: \(education)")
+//                break
 //            }
 //        }
-//
-//        self.testDidFinish(result: controller.psychTestResultID)
-//    }
-//
-//}
+//        if bbl_education != nil {
+//            bblProps["education"] = bbl_education
+//        }
+
+        return bblProps
+    }
 }

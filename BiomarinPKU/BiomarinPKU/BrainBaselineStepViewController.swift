@@ -208,6 +208,7 @@ open class BrainBaselineStepViewController: RSDStepViewController, BBLPsychTestV
             //let user = BrainBaselineManager.getUser()
             // controller.user = user
             controller.sessionId = stepViewModel.taskResult.taskRunUUID.uuidString
+            controller.user = BrainBaselineManager.getUser()
             controller.sessionId = "1"
             controller.delegate = self
             return UINavigationController(rootViewController: controller)
