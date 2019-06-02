@@ -20,6 +20,7 @@
 		CB55116222A0D34F0036CD6F /* Symbol Substitution.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115B22A0D34E0036CD6F /* Symbol Substitution.json */; };
 		CB55116322A0D34F0036CD6F /* Spatial Memory.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115D22A0D34E0036CD6F /* Spatial Memory.json */; };
 		CB55116422A0D34F0036CD6F /* Go No Go.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115F22A0D34E0036CD6F /* Go No Go.json */; };
+		CBD4F70722A4670B000C402F /* Task Switch.json in Resources */ = {isa = PBXBuildFile; fileRef = CBD4F70522A4670B000C402F /* Task Switch.json */; };
 		CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
 		CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
 		CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */; };
@@ -98,6 +99,7 @@
 		CB55115C22A0D34E0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Symbol Substitution.json"; sourceTree = "<group>"; };
 		CB55115E22A0D34E0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Spatial Memory.json"; sourceTree = "<group>"; };
 		CB55116022A0D34F0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Go No Go.json"; sourceTree = "<group>"; };
+		CBD4F70622A4670B000C402F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Task Switch.json"; sourceTree = "<group>"; };
 		CBF8CB42228F84460089BDF0 /* lato_black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_black.ttf; sourceTree = "<group>"; };
 		CBF8CB43228F84460089BDF0 /* lato_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bold.ttf; sourceTree = "<group>"; };
 		CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bolditalic.ttf; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				CB55115F22A0D34E0036CD6F /* Go No Go.json */,
 				CB55115922A0D34E0036CD6F /* N Back.json */,
 				CB55115D22A0D34E0036CD6F /* Spatial Memory.json */,
+				CBD4F70522A4670B000C402F /* Task Switch.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				CBF8CB54228F844E0089BDF0 /* lato_lightitalic.ttf in Resources */,
 				CB55116322A0D34F0036CD6F /* Spatial Memory.json in Resources */,
 				CBF8CB55228F844E0089BDF0 /* lato_regular.ttf in Resources */,
+				CBD4F70722A4670B000C402F /* Task Switch.json in Resources */,
 				CB55116222A0D34F0036CD6F /* Symbol Substitution.json in Resources */,
 				F8087B8F227BCA16005BDDEC /* BridgeInfo-private.plist in Resources */,
 				CB55111922A0A11C0036CD6F /* BrainBaselineStepViewController.xib in Resources */,
@@ -521,6 +525,14 @@
 				CB55116022A0D34F0036CD6F /* Base */,
 			);
 			name = "Go No Go.json";
+			sourceTree = "<group>";
+		};
+		CBD4F70522A4670B000C402F /* Task Switch.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBD4F70622A4670B000C402F /* Base */,
+			);
+			name = "Task Switch.json";
 			sourceTree = "<group>";
 		};
 		F806117D227BA025005FCABF /* Main.storyboard */ = {

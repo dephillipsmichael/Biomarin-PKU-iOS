@@ -1,0 +1,89 @@
+{
+  "version" : 4,    
+  "score_version": "v2",
+  "fixation_duration" : 1000,
+  "cue_duration" : 40,
+  "probe_duration" : 2500,
+  "feedback_duration" : 750,
+  "experiment" : [
+    "practice_hl",
+    "practice_oe",
+    "practice_dual",
+    "test_dual"
+  ],
+  "blocks" : {
+    "practice_hl" : {
+      "info_views" : [
+        "global",
+        "general",
+        "practice_hl1",
+        "practice_hl2"
+      ],
+      "practice" : true,
+      "limit" : 5,
+      "type" : "hl",
+      "trialsets" : [ 
+        { "trialset" : "hl", "weight" : 2 }
+      ]
+    },
+    "practice_oe" : {
+      "info_views" : [
+        "practice_oe1",
+        "practice_oe2"
+      ],
+      "practice" : true,
+      "limit" : 5,
+      "type" : "oe",
+      "trialsets" : [
+        { "trialset" : "oe", "weight" : 2 }
+      ]
+    },
+    "practice_dual" : {
+      "info_views" : [
+        "practice_both1",
+        "practice_both2"
+      ],
+      "practice" : true,
+      "limit" : 5,
+      "type" : "dual",
+      "trialsets" : [
+        { "trialset" : "hl", "weight" : 2 },
+        { "trialset" : "oe", "weight" : 2 }
+      ]
+    },
+    "test_dual" : {
+      "info_views" : [
+        "test_both"
+      ],
+      "practice" : false,
+      "limit" : 48,
+      "type" : "dual",
+      "trialsets" : [
+        { "trialset" : "hl", "weight" : 3 },
+        { "trialset" : "oe", "weight" : 3 }
+      ]
+    }
+  },
+  "trialsets" : {
+    "hl" : [
+      { "task" : "hl", "test" : 1, "high" : false },
+      { "task" : "hl", "test" : 2, "high" : false },
+      { "task" : "hl", "test" : 3, "high" : false },
+      { "task" : "hl", "test" : 4, "high" : false },
+      { "task" : "hl", "test" : 6, "high" : true },
+      { "task" : "hl", "test" : 7, "high" : true },
+      { "task" : "hl", "test" : 8, "high" : true },
+      { "task" : "hl", "test" : 9, "high" : true }
+    ],
+    "oe" : [
+      { "task" : "oe", "test" : 1, "odd" : true },
+      { "task" : "oe", "test" : 3, "odd" : true },
+      { "task" : "oe", "test" : 7, "odd" : true },
+      { "task" : "oe", "test" : 9, "odd" : true },
+      { "task" : "oe", "test" : 2, "odd" : false },
+      { "task" : "oe", "test" : 4, "odd" : false },
+      { "task" : "oe", "test" : 6, "odd" : false },
+      { "task" : "oe", "test" : 8, "odd" : false }
+    ]
+  }
+}

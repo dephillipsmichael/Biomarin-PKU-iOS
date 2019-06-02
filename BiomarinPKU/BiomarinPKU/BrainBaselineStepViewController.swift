@@ -102,23 +102,17 @@ open class BrainBaselineStepViewController: RSDStepViewController, BBLPsychTestV
         return bbBundle
     }
     
-    @IBOutlet open weak var backgroundImageView: UIImageView?
-    @IBOutlet open weak var deviceImageView: UIView!
     @IBOutlet open weak var instructionLabel: UILabel!
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    public init() {
-        super.init(nibName: BrainBaselineStepViewController.bbNibName,
-                    bundle: BrainBaselineStepViewController.bbBundle)
-    }
-    
     /// Returns a new step view controller for the specified step.
     /// - parameter step: The step to be presented.
     override public init(step: RSDStep, parent: RSDPathComponent?) {
-        super.init(step: step, parent: parent)
+        super.init(nibName: nil, bundle: nil)
+        self.stepViewModel = self.instantiateStepViewModel(for: step, with: parent)
     }
     
     public var startDate: Date?
@@ -133,10 +127,10 @@ open class BrainBaselineStepViewController: RSDStepViewController, BBLPsychTestV
         (UIApplication.shared.delegate as? SBAAppDelegate)?.orientationLock = .landscape
         super.viewWillAppear(animated)
         
-        // Do not allow going back
-        // TODO: mdephillips 5/30/19 use design system
-//        self.backgroundImageView?.backgroundColor = UIColor.appBackgroundDark
-//        self.instructionLabel.textColor = UIColor.appTextLight
+        let design = AppDelegate.designSystem
+        let background = design.colorRules.backgroundPrimary
+        self.instructionLabel.textColor = design.colorRules.textColor(on: background, for: .heading1)
+        self.instructionLabel.font = design.fontRules.font(for: .heading1)
         
         if startDate == nil {
             instructionLabel.text = Localization.localizedString("BRAIN_BASELINE_INSTRUCTION_TEXT")
@@ -192,7 +186,6 @@ open class BrainBaselineStepViewController: RSDStepViewController, BBLPsychTestV
     private func deviceDidRotate() {
         self.startDate = Date()
         instructionLabel.text = ""
-        deviceImageView.isHidden = true
         guard let viewController = createTestViewController()
             else {
                 testDidFinish(result: nil)
@@ -204,12 +197,10 @@ open class BrainBaselineStepViewController: RSDStepViewController, BBLPsychTestV
     open func createTestViewController() -> UIViewController? {
         do {
             let controller = try BBLPsychTestViewController(psychTestNamed: self.testName!, in: BrainBaselineManager.brainBaselineContext)
-            // TODO: mdephillips 5/30/19 possibly add user
-            //let user = BrainBaselineManager.getUser()
-            // controller.user = user
+            controller.user = BrainBaselineManager.getUser()
             controller.sessionId = stepViewModel.taskResult.taskRunUUID.uuidString
             controller.user = BrainBaselineManager.getUser()
-            controller.sessionId = "1"
+            controller.sessionId = self.stepViewModel.taskResult.taskRunUUID.uuidString
             controller.delegate = self
             return UINavigationController(rootViewController: controller)
         }
@@ -260,47 +251,28 @@ open class BrainBaselineStepViewController: RSDStepViewController, BBLPsychTestV
     }
 }
 
-open class BrainBaselineStepObject: RSDUIStepObject {
-    private enum CodingKeys: String, CodingKey, CaseIterable {
-        case testName
+struct BrainBaselineStepObject : RSDStepViewControllerVendor, Decodable {
+    
+    let identifier: String
+    let testName: String
+    
+    let stepType: RSDStepType = .brainBaseline
+    
+    func instantiateStepResult() -> RSDResult {
+        // Here we can use the bbIdentifier to later get the result in AppDelegate
+        return RSDAnswerResultObject(identifier: "userIdentifier", answerType: .string, value: BrainBaselineManager.bbIdentifier())
     }
     
-    /// The icons that are used to define the list of things you will need for an active task.
-    open var testName: String?
-    
-    /// Default type is `.overview`.
-    open override class func defaultType() -> RSDStepType {
-        return .overview
+    func validate() throws {
+        // do nothing
     }
     
-    /// Override to set the properties of the subclass.
-    override open func copyInto(_ copy: RSDUIStepObject) {
-        super.copyInto(copy)
-        guard let subclassCopy = copy as? BrainBaselineStepObject else {
-            assertionFailure("Superclass implementation of the `copy(with:)` protocol should return an instance of this class.")
-            return
-        }
-        subclassCopy.testName = self.testName
+    func instantiateViewController(with parent: RSDPathComponent?) -> (UIViewController & RSDStepController)? {
+        let vc = BrainBaselineStepViewController(step: self, parent: parent)
+        return vc
     }
     
-    /// Override the decoder per device type b/c the task may require a different set of permissions depending upon the device.
-    open override func decode(from decoder: Decoder, for deviceType: RSDDeviceType?) throws {
-        try super.decode(from: decoder, for: deviceType)
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.testName = try container.decodeIfPresent(String.self, forKey: .testName) ?? self.testName
-    }
-    
-    // Overrides must be defined in the base implementation
-
-    // TODO: mdephillips 5/30/19 what is the right syntax for this?
-//    override class func codingKeys() -> [CodingKey] {
-//        var keys = super.codingKeys()
-//        let thisKeys: [CodingKey] = CodingKeys.allCases
-//        keys.append(contentsOf: thisKeys)
-//        return keys
-//    }
-    
-    class func examples() -> [[String : RSDJSONValue]] {
+    static func examples() -> [[String : RSDJSONValue]] {
         let jsonA: [String : RSDJSONValue] = [
             "identifier"   : "Brain Baseline",
             "type"         : "brainBaseline",
@@ -311,44 +283,5 @@ open class BrainBaselineStepObject: RSDUIStepObject {
         return [jsonA]
     }
 }
-
-extension BrainBaselineStepObject : RSDStepViewControllerVendor {
-    
-    /// By default, return the task view controller from the storyboard.
-    public func instantiateViewController(with parent: RSDPathComponent?) -> (UIViewController & RSDStepController)? {
-        let vc = BrainBaselineStepViewController(step: self, parent: parent)
-        return vc
-    }
-}
-
-//extension SBAUserWrapper {
-//
-//    /**
-//     Returns a unique identifier associated with this user.
-//     */
-//    public func uniqueIdentifier() -> String {
-//
-//        // Look to see if there is a stored answer for a unique identifier that is
-//        // *not* the hashed email address. If so, return that. This is not defined
-//        // using a guard statement b/c we want an early exit if and only if the
-//        // identifier is already defined.
-//        let uniqueIdentifierUserKey = "uniqueIdentifier"
-//        if let uuid = self.storedAnswer(for: uniqueIdentifierUserKey) as? String {
-//            return uuid
-//        }
-//
-//        // Create a unique identifier by hashing the email address (if available)
-//        guard let email = self.email, let data = email.data(using: .utf8) as NSData?, let md5 = data.hexMD5()
-//            else {
-//                // If the email cannot be hashed to create a unique identifier, then create and store a uuid
-//                let uuid = UUID().uuidString
-//                self.setStoredAnswer(uuid, forKey: uniqueIdentifierUserKey)
-//                return uuid
-//        }
-//
-//        // If the md5 was created then return that
-//        return md5
-//    }
-//}
 
 

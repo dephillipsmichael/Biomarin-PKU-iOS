@@ -58,21 +58,9 @@ class BrainBaselineManager: NSObject {
         return BBLContext(studyId: studyId, resourceBundle: studyBundle, serverInfo: BBLServerInfo.default())
     }()
     
-    static let tasks = [
-        RSDIdentifier.spatialMemoryTask.rawValue: "PTSPWM-Phone-BioMarin-PKU",
-        RSDIdentifier.attentionalBlinkTask.rawValue: "PTBlink-Phone-BioMarin-PKU",
-        RSDIdentifier.symbolSubstitutionTask.rawValue: "PTVerbalSymbolSwap-Phone-BioMarin-PKU",
-        RSDIdentifier.nBackTask.rawValue: "PTNBack-Phone-BioMarin-PKU",
-        RSDIdentifier.goNoGoTask.rawValue: "PTFaceTask-Phone-BioMarin-PKU",
-        RSDIdentifier.taskSwitchTask.rawValue: "TODO get it from brain baseline team"
-    ]
-
     class func getUser() -> BBLUser {
         // Get the current user
-        // TODO: mdephillips 5/30/19 how do you get the user now since currentUser doesn't exist in SBAAppDelegate?
-        //let bridgeUser = (UIApplication.shared.delegate as! SBAAppDelegate).currentUser
-        //let userName = bridgeUser.uniqueIdentifier()
-        let userName = "Tester"
+        let userName = bbIdentifier() ?? "TestUser"
         var user = BBLUser.existingUser(withName: userName, in: self.brainBaselineContext)
         if (user == nil) {
             user = BBLUser.newUser(withName: userName, in: self.brainBaselineContext)
@@ -87,6 +75,18 @@ class BrainBaselineManager: NSObject {
             }
         }
         return user!
+    }
+    
+    class func bbIdentifier() -> String? {
+        // Create a unique identifier by hashing the health code (if available)
+        guard let healthCode = SBAParticipantManager.shared.studyParticipant?.healthCode,
+            let data = healthCode.data(using: .utf8)
+            else {
+                return nil
+        }
+        
+        // If the md5 was created then return that
+        return (data as NSData).hexMD5()
     }
     
     class func brainBaselineProperties() -> [String: Any] {

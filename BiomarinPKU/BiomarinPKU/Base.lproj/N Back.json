@@ -1,6 +1,6 @@
 {
-    "taskIdentifier"            : "Attentional Blink",
-    "schemaIdentifier"          : "Attentional Blink",
+    "taskIdentifier"            : "N Back",
+    "schemaIdentifier"          : "N Back",
     "steps":
     [
      {

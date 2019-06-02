@@ -14,5 +14,137 @@
 	<integer>90</integer>
 	<key>cacheDaysBehind</key>
 	<integer>365</integer>
+	<key>schemaMapping</key>
+	<array>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Attentional Blink</string>
+			<key>schemaRevision</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Go No Go</string>
+			<key>schemaRevision</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Kinetic Tremor</string>
+			<key>schemaRevision</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>N Back</string>
+			<key>schemaRevision</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Spatial Memory</string>
+			<key>schemaRevision</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Symbol Substitution</string>
+			<key>schemaRevision</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Tapping</string>
+			<key>schemaRevision</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Task Switch</string>
+			<key>schemaRevision</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Tremor</string>
+			<key>schemaRevision</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>taskMapping</key>
+	<array>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Attentional Blink</string>
+			<key>activityMinutes</key>
+			<integer>1</integer>
+			<key>activityIcon</key>
+			<string>icon</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Go No Go</string>
+			<key>activityMinutes</key>
+			<integer>1</integer>
+			<key>activityIcon</key>
+			<string>icon</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Kinetic Tremor</string>
+			<key>activityMinutes</key>
+			<integer>1</integer>
+			<key>activityIcon</key>
+			<string>icon</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>N Back</string>
+			<key>activityMinutes</key>
+			<integer>1</integer>
+			<key>activityIcon</key>
+			<string>icon</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Spatial Memory</string>
+			<key>activityMinutes</key>
+			<integer>1</integer>
+			<key>activityIcon</key>
+			<string>icon</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Symbol Substitution</string>
+			<key>activityMinutes</key>
+			<integer>1</integer>
+			<key>activityIcon</key>
+			<string>icon</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Tapping</string>
+			<key>activityMinutes</key>
+			<integer>1</integer>
+			<key>activityIcon</key>
+			<string>icon</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Task Switch</string>
+			<key>activityMinutes</key>
+			<integer>1</integer>
+			<key>activityIcon</key>
+			<string>icon</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Tremor</string>
+			<key>activityMinutes</key>
+			<integer>1</integer>
+			<key>activityIcon</key>
+			<string>icon</string>
+		</dict>
+	</array>
 </dict>
 </plist>

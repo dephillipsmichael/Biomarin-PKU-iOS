@@ -12,8 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrainBaselineStepViewController" customModule="BiomarinPKU" customModuleProvider="target">
             <connections>
-                <outlet property="backgroundImageView" destination="PUr-Bz-Br9" id="b9h-u8-9uS"/>
-                <outlet property="deviceImageView" destination="bLa-Kx-iUQ" id="emT-Ly-aA0"/>
                 <outlet property="instructionLabel" destination="V6h-wS-arG" id="ouo-Yq-aA7"/>
                 <outlet property="view" destination="iN0-l3-epB" id="uBF-qO-Uh1"/>
             </connections>
@@ -26,65 +24,27 @@
                 <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwg-Cz-I7q">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PUr-Bz-Br9">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TiltYourPhone" translatesAutoresizingMaskIntoConstraints="NO" id="BMa-p9-fyz" userLabel="TiltYourPhone">
+                            <rect key="frame" x="64" y="250" width="286" height="286"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="BMa-p9-fyz" secondAttribute="height" multiplier="1:1" id="81V-6v-aZs"/>
+                            </constraints>
                         </imageView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxv-l6-3tS" customClass="SBAShadowGradient" customModule="BridgeAppSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLa-Kx-iUQ" userLabel="DeviceImage">
-                            <rect key="frame" x="64.5" y="439" width="285" height="285"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone_portrait" translatesAutoresizingMaskIntoConstraints="NO" id="BMa-p9-fyz">
-                                    <rect key="frame" x="30" y="-21" width="120" height="224"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="224" id="ECC-Rc-KIv"/>
-                                        <constraint firstAttribute="width" constant="120" id="kXn-qX-WHr"/>
-                                    </constraints>
-                                </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone_landscape" translatesAutoresizingMaskIntoConstraints="NO" id="MrC-NZ-XIB">
-                                    <rect key="frame" x="30" y="83" width="224" height="120"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="224" id="31F-5L-eY8"/>
-                                        <constraint firstAttribute="height" constant="120" id="HJy-9a-Lvm"/>
-                                    </constraints>
-                                </imageView>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="285" id="1yB-AW-oiq"/>
-                                <constraint firstAttribute="bottom" secondItem="MrC-NZ-XIB" secondAttribute="bottom" constant="82" id="8OB-R5-git"/>
-                                <constraint firstAttribute="width" constant="285" id="9Pv-rz-621"/>
-                                <constraint firstItem="MrC-NZ-XIB" firstAttribute="leading" secondItem="bLa-Kx-iUQ" secondAttribute="leading" constant="30" id="MTm-3C-tz6"/>
-                                <constraint firstAttribute="bottom" secondItem="BMa-p9-fyz" secondAttribute="bottom" constant="82" id="mvh-9k-zAh"/>
-                                <constraint firstItem="BMa-p9-fyz" firstAttribute="leading" secondItem="bLa-Kx-iUQ" secondAttribute="leading" constant="30" id="qbt-vX-pPI"/>
-                            </constraints>
-                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="950" text="Please tilt your device." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6h-wS-arG">
-                            <rect key="frame" x="110" y="731.5" width="194" height="64.5"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="194" id="AVd-FW-9Cy"/>
-                            </constraints>
+                            <rect key="frame" x="24" y="568" width="366" height="32.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="27"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Oxv-l6-3tS" secondAttribute="trailing" id="AR9-Bo-Kau"/>
-                        <constraint firstAttribute="bottom" secondItem="PUr-Bz-Br9" secondAttribute="bottom" id="O0R-aI-zAx"/>
-                        <constraint firstItem="V6h-wS-arG" firstAttribute="centerX" secondItem="vwg-Cz-I7q" secondAttribute="centerX" id="QfU-2v-1Rh"/>
-                        <constraint firstItem="PUr-Bz-Br9" firstAttribute="leading" secondItem="vwg-Cz-I7q" secondAttribute="leading" id="YjH-3o-i6N"/>
-                        <constraint firstAttribute="bottom" secondItem="Oxv-l6-3tS" secondAttribute="bottom" id="aDj-lK-I7x"/>
-                        <constraint firstItem="PUr-Bz-Br9" firstAttribute="top" secondItem="vwg-Cz-I7q" secondAttribute="top" id="aam-7j-A8j"/>
-                        <constraint firstItem="bLa-Kx-iUQ" firstAttribute="centerX" secondItem="vwg-Cz-I7q" secondAttribute="centerX" id="bfq-tc-mSL"/>
-                        <constraint firstItem="bLa-Kx-iUQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vwg-Cz-I7q" secondAttribute="top" constant="80" id="g0I-lu-Gop"/>
-                        <constraint firstAttribute="bottom" secondItem="V6h-wS-arG" secondAttribute="bottom" priority="900" constant="100" id="iRC-1h-Bq5"/>
-                        <constraint firstItem="Oxv-l6-3tS" firstAttribute="top" secondItem="vwg-Cz-I7q" secondAttribute="top" id="m7o-Uh-HwW"/>
-                        <constraint firstAttribute="trailing" secondItem="PUr-Bz-Br9" secondAttribute="trailing" id="mde-KO-cde"/>
-                        <constraint firstItem="Oxv-l6-3tS" firstAttribute="leading" secondItem="vwg-Cz-I7q" secondAttribute="leading" id="mog-V6-MYE"/>
-                        <constraint firstItem="V6h-wS-arG" firstAttribute="top" secondItem="MrC-NZ-XIB" secondAttribute="bottom" constant="89.5" id="rAY-iU-1IM"/>
+                        <constraint firstItem="V6h-wS-arG" firstAttribute="leading" secondItem="yEJ-gB-2g4" secondAttribute="leading" constant="24" id="RrK-fr-UGc"/>
+                        <constraint firstItem="yEJ-gB-2g4" firstAttribute="trailing" secondItem="V6h-wS-arG" secondAttribute="trailing" constant="24" id="SRh-1y-yC5"/>
+                        <constraint firstItem="BMa-p9-fyz" firstAttribute="centerY" secondItem="yEJ-gB-2g4" secondAttribute="centerY" constant="-60" id="e5O-98-cUA"/>
+                        <constraint firstItem="BMa-p9-fyz" firstAttribute="leading" secondItem="yEJ-gB-2g4" secondAttribute="leading" constant="64" id="j5L-R8-06i"/>
+                        <constraint firstItem="yEJ-gB-2g4" firstAttribute="trailing" secondItem="BMa-p9-fyz" secondAttribute="trailing" constant="64" id="sel-hC-a6X"/>
+                        <constraint firstItem="V6h-wS-arG" firstAttribute="top" secondItem="BMa-p9-fyz" secondAttribute="bottom" constant="32" id="xeY-id-Rmc"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="yEJ-gB-2g4"/>
                 </view>
@@ -100,7 +60,6 @@
         </view>
     </objects>
     <resources>
-        <image name="phone_landscape" width="224" height="120"/>
-        <image name="phone_portrait" width="120" height="224"/>
+        <image name="TiltYourPhone" width="255" height="257"/>
     </resources>
 </document>
