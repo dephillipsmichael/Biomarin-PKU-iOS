@@ -36,6 +36,8 @@ import BridgeApp
 
 open class EmojiChoiceTableStepViewController: RSDTableStepViewController {
     
+    open var emojiImageType: EmojiImageType = .emoji
+    
     open override func setupHeader(_ header: RSDStepNavigationView) {
         super.setupHeader(header)
         
@@ -105,6 +107,21 @@ open class EmojiChoiceTableStepViewController: RSDTableStepViewController {
         }
         super.registerReuseIdentifierIfNeeded(reuseIdentifier)
     }
+    
+    override open func configure(cell: UITableViewCell, in tableView: UITableView, at indexPath: IndexPath) {
+        
+        // Call before super so that setting table item will have correct image type
+        if let emojiCell = cell as? EmojiChoiceTableViewCell {
+            emojiCell.emojiImageType = self.emojiImageType
+        }
+        
+        super.configure(cell: cell, in: tableView, at: indexPath)
+    }
+}
+
+public enum EmojiImageType: String {
+    case emoji = "Emoji"
+    case sleepEmoji = "SleepEmoji"
 }
 
 public class EmojiChoiceTableViewCell: RSDSelectionTableViewCell {
@@ -119,6 +136,8 @@ public class EmojiChoiceTableViewCell: RSDSelectionTableViewCell {
     
     // The number of emoji image types
     let emojiCount = 5
+    
+    open var emojiImageType: EmojiImageType = .emoji
     
     @IBOutlet public var emojiImageView: UIImageView?
     
@@ -165,7 +184,7 @@ public class EmojiChoiceTableViewCell: RSDSelectionTableViewCell {
             if let strAnswer = item.choice.answerValue as? String,
                 let intAnswer = Int(strAnswer),
                 intAnswer > 0, intAnswer <= emojiCount {
-                emojiImageView?.image = UIImage(named: "Emoji\(intAnswer)")
+                emojiImageView?.image = UIImage(named: "\(emojiImageType.rawValue)\(intAnswer)")
             } else {
                 emojiImageView?.image = nil
             }

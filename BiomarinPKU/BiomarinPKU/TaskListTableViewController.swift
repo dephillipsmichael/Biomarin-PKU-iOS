@@ -38,6 +38,7 @@ import MotorControl
 
 extension RSDIdentifier {
     static let pkuAffectedYourDayStep: RSDIdentifier = "pku_affected_your_day"
+    static let sleepQualityStep: RSDIdentifier = "sleep_quality"
 }
 
 class TaskListTableViewController: UITableViewController, RSDTaskViewControllerDelegate, RSDButtonCellDelegate {
@@ -155,8 +156,14 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     func taskViewController(_ taskViewController: UIViewController, viewControllerForStep stepModel: RSDStepViewModel) -> UIViewController? {
         let vc: RSDStepViewController? = {
             switch RSDIdentifier(rawValue: stepModel.identifier) {
+            case .sleepQualityStep:
+                let emojiVc = EmojiChoiceTableStepViewController(nibName: nil, bundle: nil)
+                emojiVc.emojiImageType = .sleepEmoji
+                return emojiVc
             case .pkuAffectedYourDayStep:
-                return EmojiChoiceTableStepViewController(nibName: nil, bundle: nil)
+                let emojiVc = EmojiChoiceTableStepViewController(nibName: nil, bundle: nil)
+                emojiVc.emojiImageType = .emoji
+                return emojiVc
             default:
                 return nil
             }
