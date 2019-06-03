@@ -36,6 +36,10 @@ import BridgeApp
 import BridgeSDK
 import MotorControl
 
+extension RSDIdentifier {
+    static let pkuAffectedYourDayStep: RSDIdentifier = "pku_affected_your_day"
+}
+
 class TaskListTableViewController: UITableViewController, RSDTaskViewControllerDelegate, RSDButtonCellDelegate {
     
     let scheduleManager = TaskListScheduleManager()
@@ -145,6 +149,20 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 112.0
+    }
+    
+    /// Here we can customize which VCs show for a step within a survey
+    func taskViewController(_ taskViewController: UIViewController, viewControllerForStep stepModel: RSDStepViewModel) -> UIViewController? {
+        let vc: RSDStepViewController? = {
+            switch RSDIdentifier(rawValue: stepModel.identifier) {
+            case .pkuAffectedYourDayStep:
+                return EmojiChoiceTableStepViewController(nibName: nil, bundle: nil)
+            default:
+                return nil
+            }
+        }()
+        vc?.stepViewModel = stepModel
+        return vc
     }
 }
 
