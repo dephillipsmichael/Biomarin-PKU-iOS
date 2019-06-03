@@ -1,0 +1,92 @@
+{
+	"version" : 2,
+    "score_version": "v2",
+	"letters" : "A C D E F H I J K L M N O P Q R T U V W Z",
+	"target0" : "B",
+	"target1" : "G",
+	"target2" : "S",
+	"lag_target" : "X",
+	"target_index" : 13,
+	"fixation_duration" : 1000,
+	"letter_duration" : 50,
+	"blank_duration" : 50,
+	"feedback_duration" : 750,
+	"experiment" : [
+		"practice_target1",
+		"practice_x1",
+		"practice_both1",
+		"test_both1"
+	],
+	"blocks" : {
+		"practice_target1" : {
+			"practice" : true,
+			"randomize" : true,
+			"trial_type" : "target_only",
+			"trialset" : "main",
+			"limit" : 3,
+            "info_views": [
+                "global",
+                "intro",
+                "practice_target"
+            ]
+		},
+		"practice_x1" : {
+			"practice" : true,
+			"randomize" : true,
+			"trial_type" : "x_only",
+			"trialset" : "main",
+			"limit" : 3,
+            "info_views": [
+                "practice_lag"
+            ]
+		},
+		"practice_both1" : {
+			"practice" : true,
+			"randomize" : true,
+			"trial_type" : "both",
+			"trialset" : "main",
+			"limit" : 3,
+            "info_views": [
+                "practice_both"
+            ]
+		},
+		"test_both1" : {
+			"practice" : false,
+			"randomize" : true,
+			"trial_type" : "both",
+			"trialset" : "main",
+			"limit" : 45,
+            "info_views": [
+                "test"
+            ]
+		}
+	},
+	"trialsets" : {
+		"main" : [
+			{ "weight" : 8, "lag" : -1, "position" : 7 },
+			{ "weight" : 1, "lag" : 2, "position" : 7 },
+			{ "weight" : 1, "lag" : 3, "position" : 7 },
+			{ "weight" : 1, "lag" : 4, "position" : 7 },
+			{ "weight" : 1, "lag" : 5, "position" : 7 },
+			{ "weight" : 1, "lag" : 6, "position" : 7 },
+			{ "weight" : 1, "lag" : 7, "position" : 7 },
+			{ "weight" : 1, "lag" : 8, "position" : 7 },
+			{ "weight" : 8, "lag" : -1, "position" : 10 },
+			{ "weight" : 1, "lag" : 2, "position" : 10 },
+			{ "weight" : 1, "lag" : 3, "position" : 10 },
+			{ "weight" : 1, "lag" : 4, "position" : 10 },
+			{ "weight" : 1, "lag" : 5, "position" : 10 },
+			{ "weight" : 1, "lag" : 6, "position" : 10 },
+			{ "weight" : 1, "lag" : 7, "position" : 10 },
+			{ "weight" : 1, "lag" : 8, "position" : 10 },
+			{ "weight" : 8, "lag" : -1, "position" : 13 },
+			{ "weight" : 1, "lag" : 2, "position" : 13 },
+			{ "weight" : 1, "lag" : 3, "position" : 13 },
+			{ "weight" : 1, "lag" : 4, "position" : 13 },
+			{ "weight" : 1, "lag" : 5, "position" : 13 },
+			{ "weight" : 1, "lag" : 6, "position" : 13 },
+			{ "weight" : 1, "lag" : 7, "position" : 13 },
+			{ "weight" : 1, "lag" : 8, "position" : 13 }
+		]
+	}
+}

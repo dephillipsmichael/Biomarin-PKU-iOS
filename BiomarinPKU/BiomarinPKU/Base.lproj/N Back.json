@@ -1,0 +1,12 @@
+{
+    "taskIdentifier"            : "N Back",
+    "schemaIdentifier"          : "N Back",
+    "steps":
+    [
+     {
+     "identifier"   : "Brain Baseline",
+     "type"         : "brainBaseline",
+     "testName"     : "PTNBack-Phone-BioMarin-PKU"
+     }
+    ]
+}

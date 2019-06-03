@@ -111,12 +111,13 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     
     func didTapButton(on cell: RSDButtonCell) {
         if (self.scheduleManager.isTaskRow(for: cell.indexPath)) {
+            RSDFactory.shared = PKUTaskFactory()
             // This is an activity
             guard let activity = self.scheduleManager.sortedScheduledActivity(for: cell.indexPath) else { return }
             let taskViewModel = scheduleManager.instantiateTaskViewModel(for: activity)
-            let vc = RSDTaskViewController(taskViewModel: taskViewModel)
-            vc.delegate = self
-            self.present(vc, animated: true, completion: nil)
+            let taskVc = RSDTaskViewController(taskViewModel: taskViewModel)
+            taskVc.delegate = self            
+            self.present(taskVc, animated: true, completion: nil)
         } else {
             // TODO: mdephillips 5/18/19 transition to appropriate screen
             guard let supplementalRow = self.scheduleManager.supplementalRow(for: cell.indexPath) else { return }

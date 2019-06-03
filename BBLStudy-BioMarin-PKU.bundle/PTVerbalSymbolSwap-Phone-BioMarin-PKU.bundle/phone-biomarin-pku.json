@@ -1,0 +1,84 @@
+{
+  "version" : 1,
+  "score_version": "v1",
+  "experiment" : [ "practice1", "test1" ],
+  "blocks" : {
+    "practice1" : {
+      "practice" : true,
+      "info_views" : [
+        "global",
+        "practice1a",
+        "practice1b"
+      ],
+      "randomize_mapping": true,
+      "randomize_stream": false,
+      "max_time": 45000,
+      "max_trials": 9,
+      "allow_skip_delay": 5000,
+      "allow_consecutive_matching_items": false,
+      "show_keyword_feedback": true,
+      "pool_size": 9,
+      "digit_set": "digits",
+      "symbol_set": "symbols",
+      "word_set": "digits",
+      "hmm": "cmusphinx-en-us-ptm-5.2"
+    },
+    "test1" : {
+      "practice" : false,
+      "info_views" : [
+        "test1a"
+      ],
+      "randomize_mapping": true,
+      "randomize_stream": true,
+      "max_time": 90000,
+      "allow_skip_delay": 5000,
+      "allow_consecutive_matching_items": false,
+      "show_keyword_feedback": true,
+      "min_random_group_size": 1,
+      "max_random_group_size": 5,
+      "pool_size": 9,
+      "digit_set": "digits",
+      "symbol_set": "symbols",
+      "word_set": "digits",
+      "hmm": "cmusphinx-en-us-ptm-5.2"
+    }
+  },
+  "item_sets": {
+    "digits": [
+      "dsym-1",
+      "dsym-2",
+      "dsym-3",
+      "dsym-4",
+      "dsym-5",
+      "dsym-6",
+      "dsym-7",
+      "dsym-8",
+      "dsym-9"
+    ],
+    "symbols": [
+      "dsym-asterisk",
+      "dsym-at",
+      "dsym-equals",
+      "dsym-gt",
+      "dsym-hash",
+      "dsym-hat",
+      "dsym-lt",
+      "dsym-percent",
+      "dsym-plus",
+      "dsym-x"
+    ]
+  },
+  "word_sets": {
+    "digits": {
+      "one": "dsym-1",
+      "two": "dsym-2",
+      "three": "dsym-3",
+      "four": "dsym-4",
+      "five": "dsym-5",
+      "six": "dsym-6",
+      "seven": "dsym-7",
+      "eight": "dsym-8",
+      "nine": "dsym-9"
+    }
+  }
+}

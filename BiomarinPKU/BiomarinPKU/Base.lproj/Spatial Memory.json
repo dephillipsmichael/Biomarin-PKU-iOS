@@ -1,0 +1,12 @@
+{
+    "taskIdentifier"            : "Spatial Memory",
+    "schemaIdentifier"          : "Spatial Memory",
+    "steps":
+    [
+     {
+     "identifier"   : "Brain Baseline",
+     "type"         : "brainBaseline",
+     "testName"     : "PTSPWM-Phone-BioMarin-PKU"
+     }
+    ]
+}

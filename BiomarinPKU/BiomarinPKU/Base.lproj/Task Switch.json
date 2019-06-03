@@ -1,0 +1,12 @@
+{
+    "taskIdentifier"            : "Task Switch",
+    "schemaIdentifier"          : "Task Switch",
+    "steps":
+    [
+     {
+     "identifier"   : "Brain Baseline",
+     "type"         : "brainBaseline",
+     "testName"     : "PTTaskSwitching-Phone-BioMarin-PKU"
+     }
+    ]
+}

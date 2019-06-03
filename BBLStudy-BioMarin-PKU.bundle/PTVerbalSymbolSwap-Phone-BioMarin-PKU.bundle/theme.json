@@ -1,0 +1,16 @@
+{
+    "version": 4,
+    "constants":
+    {
+    },
+    "profiles":
+    {
+        "vss-item-highlight-view":
+        {
+            "background-color": "$clear",
+            "corner-radius": 8,
+            "border-color": "$red",
+            "border-width": 1
+        }
+    }
+}
