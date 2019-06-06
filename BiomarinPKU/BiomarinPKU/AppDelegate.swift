@@ -206,6 +206,26 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     }
 }
 
+extension AppDelegate {
+    class func setupHeader(_ header: RSDStepNavigationView) {
+        // Setup the design system fro the table header
+        let primary = AppDelegate.designSystem.colorRules.backgroundPrimary
+        header.setDesignSystem(AppDelegate.designSystem, with: primary)
+        
+        // Style the cancel button a dark color
+        header.cancelButton?.imageView?.tintColor = self.designSystem.colorRules.textColor(on: primary, for: .heading1)
+        
+        header.titleLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading1)
+        header.titleLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading1)
+        
+        header.textLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading1)
+        header.textLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading1)
+        
+        header.detailLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading4)
+        header.detailLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading4)
+    }
+}
+
 open class PKUColorRules: RSDColorRules {
     
 }

@@ -34,23 +34,14 @@
 import Foundation
 import BridgeApp
 
-open class EmojiChoiceTableStepViewController: RSDTableStepViewController {
+open class EmojiChoiceTableStepViewController: SurveyStepViewController {
     
     open var emojiImageType: EmojiImageType = .emoji
     
     open override func setupHeader(_ header: RSDStepNavigationView) {
         super.setupHeader(header)
         
-        // TODO: mdephillips 6/3/19 how do I set a custom global close image?
-        
-        if let tableHeader = header as? RSDTableStepHeaderView {
-            tableHeader.progressView?.isHidden = true
-            
-            // TODO: mdephillips 6/3/19 why isn't the design system be applied automatically?
-            let primary = AppDelegate.designSystem.colorRules.backgroundPrimary
-            tableHeader.setDesignSystem(AppDelegate.designSystem, with: primary)
-            tableHeader.textLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading1)
-            
+        if let tableHeader = header as? RSDTableStepHeaderView {            
             // Remove detail label text, as it is replaced by learn more
             tableHeader.detailLabel?.text = nil
         }
@@ -63,38 +54,10 @@ open class EmojiChoiceTableStepViewController: RSDTableStepViewController {
             
             // Switch detail to learn more button
             button?.setTitle(detail, for: .normal)
-            button?.addTarget(self, action: #selector(learnMoreTapped), for: .touchUpInside)
+            button?.addTarget(self, action: #selector(showLearnMore), for: .touchUpInside)
             
         } else {
             super.setupButton(button, for: actionType, isFooter: isFooter)
-        }
-    }
-    
-    @objc func learnMoreTapped() {
-        
-        // A trick to get bridge surveys to have learn more screens that
-        // are customizable on bridge is to make special step identifiers
-        // that follow the format "learn_more_[step_id_with_learn_more_action]
-        let learnMoreStepIdentifier = "learn_more_\(self.stepViewModel.step.identifier)"
-        
-        if let taskViewModel = self.stepViewModel.parentTaskPath as? RSDTaskViewModel,
-            let infoScreen = (taskViewModel.task?.stepNavigator as? SBBSurvey)?.elements.first(where: { ($0 as? SBBSurveyElement)?.identifier == learnMoreStepIdentifier }) as? SBBSurveyInfoScreen {
-            
-            // TODO: mdephillips 6/3/19 how do I get a UI format like
-            // the old instruction step format?  I dont see an RSDInstructionStepObject
-            let infoStep = RSDUIStepObject(identifier: infoScreen.identifier, type: .instruction)
-            infoStep.title = infoScreen.title
-            infoStep.text = infoScreen.text
-            
-            // TODO: mdephillips 6/3/19 how to make cancel button be back button?
-            infoStep.shouldHideActions = [.navigation(.goBackward), .navigation(.goForward), .navigation(.skip)]
-            
-            var navigator = RSDConditionalStepNavigatorObject(with: [infoStep])
-            navigator.progressMarkers = []
-            let task = RSDTaskObject(identifier: step.identifier, stepNavigator: navigator)
-            let taskVc = RSDTaskViewController(task: task)
-            taskVc.delegate = self
-            self.present(taskVc, animated: true, completion: nil)
         }
     }
     

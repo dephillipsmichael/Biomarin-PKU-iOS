@@ -39,6 +39,7 @@ import MotorControl
 extension RSDIdentifier {
     static let pkuAffectedYourDayStep: RSDIdentifier = "pku_affected_your_day"
     static let sleepQualityStep: RSDIdentifier = "sleep_quality"
+    static let unusualEventsStep: RSDIdentifier = "unusual_events_occured"
 }
 
 class TaskListTableViewController: UITableViewController, RSDTaskViewControllerDelegate, RSDButtonCellDelegate {
@@ -164,11 +165,14 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
                 let emojiVc = EmojiChoiceTableStepViewController(nibName: nil, bundle: nil)
                 emojiVc.emojiImageType = .emoji
                 return emojiVc
+            case .unusualEventsStep:
+                return SurveyStepViewController(nibName: nil, bundle: nil)
             default:
                 return nil
             }
         }()
         vc?.stepViewModel = stepModel
+        vc?.designSystem = AppDelegate.designSystem
         return vc
     }
 }
