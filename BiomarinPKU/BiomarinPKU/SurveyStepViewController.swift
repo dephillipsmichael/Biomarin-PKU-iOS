@@ -72,11 +72,11 @@ open class SurveyStepViewController: RSDTableStepViewController {
             return
         }
         
-        // the old instruction step format?  I dont see an RSDInstructionStepObject
         let infoStep = LearnMoreStepObject(identifier: infoScreen.identifier, type: .learnMore)
         infoStep.title = infoScreen.title
         infoStep.learnMoreText = infoScreen.text
-        infoStep.shouldHideActions = [.navigation(.goBackward), .navigation(.goForward), .navigation(.skip)]
+        infoStep.shouldHideActions = [.navigation(.goForward), .navigation(.skip)]
+        
         
         var navigator = RSDConditionalStepNavigatorObject(with: [infoStep])
         navigator.progressMarkers = []

@@ -213,7 +213,8 @@ extension AppDelegate {
         header.setDesignSystem(AppDelegate.designSystem, with: primary)
         
         // Style the cancel button a dark color
-        header.cancelButton?.imageView?.tintColor = self.designSystem.colorRules.textColor(on: primary, for: .heading1)
+        let cancelTint = self.designSystem.colorRules.textColor(on: primary, for: .heading1)
+        header.cancelButton?.imageView?.tintColor = cancelTint
         
         header.titleLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading1)
         header.titleLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading1)

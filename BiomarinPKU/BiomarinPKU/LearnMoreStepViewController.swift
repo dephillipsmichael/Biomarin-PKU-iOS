@@ -55,6 +55,13 @@ open class LearnMoreStepViewController: SurveyStepViewController {
         self.stepViewModel = self.instantiateStepViewModel(for: step, with: parent)
     }
     
+    override open func setupHeader(_ header: RSDStepNavigationView) {
+        super.setupHeader(header)
+        // Uses back button for cancel button in learn more screen
+        let image = UIImage(named: "backArrowHeader", in: Bundle(for: RSDWebViewController.self), compatibleWith: self.view.traitCollection)
+        header.cancelButton?.setImage(image, for: .normal)
+    }
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         
