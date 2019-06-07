@@ -34,17 +34,9 @@
 import Foundation
 import BridgeApp
 
-open class LearnMoreStepViewController: RSDStepViewController {
+open class LearnMoreStepViewController: SurveyStepViewController {
     
-    static let bbNibName = String(describing: LearnMoreStepViewController.self)
-    open class var nibName: String {
-        return bbNibName
-    }
-    
-    static let bbBundle = Bundle(for: LearnMoreStepViewController.classForCoder())
-    open class var bundle: Bundle {
-        return bbBundle
-    }
+    let learnMoreLabelPadding: CGFloat = 32.0
     
     var learnMoreStep: LearnMoreStepObject? {
         return self.step as? LearnMoreStepObject
@@ -54,8 +46,7 @@ open class LearnMoreStepViewController: RSDStepViewController {
         super.init(coder: aDecoder)
     }
     
-    @IBOutlet var learnMoreLabel: UILabel!
-    @IBOutlet var titleTextLabel: UILabel!
+    var learnMoreLabel: UILabel?
     
     /// Returns a new step view controller for the specified step.
     /// - parameter step: The step to be presented.
@@ -64,24 +55,26 @@ open class LearnMoreStepViewController: RSDStepViewController {
         self.stepViewModel = self.instantiateStepViewModel(for: step, with: parent)
     }
     
-    override open func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override open func viewDidLoad() {
+        super.viewDidLoad()
         
-        // TODO: mdephillips 6/6/19 how do I make status bar slightly darker than background?
-        let primary = self.designSystem.colorRules.backgroundPrimary
-        self.view.backgroundColor = primary.color
-        
-        titleTextLabel.text = self.learnMoreStep?.title
-        titleTextLabel.textColor = self.designSystem.colorRules.textColor(on: primary, for: .heading1)
-        titleTextLabel.font = self.designSystem.fontRules.font(for: .heading1)
-        
-        learnMoreLabel.text = self.learnMoreStep?.learnMoreText
-        learnMoreLabel.textColor = self.designSystem.colorRules.textColor(on: primary, for: .body)
-        learnMoreLabel.font = self.designSystem.fontRules.font(for: .body)
-    }
-    
-    @IBAction func backButtonTapped() {
-        self.cancelTask(shouldSave: false)
+        if (learnMoreLabel == nil) {
+            learnMoreLabel = UILabel()
+            self.view.addSubview(learnMoreLabel!)
+            
+            // Setup constraints to have label be under nav header
+            if let navHeader = self.navigationHeader {
+                learnMoreLabel?.rsd_alignBelow(view: navHeader, padding: learnMoreLabelPadding * 2)
+            }
+            learnMoreLabel?.rsd_alignToSuperview([.leading, .trailing], padding: learnMoreLabelPadding)
+            learnMoreLabel?.translatesAutoresizingMaskIntoConstraints = false
+            learnMoreLabel?.numberOfLines = 0
+            
+            let light = self.designSystem.colorRules.backgroundLight
+            learnMoreLabel?.textColor = self.designSystem.colorRules.textColor(on: light, for: .body)
+            learnMoreLabel?.font = self.designSystem.fontRules.font(for: .body)
+            learnMoreLabel?.text = self.learnMoreStep?.learnMoreText
+        }
     }
 }
 

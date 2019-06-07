@@ -24,7 +24,6 @@
 		CBD4F71C22A496D3000C402F /* EmojiChoiceTableStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */; };
 		CBD4F73322A84B9E000C402F /* SurveyStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */; };
 		CBD4F73522A8BB0E000C402F /* LearnMoreStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */; };
-		CBD4F73722A8CA7B000C402F /* LearnMoreStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD4F73622A8CA7B000C402F /* LearnMoreStepViewController.xib */; };
 		CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
 		CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
 		CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */; };
@@ -107,7 +106,6 @@
 		CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiChoiceTableStepViewController.swift; sourceTree = "<group>"; };
 		CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyStepViewController.swift; sourceTree = "<group>"; };
 		CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnMoreStepViewController.swift; sourceTree = "<group>"; };
-		CBD4F73622A8CA7B000C402F /* LearnMoreStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LearnMoreStepViewController.xib; sourceTree = "<group>"; };
 		CBF8CB42228F84460089BDF0 /* lato_black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_black.ttf; sourceTree = "<group>"; };
 		CBF8CB43228F84460089BDF0 /* lato_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bold.ttf; sourceTree = "<group>"; };
 		CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bolditalic.ttf; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 				CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */,
 				CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */,
 				CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */,
-				CBD4F73622A8CA7B000C402F /* LearnMoreStepViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -433,7 +430,6 @@
 				CB55116122A0D34F0036CD6F /* N Back.json in Resources */,
 				CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */,
 				F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */,
-				CBD4F73722A8CA7B000C402F /* LearnMoreStepViewController.xib in Resources */,
 				CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */,
 				F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */,
 				CB55116422A0D34F0036CD6F /* Go No Go.json in Resources */,
