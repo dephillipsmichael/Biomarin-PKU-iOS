@@ -54,6 +54,11 @@ open class SurveyStepViewController: RSDTableStepViewController {
         }
     }
     
+    override open func setupFooter(_ footer: RSDNavigationFooterView) {
+        super.setupFooter(footer)
+        AppDelegate.setupFooter(footer)
+    }
+    
     override open func showLearnMore() {
         
         // A trick to get bridge surveys to have learn more screens that

@@ -224,6 +224,13 @@ extension AppDelegate {
         header.detailLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading4)
         header.detailLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading4)
     }
+    
+    class func setupFooter(_ footer: RSDNavigationFooterView) {
+        guard let primaryButtonFont = (self.designSystem.fontRules as? PKUFontRules)?.font(for: .primary) else { return }
+        
+        footer.backButton?.titleLabel?.font = primaryButtonFont
+        footer.nextButton?.titleLabel?.font = primaryButtonFont
+    }
 }
 
 open class PKUColorRules: RSDColorRules {
