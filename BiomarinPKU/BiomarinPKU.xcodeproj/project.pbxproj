@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB28E6902296F2C700C5ADFF /* PKURoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28E68F2296F2C700C5ADFF /* PKURoundedButton.swift */; };
 		CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
 		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
 		CB5510F422A091B40036CD6F /* BrainBaseline.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -90,7 +89,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CB28E68F2296F2C700C5ADFF /* PKURoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKURoundedButton.swift; sourceTree = "<group>"; };
 		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
 		CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrainBaseline.framework; sourceTree = "<group>"; };
@@ -166,14 +164,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CB28E68E2296F2AF00C5ADFF /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CB28E68F2296F2C700C5ADFF /* PKURoundedButton.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		CB5510E322A08AC30036CD6F /* BrainBaseline */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +250,6 @@
 				F8061182227BA026005FCABF /* LaunchScreen.storyboard */,
 				F8087BA7227BDC97005BDDEC /* Model */,
 				F8087BA2227BDA4E005BDDEC /* View Controllers */,
-				CB28E68E2296F2AF00C5ADFF /* View */,
 				CB5510E322A08AC30036CD6F /* BrainBaseline */,
 				CBF8CB74229065520089BDF0 /* Resources */,
 				CBF8CB592290535F0089BDF0 /* ObjC */,
@@ -467,7 +456,6 @@
 				CB55114422A0B9920036CD6F /* PKUTaskFactory.swift in Sources */,
 				F806117A227BA025005FCABF /* AppDelegate.swift in Sources */,
 				F8087BA6227BDC4D005BDDEC /* TaskListTableViewController.swift in Sources */,
-				CB28E6902296F2C700C5ADFF /* PKURoundedButton.swift in Sources */,
 				CB55110B22A095440036CD6F /* BrainBaselineStepViewController.swift in Sources */,
 				F8087BA4227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift in Sources */,
 				CBF8CB5C229053A40089BDF0 /* PKUBuildDateUtil.m in Sources */,

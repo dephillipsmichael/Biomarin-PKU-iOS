@@ -85,6 +85,9 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         // Set up font rules.
         RSDStudyConfiguration.shared.fontRules = PKUFontRules(version: 0)
         
+        // Setup reminders
+        RSDStudyConfiguration.shared.shouldShowRemindMe = true
+        
         // Register for BrainBasline results
         let bblContext = BrainBaselineManager.brainBaselineContext
         NotificationCenter.default.addObserver(forName: NSNotification.Name.BBLContextDidUpdatePsychTestResult, object: bblContext, queue: OperationQueue.main) { (note) in
@@ -243,12 +246,12 @@ open class PKUFontRules: RSDFontRules {
     public let latoRegularName      = "Lato-Regular"
     public let latoBoldName         = "Lato-Bold"
     public let latoBlackName        = "Lato-Black"
-    public let latoLightName        = "Lato-Italic"
+    public let latoLightName        = "Lato-Light"
     public let latoItalicName       = "Lato-Italic"
     public let latoBoldItalicName   = "Lato-BoldItalic"
     public let latoLightItalicName  = "Lato-LightItalic"
     
-    open func font(for buttonType: RSDDesignSystem.ButtonType) -> RSDFont {
+    override open func font(for buttonType: RSDDesignSystem.ButtonType) -> RSDFont {
         switch buttonType {
         case .primary:
             return RSDFont(name: latoBoldName, size: 20)!
