@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB28E6902296F2C700C5ADFF /* PKURoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28E68F2296F2C700C5ADFF /* PKURoundedButton.swift */; };
 		CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
 		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
 		CB5510F422A091B40036CD6F /* BrainBaseline.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -21,6 +20,9 @@
 		CB55116322A0D34F0036CD6F /* Spatial Memory.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115D22A0D34E0036CD6F /* Spatial Memory.json */; };
 		CB55116422A0D34F0036CD6F /* Go No Go.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115F22A0D34E0036CD6F /* Go No Go.json */; };
 		CBD4F70722A4670B000C402F /* Task Switch.json in Resources */ = {isa = PBXBuildFile; fileRef = CBD4F70522A4670B000C402F /* Task Switch.json */; };
+		CBD4F71C22A496D3000C402F /* EmojiChoiceTableStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */; };
+		CBD4F73322A84B9E000C402F /* SurveyStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */; };
+		CBD4F73522A8BB0E000C402F /* LearnMoreStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */; };
 		CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
 		CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
 		CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */; };
@@ -87,7 +89,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CB28E68F2296F2C700C5ADFF /* PKURoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKURoundedButton.swift; sourceTree = "<group>"; };
 		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
 		CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrainBaseline.framework; sourceTree = "<group>"; };
@@ -100,6 +101,9 @@
 		CB55115E22A0D34E0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Spatial Memory.json"; sourceTree = "<group>"; };
 		CB55116022A0D34F0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Go No Go.json"; sourceTree = "<group>"; };
 		CBD4F70622A4670B000C402F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Task Switch.json"; sourceTree = "<group>"; };
+		CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiChoiceTableStepViewController.swift; sourceTree = "<group>"; };
+		CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyStepViewController.swift; sourceTree = "<group>"; };
+		CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnMoreStepViewController.swift; sourceTree = "<group>"; };
 		CBF8CB42228F84460089BDF0 /* lato_black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_black.ttf; sourceTree = "<group>"; };
 		CBF8CB43228F84460089BDF0 /* lato_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bold.ttf; sourceTree = "<group>"; };
 		CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bolditalic.ttf; sourceTree = "<group>"; };
@@ -160,14 +164,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CB28E68E2296F2AF00C5ADFF /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CB28E68F2296F2C700C5ADFF /* PKURoundedButton.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		CB5510E322A08AC30036CD6F /* BrainBaseline */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,7 +250,6 @@
 				F8061182227BA026005FCABF /* LaunchScreen.storyboard */,
 				F8087BA7227BDC97005BDDEC /* Model */,
 				F8087BA2227BDA4E005BDDEC /* View Controllers */,
-				CB28E68E2296F2AF00C5ADFF /* View */,
 				CB5510E322A08AC30036CD6F /* BrainBaseline */,
 				CBF8CB74229065520089BDF0 /* Resources */,
 				CBF8CB592290535F0089BDF0 /* ObjC */,
@@ -303,6 +298,9 @@
 			children = (
 				F8087BA3227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift */,
 				F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */,
+				CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */,
+				CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */,
+				CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -458,10 +456,12 @@
 				CB55114422A0B9920036CD6F /* PKUTaskFactory.swift in Sources */,
 				F806117A227BA025005FCABF /* AppDelegate.swift in Sources */,
 				F8087BA6227BDC4D005BDDEC /* TaskListTableViewController.swift in Sources */,
-				CB28E6902296F2C700C5ADFF /* PKURoundedButton.swift in Sources */,
 				CB55110B22A095440036CD6F /* BrainBaselineStepViewController.swift in Sources */,
 				F8087BA4227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift in Sources */,
 				CBF8CB5C229053A40089BDF0 /* PKUBuildDateUtil.m in Sources */,
+				CBD4F71C22A496D3000C402F /* EmojiChoiceTableStepViewController.swift in Sources */,
+				CBD4F73322A84B9E000C402F /* SurveyStepViewController.swift in Sources */,
+				CBD4F73522A8BB0E000C402F /* LearnMoreStepViewController.swift in Sources */,
 				F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */,
 				F8087BAD227BEB95005BDDEC /* TaskListScheduleManager.swift in Sources */,
 				CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */,

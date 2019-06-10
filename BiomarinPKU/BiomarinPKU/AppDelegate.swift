@@ -85,6 +85,9 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         // Set up font rules.
         RSDStudyConfiguration.shared.fontRules = PKUFontRules(version: 0)
         
+        // Setup reminders
+        RSDStudyConfiguration.shared.shouldShowRemindMe = true
+        
         // Register for BrainBasline results
         let bblContext = BrainBaselineManager.brainBaselineContext
         NotificationCenter.default.addObserver(forName: NSNotification.Name.BBLContextDidUpdatePsychTestResult, object: bblContext, queue: OperationQueue.main) { (note) in
@@ -206,6 +209,34 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     }
 }
 
+extension AppDelegate {
+    class func setupHeader(_ header: RSDStepNavigationView) {
+        // Setup the design system fro the table header
+        let primary = AppDelegate.designSystem.colorRules.backgroundPrimary
+        header.setDesignSystem(AppDelegate.designSystem, with: primary)
+        
+        // Style the cancel button a dark color
+        let cancelTint = self.designSystem.colorRules.textColor(on: primary, for: .heading1)
+        header.cancelButton?.imageView?.tintColor = cancelTint
+        
+        header.titleLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading1)
+        header.titleLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading1)
+        
+        header.textLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading1)
+        header.textLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading1)
+        
+        header.detailLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading4)
+        header.detailLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading4)
+    }
+    
+    class func setupFooter(_ footer: RSDNavigationFooterView) {
+        guard let primaryButtonFont = (self.designSystem.fontRules as? PKUFontRules)?.font(for: .primary) else { return }
+        
+        footer.backButton?.titleLabel?.font = primaryButtonFont
+        footer.nextButton?.titleLabel?.font = primaryButtonFont
+    }
+}
+
 open class PKUColorRules: RSDColorRules {
     
 }
@@ -215,12 +246,12 @@ open class PKUFontRules: RSDFontRules {
     public let latoRegularName      = "Lato-Regular"
     public let latoBoldName         = "Lato-Bold"
     public let latoBlackName        = "Lato-Black"
-    public let latoLightName        = "Lato-Italic"
+    public let latoLightName        = "Lato-Light"
     public let latoItalicName       = "Lato-Italic"
     public let latoBoldItalicName   = "Lato-BoldItalic"
     public let latoLightItalicName  = "Lato-LightItalic"
     
-    open func font(for buttonType: RSDDesignSystem.ButtonType) -> RSDFont {
+    override open func font(for buttonType: RSDDesignSystem.ButtonType) -> RSDFont {
         switch buttonType {
         case .primary:
             return RSDFont(name: latoBoldName, size: 20)!

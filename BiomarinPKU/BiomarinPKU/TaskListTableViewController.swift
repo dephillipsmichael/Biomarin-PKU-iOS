@@ -36,6 +36,12 @@ import BridgeApp
 import BridgeSDK
 import MotorControl
 
+extension RSDIdentifier {
+    static let pkuAffectedYourDayStep: RSDIdentifier = "pku_affected_your_day"
+    static let sleepQualityStep: RSDIdentifier = "sleep_quality"
+    static let unusualEventsStep: RSDIdentifier = "unusual_events_occured"
+}
+
 class TaskListTableViewController: UITableViewController, RSDTaskViewControllerDelegate, RSDButtonCellDelegate {
     
     let scheduleManager = TaskListScheduleManager()
@@ -43,11 +49,10 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Install the tremor task in the app config. This hooks up the tremor task so that it will
-        // use the appropriate factory.
+        // Install the MTC tasks in the app config so that they will use the appropriate factory.
         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.tremor).task)
-        
         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.tapping).task)
+        SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.kineticTremor).task)
         
         // reload the schedules and add an observer to observe changes.
         scheduleManager.reloadData()
@@ -145,6 +150,29 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 112.0
+    }
+    
+    /// Here we can customize which VCs show for a step within a survey
+    func taskViewController(_ taskViewController: UIViewController, viewControllerForStep stepModel: RSDStepViewModel) -> UIViewController? {
+        let vc: RSDStepViewController? = {
+            switch RSDIdentifier(rawValue: stepModel.identifier) {
+            case .sleepQualityStep:
+                let emojiVc = EmojiChoiceTableStepViewController(nibName: nil, bundle: nil)
+                emojiVc.emojiImageType = .sleepEmoji
+                return emojiVc
+            case .pkuAffectedYourDayStep:
+                let emojiVc = EmojiChoiceTableStepViewController(nibName: nil, bundle: nil)
+                emojiVc.emojiImageType = .emoji
+                return emojiVc
+            case .unusualEventsStep:
+                return SurveyStepViewController(nibName: nil, bundle: nil)
+            default:
+                return nil
+            }
+        }()
+        vc?.stepViewModel = stepModel
+        vc?.designSystem = AppDelegate.designSystem
+        return vc
     }
 }
 
