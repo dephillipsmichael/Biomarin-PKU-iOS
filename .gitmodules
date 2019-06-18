@@ -1,6 +1,6 @@
 [submodule "Carthage/Checkouts/SageResearch"]
 	path = Carthage/Checkouts/SageResearch
-	url = https://github.com/dephillipsmichael/SageResearch.git
+	url = https://github.com/Sage-Bionetworks/SageResearch.git
 [submodule "Carthage/Checkouts/BridgeApp-Apple-SDK"]
 	path = Carthage/Checkouts/BridgeApp-Apple-SDK
 	url = https://github.com/Sage-Bionetworks/BridgeApp-Apple-SDK.git
