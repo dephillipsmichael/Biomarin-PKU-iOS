@@ -325,6 +325,7 @@
 				F8061173227BA025005FCABF /* Frameworks */,
 				F8061174227BA025005FCABF /* Resources */,
 				F8087B87227BC7B2005BDDEC /* Embed Frameworks */,
+				807A798122BBEC09009FC86B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -447,6 +448,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		807A798122BBEC09009FC86B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Release\" ]; then\n\nBiomarinPKU/strip-frameworks.sh\n\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F8061172227BA025005FCABF /* Sources */ = {
