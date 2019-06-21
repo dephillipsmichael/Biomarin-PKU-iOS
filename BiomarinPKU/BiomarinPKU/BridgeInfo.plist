@@ -145,6 +145,22 @@
 			<key>activityIcon</key>
 			<string>icon</string>
 		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Daily Check-In</string>
+			<key>activityMinutes</key>
+			<integer>1</integer>
+			<key>activityIcon</key>
+			<string>icon</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Sleep Check-In</string>
+			<key>activityMinutes</key>
+			<integer>1</integer>
+			<key>activityIcon</key>
+			<string>icon</string>
+		</dict>
 	</array>
 </dict>
 </plist>
