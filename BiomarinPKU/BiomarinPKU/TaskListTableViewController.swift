@@ -88,7 +88,13 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
         let versionStr = Localization.localizedStringWithFormatKey("RELEASE_VERSION_%@", version)
         let releaseDate = compileDate() ?? ""
         let releaseDateStr = Localization.localizedStringWithFormatKey("RELEASE_DATE_%@", releaseDate)
-        tableFooter?.titleLabel?.text = String(format: "%@\n%@", versionStr, releaseDateStr)
+        
+        // For the trial app, show the user their external id
+        if let externalIdStr = SBAParticipantManager.shared.studyParticipant?.externalId {
+            tableFooter?.titleLabel?.text = String(format: "%@\n%@\n%@", externalIdStr, versionStr, releaseDateStr)
+        } else { // For the study app, don't show the external ID
+            tableFooter?.titleLabel?.text = String(format: "%@\n%@", versionStr, releaseDateStr)
+        }
     }
 
     // MARK: - Table view data source
