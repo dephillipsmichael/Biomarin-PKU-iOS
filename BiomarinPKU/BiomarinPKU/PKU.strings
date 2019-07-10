@@ -39,3 +39,7 @@
 "CONNECT_FITBIT" = "Connect Fitbit";
 "BUTTON_TITLE_BEGIN" = "Begin";
 "BRAIN_BASELINE_INSTRUCTION_TEXT" = "Please tilt your device.";
+
+"BRAIN_BASELINE_MEASUREMENTS_TITLE" = "Measurement";
+"BRAIN_BASELINE_YOUR_OBJECTIVE_TITLE" = "Your Objective";
+"BRAIN_BASELINE_INSTRUCTIONS_TITLE" = "Instructions";

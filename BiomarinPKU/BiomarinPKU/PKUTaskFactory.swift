@@ -35,6 +35,7 @@ import BridgeApp
 
 extension RSDStepType {
     public static let brainBaseline: RSDStepType = "brainBaseline"
+    public static let brainBaselineOverview: RSDStepType = "brainBaselineOverview"
 }
 
 open class PKUTaskFactory: SBAFactory {
@@ -43,6 +44,8 @@ open class PKUTaskFactory: SBAFactory {
         switch type {
         case .brainBaseline:
             return try BrainBaselineStepObject(from: decoder)
+        case .brainBaselineOverview:
+            return try BrainBaselineOverviewStepObject(from: decoder)
         default:
             return try super.decodeStep(from: decoder, with: type)
         }
