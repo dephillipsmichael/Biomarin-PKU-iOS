@@ -41,7 +41,7 @@ class TaskListScheduleManagerTests: XCTestCase {
     var manager: TaskListScheduleManager = TaskListScheduleManager()
     
     let taskRowEndIndex = 10
-    let rowCount = 11
+    let rowCount = 10
     let sectionCount = 1
     
     override func setUp() {
@@ -98,9 +98,10 @@ class TaskListScheduleManagerTests: XCTestCase {
     
     func testIsSupplementalRowIndex() {
         // Supplemental rows
-        let fitbitRow = manager.supplementalRow(for: IndexPath(row: taskRowEndIndex, section: 0))
-        XCTAssertNotNil(fitbitRow)
-        XCTAssertEqual(TaskListSupplementalRow.ConnectFitbit, fitbitRow)
+        // Re-enable this test if fitbit is re-added
+//        let fitbitRow = manager.supplementalRow(for: IndexPath(row: taskRowEndIndex, section: 0))
+//        XCTAssertNotNil(fitbitRow)
+//        XCTAssertEqual(TaskListSupplementalRow.ConnectFitbit, fitbitRow)
     }
     
     func testSupplementalRowIndex() {
@@ -124,7 +125,7 @@ class TaskListScheduleManagerTests: XCTestCase {
     func testTableRowTitles() {
         // Unknown tasks should be sorted at the end
         // and then the supplemental rows
-        let expectedTitles = ["Finger Tapping", "Resting Tremor", "Kinetic Tremor", "Attentional Blink", "Digital Symbol Substitution", "Go-No-Go", "N-Back", "Spatial Working Memory", "Task Switch", "Unknown Task Title", "Connect Fitbit"]
+        let expectedTitles = ["Finger Tapping", "Resting Tremor", "Kinetic Tremor", "Attentional Blink", "Digital Symbol Substitution", "Go-No-Go", "N-Back", "Spatial Working Memory", "Task Switch", "Unknown Task Title"]
 
         XCTAssertEqual(expectedTitles.count, rowCount)
         for (index) in 0..<rowCount {
