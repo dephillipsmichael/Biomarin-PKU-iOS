@@ -94,6 +94,7 @@ class BrainBaselineManager: NSObject {
 
         // TODO: mdephillips 5/30/19, what props do we need?
         bblProps["study_group"] = ["test_user"]
+        
 //        bridgeUser.dataGroups ?? []
 //        bblProps["study_group"] = dataGroups.contains("test_user") ? "test_user" :
 //            dataGroups.contains("ms_patient") ? "ms" :
