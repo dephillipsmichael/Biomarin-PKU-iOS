@@ -147,8 +147,12 @@ public class TaskListScheduleManager : SBAScheduleManager {
 /// they are not tasks, and go to different places in the app.
 ///
 public enum TaskListSupplementalRow: Int {
-    case ConnectFitbit = 0
-    case RowCount = 1
+    
+    // Uncomment to add fitbit back in
+//    case ConnectFitbit = 0
+//    case RowCount = 1
+    case ConnectFitbit = -1
+    case RowCount = 0
     
     func title() -> String {
         switch self {
