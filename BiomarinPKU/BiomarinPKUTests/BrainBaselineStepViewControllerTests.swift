@@ -33,7 +33,7 @@
 
 import Foundation
 import XCTest
-import BridgeApp
+@testable import BridgeApp
 @testable import BiomarinPKU
 
 class BrainBaselineStepViewControllerTests: XCTestCase {
@@ -64,5 +64,36 @@ class BrainBaselineStepViewControllerTests: XCTestCase {
     func testNibAndBundle() {
         XCTAssertEqual(BrainBaselineStepViewController.nibName, "BrainBaselineStepViewController")
         XCTAssertEqual(BrainBaselineStepViewController.bundle, Bundle(for: BrainBaselineStepViewController.classForCoder()))
+    }
+    
+    func testStepObject() {
+        XCTAssertNotNil(BrainBaselineStepObject.examples())
+        XCTAssertTrue(BrainBaselineStepObject.examples().count > 0)
+        
+        let step = BrainBaselineStepObject(identifier: "foo", testName: "test")
+        do {
+            try step.validate()  // make sure it doesnt throw an error
+        } catch let error {
+            XCTAssertNotNil(error, "\(error)")
+        }
+        
+        let vc = step.instantiateViewController(with: nil)
+        XCTAssertNotNil(vc as? BrainBaselineStepViewController)
+        let result = step.instantiateStepResult()
+        XCTAssertNotNil(result)
+        
+        let answer = result as? RSDAnswerResultObject
+        XCTAssertNotNil(answer)
+        
+        if let answerUnwrapped = answer {
+            XCTAssertEqual(answerUnwrapped.identifier, "userIdentifier")
+            XCTAssertEqual(answerUnwrapped.answerType, .string)
+            
+            let stringValue = answerUnwrapped.value as? String
+            XCTAssertNotNil(answer)
+            if let valueUnwrapped = stringValue {
+                XCTAssertEqual(valueUnwrapped, BrainBaselineManager.bbIdentifier())
+            }
+        }
     }
 }

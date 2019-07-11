@@ -276,8 +276,6 @@ struct BrainBaselineStepObject : RSDStepViewControllerVendor, Decodable {
         let jsonA: [String : RSDJSONValue] = [
             "identifier"   : "Brain Baseline",
             "type"         : "brainBaseline",
-            "title"        : "Attentional Blink",
-            "text"         : "Please tilt your phone",
             "testName"     : "PTBlink-Phone-BioMarin-PKU"
         ]
         return [jsonA]

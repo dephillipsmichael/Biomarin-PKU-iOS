@@ -52,7 +52,32 @@ class PKUCodableStepObjectTests: XCTestCase {
         super.tearDown()
     }
     
-
+    func testBrainBaselinStepObject_Codable() {
+        
+        let json = """
+        {
+            "identifier"   : "foo",
+            "type"         : "brainBaseline",
+            "testName"     : "PTBlink-Phone-BioMarin-PKU"
+        }
+        """.data(using: .utf8)! // our data in native (JSON) format
+        
+        do {
+            
+            let factory = PKUTaskFactory()
+            let decoder = factory.createJSONDecoder()
+            
+            let object = try decoder.decode(BrainBaselineStepObject.self, from: json)
+            
+            XCTAssertEqual(object.identifier, "foo")
+            XCTAssertEqual(object.testName, "PTBlink-Phone-BioMarin-PKU")
+            
+        } catch let err {
+            XCTFail("Failed to decode/encode object: \(err)")
+            return
+        }
+    }
+    
     func testBrainBaselinOverviewStepObject_Codable() {
         
         let json = """
@@ -77,9 +102,8 @@ class PKUCodableStepObjectTests: XCTestCase {
         """.data(using: .utf8)! // our data in native (JSON) format
         
         do {
-            
-            
-            let factory = RSDFactory()
+
+            let factory = PKUTaskFactory()
             let decoder = factory.createJSONDecoder()
             
             let object = try decoder.decode(BrainBaselineOverviewStepObject.self, from: json)
