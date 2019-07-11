@@ -3,10 +3,28 @@
     "schemaIdentifier"          : "Task Switch",
     "steps":
     [
-     {
-     "identifier"   : "Brain Baseline",
-     "type"         : "brainBaseline",
-     "testName"     : "PTTaskSwitching-Phone-BioMarin-PKU"
-     }
+        {
+            "identifier"    : "Overview",
+            "type"          : "brainBaselineOverview",
+            "title"         : "Task Switch",
+            "text"          : "3 minutes",
+            "image":{
+                "type":"fetchable",
+                "imageName": "IconTaskSwitch",
+            },
+            "measurements"  : "How quickly you can alternate between two tasks.",
+            "yourObjective" : "Determine whether the number is high or low.",
+            "instructions"  : "You will be presented a blue box with a number inside it. Your task is to decide whether or not the number is HIGHER or LOWER than the number 5.\n\nNext you will be presented a pink box with a number inside it. Your task is to decide whether the number presented is ODD or EVEN.\n\nLast activity you will be asked to switch between the two previous tasks.",
+            "actions": {
+                "goForward": {
+                    "type": "default",
+                    "buttonTitle" : "Start" },
+            }
+        },
+        {
+            "identifier"   : "Brain Baseline",
+            "type"         : "brainBaseline",
+            "testName"     : "PTTaskSwitching-Phone-BioMarin-PKU"
+        }
     ]
 }

@@ -3,10 +3,28 @@
     "schemaIdentifier"          : "Go No Go",
     "steps":
     [
-     {
-     "identifier"   : "Brain Baseline",
-     "type"         : "brainBaseline",
-     "testName"     : "PTFaceTask-Phone-BioMarin-PKU"
-     }
+        {
+            "identifier"    : "Overview",
+            "type"          : "brainBaselineOverview",
+            "title"         : "Go-No-Go",
+            "text"          : "3 minutes",
+            "image":{
+                "type":"fetchable",
+                "imageName": "IconGoNoGo",
+            },
+            "measurements"  : "Your response speed and impulsivity.",
+            "yourObjective" : "Respond to happy faces and or not respond to sad faces.",
+            "instructions"  : "A small face will be presented on the screen. This face will either be happy or sad. If the face is happy, press either response button as quickly as you can. If the face is sad, DO NOT respond, and wait for the next face.",
+            "actions": {
+                "goForward": {
+                    "type": "default",
+                    "buttonTitle" : "Start" },
+            }
+        },
+        {
+            "identifier"   : "Brain Baseline",
+            "type"         : "brainBaseline",
+            "testName"     : "PTFaceTask-Phone-BioMarin-PKU"
+        }
     ]
 }
