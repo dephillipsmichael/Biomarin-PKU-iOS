@@ -16,10 +16,6 @@
             "yourObjective" : "Remember where dots are displayed in the space.",
             "instructions"  : "Two or three black dots will be presented, then disappear. Try to remember the location of these dots. After a delay, you will be shown a red dot. Respond whether or not the red dot matches the location of any of the black dots.",
             "actions": {
-                "learnMore": {
-                    "type": "videoView",
-                    "buttonTitle" : "See a video of someone doing this measurement.",
-                    "url" : "TODO_NEED_A_VIDEO.mp4" },
                 "goForward": {
                     "type": "default",
                     "buttonTitle" : "Start" },

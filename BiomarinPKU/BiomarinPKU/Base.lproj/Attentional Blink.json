@@ -16,10 +16,6 @@
             "yourObjective" : "A stream of letters will be presented rapidly at the center of the screen. Your task is to watch this stream and watch for two different occurances.",
             "instructions"  : "In the first part of the test, you will watch the stream of letters at the center of the screen and look for the RED letter When the stream ends, you will be asked to respond to the identity of the red letter, which will always be a B, D, or S.\n\nYou will also be asked to watch the screen and look for the letter X within the stream. On some cases, there will be an X in the stream. In other cases, there won’t be an X. You will then be asked if you saw an X or not.",
             "actions": {
-                "learnMore": {
-                    "type": "videoView",
-                    "buttonTitle" : "See a video of someone doing this measurement.",
-                    "url" : "TODO_NEED_A_VIDEO.mp4" },
                 "goForward": {
                     "type": "default",
                     "buttonTitle" : "Start" },

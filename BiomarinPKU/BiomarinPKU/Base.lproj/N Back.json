@@ -16,10 +16,6 @@
             "yourObjective" : "Determine whether the current letter matches the previous letter.",
             "instructions"  : "A sequence of letters will be presented, one after the other. Your task is to respond to whether the current letter matches the one presented before it.",
             "actions": {
-                "learnMore": {
-                    "type": "videoView",
-                    "buttonTitle" : "See a video of someone doing this measurement.",
-                    "url" : "TODO_NEED_A_VIDEO.mp4" },
                 "goForward": {
                     "type": "default",
                     "buttonTitle" : "Start" },
