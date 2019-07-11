@@ -20,6 +20,10 @@
 		CB55116322A0D34F0036CD6F /* Spatial Memory.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115D22A0D34E0036CD6F /* Spatial Memory.json */; };
 		CB55116422A0D34F0036CD6F /* Go No Go.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115F22A0D34E0036CD6F /* Go No Go.json */; };
 		CB80522122D6AF1E0050E834 /* PKUSurveyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */; };
+		CB6836C922D44A040001066A /* BrainBaselineOverviewStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */; };
+		CB6836CB22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */; };
+		CB9DBB4A22D658BD00F89E77 /* PKUCodableStepObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */; };
+		CB9DBB4C22D658D300F89E77 /* PKUCopyStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */; };
 		CBD4F70722A4670B000C402F /* Task Switch.json in Resources */ = {isa = PBXBuildFile; fileRef = CBD4F70522A4670B000C402F /* Task Switch.json */; };
 		CBD4F71C22A496D3000C402F /* EmojiChoiceTableStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */; };
 		CBD4F73322A84B9E000C402F /* SurveyStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */; };
@@ -102,6 +106,10 @@
 		CB55115E22A0D34E0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Spatial Memory.json"; sourceTree = "<group>"; };
 		CB55116022A0D34F0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Go No Go.json"; sourceTree = "<group>"; };
 		CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKUSurveyConfiguration.swift; sourceTree = "<group>"; };
+		CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrainBaselineOverviewStepViewController.xib; sourceTree = "<group>"; };
+		CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineOverviewStepViewController.swift; sourceTree = "<group>"; };
+		CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCodableStepObjectTests.swift; sourceTree = "<group>"; };
+		CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCopyStepTests.swift; sourceTree = "<group>"; };
 		CBD4F70622A4670B000C402F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Task Switch.json"; sourceTree = "<group>"; };
 		CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiChoiceTableStepViewController.swift; sourceTree = "<group>"; };
 		CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyStepViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +180,8 @@
 				CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */,
 				CB55110A22A095440036CD6F /* BrainBaselineStepViewController.swift */,
 				CB55111822A0A11C0036CD6F /* BrainBaselineStepViewController.xib */,
+				CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */,
+				CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */,
 			);
 			name = BrainBaseline;
 			sourceTree = "<group>";
@@ -264,6 +274,8 @@
 		F806118D227BA027005FCABF /* BiomarinPKUTests */ = {
 			isa = PBXGroup;
 			children = (
+				CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */,
+				CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */,
 				F806118E227BA027005FCABF /* TaskListScheduleManagerTests.swift */,
 				F8061190227BA027005FCABF /* Info.plist */,
 			);
@@ -431,6 +443,7 @@
 				CBF8CB76229065670089BDF0 /* PKU.strings in Resources */,
 				CB55113822A0B7ED0036CD6F /* Attentional Blink.json in Resources */,
 				CBF8CB53228F844E0089BDF0 /* lato_light.ttf in Resources */,
+				CB6836C922D44A040001066A /* BrainBaselineOverviewStepViewController.xib in Resources */,
 				CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */,
 				CBF8CB54228F844E0089BDF0 /* lato_lightitalic.ttf in Resources */,
 				CB55116322A0D34F0036CD6F /* Spatial Memory.json in Resources */,
@@ -485,6 +498,7 @@
 				CB80522122D6AF1E0050E834 /* PKUSurveyConfiguration.swift in Sources */,
 				CBF8CB5C229053A40089BDF0 /* PKUBuildDateUtil.m in Sources */,
 				CBD4F71C22A496D3000C402F /* EmojiChoiceTableStepViewController.swift in Sources */,
+				CB6836CB22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift in Sources */,
 				CBD4F73322A84B9E000C402F /* SurveyStepViewController.swift in Sources */,
 				CBD4F73522A8BB0E000C402F /* LearnMoreStepViewController.swift in Sources */,
 				F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */,
@@ -498,6 +512,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F806118F227BA027005FCABF /* TaskListScheduleManagerTests.swift in Sources */,
+				CB9DBB4C22D658D300F89E77 /* PKUCopyStepTests.swift in Sources */,
+				CB9DBB4A22D658BD00F89E77 /* PKUCodableStepObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

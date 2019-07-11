@@ -3,10 +3,28 @@
     "schemaIdentifier"          : "Spatial Memory",
     "steps":
     [
-     {
-     "identifier"   : "Brain Baseline",
-     "type"         : "brainBaseline",
-     "testName"     : "PTSPWM-Phone-BioMarin-PKU"
-     }
+        {
+            "identifier"    : "Overview",
+            "type"          : "brainBaselineOverview",
+            "title"         : "Spatial Working Memory",
+            "text"          : "3 minutes",
+            "image":{
+                "type":"fetchable",
+                "imageName": "IconSpatialMemory",
+            },
+            "measurements"  : "Your ability to remember the location of a target in space.",
+            "yourObjective" : "Remember where dots are displayed in the space.",
+            "instructions"  : "Two or three black dots will be presented, then disappear. Try to remember the location of these dots. After a delay, you will be shown a red dot. Respond whether or not the red dot matches the location of any of the black dots.",
+            "actions": {
+                "goForward": {
+                    "type": "default",
+                    "buttonTitle" : "Start" },
+            }
+        },
+        {
+            "identifier"   : "Brain Baseline",
+            "type"         : "brainBaseline",
+            "testName"     : "PTSPWM-Phone-BioMarin-PKU"
+        }
     ]
 }
