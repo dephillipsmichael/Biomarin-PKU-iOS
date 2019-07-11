@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB46274C22D7843400AD79B1 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */; };
 		CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
 		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
 		CB5510F422A091B40036CD6F /* BrainBaseline.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -22,6 +23,8 @@
 		CB80522122D6AF1E0050E834 /* PKUSurveyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */; };
 		CB6836C922D44A040001066A /* BrainBaselineOverviewStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */; };
 		CB6836CB22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */; };
+		CB80522322D6E84F0050E834 /* BrainBaselinManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522222D6E84F0050E834 /* BrainBaselinManagerTests.swift */; };
+		CB80522522D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522422D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift */; };
 		CB9DBB4A22D658BD00F89E77 /* PKUCodableStepObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */; };
 		CB9DBB4C22D658D300F89E77 /* PKUCopyStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */; };
 		CBD4F70722A4670B000C402F /* Task Switch.json in Resources */ = {isa = PBXBuildFile; fileRef = CBD4F70522A4670B000C402F /* Task Switch.json */; };
@@ -94,6 +97,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
 		CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrainBaseline.framework; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 		CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKUSurveyConfiguration.swift; sourceTree = "<group>"; };
 		CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrainBaselineOverviewStepViewController.xib; sourceTree = "<group>"; };
 		CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineOverviewStepViewController.swift; sourceTree = "<group>"; };
+		CB80522222D6E84F0050E834 /* BrainBaselinManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselinManagerTests.swift; sourceTree = "<group>"; };
+		CB80522422D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineStepViewControllerTests.swift; sourceTree = "<group>"; };
 		CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCodableStepObjectTests.swift; sourceTree = "<group>"; };
 		CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCopyStepTests.swift; sourceTree = "<group>"; };
 		CBD4F70622A4670B000C402F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Task Switch.json"; sourceTree = "<group>"; };
@@ -274,9 +280,12 @@
 		F806118D227BA027005FCABF /* BiomarinPKUTests */ = {
 			isa = PBXGroup;
 			children = (
+				CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */,
 				CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */,
 				CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */,
 				F806118E227BA027005FCABF /* TaskListScheduleManagerTests.swift */,
+				CB80522222D6E84F0050E834 /* BrainBaselinManagerTests.swift */,
+				CB80522422D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift */,
 				F8061190227BA027005FCABF /* Info.plist */,
 			);
 			path = BiomarinPKUTests;
@@ -511,8 +520,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB80522522D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift in Sources */,
 				F806118F227BA027005FCABF /* TaskListScheduleManagerTests.swift in Sources */,
+				CB80522322D6E84F0050E834 /* BrainBaselinManagerTests.swift in Sources */,
 				CB9DBB4C22D658D300F89E77 /* PKUCopyStepTests.swift in Sources */,
+				CB46274C22D7843400AD79B1 /* AppDelegateTests.swift in Sources */,
 				CB9DBB4A22D658BD00F89E77 /* PKUCodableStepObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
