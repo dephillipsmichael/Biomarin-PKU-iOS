@@ -67,6 +67,57 @@
 		F8087BAD227BEB95005BDDEC /* TaskListScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */; };
 		F83EEBBC229DA96500476F7F /* ResearchMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; };
 		F83EEBBD229DA96500476F7F /* ResearchMotion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF3CC63022D7BAA70037E65B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3CC62F22D7BAA70037E65B /* ViewController.swift */; };
+		FF3CC63322D7BAA70037E65B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC63122D7BAA70037E65B /* Main.storyboard */; };
+		FF3CC63E22D7BEF60037E65B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8061179227BA025005FCABF /* AppDelegate.swift */; };
+		FF3CC63F22D7BEF90037E65B /* PKUTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55114322A0B9920036CD6F /* PKUTaskFactory.swift */; };
+		FF3CC64022D7BEFD0037E65B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8061180227BA026005FCABF /* Assets.xcassets */; };
+		FF3CC64122D7C1B70037E65B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8061182227BA026005FCABF /* LaunchScreen.storyboard */; };
+		FF3CC64222D7C1FB0037E65B /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
+		FF3CC64322D7C1FB0037E65B /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
+		FF3CC64422D7C1FB0037E65B /* lato_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */; };
+		FF3CC64522D7C1FB0037E65B /* lato_italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB46228F84460089BDF0 /* lato_italic.ttf */; };
+		FF3CC64622D7C1FB0037E65B /* lato_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB47228F84470089BDF0 /* lato_light.ttf */; };
+		FF3CC64722D7C1FB0037E65B /* lato_lightitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB4B228F84480089BDF0 /* lato_lightitalic.ttf */; };
+		FF3CC64822D7C1FB0037E65B /* lato_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB48228F84470089BDF0 /* lato_regular.ttf */; };
+		FF3CC64922D7C2100037E65B /* PKUBuildDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF8CB5B229053A40089BDF0 /* PKUBuildDateUtil.m */; };
+		FF3CC64A22D7C2AA0037E65B /* PKU.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB75229065670089BDF0 /* PKU.strings */; };
+		FF3CC64B22D7C2B00037E65B /* Attentional Blink.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55113622A0B7ED0036CD6F /* Attentional Blink.json */; };
+		FF3CC64C22D7C2B00037E65B /* Symbol Substitution.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115B22A0D34E0036CD6F /* Symbol Substitution.json */; };
+		FF3CC64D22D7C2B00037E65B /* Go No Go.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115F22A0D34E0036CD6F /* Go No Go.json */; };
+		FF3CC64E22D7C2B00037E65B /* N Back.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115922A0D34E0036CD6F /* N Back.json */; };
+		FF3CC64F22D7C2B00037E65B /* Spatial Memory.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115D22A0D34E0036CD6F /* Spatial Memory.json */; };
+		FF3CC65022D7C2B00037E65B /* Task Switch.json in Resources */ = {isa = PBXBuildFile; fileRef = CBD4F70522A4670B000C402F /* Task Switch.json */; };
+		FF3CC65122D7C2BD0037E65B /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
+		FF3CC65222D7C2C80037E65B /* ExternalIDRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA3227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift */; };
+		FF3CC65322D7C2C80037E65B /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */; };
+		FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */; };
+		FF3CC65522D7C2C80037E65B /* SurveyStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */; };
+		FF3CC65622D7C2C80037E65B /* LearnMoreStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */; };
+		FF3CC65722D7C2D30037E65B /* MotorControl+Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */; };
+		FF3CC65822D7C2D30037E65B /* TaskListScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */; };
+		FF3CC65922D7C2D30037E65B /* PKUSurveyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */; };
+		FF3CC65B22D7C31A0037E65B /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC65A22D7C31A0037E65B /* BridgeInfo.plist */; };
+		FF3CC65D22D7C3300037E65B /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC65C22D7C3300037E65B /* BridgeInfo-private.plist */; };
+		FF3CC65F22D7C3430037E65B /* biomarin-pku-study.pem in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC65E22D7C3420037E65B /* biomarin-pku-study.pem */; };
+		FF3CC66022D7C5700037E65B /* BrainBaseline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */; };
+		FF3CC66122D7C5700037E65B /* BrainBaseline.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF3CC66222D7C5700037E65B /* ResearchUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B81227BC7B2005BDDEC /* ResearchUI.framework */; };
+		FF3CC66322D7C5710037E65B /* ResearchUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B81227BC7B2005BDDEC /* ResearchUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF3CC66422D7C5710037E65B /* Research.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B7E227BC7B2005BDDEC /* Research.framework */; };
+		FF3CC66522D7C5710037E65B /* Research.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B7E227BC7B2005BDDEC /* Research.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF3CC66622D7C5710037E65B /* MotorControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B7B227BC7B2005BDDEC /* MotorControl.framework */; };
+		FF3CC66722D7C5710037E65B /* MotorControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B7B227BC7B2005BDDEC /* MotorControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF3CC66822D7C5710037E65B /* BridgeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B78227BC7B2005BDDEC /* BridgeApp.framework */; };
+		FF3CC66922D7C5710037E65B /* BridgeApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B78227BC7B2005BDDEC /* BridgeApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF3CC66A22D7C5710037E65B /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */; };
+		FF3CC66B22D7C5710037E65B /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF3CC66D22D7C5A10037E65B /* ResearchMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; };
+		FF3CC66E22D7C5A10037E65B /* ResearchMotion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF3CC66F22D7C6600037E65B /* BrainBaselineStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55110A22A095440036CD6F /* BrainBaselineStepViewController.swift */; };
+		FF3CC67022D7C6710037E65B /* BrainBaselineStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB55111822A0A11C0036CD6F /* BrainBaselineStepViewController.xib */; };
+		FF3CC67122D7C6710037E65B /* BrainBaselineOverviewStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */; };
+		FF3CC67222D7C6710037E65B /* BrainBaselineOverviewStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +144,23 @@
 				F83EEBBD229DA96500476F7F /* ResearchMotion.framework in Embed Frameworks */,
 				F8087B80227BC7B2005BDDEC /* Research.framework in Embed Frameworks */,
 				F8087B83227BC7B2005BDDEC /* ResearchUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF3CC66C22D7C5710037E65B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FF3CC66922D7C5710037E65B /* BridgeApp.framework in Embed Frameworks */,
+				FF3CC66722D7C5710037E65B /* MotorControl.framework in Embed Frameworks */,
+				FF3CC66B22D7C5710037E65B /* BridgeSDK.framework in Embed Frameworks */,
+				FF3CC66E22D7C5A10037E65B /* ResearchMotion.framework in Embed Frameworks */,
+				FF3CC66122D7C5700037E65B /* BrainBaseline.framework in Embed Frameworks */,
+				FF3CC66522D7C5710037E65B /* Research.framework in Embed Frameworks */,
+				FF3CC66322D7C5710037E65B /* ResearchUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +227,13 @@
 		F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MotorControl+Bridge.swift"; sourceTree = "<group>"; };
 		F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListScheduleManager.swift; sourceTree = "<group>"; };
 		F83EEBBB229DA96500476F7F /* ResearchMotion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchMotion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF3CC62B22D7BAA60037E65B /* BiomarinPKU-Study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BiomarinPKU-Study.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF3CC62F22D7BAA70037E65B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF3CC63222D7BAA70037E65B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FF3CC63922D7BAA70037E65B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF3CC65A22D7C31A0037E65B /* BridgeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BridgeInfo.plist; sourceTree = "<group>"; };
+		FF3CC65C22D7C3300037E65B /* BridgeInfo-private.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private.plist"; sourceTree = "<group>"; };
+		FF3CC65E22D7C3420037E65B /* biomarin-pku-study.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "biomarin-pku-study.pem"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +255,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF3CC62822D7BAA60037E65B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF3CC66822D7C5710037E65B /* BridgeApp.framework in Frameworks */,
+				FF3CC66622D7C5710037E65B /* MotorControl.framework in Frameworks */,
+				FF3CC66A22D7C5710037E65B /* BridgeSDK.framework in Frameworks */,
+				FF3CC66D22D7C5A10037E65B /* ResearchMotion.framework in Frameworks */,
+				FF3CC66022D7C5700037E65B /* BrainBaseline.framework in Frameworks */,
+				FF3CC66422D7C5710037E65B /* Research.framework in Frameworks */,
+				FF3CC66222D7C5700037E65B /* ResearchUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,9 +346,9 @@
 		F806116D227BA025005FCABF = {
 			isa = PBXGroup;
 			children = (
-				F83EEBBB229DA96500476F7F /* ResearchMotion.framework */,
 				CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */,
 				F8061178227BA025005FCABF /* BiomarinPKU */,
+				FF3CC62C22D7BAA70037E65B /* BiomarinPKU-Study */,
 				F806118D227BA027005FCABF /* BiomarinPKUTests */,
 				F8087B88227BC7CB005BDDEC /* Frameworks */,
 				F8061177227BA025005FCABF /* Products */,
@@ -271,6 +360,7 @@
 			children = (
 				F8061176227BA025005FCABF /* BiomarinPKU.app */,
 				F806118A227BA027005FCABF /* BiomarinPKUTests.xctest */,
+				FF3CC62B22D7BAA60037E65B /* BiomarinPKU-Study.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -314,6 +404,7 @@
 				CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */,
 				F8087B81227BC7B2005BDDEC /* ResearchUI.framework */,
 				F8087B7E227BC7B2005BDDEC /* Research.framework */,
+				F83EEBBB229DA96500476F7F /* ResearchMotion.framework */,
 				F8087B7B227BC7B2005BDDEC /* MotorControl.framework */,
 				F8087B78227BC7B2005BDDEC /* BridgeApp.framework */,
 				F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */,
@@ -353,6 +444,27 @@
 				CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		FF3CC62C22D7BAA70037E65B /* BiomarinPKU-Study */ = {
+			isa = PBXGroup;
+			children = (
+				FF3CC62F22D7BAA70037E65B /* ViewController.swift */,
+				FF3CC63122D7BAA70037E65B /* Main.storyboard */,
+				FF3CC63D22D7BB4D0037E65B /* Support Files */,
+			);
+			path = "BiomarinPKU-Study";
+			sourceTree = "<group>";
+		};
+		FF3CC63D22D7BB4D0037E65B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF3CC65E22D7C3420037E65B /* biomarin-pku-study.pem */,
+				FF3CC65C22D7C3300037E65B /* BridgeInfo-private.plist */,
+				FF3CC65A22D7C31A0037E65B /* BridgeInfo.plist */,
+				FF3CC63922D7BAA70037E65B /* Info.plist */,
+			);
+			name = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,6 +507,24 @@
 			productReference = F806118A227BA027005FCABF /* BiomarinPKUTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FF3CC62A22D7BAA60037E65B /* BiomarinPKU-Study */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF3CC63C22D7BAA70037E65B /* Build configuration list for PBXNativeTarget "BiomarinPKU-Study" */;
+			buildPhases = (
+				FF3CC62722D7BAA60037E65B /* Sources */,
+				FF3CC62822D7BAA60037E65B /* Frameworks */,
+				FF3CC62922D7BAA60037E65B /* Resources */,
+				FF3CC66C22D7C5710037E65B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BiomarinPKU-Study";
+			productName = "BiomarinPKU-Study";
+			productReference = FF3CC62B22D7BAA60037E65B /* BiomarinPKU-Study.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -430,6 +560,9 @@
 						CreatedOnToolsVersion = 10.2;
 						TestTargetID = F8061175227BA025005FCABF;
 					};
+					FF3CC62A22D7BAA60037E65B = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 				};
 			};
 			buildConfigurationList = F8061171227BA025005FCABF /* Build configuration list for PBXProject "BiomarinPKU" */;
@@ -446,6 +579,7 @@
 			projectRoot = "";
 			targets = (
 				F8061175227BA025005FCABF /* BiomarinPKU */,
+				FF3CC62A22D7BAA60037E65B /* BiomarinPKU-Study */,
 				F8061189227BA027005FCABF /* BiomarinPKUTests */,
 			);
 		};
@@ -489,6 +623,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF3CC62922D7BAA60037E65B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF3CC67022D7C6710037E65B /* BrainBaselineStepViewController.xib in Resources */,
+				FF3CC64D22D7C2B00037E65B /* Go No Go.json in Resources */,
+				FF3CC65B22D7C31A0037E65B /* BridgeInfo.plist in Resources */,
+				FF3CC64522D7C1FB0037E65B /* lato_italic.ttf in Resources */,
+				FF3CC64F22D7C2B00037E65B /* Spatial Memory.json in Resources */,
+				FF3CC67222D7C6710037E65B /* BrainBaselineOverviewStepViewController.xib in Resources */,
+				FF3CC64622D7C1FB0037E65B /* lato_light.ttf in Resources */,
+				FF3CC65022D7C2B00037E65B /* Task Switch.json in Resources */,
+				FF3CC64122D7C1B70037E65B /* LaunchScreen.storyboard in Resources */,
+				FF3CC64A22D7C2AA0037E65B /* PKU.strings in Resources */,
+				FF3CC64022D7BEFD0037E65B /* Assets.xcassets in Resources */,
+				FF3CC64322D7C1FB0037E65B /* lato_bold.ttf in Resources */,
+				FF3CC64422D7C1FB0037E65B /* lato_bolditalic.ttf in Resources */,
+				FF3CC64722D7C1FB0037E65B /* lato_lightitalic.ttf in Resources */,
+				FF3CC64222D7C1FB0037E65B /* lato_black.ttf in Resources */,
+				FF3CC64B22D7C2B00037E65B /* Attentional Blink.json in Resources */,
+				FF3CC63322D7BAA70037E65B /* Main.storyboard in Resources */,
+				FF3CC64C22D7C2B00037E65B /* Symbol Substitution.json in Resources */,
+				FF3CC64822D7C1FB0037E65B /* lato_regular.ttf in Resources */,
+				FF3CC65D22D7C3300037E65B /* BridgeInfo-private.plist in Resources */,
+				FF3CC65F22D7C3430037E65B /* biomarin-pku-study.pem in Resources */,
+				FF3CC64E22D7C2B00037E65B /* N Back.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +709,28 @@
 				CB9DBB4C22D658D300F89E77 /* PKUCopyStepTests.swift in Sources */,
 				CB46274C22D7843400AD79B1 /* AppDelegateTests.swift in Sources */,
 				CB9DBB4A22D658BD00F89E77 /* PKUCodableStepObjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF3CC62722D7BAA60037E65B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF3CC65622D7C2C80037E65B /* LearnMoreStepViewController.swift in Sources */,
+				FF3CC67122D7C6710037E65B /* BrainBaselineOverviewStepViewController.swift in Sources */,
+				FF3CC63F22D7BEF90037E65B /* PKUTaskFactory.swift in Sources */,
+				FF3CC65122D7C2BD0037E65B /* BrainBaselineManager.swift in Sources */,
+				FF3CC65822D7C2D30037E65B /* TaskListScheduleManager.swift in Sources */,
+				FF3CC64922D7C2100037E65B /* PKUBuildDateUtil.m in Sources */,
+				FF3CC65922D7C2D30037E65B /* PKUSurveyConfiguration.swift in Sources */,
+				FF3CC63E22D7BEF60037E65B /* AppDelegate.swift in Sources */,
+				FF3CC63022D7BAA70037E65B /* ViewController.swift in Sources */,
+				FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */,
+				FF3CC65522D7C2C80037E65B /* SurveyStepViewController.swift in Sources */,
+				FF3CC65322D7C2C80037E65B /* TaskListTableViewController.swift in Sources */,
+				FF3CC65222D7C2C80037E65B /* ExternalIDRegistrationViewController.swift in Sources */,
+				FF3CC66F22D7C6600037E65B /* BrainBaselineStepViewController.swift in Sources */,
+				FF3CC65722D7C2D30037E65B /* MotorControl+Bridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +807,14 @@
 				F8061183227BA026005FCABF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FF3CC63122D7BAA70037E65B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF3CC63222D7BAA70037E65B /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -760,7 +953,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.sagebionetworks.BiomarinPKU;
+				PRODUCT_BUNDLE_IDENTIFIER = org.sagebionetworks.BiomarinPKU.studyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.sagebionetworks.BiomarinPKU";
 				SWIFT_OBJC_BRIDGING_HEADER = "BiomarinPKU/BiomarinPKU-Bridging-Header.h";
@@ -788,7 +981,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.sagebionetworks.BiomarinPKU;
+				PRODUCT_BUNDLE_IDENTIFIER = org.sagebionetworks.BiomarinPKU.studyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Distribution org.sagebionetworks.BiomarinPKU";
 				SWIFT_OBJC_BRIDGING_HEADER = "BiomarinPKU/BiomarinPKU-Bridging-Header.h";
@@ -839,6 +1032,52 @@
 			};
 			name = Release;
 		};
+		FF3CC63A22D7BAA70037E65B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KA9Z8R6M6K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = "BiomarinPKU-Study/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.sageBionetworks.BiomarinPKU.studyApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BiomarinPKU/BiomarinPKU-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF3CC63B22D7BAA70037E65B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KA9Z8R6M6K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = "BiomarinPKU-Study/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.sageBionetworks.BiomarinPKU.studyApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BiomarinPKU/BiomarinPKU-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -865,6 +1104,15 @@
 			buildConfigurations = (
 				F8061197227BA027005FCABF /* Debug */,
 				F8061198227BA027005FCABF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF3CC63C22D7BAA70037E65B /* Build configuration list for PBXNativeTarget "BiomarinPKU-Study" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF3CC63A22D7BAA70037E65B /* Debug */,
+				FF3CC63B22D7BAA70037E65B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
