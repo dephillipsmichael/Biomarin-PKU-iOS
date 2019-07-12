@@ -144,24 +144,19 @@ public class TaskListScheduleManager : SBAScheduleManager {
     /// Setup the step view model and preform step customization
     open func customizeStepViewModel(stepModel: RSDStepViewModel) {
         if let overviewStep = stepModel.step as? RSDOverviewStepObject {
-            customizeOverviewStepViewModel(stepModel: stepModel, step: overviewStep)
-        }
-    }
-    
-    // Customize MCT task overview steps
-    open func customizeOverviewStepViewModel(stepModel: RSDStepViewModel, step: RSDOverviewStepObject) {
-        if let overviewLearnMoreAction = mctOverviewLearnMoreAction(for: stepModel.parent?.identifier) {
-            // Overview steps can have a learn more link to a video
-            // This is not included in the MCT framework because
-            // they are specific to the PKU project, so we must add it here
-            step.actions?[.navigation(.learnMore)] = overviewLearnMoreAction
+            if let overviewLearnMoreAction = mctOverviewLearnMoreAction(for: stepModel.parent?.identifier ?? "") {
+                // Overview steps can have a learn more link to a video
+                // This is not included in the MCT framework because
+                // they are specific to the PKU project, so we must add it here
+                overviewStep.actions?[.navigation(.learnMore)] = overviewLearnMoreAction
+            }
         }
     }
     
     /// Get the learn more video url for the overview screen of the task
-    open func mctOverviewLearnMoreAction(for taskIdentifier: String?) -> RSDVideoViewUIActionObject? {
+    open func mctOverviewLearnMoreAction(for taskIdentifier: String) -> RSDVideoViewUIActionObject? {
         let videoUrl: String? = {
-            switch (taskIdentifier ?? "") {
+            switch (taskIdentifier) {
             case MCTTaskIdentifier.tapping.rawValue:
                 return "Tapping.mp4"
             case MCTTaskIdentifier.tremor.rawValue:
