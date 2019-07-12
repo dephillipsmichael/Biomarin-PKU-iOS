@@ -176,6 +176,7 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
                 return nil
             }
         }()
+        self.scheduleManager.customizeStepViewModel(stepModel: stepModel)
         vc?.stepViewModel = stepModel
         vc?.designSystem = AppDelegate.designSystem
         return vc

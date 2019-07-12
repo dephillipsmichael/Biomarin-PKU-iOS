@@ -33,6 +33,7 @@
 
 import Foundation
 import BridgeApp
+import MotorControl
 
 /// Subclass the schedule manager to set up a predicate to filter the schedules.
 public class TaskListScheduleManager : SBAScheduleManager {
@@ -138,6 +139,38 @@ public class TaskListScheduleManager : SBAScheduleManager {
         } else { // is supplemental row
             return supplementalRow(for: indexPath)?.title()
         }
+    }
+    
+    /// Setup the step view model and preform step customization
+    open func customizeStepViewModel(stepModel: RSDStepViewModel) {
+        if let overviewStep = stepModel.step as? RSDOverviewStepObject {
+            if let overviewLearnMoreAction = mctOverviewLearnMoreAction(for: stepModel.parent?.identifier ?? "") {
+                // Overview steps can have a learn more link to a video
+                // This is not included in the MCT framework because
+                // they are specific to the PKU project, so we must add it here
+                overviewStep.actions?[.navigation(.learnMore)] = overviewLearnMoreAction
+            }
+        }
+    }
+    
+    /// Get the learn more video url for the overview screen of the task
+    open func mctOverviewLearnMoreAction(for taskIdentifier: String) -> RSDVideoViewUIActionObject? {
+        let videoUrl: String? = {
+            switch (taskIdentifier) {
+            case MCTTaskIdentifier.tapping.rawValue:
+                return "Tapping.mp4"
+            case MCTTaskIdentifier.tremor.rawValue:
+                return "Tremor.mp4"
+            case MCTTaskIdentifier.kineticTremor.rawValue:
+                return "KineticTremor.mp4"
+            default:
+                return nil
+            }
+        }()
+        
+        guard let videoUrlUnwrapped = videoUrl else { return nil }
+        
+        return RSDVideoViewUIActionObject(url: videoUrlUnwrapped, buttonTitle: Localization.localizedString("SEE_THIS_IN_ACTION"), bundleIdentifier: Bundle.main.bundleIdentifier)
     }
 }
 

@@ -32,6 +32,7 @@
 //
 
 import XCTest
+import BridgeSDK
 import BridgeApp
 @testable import BiomarinPKU
 
@@ -132,6 +133,30 @@ class TaskListScheduleManagerTests: XCTestCase {
             let title = manager.title(for: IndexPath(row: index, section: 0))
             XCTAssertEqual(expectedTitles[index], title)
         }
+    }
+    
+    func testLearnMoreMctOverview() {
+        let tappingAction = manager.mctOverviewLearnMoreAction(for: "Tapping")
+        XCTAssertNotNil(tappingAction)
+        XCTAssertEqual(tappingAction?.buttonTitle, "See this in action")
+        XCTAssertEqual(tappingAction?.url, "Tapping.mp4")
+        
+        let tremorAction = manager.mctOverviewLearnMoreAction(for: "Tremor")
+        XCTAssertNotNil(tremorAction)
+        XCTAssertEqual(tremorAction?.buttonTitle, "See this in action")
+        XCTAssertEqual(tremorAction?.url, "Tremor.mp4")
+        
+        let kineticAction = manager.mctOverviewLearnMoreAction(for: "Kinetic Tremor")
+        XCTAssertNotNil(kineticAction)
+        XCTAssertEqual(kineticAction?.buttonTitle, "See this in action")
+        XCTAssertEqual(kineticAction?.url, "KineticTremor.mp4")
+        
+        let checkinAction = manager.mctOverviewLearnMoreAction(for: "Sleep Check-In")
+        XCTAssertNil(checkinAction)
+    }
+    
+    func testCustomizeOverviewStepViewModel() {
+        
     }
 }
 
