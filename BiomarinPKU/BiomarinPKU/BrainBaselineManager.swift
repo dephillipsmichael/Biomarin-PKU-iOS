@@ -43,97 +43,18 @@ import BrainBaseline
 
 class BrainBaselineManager: NSObject {
     
-    #if DEBUG
-    static let studyId = "biomarin-pku-dev"
-    #else
-    static let studyId = "biomarin-pku"
-    #endif
+    static let studyId = "biomarin-pku-screening-no-upload"
     
     static let studyBundle: Bundle = {
         let studyBundlePath = Bundle.main.path(forResource: "BBLStudy-BioMarin-PKU", ofType: "bundle")!
         return Bundle(path: studyBundlePath)!
     }()
-
+    
     static let brainBaselineContext: BBLContext = {
         return BBLContext(studyId: studyId, resourceBundle: studyBundle, serverInfo: BBLServerInfo.default())
     }()
     
-    class func getUser() -> BBLUser {
-        // Get the current user
-        let userName = bbIdentifier() ?? "TestUser"
-        var user = BBLUser.existingUser(withName: userName, in: self.brainBaselineContext)
-        if (user == nil) {
-            user = BBLUser.newUser(withName: userName, in: self.brainBaselineContext)
-            let properties = brainBaselineProperties()
-            for (key, value) in properties {
-                user!.setProperty(key, value: value)
-            }
-        } else {
-            let properties = brainBaselineProperties()
-            for (key, value) in properties {
-                user!.setProperty(key, value: value)
-            }
-        }
-        return user!
-    }
-    
     class func bbIdentifier() -> String? {
-        // Create a unique identifier by hashing the health code (if available)
-        guard let healthCode = SBAParticipantManager.shared.studyParticipant?.healthCode,
-            let data = healthCode.data(using: .utf8)
-            else {
-                return nil
-        }
-        
-        // If the md5 was created then return that
-        return (data as NSData).hexMD5()
-    }
-    
-    class func brainBaselineProperties() -> [String: Any] {
-        var bblProps = [String: Any]()
-
-        // TODO: mdephillips 5/30/19, what props do we need?
-        bblProps["study_group"] = ["test_user"]
-        
-//        bridgeUser.dataGroups ?? []
-//        bblProps["study_group"] = dataGroups.contains("test_user") ? "test_user" :
-//            dataGroups.contains("ms_patient") ? "ms" :
-//        "control"
-
-        // if user has consented we will have their birthdate (at least the year).
-//        let year = Calendar.current.component(.year, from: bridgeUser.birthdate!)
-//        bblProps["birth_year"] = year.description
-//
-//        let gender = SBAProfileManager.shared?.value(forProfileKey: SBAProfileInfoOption.gender.rawValue)
-//        let genderString: String? = (gender as? String) ?? ((gender as? HKBiologicalSex)?.demographicDataValue as String?)
-//        if genderString != nil {
-//            bblProps["gender"] = genderString
-//        }
-//
-//        var bbl_education: String? = nil
-//        if let education = SBAProfileManager.shared?.value(forProfileKey: "education") as? String {
-//            switch education {
-//            case "Some_high_school":
-//                bbl_education = "Some High School"
-//            case "High_school_diploma_GED":
-//                bbl_education = "High School"
-//            case "Some_college":
-//                bbl_education = "Some College"
-//            case "College_degree":
-//                bbl_education = "Bachelor's Degree"
-//            case "Post-graduate_Degree":
-//                bbl_education = "Graduate Degree"
-//            case "Other":
-//                bbl_education = "Other"
-//            default:
-//                assertionFailure("Unrecognized education value: \(education)")
-//                break
-//            }
-//        }
-//        if bbl_education != nil {
-//            bblProps["education"] = bbl_education
-//        }
-
-        return bblProps
+        return nil
     }
 }
