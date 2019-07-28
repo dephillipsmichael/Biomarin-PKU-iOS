@@ -35,10 +35,6 @@ import UIKit
 import BridgeApp
 import BridgeSDK
 import Research
-import SafariServices
-import BrainBaseline
-
-typealias FitbitCompletionHandler = (_ accessToken: String?, _ error: Error?) -> ()
 
 @UIApplicationMain
 class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
@@ -53,27 +49,13 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     static let designSystem = RSDDesignSystem(version: 1,
                                               colorRules: PKUColorRules(palette: colorPalette, version: 1),
                                               fontRules: PKUFontRules(version: 1))
-    
-    /**
-     TODO: mdephillips 5/24/19
-     This component of the code that CRF was using, SFAuthenticationSession,
-     is now deprecated in iOS 12.  We may need to migrate to Apple’s new component
-     for oauth at some point.
-     See https://ajkueterman.com/apple/wwdc/sfauthenticationsession-and-aswebauthenticationsession/
-     */
-    var authSession: SFAuthenticationSession?
-    var fitbitCompletionHandler: FitbitCompletionHandler?
 
     override func instantiateColorPalette() -> RSDColorPalette? {
         return AppDelegate.colorPalette
     }
     
     func showAppropriateViewController(animated: Bool) {
-        if BridgeSDK.authManager.isAuthenticated() {
-            showMainViewController(animated: animated)
-        } else {
-            showSignInViewController(animated: animated)
-        }
+        showMainViewController(animated: animated)
     }
     
     override func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
@@ -86,26 +68,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         RSDStudyConfiguration.shared.fontRules = PKUFontRules(version: 0)
         
         // Setup reminders
-        RSDStudyConfiguration.shared.shouldShowRemindMe = true
-        
-        // Set our custom survey configuration
-        SBASurveyConfiguration.shared = PKUSurveyConfiguration()
-        
-        // Register for BrainBasline results
-        let bblContext = BrainBaselineManager.brainBaselineContext
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.BBLContextDidUpdatePsychTestResult, object: bblContext, queue: OperationQueue.main) { (note) in
-            guard let resultId = note.userInfo?[BBLContextDidUpdatePsychTestResultNotificationResultIDKey] as? BBLPsychTestResultID
-                else { return }
-            debugPrint("received update for resultId=\(resultId)")
-            
-            do {
-                let result = try BBLPsychTestResult(id: resultId, in: bblContext)
-                debugPrint("received brain baseline result=\(result)")
-            }
-            catch let error {
-                assertionFailure("expecting to find a result for id=\(resultId), error=\(error)")
-            }
-        }
+        RSDStudyConfiguration.shared.shouldShowRemindMe = false
         
         return super.application(application, willFinishLaunchingWithOptions: launchOptions)
     }
@@ -125,22 +88,9 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         self.transition(to: vc, state: .main, animated: true)
     }
     
-    func showSignInViewController(animated: Bool) {
-        guard self.rootViewController?.state != .onboarding else { return }
-        
-        let externalIDStep = ExternalIDRegistrationStep(identifier: "enterExternalID", type: "externalID")
-        var navigator = RSDConditionalStepNavigatorObject(with: [externalIDStep])
-        navigator.progressMarkers = []
-        let task = RSDTaskObject(identifier: "signin", stepNavigator: navigator)
-        let vc = RSDTaskViewController(task: task)
-        vc.delegate = self
-        self.transition(to: vc, state: .onboarding, animated: true)
-    }
-    
     func openStoryboard(_ name: String) -> UIStoryboard? {
         return UIStoryboard(name: name, bundle: nil)
     }
-    
     
     // MARK: RSDTaskViewControllerDelegate
     
@@ -150,93 +100,6 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     }
     
     func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {
-    }
-    
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        debugPrint("\(String(describing: userActivity.webpageURL))")
-        guard let fitbitCompletionURL = userActivity.webpageURL else { return false }
-        
-        // Close the auth session. This ends up calling its completion handler with an error.
-        // emm 2017-11-09 As of iOS SDK 11.1 that behavior no longer applies, so now we call it explicitly.
-        self.authSession?.cancel()
-        self.authSession = nil
-        self.fitbitAuthCompletionHandler(url: fitbitCompletionURL, error: nil)
-        debugPrint("Safari auth session ended")
-        
-        return true
-    }
-    
-    func fitbitAuthCompletionHandler (url: URL?, error: Error?) -> () {
-        let completion = self.fitbitCompletionHandler
-        
-        // reset it in case there's a next time
-        self.fitbitCompletionHandler = nil
-        
-        guard let successURL = url else {
-            completion?(nil, error)
-            return
-        }
-        
-        let codeArg = NSURLComponents(string: (successURL.absoluteString))?.queryItems?.filter({$0.name == "code"}).first
-        let authCode = codeArg?.value
-        debugPrint("auth code: \(String(describing: authCode))")
-        
-        SBBOAuthManager.default()?.getAccessToken(forVendor: "fitbit", authCode: authCode) { (oauthAccessToken, error) in
-            DispatchQueue.main.async {
-                guard let oauthAccessTokenUnwrapped = oauthAccessToken else {
-                    debugPrint("error retrieving access token: \(String(describing: error))")
-                    completion?(nil, error)
-                    return
-                }
-                let accessToken = oauthAccessTokenUnwrapped.accessToken
-                debugPrint("access token: \(String(describing: accessToken))")
-                completion?(accessToken, nil)
-            }
-        }
-    }
-    
-    func connectToFitbit(completionHandler: FitbitCompletionHandler? = nil) {
-        // Fitbit Authorization Code Grant Flow URL
-        guard let authURL = URL(string: "https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=22DJ23&redirect_uri=org.sagebase.BiomarinPKU%3A%2F%2Foauth2&scope=activity%20heartrate%20sleep&expires_in=604800") else { return }
-        
-        fitbitCompletionHandler = completionHandler
-        
-        debugPrint("Starting Safari auth session: \(authURL)")
-        
-        // Fitbit only lets us give one callback URL per app, so if we want to use the same Fitbit app for both iOS and Android (and potentially web clients)
-        // we need to *not* use a custom URL scheme. But SFAuthenticationSession's completion handler requires it to be a custom URL scheme. So instead we will
-        // handle the callback in the place that Universal Links are handled, i.e., application(_:, continue:, restorationHandler:), and close the
-        // SFAuthenticationSession from there. emm 2017-11-03
-        self.authSession = SFAuthenticationSession(url: authURL, callbackURLScheme: nil, completionHandler: self.fitbitAuthCompletionHandler)
-        authSession!.start()
-    }
-}
-
-extension AppDelegate {
-    class func setupHeader(_ header: RSDStepNavigationView) {
-        // Setup the design system fro the table header
-        let primary = AppDelegate.designSystem.colorRules.backgroundPrimary
-        header.setDesignSystem(AppDelegate.designSystem, with: primary)
-        
-        // Style the cancel button a dark color
-        let cancelTint = self.designSystem.colorRules.textColor(on: primary, for: .heading1)
-        header.cancelButton?.imageView?.tintColor = cancelTint
-        
-        header.titleLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading1)
-        header.titleLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading1)
-        
-        header.textLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading1)
-        header.textLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading1)
-        
-        header.detailLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading4)
-        header.detailLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading4)
-    }
-    
-    class func setupFooter(_ footer: RSDNavigationFooterView) {
-        guard let primaryButtonFont = (self.designSystem.fontRules as? PKUFontRules)?.font(for: .primary) else { return }
-        
-        footer.backButton?.titleLabel?.font = primaryButtonFont
-        footer.nextButton?.titleLabel?.font = primaryButtonFont
     }
 }
 

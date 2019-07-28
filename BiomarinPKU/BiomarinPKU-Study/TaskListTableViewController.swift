@@ -121,18 +121,33 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     }
     
     func didTapButton(on cell: RSDButtonCell) {
-        RSDFactory.shared = PKUTaskFactory()
-        let taskInfo = self.scheduleManager.taskInfo(for: cell.indexPath)
-        let taskViewModel = RSDTaskViewModel(taskInfo: taskInfo)
-        let taskViewController = RSDTaskViewController(taskViewModel: taskViewModel)
-        taskViewController.delegate = self
-        self.present(taskViewController, animated: true, completion: nil)
+        if (self.scheduleManager.isTaskRow(for: cell.indexPath)) {
+            RSDFactory.shared = PKUTaskFactory()
+            // This is an activity
+            guard let activity = self.scheduleManager.sortedScheduledActivity(for: cell.indexPath) else { return }
+            let taskViewModel = scheduleManager.instantiateTaskViewModel(for: activity)
+            let taskVc = RSDTaskViewController(taskViewModel: taskViewModel)
+            taskVc.delegate = self            
+            self.present(taskVc, animated: true, completion: nil)
+        } else {
+            // TODO: mdephillips 5/18/19 transition to appropriate screen
+//            guard let supplementalRow = self.scheduleManager.supplementalRow(for: cell.indexPath) else { return }
+//            if (supplementalRow == .ConnectFitbit) {
+//                (AppDelegate.shared as? AppDelegate)?.connectToFitbit()
+//            }
+        }
     }
 
     func taskController(_ taskController: RSDTaskController, didFinishWith reason: RSDTaskFinishReason, error: Error?) {
 
         // dismiss the view controller
         (taskController as? UIViewController)?.dismiss(animated: true, completion: nil)
+        
+        // Let the schedule manager handle the cleanup.
+        scheduleManager.taskController(taskController, didFinishWith: reason, error: error)
+        
+        // Reload the table view
+        self.tableView.reloadData()
     }
     
     func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {
@@ -145,7 +160,26 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     
     /// Here we can customize which VCs show for a step within a survey
     func taskViewController(_ taskViewController: UIViewController, viewControllerForStep stepModel: RSDStepViewModel) -> UIViewController? {
-        return nil
+        let vc: RSDStepViewController? = {
+            switch RSDIdentifier(rawValue: stepModel.identifier) {
+            case .sleepQualityStep:
+                let emojiVc = EmojiChoiceTableStepViewController(nibName: nil, bundle: nil)
+                emojiVc.emojiImageType = .sleepEmoji
+                return emojiVc
+            case .pkuAffectedYourDayStep:
+                let emojiVc = EmojiChoiceTableStepViewController(nibName: nil, bundle: nil)
+                emojiVc.emojiImageType = .emoji
+                return emojiVc
+            case .unusualEventsStep:
+                return SurveyStepViewController(nibName: nil, bundle: nil)
+            default:
+                return nil
+            }
+        }()
+        self.scheduleManager.customizeStepViewModel(stepModel: stepModel)
+        vc?.stepViewModel = stepModel
+        vc?.designSystem = AppDelegate.designSystem
+        return vc
     }
 }
 

@@ -38,7 +38,7 @@ import MotorControl
 /// Subclass the schedule manager to set up a predicate to filter the schedules.
 public class TaskListScheduleManager : SBAScheduleManager {
     
-    public let tasks: [RSDIdentifier] = [.tappingTask, .tremorTask, .kineticTremorTask,
+    public let sortOrder: [RSDIdentifier] = [.tappingTask, .tremorTask, .kineticTremorTask,
         .attentionalBlinkTask, .symbolSubstitutionTask, .goNoGoTask, .nBackTask,
         .spatialMemoryTask, .taskSwitchTask]
     
@@ -47,30 +47,83 @@ public class TaskListScheduleManager : SBAScheduleManager {
     ///         and the supplemental rows that go after them
     ///
     public var tableRowCount: Int {
-        return self.tasks.count
+        return scheduledActivities.count +
+            TaskListSupplementalRow.RowCount.rawValue
     }
     
     public var tableSectionCount: Int {
         return 1
     }
     
+    override public func availablePredicate() -> NSPredicate {
+        return SBBScheduledActivity.notFinishedAvailableNowPredicate()
+    }
+    
+    ///
+    /// Sort the scheduled activities in a specific order
+    /// according to sortOrder var
+    ///
+    /// - parameter scheduledActivities: the raw activities
+    ///
+    /// - returns: sorted activities
+    ///
+    override open func sortActivities(_ scheduledActivities: [SBBScheduledActivity]?) -> [SBBScheduledActivity]? {
+        guard (scheduledActivities?.count ?? 0) > 0 else { return nil }
+        return scheduledActivities!.sorted(by: { (scheduleA, scheduleB) -> Bool in
+            let idxA = sortOrder.firstIndex(of: RSDIdentifier(rawValue: scheduleA.activityIdentifier ?? "")) ?? sortOrder.count
+            let idxB = sortOrder.firstIndex(of: RSDIdentifier(rawValue: scheduleB.activityIdentifier ?? "")) ?? sortOrder.count
+            
+            return idxA < idxB
+        })
+    }
+    
     ///
     /// - parameter indexPath: from the table view
     ///
-    /// - returns: the task info object for the task list row
+    /// - returns: true if this index is for a task row, false otherwise
     ///
-    open func taskInfo(for indexPath: IndexPath) -> RSDTaskInfo {
-        let taskId = tasks[indexPath.row]
-        
-        if (taskId == .tappingTask) {
-            return MCTTaskInfo(MCTTaskIdentifier.tapping)
-        } else if (taskId == .tremorTask) {
-            return MCTTaskInfo(MCTTaskIdentifier.tremor)
-        } else if (taskId == .kineticTremorTask) {
-            return MCTTaskInfo(MCTTaskIdentifier.kineticTremor)
-        } else {
-            return RSDTaskInfoObject(with: taskId.rawValue)
-        }
+    open func isTaskRow(for indexPath: IndexPath) -> Bool {
+        return indexPath.row < self.scheduledActivities.count
+    }
+    
+    ///
+    /// - parameter indexPath: from the table view
+    ///
+    /// - returns: true if this index is for a supplemental row, false otherwise
+    ///
+    open func isTaskSupplementalRow(for indexPath: IndexPath) -> Bool {
+        return indexPath.row >= self.scheduledActivities.count
+    }
+    
+    ///
+    /// - parameter indexPath: from the table view
+    ///
+    /// - returns: the supplemental row if the index points at one, nil otherwise
+    ///
+    open func sortedScheduledActivity(for indexPath: IndexPath) -> SBBScheduledActivity? {
+        let sorted = self.sortActivities(self.scheduledActivities)
+        guard indexPath.row < (sorted?.count ?? 0) else { return nil }
+        return sorted?[indexPath.row]
+    }
+    
+    ///
+    /// - parameter indexPath: from the table view
+    ///
+    /// - returns: the supplemental row if the index points at one, nil otherwise
+    ///
+    open func supplementalRow(for indexPath: IndexPath) -> TaskListSupplementalRow? {
+        return TaskListSupplementalRow(rawValue: supplementalRowIndex(for: indexPath))
+    }
+    
+    ///
+    /// - parameter indexPath: from the table view
+    ///
+    /// - returns: the row index within the TaskListSupplementalRow enum space
+    ///         the first supplemental row index will be 0
+    ///
+    open func supplementalRowIndex(for indexPath: IndexPath) -> Int {
+        let sorted = self.sortActivities(self.scheduledActivities) ?? []
+        return indexPath.row - sorted.count
     }
     
     ///
@@ -80,24 +133,11 @@ public class TaskListScheduleManager : SBAScheduleManager {
     ///         or a supplemental row title depending on the index path
     ///
     open func title(for indexPath: IndexPath) -> String? {
-        let taskId = tasks[indexPath.row]
-        switch taskId {
-        case .tappingTask:
-            return "Finger Tapping"
-        case .tremorTask:
-            return "Phone Hold"
-        case .kineticTremorTask:
-            return "Finger-to-Nose"
-        case .symbolSubstitutionTask:
-            return "Digital Symbol Substitution"
-        case .goNoGoTask:
-            return "Go-No-Go"
-        case .nBackTask:
-            return "N-Back"
-        case .spatialMemoryTask:
-            return "Spatial Working Memory"
-        default:
-            return taskId.rawValue
+        let sorted = self.sortActivities(self.scheduledActivities) ?? []
+        if (isTaskRow(for: indexPath)) {
+            return sorted[indexPath.item].activity.label
+        } else { // is supplemental row
+            return supplementalRow(for: indexPath)?.title()
         }
     }
     
@@ -131,5 +171,26 @@ public class TaskListScheduleManager : SBAScheduleManager {
         guard let videoUrlUnwrapped = videoUrl else { return nil }
         
         return RSDVideoViewUIActionObject(url: videoUrlUnwrapped, buttonTitle: Localization.localizedString("SEE_THIS_IN_ACTION"), bundleIdentifier: Bundle.main.bundleIdentifier)
+    }
+}
+
+///
+/// Supplemental rows show after the sorted scheduled activities
+/// and even though they look the same as the task rows,
+/// they are not tasks, and go to different places in the app.
+///
+public enum TaskListSupplementalRow: Int {
+    
+    // Uncomment to add fitbit back in
+//    case ConnectFitbit = 0
+//    case RowCount = 1
+    case ConnectFitbit = -1
+    case RowCount = 0
+    
+    func title() -> String {
+        switch self {
+        default:
+            return Localization.localizedString("CONNECT_FITBIT")
+        }
     }
 }

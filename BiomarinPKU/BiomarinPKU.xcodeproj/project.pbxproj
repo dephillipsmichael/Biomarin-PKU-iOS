@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB0D00A222E804B900F5DD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A122E804B900F5DD4D /* AppDelegate.swift */; };
+		CB0D00A322E804FF00F5DD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8061179227BA025005FCABF /* AppDelegate.swift */; };
+		CB0D00A722E80B1A00F5DD4D /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A622E80B1A00F5DD4D /* TaskListTableViewController.swift */; };
+		CB0D00A922E80B3100F5DD4D /* TaskListScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A822E80B3100F5DD4D /* TaskListScheduleManager.swift */; };
+		CB0D00AA22E80B3C00F5DD4D /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */; };
+		CB0D00C022EE36BF00F5DD4D /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
+		CB0D00C422EE3CA500F5DD4D /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C322EE3CA500F5DD4D /* BrainBaselineManager.swift */; };
+		CB0D00C622EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C522EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift */; };
 		CB46274C22D7843400AD79B1 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */; };
 		CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
 		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
@@ -31,9 +39,6 @@
 		CB9DBB4A22D658BD00F89E77 /* PKUCodableStepObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */; };
 		CB9DBB4C22D658D300F89E77 /* PKUCopyStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */; };
 		CBD4F70722A4670B000C402F /* Task Switch.json in Resources */ = {isa = PBXBuildFile; fileRef = CBD4F70522A4670B000C402F /* Task Switch.json */; };
-		CBD4F71C22A496D3000C402F /* EmojiChoiceTableStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */; };
-		CBD4F73322A84B9E000C402F /* SurveyStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */; };
-		CBD4F73522A8BB0E000C402F /* LearnMoreStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */; };
 		CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
 		CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
 		CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */; };
@@ -43,7 +48,6 @@
 		CBF8CB55228F844E0089BDF0 /* lato_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB48228F84470089BDF0 /* lato_regular.ttf */; };
 		CBF8CB5C229053A40089BDF0 /* PKUBuildDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF8CB5B229053A40089BDF0 /* PKUBuildDateUtil.m */; };
 		CBF8CB76229065670089BDF0 /* PKU.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB75229065670089BDF0 /* PKU.strings */; };
-		F806117A227BA025005FCABF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8061179227BA025005FCABF /* AppDelegate.swift */; };
 		F806117F227BA025005FCABF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F806117D227BA025005FCABF /* Main.storyboard */; };
 		F8061181227BA026005FCABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8061180227BA026005FCABF /* Assets.xcassets */; };
 		F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8061182227BA026005FCABF /* LaunchScreen.storyboard */; };
@@ -62,14 +66,12 @@
 		F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */ = {isa = PBXBuildFile; fileRef = F8087B8E227BCA16005BDDEC /* biomarin-pku.pem */; };
 		F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8087B91227BCA40005BDDEC /* BridgeInfo.plist */; };
 		F8087BA4227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA3227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift */; };
-		F8087BA6227BDC4D005BDDEC /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */; };
 		F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */; };
 		F8087BAD227BEB95005BDDEC /* TaskListScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */; };
 		F83EEBBC229DA96500476F7F /* ResearchMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; };
 		F83EEBBD229DA96500476F7F /* ResearchMotion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF3CC63022D7BAA70037E65B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3CC62F22D7BAA70037E65B /* ViewController.swift */; };
 		FF3CC63322D7BAA70037E65B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC63122D7BAA70037E65B /* Main.storyboard */; };
-		FF3CC63E22D7BEF60037E65B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8061179227BA025005FCABF /* AppDelegate.swift */; };
 		FF3CC63F22D7BEF90037E65B /* PKUTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55114322A0B9920036CD6F /* PKUTaskFactory.swift */; };
 		FF3CC64022D7BEFD0037E65B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8061180227BA026005FCABF /* Assets.xcassets */; };
 		FF3CC64122D7C1B70037E65B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8061182227BA026005FCABF /* LaunchScreen.storyboard */; };
@@ -88,14 +90,11 @@
 		FF3CC64E22D7C2B00037E65B /* N Back.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115922A0D34E0036CD6F /* N Back.json */; };
 		FF3CC64F22D7C2B00037E65B /* Spatial Memory.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115D22A0D34E0036CD6F /* Spatial Memory.json */; };
 		FF3CC65022D7C2B00037E65B /* Task Switch.json in Resources */ = {isa = PBXBuildFile; fileRef = CBD4F70522A4670B000C402F /* Task Switch.json */; };
-		FF3CC65122D7C2BD0037E65B /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
 		FF3CC65222D7C2C80037E65B /* ExternalIDRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA3227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift */; };
-		FF3CC65322D7C2C80037E65B /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */; };
 		FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */; };
 		FF3CC65522D7C2C80037E65B /* SurveyStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */; };
 		FF3CC65622D7C2C80037E65B /* LearnMoreStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */; };
 		FF3CC65722D7C2D30037E65B /* MotorControl+Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */; };
-		FF3CC65822D7C2D30037E65B /* TaskListScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */; };
 		FF3CC65922D7C2D30037E65B /* PKUSurveyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */; };
 		FF3CC65B22D7C31A0037E65B /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC65A22D7C31A0037E65B /* BridgeInfo.plist */; };
 		FF3CC65D22D7C3300037E65B /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC65C22D7C3300037E65B /* BridgeInfo-private.plist */; };
@@ -168,6 +167,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CB0D00A122E804B900F5DD4D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CB0D00A622E80B1A00F5DD4D /* TaskListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
+		CB0D00A822E80B3100F5DD4D /* TaskListScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListScheduleManager.swift; sourceTree = "<group>"; };
+		CB0D00C122EE377700F5DD4D /* BiomarinPKU-Study.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BiomarinPKU-Study.entitlements"; sourceTree = "<group>"; };
+		CB0D00C322EE3CA500F5DD4D /* BrainBaselineManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
+		CB0D00C522EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineStepViewController.swift; sourceTree = "<group>"; };
 		CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
@@ -275,6 +280,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB0D00A422E8083700F5DD4D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */,
+				CB0D00A822E80B3100F5DD4D /* TaskListScheduleManager.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CB0D00A522E80A4F00F5DD4D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB0D00A622E80B1A00F5DD4D /* TaskListTableViewController.swift */,
+				CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */,
+				CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */,
+				CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CB0D00C222EE3C8000F5DD4D /* BrainBaseline */ = {
+			isa = PBXGroup;
+			children = (
+				CB0D00C322EE3CA500F5DD4D /* BrainBaselineManager.swift */,
+				CB0D00C522EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift */,
+			);
+			name = BrainBaseline;
+			sourceTree = "<group>";
+		};
 		CB5510E322A08AC30036CD6F /* BrainBaseline */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,9 +463,6 @@
 			children = (
 				F8087BA3227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift */,
 				F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */,
-				CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */,
-				CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */,
-				CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -441,7 +472,6 @@
 			children = (
 				F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */,
 				F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */,
-				CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -449,8 +479,12 @@
 		FF3CC62C22D7BAA70037E65B /* BiomarinPKU-Study */ = {
 			isa = PBXGroup;
 			children = (
+				CB0D00A122E804B900F5DD4D /* AppDelegate.swift */,
 				FF3CC62F22D7BAA70037E65B /* ViewController.swift */,
 				FF3CC63122D7BAA70037E65B /* Main.storyboard */,
+				CB0D00A422E8083700F5DD4D /* Model */,
+				CB0D00A522E80A4F00F5DD4D /* View Controllers */,
+				CB0D00C222EE3C8000F5DD4D /* BrainBaseline */,
 				FF3CC63D22D7BB4D0037E65B /* Support Files */,
 			);
 			path = "BiomarinPKU-Study";
@@ -459,6 +493,7 @@
 		FF3CC63D22D7BB4D0037E65B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				CB0D00C122EE377700F5DD4D /* BiomarinPKU-Study.entitlements */,
 				FF3CC65E22D7C3420037E65B /* biomarin-pku-study.pem */,
 				FF3CC65C22D7C3300037E65B /* BridgeInfo-private.plist */,
 				FF3CC65A22D7C31A0037E65B /* BridgeInfo.plist */,
@@ -562,6 +597,17 @@
 					};
 					FF3CC62A22D7BAA60037E65B = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -648,6 +694,7 @@
 				FF3CC64B22D7C2B00037E65B /* Attentional Blink.json in Resources */,
 				FF3CC63322D7BAA70037E65B /* Main.storyboard in Resources */,
 				FF3CC64C22D7C2B00037E65B /* Symbol Substitution.json in Resources */,
+				CB0D00C022EE36BF00F5DD4D /* BBLStudy-BioMarin-PKU.bundle in Resources */,
 				FF3CC64822D7C1FB0037E65B /* lato_regular.ttf in Resources */,
 				FF3CC65D22D7C3300037E65B /* BridgeInfo-private.plist in Resources */,
 				FF3CC65F22D7C3430037E65B /* biomarin-pku-study.pem in Resources */,
@@ -683,18 +730,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB55114422A0B9920036CD6F /* PKUTaskFactory.swift in Sources */,
-				F806117A227BA025005FCABF /* AppDelegate.swift in Sources */,
-				F8087BA6227BDC4D005BDDEC /* TaskListTableViewController.swift in Sources */,
 				CB55110B22A095440036CD6F /* BrainBaselineStepViewController.swift in Sources */,
 				F8087BA4227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift in Sources */,
+				CB0D00A322E804FF00F5DD4D /* AppDelegate.swift in Sources */,
 				CB80522122D6AF1E0050E834 /* PKUSurveyConfiguration.swift in Sources */,
 				CBF8CB5C229053A40089BDF0 /* PKUBuildDateUtil.m in Sources */,
-				CBD4F71C22A496D3000C402F /* EmojiChoiceTableStepViewController.swift in Sources */,
 				CB6836CB22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift in Sources */,
-				CBD4F73322A84B9E000C402F /* SurveyStepViewController.swift in Sources */,
-				CBD4F73522A8BB0E000C402F /* LearnMoreStepViewController.swift in Sources */,
 				F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */,
 				F8087BAD227BEB95005BDDEC /* TaskListScheduleManager.swift in Sources */,
+				CB0D00AA22E80B3C00F5DD4D /* TaskListTableViewController.swift in Sources */,
 				CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -719,15 +763,16 @@
 				FF3CC65622D7C2C80037E65B /* LearnMoreStepViewController.swift in Sources */,
 				FF3CC67122D7C6710037E65B /* BrainBaselineOverviewStepViewController.swift in Sources */,
 				FF3CC63F22D7BEF90037E65B /* PKUTaskFactory.swift in Sources */,
-				FF3CC65122D7C2BD0037E65B /* BrainBaselineManager.swift in Sources */,
-				FF3CC65822D7C2D30037E65B /* TaskListScheduleManager.swift in Sources */,
 				FF3CC64922D7C2100037E65B /* PKUBuildDateUtil.m in Sources */,
+				CB0D00A722E80B1A00F5DD4D /* TaskListTableViewController.swift in Sources */,
 				FF3CC65922D7C2D30037E65B /* PKUSurveyConfiguration.swift in Sources */,
-				FF3CC63E22D7BEF60037E65B /* AppDelegate.swift in Sources */,
+				CB0D00C422EE3CA500F5DD4D /* BrainBaselineManager.swift in Sources */,
+				CB0D00A222E804B900F5DD4D /* AppDelegate.swift in Sources */,
 				FF3CC63022D7BAA70037E65B /* ViewController.swift in Sources */,
 				FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */,
+				CB0D00C622EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift in Sources */,
 				FF3CC65522D7C2C80037E65B /* SurveyStepViewController.swift in Sources */,
-				FF3CC65322D7C2C80037E65B /* TaskListTableViewController.swift in Sources */,
+				CB0D00A922E80B3100F5DD4D /* TaskListScheduleManager.swift in Sources */,
 				FF3CC65222D7C2C80037E65B /* ExternalIDRegistrationViewController.swift in Sources */,
 				FF3CC66F22D7C6600037E65B /* BrainBaselineStepViewController.swift in Sources */,
 				FF3CC65722D7C2D30037E65B /* MotorControl+Bridge.swift in Sources */,
@@ -1036,6 +1081,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "BiomarinPKU-Study/BiomarinPKU-Study.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1059,6 +1105,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "BiomarinPKU-Study/BiomarinPKU-Study.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
 				FRAMEWORK_SEARCH_PATHS = (

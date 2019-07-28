@@ -197,6 +197,8 @@ open class BrainBaselineStepViewController: RSDStepViewController, BBLPsychTestV
     open func createTestViewController() -> UIViewController? {
         do {
             let controller = try BBLPsychTestViewController(psychTestNamed: self.testName!, in: BrainBaselineManager.brainBaselineContext)
+            controller.sessionId = stepViewModel.taskResult.taskRunUUID.uuidString
+            controller.user = BrainBaselineManager.getUser()
             controller.delegate = self
             return UINavigationController(rootViewController: controller)
         }
