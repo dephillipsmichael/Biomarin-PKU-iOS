@@ -15,6 +15,8 @@
 		CB0D00C022EE36BF00F5DD4D /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
 		CB0D00C422EE3CA500F5DD4D /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C322EE3CA500F5DD4D /* BrainBaselineManager.swift */; };
 		CB0D00C622EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C522EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift */; };
+		CB0D00CA22EE45E900F5DD4D /* FontRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C922EE45E900F5DD4D /* FontRules.swift */; };
+		CB0D00CB22EE463E00F5DD4D /* FontRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C922EE45E900F5DD4D /* FontRules.swift */; };
 		CB46274C22D7843400AD79B1 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */; };
 		CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
 		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
@@ -113,7 +115,6 @@
 		FF3CC66B22D7C5710037E65B /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF3CC66D22D7C5A10037E65B /* ResearchMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; };
 		FF3CC66E22D7C5A10037E65B /* ResearchMotion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FF3CC66F22D7C6600037E65B /* BrainBaselineStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55110A22A095440036CD6F /* BrainBaselineStepViewController.swift */; };
 		FF3CC67022D7C6710037E65B /* BrainBaselineStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB55111822A0A11C0036CD6F /* BrainBaselineStepViewController.xib */; };
 		FF3CC67122D7C6710037E65B /* BrainBaselineOverviewStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */; };
 		FF3CC67222D7C6710037E65B /* BrainBaselineOverviewStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */; };
@@ -173,6 +174,7 @@
 		CB0D00C122EE377700F5DD4D /* BiomarinPKU-Study.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BiomarinPKU-Study.entitlements"; sourceTree = "<group>"; };
 		CB0D00C322EE3CA500F5DD4D /* BrainBaselineManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB0D00C522EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineStepViewController.swift; sourceTree = "<group>"; };
+		CB0D00C922EE45E900F5DD4D /* FontRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontRules.swift; sourceTree = "<group>"; };
 		CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 			children = (
 				F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */,
 				F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */,
+				CB0D00C922EE45E900F5DD4D /* FontRules.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				CBF8CB5C229053A40089BDF0 /* PKUBuildDateUtil.m in Sources */,
 				CB6836CB22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift in Sources */,
 				F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */,
+				CB0D00CA22EE45E900F5DD4D /* FontRules.swift in Sources */,
 				F8087BAD227BEB95005BDDEC /* TaskListScheduleManager.swift in Sources */,
 				CB0D00AA22E80B3C00F5DD4D /* TaskListTableViewController.swift in Sources */,
 				CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */,
@@ -769,12 +773,12 @@
 				CB0D00C422EE3CA500F5DD4D /* BrainBaselineManager.swift in Sources */,
 				CB0D00A222E804B900F5DD4D /* AppDelegate.swift in Sources */,
 				FF3CC63022D7BAA70037E65B /* ViewController.swift in Sources */,
+				CB0D00CB22EE463E00F5DD4D /* FontRules.swift in Sources */,
 				FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */,
 				CB0D00C622EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift in Sources */,
 				FF3CC65522D7C2C80037E65B /* SurveyStepViewController.swift in Sources */,
 				CB0D00A922E80B3100F5DD4D /* TaskListScheduleManager.swift in Sources */,
 				FF3CC65222D7C2C80037E65B /* ExternalIDRegistrationViewController.swift in Sources */,
-				FF3CC66F22D7C6600037E65B /* BrainBaselineStepViewController.swift in Sources */,
 				FF3CC65722D7C2D30037E65B /* MotorControl+Bridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

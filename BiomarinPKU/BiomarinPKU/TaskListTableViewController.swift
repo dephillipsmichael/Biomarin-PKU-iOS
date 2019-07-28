@@ -136,7 +136,21 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     }
     
     func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {
-        scheduleManager.taskController(taskController, readyToSave: taskViewModel)
+        // Do not save or upload the data for the screening app
+//        scheduleManager.taskController(taskController, readyToSave: taskViewModel)
+        
+        // Let's delete all the files that were saved during the tests as well
+        taskViewModel.taskResult.stepHistory.forEach { (result) in
+            if let fileResult = result as? RSDFileResultObject,
+                let url = fileResult.url {
+                do {
+                    try FileManager.default.removeItem(at: url)
+                    print("Successfully deleted file: \(url.absoluteURL)")
+                } catch let error as NSError {
+                    print("Error deleting file: \(error.domain)")
+                }
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -47,8 +47,8 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
                                               accent: RSDColorMatrix.shared.colorKey(for: .palette(.rose),
                                                                                      shade: .dark))
     static let designSystem = RSDDesignSystem(version: 1,
-                                              colorRules: PKUColorRules(palette: colorPalette, version: 1),
-                                              fontRules: PKUFontRules(version: 1))
+                                              colorRules: RSDColorRules(palette: colorPalette, version: 1),
+                                              fontRules: FontRules(version: 1))
 
     override func instantiateColorPalette() -> RSDColorPalette? {
         return AppDelegate.colorPalette
@@ -65,7 +65,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         Localization.insert(bundle: mainBundle, at: 0)
         
         // Set up font rules.
-        RSDStudyConfiguration.shared.fontRules = PKUFontRules(version: 0)
+        RSDStudyConfiguration.shared.fontRules = FontRules(version: 0)
         
         // Setup reminders
         RSDStudyConfiguration.shared.shouldShowRemindMe = false
@@ -100,58 +100,5 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     }
     
     func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {
-    }
-}
-
-open class PKUColorRules: RSDColorRules {
-    
-}
-
-open class PKUFontRules: RSDFontRules {
-    
-    public let latoRegularName      = "Lato-Regular"
-    public let latoBoldName         = "Lato-Bold"
-    public let latoBlackName        = "Lato-Black"
-    public let latoLightName        = "Lato-Light"
-    public let latoItalicName       = "Lato-Italic"
-    public let latoBoldItalicName   = "Lato-BoldItalic"
-    public let latoLightItalicName  = "Lato-LightItalic"
-    
-    override open func font(for buttonType: RSDDesignSystem.ButtonType) -> RSDFont {
-        switch buttonType {
-        case .primary:
-            return RSDFont(name: latoBoldName, size: 20)!
-        case .secondary:
-            return RSDFont(name: latoBoldName, size: 20)!
-        }
-    }
-    
-    /// Returns the font to use for a given text type.
-    ///
-    /// - parameter textType: The text type for the font.
-    /// - returns: The font to use for this text.
-    override open func font(for textType: RSDDesignSystem.TextType) -> RSDFont {
-        switch textType {
-        case .heading1:
-            return RSDFont(name: latoBoldName, size: 24)!
-        case .heading2:
-            return RSDFont(name: latoBoldName, size: 18)!
-        case .heading3:
-            return RSDFont(name: latoBoldName, size: 16)!
-        case .heading4:
-            return RSDFont(name: latoRegularName, size: 14)!
-        case .fieldHeader:
-            return RSDFont(name: latoBoldName, size: 16)!
-        case .body:
-             return RSDFont(name: latoRegularName, size: 18)!
-        case .bodyDetail:
-            return RSDFont(name: latoRegularName, size: 16)!
-        case .small:
-            return RSDFont(name: latoRegularName, size: 14)!
-        case .microHeader:
-            return RSDFont(name: latoBoldName, size: 12)!
-        case .counter:
-            return RSDFont(name: latoLightName, size: 80)!
-        }
     }
 }
