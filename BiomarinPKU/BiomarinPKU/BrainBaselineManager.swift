@@ -51,7 +51,7 @@ class BrainBaselineManager: NSObject {
     }()
     
     static let brainBaselineContext: BBLContext = {
-        return BBLContext(studyId: studyId, resourceBundle: studyBundle, serverInfo: BBLServerInfo.staging())
+        return BBLContext(studyId: studyId, resourceBundle: studyBundle, serverInfo: BBLServerInfo.default())
     }()
     
     class func bbIdentifier() -> String? {
