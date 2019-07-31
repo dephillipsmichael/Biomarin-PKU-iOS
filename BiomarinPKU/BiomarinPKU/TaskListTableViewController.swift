@@ -159,6 +159,7 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     
     /// Here we can customize which VCs show for a step within a survey
     func taskViewController(_ taskViewController: UIViewController, viewControllerForStep stepModel: RSDStepViewModel) -> UIViewController? {
+        self.scheduleManager.customizeStepViewModel(stepModel: stepModel)
         return nil
     }
 }
