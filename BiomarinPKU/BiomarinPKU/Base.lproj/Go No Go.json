@@ -13,7 +13,7 @@
                 "imageName": "IconGoNoGo",
             },
             "measurements"  : "Your response speed and impulsivity.",
-            "yourObjective" : "Respond to happy faces and or not respond to sad faces.",
+            "yourObjective" : "Respond to happy faces and not respond to sad faces.",
             "instructions"  : "A small face will be presented on the screen. This face will either be happy or sad. If the face is happy, press either response button as quickly as you can. If the face is sad, DO NOT respond, and wait for the next face.",
             "actions": {
                 "goForward": {

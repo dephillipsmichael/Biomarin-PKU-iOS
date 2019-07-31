@@ -14,7 +14,7 @@
             },
             "measurements"  : "How well you can focus across time.",
             "yourObjective" : "A stream of letters will be presented rapidly at the center of the screen. Your task is to watch this stream and watch for two different occurances.",
-            "instructions"  : "In the first part of the test, you will watch the stream of letters at the center of the screen and look for the RED letter When the stream ends, you will be asked to respond to the identity of the red letter, which will always be a B, D, or S.\n\nYou will also be asked to watch the screen and look for the letter X within the stream. On some cases, there will be an X in the stream. In other cases, there won’t be an X. You will then be asked if you saw an X or not.",
+            "instructions"  : "You will watch a stream of letters at the center of the screen and look for the RED letter and whether there was an X. When the stream ends, you will be asked to  identify the red letter, which will always be a B, D, or S.\n\nYou will also be asked if you saw an X or not.",
             "actions": {
                 "goForward": {
                     "type": "default",
