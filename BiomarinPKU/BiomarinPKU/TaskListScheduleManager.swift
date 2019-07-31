@@ -89,7 +89,7 @@ public class TaskListScheduleManager : SBAScheduleManager {
         case .kineticTremorTask:
             return "Finger-to-Nose"
         case .symbolSubstitutionTask:
-            return "Digital Symbol Substitution"
+            return "Digit Symbol Substitution"
         case .goNoGoTask:
             return "Go-No-Go"
         case .nBackTask:

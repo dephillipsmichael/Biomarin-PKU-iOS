@@ -13,8 +13,8 @@
                 "imageName": "IconSymbolSubstitution",
             },
             "measurements"  : "How well you can switch between different types of visual information.",
-            "yourObjective" : "Quickly match symbols to numbers according to a legend.",
-            "instructions"  : "A legend will appear at the top of the screen. Each legend entry contains a number above a special symbol below. Your task is to drag the symbols to the corresponding empty boxes from left to right without skipping boxes. Skipped boxes cannot be filled in later. Once you have filled all the boxes, more will appear. Fill as many as you can.",
+            "yourObjective" : "Quickly match symbols to numbers and SAY them according to a legend.",
+            "instructions"  : "A legend will appear at the top of the screen. Each legend entry contains a number above a special symbol below. Your task is to SAY the number of each corresponding symbol to fill empty boxes as they scroll from right to left. Once you have filled all the boxes, more will appear. Fill as many as you can.",
             "actions": {
                 "goForward": {
                     "type": "default",
