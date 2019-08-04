@@ -62,14 +62,15 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
      See https://ajkueterman.com/apple/wwdc/sfauthenticationsession-and-aswebauthenticationsession/
      */
     var authSession: SFAuthenticationSession?
-    var fitbitCompletionHandler: FitbitCompletionHandler?
+    var fitbitCompletionHandler: FitbitCompletionHandler?    
 
     override func instantiateColorPalette() -> RSDColorPalette? {
         return AppDelegate.colorPalette
     }
     
     func showAppropriateViewController(animated: Bool) {
-        if BridgeSDK.authManager.isAuthenticated() {
+        let isFitbitConnected = UserDefaults.standard.bool(forKey: FitbitStep.isFitbitConnectedKey)
+        if BridgeSDK.authManager.isAuthenticated() && isFitbitConnected {
             showMainViewController(animated: animated)
         } else {
             showSignInViewController(animated: animated)
@@ -129,7 +130,9 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         guard self.rootViewController?.state != .onboarding else { return }
         
         let externalIDStep = ExternalIDRegistrationStep(identifier: "enterExternalID", type: "externalID")
-        var navigator = RSDConditionalStepNavigatorObject(with: [externalIDStep])
+        let fitbitStep = FitbitStep(identifier: "fitbit", type: "connectFitbit")
+        
+        var navigator = RSDConditionalStepNavigatorObject(with: [externalIDStep, fitbitStep])
         navigator.progressMarkers = []
         let task = RSDTaskObject(identifier: "signin", stepNavigator: navigator)
         let vc = RSDTaskViewController(task: task)
@@ -188,7 +191,11 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
                     completion?(nil, error)
                     return
                 }
-                let accessToken = oauthAccessTokenUnwrapped.accessToken
+                // TODO: mdephillips 8/4/19 there is a bug in the fitbit auth
+                // setup that is causing the "oauthAccessToken" obj to come
+                // down from bridge as a UserSessionInfo obj with no access token
+                //let accessToken = oauthAccessTokenUnwrapped.accessToken
+                let accessToken = ""
                 debugPrint("access token: \(String(describing: accessToken))")
                 completion?(accessToken, nil)
             }

@@ -25,6 +25,8 @@
 		CB0D00CB22EE463E00F5DD4D /* FontRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C922EE45E900F5DD4D /* FontRules.swift */; };
 		CB1A259B22F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A259922F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift */; };
 		CB1A259C22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */; };
+		CB1A25A222F7314900ED3A57 /* FitbitStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */; };
+		CB1A25A422F7338600ED3A57 /* FitbitStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1A25A322F7338500ED3A57 /* FitbitStepViewController.xib */; };
 		CB46274C22D7843400AD79B1 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */; };
 		CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
 		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
@@ -183,6 +185,8 @@
 		CB0D00C922EE45E900F5DD4D /* FontRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontRules.swift; sourceTree = "<group>"; };
 		CB1A259922F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalIDRegistrationViewController.swift; sourceTree = "<group>"; };
 		CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalIDRegistrationViewController.xib; sourceTree = "<group>"; };
+		CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitbitStepViewController.swift; sourceTree = "<group>"; };
+		CB1A25A322F7338500ED3A57 /* FitbitStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FitbitStepViewController.xib; sourceTree = "<group>"; };
 		CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
@@ -304,6 +308,8 @@
 				CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */,
 				CB1A259922F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift */,
 				CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */,
+				CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */,
+				CB1A25A322F7338500ED3A57 /* FitbitStepViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -710,6 +716,7 @@
 				FF3CC65D22D7C3300037E65B /* BridgeInfo-private.plist in Resources */,
 				441651D322F10B8700E02DAC /* Tapping.mp4 in Resources */,
 				FF3CC65F22D7C3430037E65B /* biomarin-pku-study.pem in Resources */,
+				CB1A25A422F7338600ED3A57 /* FitbitStepViewController.xib in Resources */,
 				FF3CC64E22D7C2B00037E65B /* N Back.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -774,6 +781,7 @@
 			files = (
 				FF3CC65622D7C2C80037E65B /* LearnMoreStepViewController.swift in Sources */,
 				FF3CC67122D7C6710037E65B /* BrainBaselineOverviewStepViewController.swift in Sources */,
+				CB1A25A222F7314900ED3A57 /* FitbitStepViewController.swift in Sources */,
 				FF3CC63F22D7BEF90037E65B /* PKUTaskFactory.swift in Sources */,
 				FF3CC64922D7C2100037E65B /* PKUBuildDateUtil.m in Sources */,
 				CB0D00A722E80B1A00F5DD4D /* TaskListTableViewController.swift in Sources */,
