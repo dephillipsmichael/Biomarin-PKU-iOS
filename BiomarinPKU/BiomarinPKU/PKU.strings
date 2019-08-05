@@ -36,9 +36,15 @@
 "RELEASE_VERSION_%@" = "PKU App Version %@";
 "RELEASE_DATE_%@" = "Released on %@";
 "STUDY_TITLE" = "A BioMarin PKU Research Study";
-"CONNECT_FITBIT" = "Connect Fitbit";
 "BUTTON_TITLE_BEGIN" = "Begin";
 "SEE_THIS_IN_ACTION" = "See this in action";
+
+"CONNECT_FITBIT" = "Connect Fitbit";
+"CONNECT_FITBIT_MSG" = "Please check the email is tied to this participant.";
+
+"ENTER_PARTICIPANT_ID" = "Enter Participant ID";
+"RE_ENTER_PARTICIPANT_ID" = "Re-enter Participant ID";
+"PARTICPANT_IDS_DID_NOT_MATCH" = "Participant IDs did not match. Please try again";
 
 "BRAIN_BASELINE_INSTRUCTION_TEXT" = "Please tilt your device.";
 "BRAIN_BASELINE_MEASUREMENTS_TITLE" = "Measurement";

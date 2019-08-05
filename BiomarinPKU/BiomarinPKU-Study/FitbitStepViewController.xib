@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FitbitStepViewController" customModule="BiomarinPKU_Study" customModuleProvider="target">
+            <connections>
+                <outlet property="navigationFooter" destination="RIB-DP-QFB" id="fre-VU-c22"/>
+                <outlet property="navigationHeader" destination="FUY-ES-cUr" id="Efi-0n-d4F"/>
+                <outlet property="view" destination="Be1-UX-e65" id="BEo-OJ-8Gt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Be1-UX-e65" customClass="RSDStepNavigationView" customModule="BiomarinPKU_Study" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCy-4g-nIJ" userLabel="Content View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FUY-ES-cUr" userLabel="Header" customClass="RSDNavigationHeaderView" customModule="ResearchUI">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FitbitHeader" translatesAutoresizingMaskIntoConstraints="NO" id="kSV-sG-Szr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="kSV-sG-Szr" secondAttribute="height" multiplier="1:1" id="AkW-AG-sgd"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="kSV-sG-Szr" secondAttribute="trailing" id="0MW-0u-MAb"/>
+                                <constraint firstAttribute="width" secondItem="FUY-ES-cUr" secondAttribute="height" multiplier="1:1" id="FoA-bV-Nv9"/>
+                                <constraint firstItem="kSV-sG-Szr" firstAttribute="leading" secondItem="FUY-ES-cUr" secondAttribute="leading" id="rcQ-Gl-9l4"/>
+                                <constraint firstItem="kSV-sG-Szr" firstAttribute="top" secondItem="FUY-ES-cUr" secondAttribute="top" id="tN7-HX-oAw"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="imageView" destination="kSV-sG-Szr" id="CIb-vX-iOW"/>
+                                <outlet property="textLabel" destination="Vz1-9v-q9j" id="bIc-o1-QC7"/>
+                                <outlet property="titleLabel" destination="ztf-Jf-7Ws" id="xhZ-av-cf3"/>
+                            </connections>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vz1-9v-q9j" userLabel="Text Label">
+                            <rect key="frame" x="24" y="455" width="327" height="23"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RIB-DP-QFB" customClass="RSDGenericNavigationFooterView" customModule="ResearchUI">
+                            <rect key="frame" x="0.0" y="565" width="375" height="135"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztf-Jf-7Ws" userLabel="Title Label">
+                            <rect key="frame" x="24" y="399" width="327" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="RIB-DP-QFB" secondAttribute="trailing" id="70G-hV-HiN"/>
+                        <constraint firstItem="ztf-Jf-7Ws" firstAttribute="leading" secondItem="nCy-4g-nIJ" secondAttribute="leading" constant="24" id="E14-Bx-Flc"/>
+                        <constraint firstItem="Vz1-9v-q9j" firstAttribute="leading" secondItem="ztf-Jf-7Ws" secondAttribute="leading" id="Lkp-J9-1bG"/>
+                        <constraint firstItem="Vz1-9v-q9j" firstAttribute="trailing" secondItem="ztf-Jf-7Ws" secondAttribute="trailing" id="Ph5-2a-h5c"/>
+                        <constraint firstItem="Vz1-9v-q9j" firstAttribute="top" secondItem="ztf-Jf-7Ws" secondAttribute="bottom" constant="20" id="TIo-sm-Azz"/>
+                        <constraint firstAttribute="trailing" secondItem="ztf-Jf-7Ws" secondAttribute="trailing" constant="24" id="WzK-QP-aWD"/>
+                        <constraint firstItem="FUY-ES-cUr" firstAttribute="top" secondItem="nCy-4g-nIJ" secondAttribute="top" id="c6w-eX-Oik"/>
+                        <constraint firstAttribute="trailing" secondItem="FUY-ES-cUr" secondAttribute="trailing" id="khT-Dk-8Q4"/>
+                        <constraint firstItem="RIB-DP-QFB" firstAttribute="leading" secondItem="nCy-4g-nIJ" secondAttribute="leading" id="ovA-9a-Y5m"/>
+                        <constraint firstItem="ztf-Jf-7Ws" firstAttribute="top" secondItem="FUY-ES-cUr" secondAttribute="bottom" constant="24" id="pdJ-Tw-vT3"/>
+                        <constraint firstAttribute="bottom" secondItem="RIB-DP-QFB" secondAttribute="bottom" id="xwL-TO-U4F"/>
+                        <constraint firstItem="FUY-ES-cUr" firstAttribute="leading" secondItem="nCy-4g-nIJ" secondAttribute="leading" id="z6b-1W-V9e"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="nCy-4g-nIJ" firstAttribute="leading" secondItem="W8i-xX-fUy" secondAttribute="leading" id="4pq-1G-cUp"/>
+                <constraint firstItem="nCy-4g-nIJ" firstAttribute="top" secondItem="Be1-UX-e65" secondAttribute="top" id="DFJ-h3-V8m"/>
+                <constraint firstAttribute="bottom" secondItem="nCy-4g-nIJ" secondAttribute="bottom" id="Dqz-k4-Dgb"/>
+                <constraint firstItem="nCy-4g-nIJ" firstAttribute="trailing" secondItem="W8i-xX-fUy" secondAttribute="trailing" id="Xje-i7-OTa"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="W8i-xX-fUy"/>
+            <point key="canvasLocation" x="645.60000000000002" y="487.6847290640394"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="FitbitHeader" width="375" height="399"/>
+    </resources>
+</document>
