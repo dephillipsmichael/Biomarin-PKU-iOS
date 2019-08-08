@@ -1,6 +1,6 @@
 //
 //  FitbitStepViewController.swift
-//  PsorcastValidation
+//  BiomarinPKU
 //
 //  Copyright © 2018-2019 Sage Bionetworks. All rights reserved.
 //

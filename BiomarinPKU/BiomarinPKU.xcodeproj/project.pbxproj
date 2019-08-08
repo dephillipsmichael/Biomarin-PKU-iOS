@@ -27,6 +27,9 @@
 		CB1A259C22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */; };
 		CB1A25A222F7314900ED3A57 /* FitbitStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */; };
 		CB1A25A422F7338600ED3A57 /* FitbitStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1A25A322F7338500ED3A57 /* FitbitStepViewController.xib */; };
+		CB3B194E22FCCDF5007CF330 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3B194D22FCCDF4007CF330 /* Assets.xcassets */; };
+		CB3B195022FCCF2E007CF330 /* PKUInstructionStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B194F22FCCF2E007CF330 /* PKUInstructionStepViewController.swift */; };
+		CB3B195222FCD004007CF330 /* PKUInstructionStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB3B195122FCD003007CF330 /* PKUInstructionStepViewController.xib */; };
 		CB46274C22D7843400AD79B1 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */; };
 		CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
 		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
@@ -81,7 +84,6 @@
 		FF3CC63022D7BAA70037E65B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3CC62F22D7BAA70037E65B /* ViewController.swift */; };
 		FF3CC63322D7BAA70037E65B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC63122D7BAA70037E65B /* Main.storyboard */; };
 		FF3CC63F22D7BEF90037E65B /* PKUTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55114322A0B9920036CD6F /* PKUTaskFactory.swift */; };
-		FF3CC64022D7BEFD0037E65B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8061180227BA026005FCABF /* Assets.xcassets */; };
 		FF3CC64122D7C1B70037E65B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8061182227BA026005FCABF /* LaunchScreen.storyboard */; };
 		FF3CC64222D7C1FB0037E65B /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
 		FF3CC64322D7C1FB0037E65B /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
@@ -187,6 +189,9 @@
 		CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalIDRegistrationViewController.xib; sourceTree = "<group>"; };
 		CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitbitStepViewController.swift; sourceTree = "<group>"; };
 		CB1A25A322F7338500ED3A57 /* FitbitStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FitbitStepViewController.xib; sourceTree = "<group>"; };
+		CB3B194D22FCCDF4007CF330 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB3B194F22FCCF2E007CF330 /* PKUInstructionStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKUInstructionStepViewController.swift; sourceTree = "<group>"; };
+		CB3B195122FCD003007CF330 /* PKUInstructionStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKUInstructionStepViewController.xib; sourceTree = "<group>"; };
 		CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
@@ -310,6 +315,8 @@
 				CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */,
 				CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */,
 				CB1A25A322F7338500ED3A57 /* FitbitStepViewController.xib */,
+				CB3B194F22FCCF2E007CF330 /* PKUInstructionStepViewController.swift */,
+				CB3B195122FCD003007CF330 /* PKUInstructionStepViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -496,6 +503,7 @@
 				CB0D00A122E804B900F5DD4D /* AppDelegate.swift */,
 				FF3CC62F22D7BAA70037E65B /* ViewController.swift */,
 				FF3CC63122D7BAA70037E65B /* Main.storyboard */,
+				CB3B194D22FCCDF4007CF330 /* Assets.xcassets */,
 				CB0D00A422E8083700F5DD4D /* Model */,
 				CB0D00A522E80A4F00F5DD4D /* View Controllers */,
 				CB0D00C222EE3C8000F5DD4D /* BrainBaseline */,
@@ -702,7 +710,6 @@
 				FF3CC65022D7C2B00037E65B /* Task Switch.json in Resources */,
 				FF3CC64122D7C1B70037E65B /* LaunchScreen.storyboard in Resources */,
 				FF3CC64A22D7C2AA0037E65B /* PKU.strings in Resources */,
-				FF3CC64022D7BEFD0037E65B /* Assets.xcassets in Resources */,
 				FF3CC64322D7C1FB0037E65B /* lato_bold.ttf in Resources */,
 				FF3CC64422D7C1FB0037E65B /* lato_bolditalic.ttf in Resources */,
 				CB1A259C22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib in Resources */,
@@ -716,7 +723,9 @@
 				FF3CC65D22D7C3300037E65B /* BridgeInfo-private.plist in Resources */,
 				441651D322F10B8700E02DAC /* Tapping.mp4 in Resources */,
 				FF3CC65F22D7C3430037E65B /* biomarin-pku-study.pem in Resources */,
+				CB3B194E22FCCDF5007CF330 /* Assets.xcassets in Resources */,
 				CB1A25A422F7338600ED3A57 /* FitbitStepViewController.xib in Resources */,
+				CB3B195222FCD004007CF330 /* PKUInstructionStepViewController.xib in Resources */,
 				FF3CC64E22D7C2B00037E65B /* N Back.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -791,6 +800,7 @@
 				FF3CC63022D7BAA70037E65B /* ViewController.swift in Sources */,
 				CB0D00CB22EE463E00F5DD4D /* FontRules.swift in Sources */,
 				CB1A259B22F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift in Sources */,
+				CB3B195022FCCF2E007CF330 /* PKUInstructionStepViewController.swift in Sources */,
 				FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */,
 				CB0D00C622EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift in Sources */,
 				FF3CC65522D7C2C80037E65B /* SurveyStepViewController.swift in Sources */,
