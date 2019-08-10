@@ -34,9 +34,58 @@
 import Foundation
 import BridgeApp
 
-open class EmojiChoiceTableStepViewController: SurveyStepViewController {
+open class EmojiChoiceFormStepObject: RSDFormUIStepObject, RSDStepViewControllerVendor {
     
-    open var emojiImageType: EmojiImageType = .emoji
+    private enum CodingKeys: String, CodingKey, CaseIterable {
+        case learnMoreTitle, learnMoreText, emojiImageType
+    }
+    
+    /// The title of the learn more screen
+    var learnMoreTitle: String?
+    /// The text of the learn more screen
+    var learnMoreText: String?
+    /// The type of emojis to use for the step
+    var emojiImageType: EmojiImageType = .emoji
+    
+    /// Default type is `.emojiChoice`.
+    open override class func defaultType() -> RSDStepType {
+        return .emojiChoice
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        learnMoreTitle = try container.decode(String.self, forKey: .learnMoreTitle)
+        learnMoreText = try container.decode(String.self, forKey: .learnMoreText)
+        emojiImageType = EmojiImageType(rawValue: try container.decode(String.self, forKey: .emojiImageType)) ?? .emoji
+    }
+    
+    required public init(identifier: String, type: RSDStepType?) {
+        super.init(identifier: identifier, type: type)
+    }
+    
+    /// Override to set the properties of the subclass.
+    override open func copyInto(_ copy: RSDUIStepObject) {
+        super.copyInto(copy)
+        guard let subclassCopy = copy as? EmojiChoiceFormStepObject else {
+            assertionFailure("Superclass implementation of the `copy(with:)` protocol should return an instance of this class.")
+            return
+        }
+        subclassCopy.learnMoreTitle = self.learnMoreTitle
+        subclassCopy.learnMoreText = self.learnMoreText
+        subclassCopy.emojiImageType = self.emojiImageType
+    }    
+    
+    public func instantiateViewController(with parent: RSDPathComponent?) -> (UIViewController & RSDStepController)? {
+        return EmojiChoiceTableStepViewController(step: self, parent: parent)
+    }
+}
+
+open class EmojiChoiceTableStepViewController: RSDTableStepViewController {
+    
+    open var emojiStep: EmojiChoiceFormStepObject? {
+        return self.step as? EmojiChoiceFormStepObject
+    }
     
     open override func setupHeader(_ header: RSDStepNavigationView) {
         super.setupHeader(header)
@@ -75,16 +124,36 @@ open class EmojiChoiceTableStepViewController: SurveyStepViewController {
         
         // Call before super so that setting table item will have correct image type
         if let emojiCell = cell as? EmojiChoiceTableViewCell {
-            emojiCell.emojiImageType = self.emojiImageType
+            emojiCell.emojiImageType = self.emojiStep?.emojiImageType ?? .emoji
         }
         
         super.configure(cell: cell, in: tableView, at: indexPath)
     }
+    
+    override open func showLearnMore() {
+        let step = LearnMoreStep(identifier: "learnMore", type: "learnMore")
+        step.title = self.emojiStep?.learnMoreTitle
+        step.text = self.emojiStep?.learnMoreText
+        
+        var navigator = RSDConditionalStepNavigatorObject(with: [step])
+        navigator.progressMarkers = []
+        let task = RSDTaskObject(identifier: "learnMoreTask", stepNavigator: navigator)
+        let vc = RSDTaskViewController(task: task)
+        vc.delegate = self
+        self.presentModal(vc, animated: true, completion:   nil)
+    }
+    
+    override open func taskController(_ taskController: RSDTaskController, didFinishWith reason: RSDTaskFinishReason, error: Error?) {
+        (taskController as? UIViewController)?.dismiss(animated: true, completion: nil)
+    }
+    
+    override open func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {
+    }
 }
 
 public enum EmojiImageType: String {
-    case emoji = "Emoji"
-    case sleepEmoji = "SleepEmoji"
+    case emoji = "emoji"
+    case sleepEmoji = "sleep"
 }
 
 public class EmojiChoiceTableViewCell: RSDSelectionTableViewCell {
@@ -144,10 +213,9 @@ public class EmojiChoiceTableViewCell: RSDSelectionTableViewCell {
             
             // Here we set the emoji image based on the choice value
             // Currently the only values compatible are 1-5
-            if let strAnswer = item.choice.answerValue as? String,
-                let intAnswer = Int(strAnswer),
+            if let intAnswer = item.choice.answerValue as? Int,
                 intAnswer > 0, intAnswer <= emojiCount {
-                emojiImageView?.image = UIImage(named: "\(emojiImageType.rawValue)\(intAnswer)")
+                emojiImageView?.image = UIImage(named: "\(emojiImageType.rawValue.capitalized)\(intAnswer)")
             } else {
                 emojiImageView?.image = nil
             }

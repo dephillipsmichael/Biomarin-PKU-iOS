@@ -95,8 +95,8 @@ class ExternalIDRegistrationViewController: RSDStepViewController, UITextFieldDe
             self.textField.keyboardType = .numberPad
         #endif
         
-        self.textField.font = self.designSystem.fontRules.font(for: .heading2, compatibleWith: traitCollection)
-        self.textField.textColor = self.designSystem.colorRules.textColor(on: background, for: .heading2)
+        self.textField.font = self.designSystem.fontRules.font(for: .largeHeader, compatibleWith: traitCollection)
+        self.textField.textColor = self.designSystem.colorRules.textColor(on: background, for: .largeHeader)
         self.textField.delegate = self
         
         self.ruleView.backgroundColor = self.designSystem.colorRules.tintedButtonColor(on: background)
@@ -106,8 +106,8 @@ class ExternalIDRegistrationViewController: RSDStepViewController, UITextFieldDe
         self.submitButton.isEnabled = false
         
         setFirstEntryTitle()
-        self.titleLabel.font = self.designSystem.fontRules.font(for: .heading1)
-        self.titleLabel.textColor = self.designSystem.colorRules.textColor(on: background, for: .heading1)
+        self.titleLabel.font = self.designSystem.fontRules.font(for: .xLargeHeader)
+        self.titleLabel.textColor = self.designSystem.colorRules.textColor(on: background, for: .xLargeHeader)
     }
     
     //Calls this function when the tap is recognized.

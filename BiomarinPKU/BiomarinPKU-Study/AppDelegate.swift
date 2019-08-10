@@ -256,23 +256,23 @@ extension AppDelegate {
         header.setDesignSystem(AppDelegate.designSystem, with: primary)
         
         // Style the cancel button a dark color
-        let cancelTint = self.designSystem.colorRules.textColor(on: primary, for: .heading1)
+        let cancelTint = self.designSystem.colorRules.textColor(on: primary, for: .xLargeHeader)
         header.cancelButton?.imageView?.tintColor = cancelTint
         
-        header.titleLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading1)
-        header.titleLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading1)
+        header.titleLabel?.font = AppDelegate.designSystem.fontRules.font(for: .xLargeHeader)
+        header.titleLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .xLargeHeader)
         
-        header.textLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading1)
-        header.textLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading1)
+        header.textLabel?.font = AppDelegate.designSystem.fontRules.font(for: .largeHeader)
+        header.textLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .largeHeader)
         
-        header.detailLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading4)
-        header.detailLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading4)
+        header.detailLabel?.font = AppDelegate.designSystem.fontRules.font(for: .mediumHeader)
+        header.detailLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .mediumHeader)
     }
     
     class func setupFooter(_ footer: RSDNavigationFooterView) {
-        guard let primaryButtonFont = (self.designSystem.fontRules as? FontRules)?.font(for: .primary) else { return }
-        
-        footer.backButton?.titleLabel?.font = primaryButtonFont
-        footer.nextButton?.titleLabel?.font = primaryButtonFont
+//        guard let psrimaryButtonFont = (self.designSystem.fontRules as? FontRules)?.font(for: .primary) else { return }
+//
+//        footer.backButton?.titleLabel?.font = primaryButtonFont
+//        footer.nextButton?.titleLabel?.font = primaryButtonFont
     }
 }

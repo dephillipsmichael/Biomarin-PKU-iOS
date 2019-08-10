@@ -15,8 +15,7 @@
 		441651D722F10B8700E02DAC /* Tremor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441651D122F10B8700E02DAC /* Tremor.mp4 */; };
 		CB0D00A222E804B900F5DD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A122E804B900F5DD4D /* AppDelegate.swift */; };
 		CB0D00A322E804FF00F5DD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8061179227BA025005FCABF /* AppDelegate.swift */; };
-		CB0D00A722E80B1A00F5DD4D /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A622E80B1A00F5DD4D /* TaskListTableViewController.swift */; };
-		CB0D00A922E80B3100F5DD4D /* TaskListScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A822E80B3100F5DD4D /* TaskListScheduleManager.swift */; };
+		CB0D00A722E80B1A00F5DD4D /* Week1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A622E80B1A00F5DD4D /* Week1ViewController.swift */; };
 		CB0D00AA22E80B3C00F5DD4D /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */; };
 		CB0D00C022EE36BF00F5DD4D /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
 		CB0D00C422EE3CA500F5DD4D /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C322EE3CA500F5DD4D /* BrainBaselineManager.swift */; };
@@ -30,6 +29,7 @@
 		CB3B194E22FCCDF5007CF330 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3B194D22FCCDF4007CF330 /* Assets.xcassets */; };
 		CB3B195022FCCF2E007CF330 /* PKUInstructionStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B194F22FCCF2E007CF330 /* PKUInstructionStepViewController.swift */; };
 		CB3B195222FCD004007CF330 /* PKUInstructionStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB3B195122FCD003007CF330 /* PKUInstructionStepViewController.xib */; };
+		CB3B195622FD00E5007CF330 /* Week1ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B195522FD00E5007CF330 /* Week1ScheduleManager.swift */; };
 		CB46274C22D7843400AD79B1 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */; };
 		CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
 		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
@@ -45,6 +45,13 @@
 		CB55116422A0D34F0036CD6F /* Go No Go.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115F22A0D34E0036CD6F /* Go No Go.json */; };
 		CB6836C922D44A040001066A /* BrainBaselineOverviewStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */; };
 		CB6836CB22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */; };
+		CB7F4CC322FF1DCD003EBB5C /* Sleep Check-In.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7F4CBF22FF1DCD003EBB5C /* Sleep Check-In.json */; };
+		CB7F4CC422FF1DCD003EBB5C /* Daily Check-In.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7F4CC122FF1DCD003EBB5C /* Daily Check-In.json */; };
+		CB7F4CC522FF1DD1003EBB5C /* Daily Check-In.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7F4CC122FF1DCD003EBB5C /* Daily Check-In.json */; };
+		CB7F4CC622FF1DD3003EBB5C /* Sleep Check-In.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7F4CBF22FF1DCD003EBB5C /* Sleep Check-In.json */; };
+		CB7F4CC822FF2103003EBB5C /* PKUTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7F4CC722FF2103003EBB5C /* PKUTaskFactory.swift */; };
+		CB7F4CCB22FF4DEB003EBB5C /* LearnMoreStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7F4CC922FF4DEB003EBB5C /* LearnMoreStepViewController.swift */; };
+		CB7F4CCE22FF5D5B003EBB5C /* LearnMoreStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7F4CCD22FF5D5A003EBB5C /* LearnMoreStepViewController.xib */; };
 		CB80522122D6AF1E0050E834 /* PKUSurveyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */; };
 		CB80522322D6E84F0050E834 /* BrainBaselinManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522222D6E84F0050E834 /* BrainBaselinManagerTests.swift */; };
 		CB80522522D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522422D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift */; };
@@ -83,7 +90,6 @@
 		F83EEBBD229DA96500476F7F /* ResearchMotion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF3CC63022D7BAA70037E65B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3CC62F22D7BAA70037E65B /* ViewController.swift */; };
 		FF3CC63322D7BAA70037E65B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC63122D7BAA70037E65B /* Main.storyboard */; };
-		FF3CC63F22D7BEF90037E65B /* PKUTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55114322A0B9920036CD6F /* PKUTaskFactory.swift */; };
 		FF3CC64122D7C1B70037E65B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8061182227BA026005FCABF /* LaunchScreen.storyboard */; };
 		FF3CC64222D7C1FB0037E65B /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
 		FF3CC64322D7C1FB0037E65B /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
@@ -101,8 +107,6 @@
 		FF3CC64F22D7C2B00037E65B /* Spatial Memory.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115D22A0D34E0036CD6F /* Spatial Memory.json */; };
 		FF3CC65022D7C2B00037E65B /* Task Switch.json in Resources */ = {isa = PBXBuildFile; fileRef = CBD4F70522A4670B000C402F /* Task Switch.json */; };
 		FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */; };
-		FF3CC65522D7C2C80037E65B /* SurveyStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */; };
-		FF3CC65622D7C2C80037E65B /* LearnMoreStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */; };
 		FF3CC65722D7C2D30037E65B /* MotorControl+Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */; };
 		FF3CC65922D7C2D30037E65B /* PKUSurveyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */; };
 		FF3CC65B22D7C31A0037E65B /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC65A22D7C31A0037E65B /* BridgeInfo.plist */; };
@@ -179,8 +183,7 @@
 		441651D022F10B8600E02DAC /* KineticTremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = KineticTremor.mp4; sourceTree = "<group>"; };
 		441651D122F10B8700E02DAC /* Tremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tremor.mp4; sourceTree = "<group>"; };
 		CB0D00A122E804B900F5DD4D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB0D00A622E80B1A00F5DD4D /* TaskListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
-		CB0D00A822E80B3100F5DD4D /* TaskListScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListScheduleManager.swift; sourceTree = "<group>"; };
+		CB0D00A622E80B1A00F5DD4D /* Week1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week1ViewController.swift; sourceTree = "<group>"; };
 		CB0D00C122EE377700F5DD4D /* BiomarinPKU-Study.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BiomarinPKU-Study.entitlements"; sourceTree = "<group>"; };
 		CB0D00C322EE3CA500F5DD4D /* BrainBaselineManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB0D00C522EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineStepViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +195,7 @@
 		CB3B194D22FCCDF4007CF330 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB3B194F22FCCF2E007CF330 /* PKUInstructionStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKUInstructionStepViewController.swift; sourceTree = "<group>"; };
 		CB3B195122FCD003007CF330 /* PKUInstructionStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKUInstructionStepViewController.xib; sourceTree = "<group>"; };
+		CB3B195522FD00E5007CF330 /* Week1ScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week1ScheduleManager.swift; sourceTree = "<group>"; };
 		CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
@@ -206,6 +210,11 @@
 		CB55116022A0D34F0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Go No Go.json"; sourceTree = "<group>"; };
 		CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrainBaselineOverviewStepViewController.xib; sourceTree = "<group>"; };
 		CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineOverviewStepViewController.swift; sourceTree = "<group>"; };
+		CB7F4CC022FF1DCD003EBB5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Sleep Check-In.json"; sourceTree = "<group>"; };
+		CB7F4CC222FF1DCD003EBB5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Daily Check-In.json"; sourceTree = "<group>"; };
+		CB7F4CC722FF2103003EBB5C /* PKUTaskFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUTaskFactory.swift; sourceTree = "<group>"; };
+		CB7F4CC922FF4DEB003EBB5C /* LearnMoreStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnMoreStepViewController.swift; sourceTree = "<group>"; };
+		CB7F4CCD22FF5D5A003EBB5C /* LearnMoreStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LearnMoreStepViewController.xib; sourceTree = "<group>"; };
 		CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKUSurveyConfiguration.swift; sourceTree = "<group>"; };
 		CB80522222D6E84F0050E834 /* BrainBaselinManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselinManagerTests.swift; sourceTree = "<group>"; };
 		CB80522422D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineStepViewControllerTests.swift; sourceTree = "<group>"; };
@@ -213,8 +222,6 @@
 		CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCopyStepTests.swift; sourceTree = "<group>"; };
 		CBD4F70622A4670B000C402F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Task Switch.json"; sourceTree = "<group>"; };
 		CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiChoiceTableStepViewController.swift; sourceTree = "<group>"; };
-		CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyStepViewController.swift; sourceTree = "<group>"; };
-		CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnMoreStepViewController.swift; sourceTree = "<group>"; };
 		CBF8CB42228F84460089BDF0 /* lato_black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_black.ttf; sourceTree = "<group>"; };
 		CBF8CB43228F84460089BDF0 /* lato_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bold.ttf; sourceTree = "<group>"; };
 		CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bolditalic.ttf; sourceTree = "<group>"; };
@@ -298,8 +305,9 @@
 		CB0D00A422E8083700F5DD4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CB7F4CC722FF2103003EBB5C /* PKUTaskFactory.swift */,
 				CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */,
-				CB0D00A822E80B3100F5DD4D /* TaskListScheduleManager.swift */,
+				CB3B195522FD00E5007CF330 /* Week1ScheduleManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -307,16 +315,16 @@
 		CB0D00A522E80A4F00F5DD4D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CB0D00A622E80B1A00F5DD4D /* TaskListTableViewController.swift */,
-				CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */,
+				CB0D00A622E80B1A00F5DD4D /* Week1ViewController.swift */,
 				CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */,
-				CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */,
 				CB1A259922F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift */,
 				CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */,
 				CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */,
 				CB1A25A322F7338500ED3A57 /* FitbitStepViewController.xib */,
 				CB3B194F22FCCF2E007CF330 /* PKUInstructionStepViewController.swift */,
 				CB3B195122FCD003007CF330 /* PKUInstructionStepViewController.xib */,
+				CB7F4CC922FF4DEB003EBB5C /* LearnMoreStepViewController.swift */,
+				CB7F4CCD22FF5D5A003EBB5C /* LearnMoreStepViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -351,6 +359,8 @@
 				CB55115922A0D34E0036CD6F /* N Back.json */,
 				CB55115D22A0D34E0036CD6F /* Spatial Memory.json */,
 				CBD4F70522A4670B000C402F /* Task Switch.json */,
+				CB7F4CC122FF1DCD003EBB5C /* Daily Check-In.json */,
+				CB7F4CBF22FF1DCD003EBB5C /* Sleep Check-In.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -662,6 +672,7 @@
 				441651D422F10B8700E02DAC /* KineticTremor.mp4 in Resources */,
 				F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */,
 				CB55116122A0D34F0036CD6F /* N Back.json in Resources */,
+				CB7F4CC422FF1DCD003EBB5C /* Daily Check-In.json in Resources */,
 				CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */,
 				F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */,
 				441651D622F10B8700E02DAC /* Tremor.mp4 in Resources */,
@@ -684,6 +695,7 @@
 				441651D222F10B8700E02DAC /* Tapping.mp4 in Resources */,
 				CB55111922A0A11C0036CD6F /* BrainBaselineStepViewController.xib in Resources */,
 				CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */,
+				CB7F4CC322FF1DCD003EBB5C /* Sleep Check-In.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +710,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB7F4CC522FF1DD1003EBB5C /* Daily Check-In.json in Resources */,
 				FF3CC67022D7C6710037E65B /* BrainBaselineStepViewController.xib in Resources */,
 				441651D522F10B8700E02DAC /* KineticTremor.mp4 in Resources */,
 				FF3CC64D22D7C2B00037E65B /* Go No Go.json in Resources */,
@@ -711,6 +724,7 @@
 				FF3CC64122D7C1B70037E65B /* LaunchScreen.storyboard in Resources */,
 				FF3CC64A22D7C2AA0037E65B /* PKU.strings in Resources */,
 				FF3CC64322D7C1FB0037E65B /* lato_bold.ttf in Resources */,
+				CB7F4CCE22FF5D5B003EBB5C /* LearnMoreStepViewController.xib in Resources */,
 				FF3CC64422D7C1FB0037E65B /* lato_bolditalic.ttf in Resources */,
 				CB1A259C22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib in Resources */,
 				FF3CC64722D7C1FB0037E65B /* lato_lightitalic.ttf in Resources */,
@@ -724,6 +738,7 @@
 				441651D322F10B8700E02DAC /* Tapping.mp4 in Resources */,
 				FF3CC65F22D7C3430037E65B /* biomarin-pku-study.pem in Resources */,
 				CB3B194E22FCCDF5007CF330 /* Assets.xcassets in Resources */,
+				CB7F4CC622FF1DD3003EBB5C /* Sleep Check-In.json in Resources */,
 				CB1A25A422F7338600ED3A57 /* FitbitStepViewController.xib in Resources */,
 				CB3B195222FCD004007CF330 /* PKUInstructionStepViewController.xib in Resources */,
 				FF3CC64E22D7C2B00037E65B /* N Back.json in Resources */,
@@ -788,23 +803,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF3CC65622D7C2C80037E65B /* LearnMoreStepViewController.swift in Sources */,
 				FF3CC67122D7C6710037E65B /* BrainBaselineOverviewStepViewController.swift in Sources */,
 				CB1A25A222F7314900ED3A57 /* FitbitStepViewController.swift in Sources */,
-				FF3CC63F22D7BEF90037E65B /* PKUTaskFactory.swift in Sources */,
 				FF3CC64922D7C2100037E65B /* PKUBuildDateUtil.m in Sources */,
-				CB0D00A722E80B1A00F5DD4D /* TaskListTableViewController.swift in Sources */,
+				CB7F4CCB22FF4DEB003EBB5C /* LearnMoreStepViewController.swift in Sources */,
+				CB0D00A722E80B1A00F5DD4D /* Week1ViewController.swift in Sources */,
 				FF3CC65922D7C2D30037E65B /* PKUSurveyConfiguration.swift in Sources */,
 				CB0D00C422EE3CA500F5DD4D /* BrainBaselineManager.swift in Sources */,
+				CB7F4CC822FF2103003EBB5C /* PKUTaskFactory.swift in Sources */,
 				CB0D00A222E804B900F5DD4D /* AppDelegate.swift in Sources */,
+				CB3B195622FD00E5007CF330 /* Week1ScheduleManager.swift in Sources */,
 				FF3CC63022D7BAA70037E65B /* ViewController.swift in Sources */,
 				CB0D00CB22EE463E00F5DD4D /* FontRules.swift in Sources */,
 				CB1A259B22F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift in Sources */,
 				CB3B195022FCCF2E007CF330 /* PKUInstructionStepViewController.swift in Sources */,
 				FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */,
 				CB0D00C622EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift in Sources */,
-				FF3CC65522D7C2C80037E65B /* SurveyStepViewController.swift in Sources */,
-				CB0D00A922E80B3100F5DD4D /* TaskListScheduleManager.swift in Sources */,
 				FF3CC65722D7C2D30037E65B /* MotorControl+Bridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -858,6 +872,22 @@
 				CB55116022A0D34F0036CD6F /* Base */,
 			);
 			name = "Go No Go.json";
+			sourceTree = "<group>";
+		};
+		CB7F4CBF22FF1DCD003EBB5C /* Sleep Check-In.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB7F4CC022FF1DCD003EBB5C /* Base */,
+			);
+			name = "Sleep Check-In.json";
+			sourceTree = "<group>";
+		};
+		CB7F4CC122FF1DCD003EBB5C /* Daily Check-In.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB7F4CC222FF1DCD003EBB5C /* Base */,
+			);
+			name = "Daily Check-In.json";
 			sourceTree = "<group>";
 		};
 		CBD4F70522A4670B000C402F /* Task Switch.json */ = {

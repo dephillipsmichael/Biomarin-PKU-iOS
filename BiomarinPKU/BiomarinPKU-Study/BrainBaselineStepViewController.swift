@@ -129,8 +129,8 @@ open class BrainBaselineStepViewController: RSDStepViewController, BBLPsychTestV
         
         let design = AppDelegate.designSystem
         let background = design.colorRules.backgroundPrimary
-        self.instructionLabel.textColor = design.colorRules.textColor(on: background, for: .heading1)
-        self.instructionLabel.font = design.fontRules.font(for: .heading1)
+        self.instructionLabel.textColor = design.colorRules.textColor(on: background, for: .xLargeHeader)
+        self.instructionLabel.font = design.fontRules.font(for: .xLargeHeader)
         
         if startDate == nil {
             instructionLabel.text = Localization.localizedString("BRAIN_BASELINE_INSTRUCTION_TEXT")

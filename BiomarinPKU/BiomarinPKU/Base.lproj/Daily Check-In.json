@@ -1,0 +1,50 @@
+{
+    "taskIdentifier"            : "Daily Check-In",
+    "schemaIdentifier"          : "Daily Check-In",
+    "progressMarkers": [],
+    "steps":
+    [
+        {
+            "identifier": "pku_affected_your_day",
+            "type": "emojiChoice",
+            "title": "How much did PKU affect your day?",
+            "emojiImageType": "emoji",
+            "actions": {
+                "learnMore": {
+                    "type" : "default",
+                    "buttonTitle" : "Why are we asking this?"
+                }
+            },
+            "learnMoreTitle": "Why are we asking about how PKU affects your day?",
+            "learnMoreText": "We know that PKU can affect your daily life in many ways. We are asking you to think about all of those effects together and tell us how they affected your day. This information will help us understand how you experience your PKU over time.\n\nThank you for answering!",
+            "inputFields": [
+                {
+                    "uiHint": "list",
+                    "type": "singleChoice.integer",
+                    "choices": [
+                        {
+                            "text": "Not at all",
+                            "value": 1
+                        },
+                        {
+                            "text": "A little bit",
+                            "value": 2
+                        },
+                        {
+                            "text": "Somewhat",
+                            "value": 3
+                        },
+                        {
+                            "text": "Moderately",
+                            "value": 4
+                        },
+                        {
+                            "text": "Extremely",
+                            "value": 5
+                        },
+                    ]
+                }
+            ]
+        }
+    ]
+}
