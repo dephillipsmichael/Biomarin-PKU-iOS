@@ -46,8 +46,8 @@
                                                 <constraint firstAttribute="width" constant="85" id="rZp-qb-8VG"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walk and Balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3p-ES-nu8" userLabel="Title Label">
-                                            <rect key="frame" x="140" y="125.00000000000001" width="197.66666666666663" height="28.666666666666671"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walk and Balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d3p-ES-nu8" userLabel="Title Label">
+                                            <rect key="frame" x="140" y="125.00000000000001" width="227" height="28.666666666666671"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -62,6 +62,7 @@
                                     <color key="backgroundColor" red="0.99006377479999996" green="0.26231237190000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="9A5-yq-5My" firstAttribute="leading" secondItem="d3p-ES-nu8" secondAttribute="leading" id="4j1-lC-r61"/>
+                                        <constraint firstAttribute="trailing" secondItem="d3p-ES-nu8" secondAttribute="trailing" constant="8" id="Cpk-ak-cfW"/>
                                         <constraint firstItem="8mB-oE-ApD" firstAttribute="top" secondItem="fxA-Tz-ZiS" secondAttribute="top" constant="108" id="Kay-Dw-Mgo"/>
                                         <constraint firstItem="9A5-yq-5My" firstAttribute="top" secondItem="d3p-ES-nu8" secondAttribute="bottom" constant="1.3333333333333286" id="eZT-eu-K2Y"/>
                                         <constraint firstItem="8mB-oE-ApD" firstAttribute="top" secondItem="d3p-ES-nu8" secondAttribute="bottom" constant="-45.666666666666657" id="fHR-D3-h1C"/>
@@ -159,10 +160,10 @@ You will also be asked to watch the screen and look for the letter X within the 
                     </constraints>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAO-q7-fPw" userLabel="Cancel Button">
-                    <rect key="frame" x="20" y="64" width="32" height="32"/>
+                    <rect key="frame" x="20" y="44" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="MAO-q7-fPw" secondAttribute="height" multiplier="1:1" id="FQP-6M-XIU"/>
-                        <constraint firstAttribute="width" constant="32" id="oUt-Bl-kZX"/>
+                        <constraint firstAttribute="width" constant="50" id="oUt-Bl-kZX"/>
                     </constraints>
                     <state key="normal" image="closeActivity"/>
                 </button>
@@ -206,7 +207,7 @@ You will also be asked to watch the screen and look for the letter X within the 
                 <constraint firstItem="2XD-eO-28i" firstAttribute="bottom" secondItem="W8i-xX-fUy" secondAttribute="bottom" id="rMT-tK-CD7"/>
                 <constraint firstItem="0fq-Hc-Mvl" firstAttribute="trailing" secondItem="W8i-xX-fUy" secondAttribute="trailing" id="rlB-Qz-gJm"/>
                 <constraint firstItem="W8i-xX-fUy" firstAttribute="trailing" secondItem="2XD-eO-28i" secondAttribute="trailing" id="uGL-bY-LFB"/>
-                <constraint firstItem="W8i-xX-fUy" firstAttribute="top" secondItem="MAO-q7-fPw" secondAttribute="top" constant="-20" id="uYC-O5-U6m"/>
+                <constraint firstItem="W8i-xX-fUy" firstAttribute="top" secondItem="MAO-q7-fPw" secondAttribute="top" id="uYC-O5-U6m"/>
                 <constraint firstItem="beo-bQ-opC" firstAttribute="leading" secondItem="W8i-xX-fUy" secondAttribute="leading" id="una-hR-6Ec"/>
                 <constraint firstItem="nCy-4g-nIJ" firstAttribute="width" secondItem="W8i-xX-fUy" secondAttribute="width" id="w5s-rs-t30"/>
             </constraints>

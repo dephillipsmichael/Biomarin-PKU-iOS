@@ -60,6 +60,9 @@ class ExternalIDRegistrationViewController: RSDStepViewController, UITextFieldDe
     @IBOutlet public var titleLabel: UILabel!
     // The hyphen text that is used in the external ID format "XXXX - XXXXX"
     let hyphenText = " - "
+    // Format is [4 digit site ID] - [4 digit participant ID]
+    let siteIdLength = 4
+    let participantIdLength = 4
     
     // Textfield for external ID entry
     @IBOutlet public var textField: UITextField!
@@ -160,43 +163,49 @@ class ExternalIDRegistrationViewController: RSDStepViewController, UITextFieldDe
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text,
             let textRange = Range(range, in: text) {
-            var updatedText = text.replacingCharacters(in: textRange, with: string)
+            let updatedText = text.replacingCharacters(in: textRange, with: string)
             
-            // Format is [4 digit site ID] - [4 digit participant ID]
-            let siteIdLength = 4
-            let participantIdLength = 4
+            let newText = self.processNewExternalIdText(oldText: self.textField.text ?? "", newText: updatedText)
+            
+            self.textField.text = newText
             let maxSize = siteIdLength + hyphenText.count + participantIdLength
-            
-            // If we are at the max size, don't allow more characters
-            if (updatedText.count > maxSize) {
-                self.submitButton.isEnabled = true
-                return false
-            }
-            
-            // Check for the edge case that user deletes a character across the hyphen
-            if (updatedText.count == (siteIdLength + hyphenText.count)) {
-                let fourthIndex = updatedText.index(updatedText.startIndex, offsetBy: siteIdLength)
-                // User will no longer see the hyphen, just the site ID
-                updatedText = "\(updatedText.prefix(upTo: fourthIndex))"
-                self.textField.text = updatedText
-                self.submitButton.isEnabled = false
-                return false
-            }
-            
-            // By default, remove the hyphen from the updated text, and re-apply
-            // it based on the raw text digit entry
-            updatedText = updatedText.replacingOccurrences(of: hyphenText, with: "")
-            if (updatedText.count >= siteIdLength) {
-                let fourthIndex = updatedText.index(updatedText.startIndex, offsetBy: siteIdLength)
-                updatedText = "\(updatedText.prefix(upTo: fourthIndex))\(hyphenText)\(updatedText.suffix(from: fourthIndex))"
-            }
-            
-            self.textField.text = updatedText
-            self.submitButton.isEnabled = (updatedText.count == maxSize)
+            self.submitButton.isEnabled = (newText.count == maxSize)
             
             return false
         }
         return true
+    }
+    
+    ///
+    /// Process old textfield text to new formatted text based
+    /// on what the user has typed in to change the text
+    ///
+    func processNewExternalIdText(oldText: String, newText: String) -> String {
+        var updatedText = newText
+        let maxSize = siteIdLength + hyphenText.count + participantIdLength
+        
+        // If we are at the max size, don't allow more characters
+        if (updatedText.count > maxSize) {
+            return oldText
+        }
+        
+        // Check for the edge case that user deletes a character across the hyphen
+        if (updatedText.count == (siteIdLength + hyphenText.count - 1)) {
+            let fourthIndex = updatedText.index(updatedText.startIndex, offsetBy: siteIdLength)
+            // User will no longer see the hyphen, just the site ID
+            updatedText = "\(updatedText.prefix(upTo: fourthIndex))"
+            return updatedText
+        }
+        
+        // By default, remove the hyphen from the updated text, and re-apply
+        // it based on the raw text digit entry
+        updatedText = updatedText.replacingOccurrences(of: hyphenText, with: "")
+        if (updatedText.count >= siteIdLength) {
+            let fourthIndex = updatedText.index(updatedText.startIndex, offsetBy: siteIdLength)
+            updatedText = "\(updatedText.prefix(upTo: fourthIndex))\(hyphenText)\(updatedText.suffix(from: fourthIndex))"
+        }
+        
+        return updatedText
     }
     
     func signUpAndSignIn(completion: @escaping SBBNetworkManagerCompletionBlock) {

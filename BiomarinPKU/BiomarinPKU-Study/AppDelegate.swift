@@ -93,9 +93,6 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         // Setup reminders
         RSDStudyConfiguration.shared.shouldShowRemindMe = true
         
-        // Set our custom survey configuration
-        SBASurveyConfiguration.shared = PKUSurveyConfiguration()
-        
         // Register for BrainBasline results
         let bblContext = BrainBaselineManager.brainBaselineContext
         NotificationCenter.default.addObserver(forName: NSNotification.Name.BBLContextDidUpdatePsychTestResult, object: bblContext, queue: OperationQueue.main) { (note) in

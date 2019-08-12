@@ -89,11 +89,6 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
     @IBOutlet var activityDoneIcons: Array<UIImageView>?
     
     var expirationTimer = Timer()
-
-    // The current activity task the user is doing
-    var currentActivity: Week1Activity? = nil
-    // The day of study that the user started doing the current activity task
-    var dayOfCurrentActivity = 0
     
     let scheduleManager = Week1ScheduleManager()
     
@@ -104,6 +99,7 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
         NotificationCenter.default.addObserver(forName: .SBAUpdatedScheduledActivities, object: scheduleManager, queue: OperationQueue.main) { (notification) in
             self.loadingView.isHidden = true
             self.activitiesContainer.isHidden = false
+            self.refreshUI()
         }
         
         // Reload the schedules and show loading UI
@@ -162,8 +158,6 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
         
         for activity in Week1Activity.allCases {
             let i = activity.rawValue
-            self.activityButtons?[i].setTitleColor(designSystem.colorRules.textColor(on: backgroundLight, for: .smallHeader), for: .normal)
-            self.activityButtons?[i].titleLabel?.font = designSystem.fontRules.font(for: .smallHeader)
             
             self.activityDetailLabels?[i].textColor = designSystem.colorRules.textColor(on: backgroundLight, for: .microDetail)
             self.activityDetailLabels?[i].font = designSystem.fontRules.font(for: .microDetail)
@@ -174,8 +168,13 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
         self.titleLabel.text = Localization.localizedString("WEEK_1_TITLE")
         self.textLabel.text = Localization.localizedString("WEEK_1_TEXT")
         self.dayTitleLabel.text = Localization.localizedString("WEEK_1_DAY")
-        self.accountDetailsButton.setTitle(Localization.localizedString("VIEW_ACCOUNT_DETAILS"), for: .normal)
-        self.accountLabel.text = SBAParticipantManager.shared.studyParticipant?.externalId
+    self.accountDetailsButton.setTitle(Localization.localizedString("VIEW_ACCOUNT_DETAILS"), for: .normal)
+        
+        // Setup external ID to display as XXXX - XXXXX
+        if let externalID = SBAParticipantManager.shared.studyParticipant?.externalId {
+            let fourthIndex = externalID.index(externalID.startIndex, offsetBy: 4)
+            self.accountLabel.text = "\(externalID.prefix(upTo: fourthIndex)) - \(externalID.suffix(from: fourthIndex))"
+        }
         self.endStudyButton.setTitle(Localization.localizedString("TAP_TO_END_STUDY_BUTTON"), for: .normal)
         
         for activity in Week1Activity.allCases {
@@ -225,11 +224,11 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
     }
     
     func presentTaskViewController(for activity: Week1Activity) {
-        dayOfCurrentActivity = self.scheduleManager.dayOfStudy()
-        currentActivity = activity
+        scheduleManager.dayOfCurrentActivity = self.scheduleManager.dayOfStudy()
+        scheduleManager.currentActivity = activity
         
-        guard let schedule = self.scheduleManager.scheduledActivity(for: activity, on: dayOfCurrentActivity) else {
-            currentActivity = nil
+        guard let schedule = self.scheduleManager.scheduledActivity(for: activity, on: scheduleManager.dayOfCurrentActivity) else {
+            scheduleManager.currentActivity = nil
             debugPrint("Cannot run task when scheduled activity is nil")
             return
         }
@@ -268,12 +267,12 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
         scheduleManager.taskController(taskController, didFinishWith: reason, error: error)
         
         // Mark day as completed and refresh the UI
-        if let activity = currentActivity,
+        if let activity = scheduleManager.currentActivity,
             error == nil, reason == .completed {
-            activity.complete(for: dayOfCurrentActivity)
+            activity.complete(for: scheduleManager.dayOfCurrentActivity)
             refreshUI()
         }
-        currentActivity = nil
+        scheduleManager.currentActivity = nil
     }
     
     func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {

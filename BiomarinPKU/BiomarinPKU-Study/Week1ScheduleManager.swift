@@ -57,6 +57,11 @@ public class Week1ScheduleManager : SBAScheduleManager {
         return self.scheduledActivities.first?.scheduledOn.startOfDay() ?? today.startOfDay()
     }
     
+    // The current activity task the user is doing
+    public var currentActivity: Week1Activity? = nil
+    // The day of study that the user started doing the current activity task
+    public var dayOfCurrentActivity = 0
+    
     public override init() {
         RSDFactory.shared = PKUTaskFactory()
         // Install the MTC tasks in the app config so that they will use the appropriate factory.
@@ -105,6 +110,15 @@ public class Week1ScheduleManager : SBAScheduleManager {
         
         return RSDVideoViewUIActionObject(url: videoUrlUnwrapped, buttonTitle: Localization.localizedString("SEE_THIS_IN_ACTION"), bundleIdentifier: Bundle.main.bundleIdentifier)
     }
+    
+    /// Call from the view controller that is used to display the task when the task is ready to save.
+    override open func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {
+        
+        // It is a requirement for our app to always upload the day of the study
+        taskController.taskViewModel.taskResult.stepHistory.append(RSDAnswerResultObject(identifier: "dayOfStudy", answerType: .integer, value: dayOfCurrentActivity))
+        
+        super.taskController(taskController, readyToSave: taskViewModel)
+    }
 }
 
 public enum Week1Activity: Int, CaseIterable {
@@ -121,8 +135,9 @@ public enum Week1Activity: Int, CaseIterable {
         UserDefaults.standard.set(true, forKey: completeDefaultKey(for: day))
     }
     
-    private func completeDefaultKey(for day: Int) -> String {
-        return String(format: "%@%d", self.taskIdentifier(for: day), day)
+    func completeDefaultKey(for day: Int) -> String {
+        let key = String(describing: self)
+        return String(format: "%@%d", key, day)
     }
     
     func taskIdentifier(for day: Int) -> String {

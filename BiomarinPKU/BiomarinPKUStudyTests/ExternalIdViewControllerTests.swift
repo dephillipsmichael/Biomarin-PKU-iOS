@@ -1,6 +1,6 @@
 //
-// BrainBaselinManagerTests.swift
-// BiomarinPKUTests
+//  ExternalIdViewControllerTests.swift
+// BiomarinPKUStudyTests
 
 // Copyright © 2019 Sage Bionetworks. All rights reserved.
 //
@@ -34,22 +34,33 @@
 import Foundation
 import XCTest
 import BridgeApp
-import BrainBaseline
-@testable import BiomarinPKU
+@testable import BiomarinPKU_Study
 
-class BrainBaselineManagerTests: XCTestCase {
+class ExternalIdViewControllerTests: XCTestCase {
+    
+    let vc = ExternalIDRegistrationViewController(nibName: "", bundle: Bundle.main)
     
     override func setUp() {
-        // Put teardown code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
     
-    func testBBIdentifier() {
-        let identifier = BrainBaselineManager.bbIdentifier()
-        // Can't test participant health codes
-        XCTAssertNil(identifier)
+    func testExternalIdFormatting() {
+        XCTAssertEqual("0", vc.processNewExternalIdText(oldText: "", newText: "0"))
+        XCTAssertEqual("01", vc.processNewExternalIdText(oldText: "0", newText: "01"))
+        XCTAssertEqual("012", vc.processNewExternalIdText(oldText: "01", newText: "012"))
+        XCTAssertEqual("0123 - ", vc.processNewExternalIdText(oldText: "012", newText: "0123"))
+        XCTAssertEqual("0123 - 4", vc.processNewExternalIdText(oldText: "0123", newText: "0123 - 4"))
+        XCTAssertEqual("0123 - 45", vc.processNewExternalIdText(oldText: "0123 - 4", newText: "0123 - 45"))
+        XCTAssertEqual("0123 - 456", vc.processNewExternalIdText(oldText: "0123 - 45", newText: "0123 - 456"))
+        XCTAssertEqual("0123 - 4567", vc.processNewExternalIdText(oldText: "0123 - 456", newText: "0123 - 4567"))
+        
+        XCTAssertEqual("0123", vc.processNewExternalIdText(oldText: "0123 - ", newText: "0123 -"))
+        XCTAssertEqual("0123 - 4", vc.processNewExternalIdText(oldText: "0123", newText: "01234"))
     }
 }
