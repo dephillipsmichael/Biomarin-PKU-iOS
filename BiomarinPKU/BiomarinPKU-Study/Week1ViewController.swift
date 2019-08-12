@@ -240,9 +240,17 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
     }
     
     @objc func updateTimeFormattedText() {
-        let now = Date()
-        let endOfDay = Calendar.current.startOfDay(for: now).addingNumberOfDays(1)
-        let secondsUntilExpiration = Int(endOfDay.timeIntervalSince(now))
+        let expiresTimeStr = self.timeUntilExpiration(from: Date(), until: Calendar.current.startOfDay(for: Date()).addingNumberOfDays(1))
+        
+        self.expiresLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_EXPIRES_FORMAT_%@", expiresTimeStr)
+        
+        self.dayLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_DAY_FORMAT_%@", String(scheduleManager.dayOfStudy()))
+        
+        // TODO: mdephillips 8/10/19 check for and transition past the first week of the study if applicable
+    }
+    
+    func timeUntilExpiration(from now: Date, until expiration: Date) -> String {
+        let secondsUntilExpiration = Int(expiration.timeIntervalSince(now))
         
         var secondsCalculation = secondsUntilExpiration
         let hours = secondsCalculation / (60 * 60)
@@ -251,12 +259,7 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
         secondsCalculation -= minutes * 60
         let seconds = secondsCalculation
         
-        let expiresTime = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-        self.expiresLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_EXPIRES_FORMAT_%@", expiresTime)
-        
-        self.dayLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_DAY_FORMAT_%@", String(scheduleManager.dayOfStudy()))
-        
-        // TODO: mdephillips 8/10/19 check for and transition past the first week of the study if applicable
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
     
     func taskController(_ taskController: RSDTaskController, didFinishWith reason: RSDTaskFinishReason, error: Error?) {
