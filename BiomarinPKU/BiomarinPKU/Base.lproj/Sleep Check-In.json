@@ -13,6 +13,11 @@
                 "learnMore": {
                     "type" : "default",
                     "buttonTitle" : "Why are we asking this?"
+                },
+                "skip":{
+                    "type":"reminder",
+                    "buttonTitle": "I can’t do this now",
+                    "reminderIdentifier":"Sleep Check-In"
                 }
             },
             "learnMoreTitle": "Why are we asking about your sleep?",
