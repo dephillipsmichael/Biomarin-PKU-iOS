@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441651D222F10B8700E02DAC /* Tapping.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441651CF22F10B8500E02DAC /* Tapping.mp4 */; };
+		441651D322F10B8700E02DAC /* Tapping.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441651CF22F10B8500E02DAC /* Tapping.mp4 */; };
+		441651D422F10B8700E02DAC /* KineticTremor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441651D022F10B8600E02DAC /* KineticTremor.mp4 */; };
+		441651D522F10B8700E02DAC /* KineticTremor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441651D022F10B8600E02DAC /* KineticTremor.mp4 */; };
+		441651D622F10B8700E02DAC /* Tremor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441651D122F10B8700E02DAC /* Tremor.mp4 */; };
+		441651D722F10B8700E02DAC /* Tremor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441651D122F10B8700E02DAC /* Tremor.mp4 */; };
 		CB0D00A222E804B900F5DD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A122E804B900F5DD4D /* AppDelegate.swift */; };
 		CB0D00A322E804FF00F5DD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8061179227BA025005FCABF /* AppDelegate.swift */; };
 		CB0D00A722E80B1A00F5DD4D /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A622E80B1A00F5DD4D /* TaskListTableViewController.swift */; };
@@ -35,9 +41,6 @@
 		CB80522122D6AF1E0050E834 /* PKUSurveyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */; };
 		CB80522322D6E84F0050E834 /* BrainBaselinManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522222D6E84F0050E834 /* BrainBaselinManagerTests.swift */; };
 		CB80522522D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522422D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift */; };
-		CB93C16322D819F6007415C6 /* KineticTremor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CB93C16222D819F6007415C6 /* KineticTremor.mp4 */; };
-		CB93C16522D83824007415C6 /* Tremor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CB93C16422D83824007415C6 /* Tremor.mp4 */; };
-		CB93C16722D83906007415C6 /* Tapping.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CB93C16622D83906007415C6 /* Tapping.mp4 */; };
 		CB9DBB4A22D658BD00F89E77 /* PKUCodableStepObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */; };
 		CB9DBB4C22D658D300F89E77 /* PKUCopyStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */; };
 		CBD4F70722A4670B000C402F /* Task Switch.json in Resources */ = {isa = PBXBuildFile; fileRef = CBD4F70522A4670B000C402F /* Task Switch.json */; };
@@ -168,6 +171,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		441651CF22F10B8500E02DAC /* Tapping.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tapping.mp4; sourceTree = "<group>"; };
+		441651D022F10B8600E02DAC /* KineticTremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = KineticTremor.mp4; sourceTree = "<group>"; };
+		441651D122F10B8700E02DAC /* Tremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tremor.mp4; sourceTree = "<group>"; };
 		CB0D00A122E804B900F5DD4D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB0D00A622E80B1A00F5DD4D /* TaskListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
 		CB0D00A822E80B3100F5DD4D /* TaskListScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListScheduleManager.swift; sourceTree = "<group>"; };
@@ -192,9 +198,6 @@
 		CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKUSurveyConfiguration.swift; sourceTree = "<group>"; };
 		CB80522222D6E84F0050E834 /* BrainBaselinManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselinManagerTests.swift; sourceTree = "<group>"; };
 		CB80522422D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineStepViewControllerTests.swift; sourceTree = "<group>"; };
-		CB93C16222D819F6007415C6 /* KineticTremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = KineticTremor.mp4; sourceTree = "<group>"; };
-		CB93C16422D83824007415C6 /* Tremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tremor.mp4; sourceTree = "<group>"; };
-		CB93C16622D83906007415C6 /* Tapping.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tapping.mp4; sourceTree = "<group>"; };
 		CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCodableStepObjectTests.swift; sourceTree = "<group>"; };
 		CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCopyStepTests.swift; sourceTree = "<group>"; };
 		CBD4F70622A4670B000C402F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Task Switch.json"; sourceTree = "<group>"; };
@@ -339,9 +342,9 @@
 		CB93C16122D819E8007415C6 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
-				CB93C16222D819F6007415C6 /* KineticTremor.mp4 */,
-				CB93C16622D83906007415C6 /* Tapping.mp4 */,
-				CB93C16422D83824007415C6 /* Tremor.mp4 */,
+				441651D022F10B8600E02DAC /* KineticTremor.mp4 */,
+				441651CF22F10B8500E02DAC /* Tapping.mp4 */,
+				441651D122F10B8700E02DAC /* Tremor.mp4 */,
 			);
 			name = Videos;
 			sourceTree = "<group>";
@@ -640,18 +643,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF8CB52228F844E0089BDF0 /* lato_italic.ttf in Resources */,
+				441651D422F10B8700E02DAC /* KineticTremor.mp4 in Resources */,
 				F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */,
 				CB55116122A0D34F0036CD6F /* N Back.json in Resources */,
 				CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */,
 				F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */,
-				CB93C16522D83824007415C6 /* Tremor.mp4 in Resources */,
+				441651D622F10B8700E02DAC /* Tremor.mp4 in Resources */,
 				CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */,
-				CB93C16722D83906007415C6 /* Tapping.mp4 in Resources */,
 				F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */,
 				CB55116422A0D34F0036CD6F /* Go No Go.json in Resources */,
 				F8061181227BA026005FCABF /* Assets.xcassets in Resources */,
 				F806117F227BA025005FCABF /* Main.storyboard in Resources */,
-				CB93C16322D819F6007415C6 /* KineticTremor.mp4 in Resources */,
 				CBF8CB76229065670089BDF0 /* PKU.strings in Resources */,
 				CB55113822A0B7ED0036CD6F /* Attentional Blink.json in Resources */,
 				CBF8CB53228F844E0089BDF0 /* lato_light.ttf in Resources */,
@@ -663,6 +665,7 @@
 				CBD4F70722A4670B000C402F /* Task Switch.json in Resources */,
 				CB55116222A0D34F0036CD6F /* Symbol Substitution.json in Resources */,
 				F8087B8F227BCA16005BDDEC /* BridgeInfo-private.plist in Resources */,
+				441651D222F10B8700E02DAC /* Tapping.mp4 in Resources */,
 				CB55111922A0A11C0036CD6F /* BrainBaselineStepViewController.xib in Resources */,
 				CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */,
 			);
@@ -680,10 +683,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF3CC67022D7C6710037E65B /* BrainBaselineStepViewController.xib in Resources */,
+				441651D522F10B8700E02DAC /* KineticTremor.mp4 in Resources */,
 				FF3CC64D22D7C2B00037E65B /* Go No Go.json in Resources */,
 				FF3CC65B22D7C31A0037E65B /* BridgeInfo.plist in Resources */,
 				FF3CC64522D7C1FB0037E65B /* lato_italic.ttf in Resources */,
 				FF3CC64F22D7C2B00037E65B /* Spatial Memory.json in Resources */,
+				441651D722F10B8700E02DAC /* Tremor.mp4 in Resources */,
 				FF3CC67222D7C6710037E65B /* BrainBaselineOverviewStepViewController.xib in Resources */,
 				FF3CC64622D7C1FB0037E65B /* lato_light.ttf in Resources */,
 				FF3CC65022D7C2B00037E65B /* Task Switch.json in Resources */,
@@ -700,6 +705,7 @@
 				CB0D00C022EE36BF00F5DD4D /* BBLStudy-BioMarin-PKU.bundle in Resources */,
 				FF3CC64822D7C1FB0037E65B /* lato_regular.ttf in Resources */,
 				FF3CC65D22D7C3300037E65B /* BridgeInfo-private.plist in Resources */,
+				441651D322F10B8700E02DAC /* Tapping.mp4 in Resources */,
 				FF3CC65F22D7C3430037E65B /* biomarin-pku-study.pem in Resources */,
 				FF3CC64E22D7C2B00037E65B /* N Back.json in Resources */,
 			);
