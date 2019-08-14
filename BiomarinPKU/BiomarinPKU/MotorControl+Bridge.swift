@@ -45,6 +45,8 @@ public extension RSDIdentifier {
     static let symbolSubstitutionTask: RSDIdentifier = "Symbol Substitution"
     static let attentionalBlinkTask: RSDIdentifier = "Attentional Blink"
     static let taskSwitchTask: RSDIdentifier = "Task Switch"
+    static let dailyCheckInTask: RSDIdentifier = "Daily Check-In"
+    static let sleepCheckInTask: RSDIdentifier = "Sleep Check-In"
 }
 
 extension MCTTaskInfo : SBAActivityInfo {

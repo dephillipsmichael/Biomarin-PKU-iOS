@@ -1,6 +1,6 @@
 //
 //  FitbitStepViewController.swift
-//  PsorcastValidation
+//  BiomarinPKU
 //
 //  Copyright © 2018-2019 Sage Bionetworks. All rights reserved.
 //
@@ -70,7 +70,7 @@ class FitbitStep : RSDUIStepObject, RSDStepViewControllerVendor, RSDNavigationSk
     }
 }
 
-class FitbitStepViewController: RSDStepViewController {
+class FitbitStepViewController: RSDInstructionStepViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

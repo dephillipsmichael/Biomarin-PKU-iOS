@@ -1,0 +1,69 @@
+{
+    "taskIdentifier"            : "Sleep Check-In",
+    "schemaIdentifier"          : "Sleep Check-In",
+    "progressMarkers": [],
+    "steps":
+    [
+        {
+            "identifier": "sleep_quality",
+            "type": "emojiChoice",
+            "title": "How was your sleep last night?",
+            "emojiImageType": "sleep",
+            "actions": {
+                "learnMore": {
+                    "type" : "default",
+                    "buttonTitle" : "Why are we asking this?"
+                },
+                "skip":{
+                    "type":"reminder",
+                    "buttonTitle": "I can’t do this now",
+                    "reminderIdentifier":"Sleep Check-In"
+                }
+            },
+            "learnMoreTitle": "Why are we asking about your sleep?",
+            "learnMoreText": "Scientists believe that PKU patients might have poor sleep because high Phe levels may cause problems with sleep. We are asking you how you slept so we can see the Fitbit data that is showing sleep quality.\n\nThank you for answering!",
+            "inputFields": [
+                {
+                    "uiHint": "list",
+                    "type": "singleChoice.integer",
+                    "optional" : false,
+                    "choices": [
+                        {
+                            "text": "Very good",
+                            "value": 1
+                        },
+                        {
+                            "text": "Good",
+                            "value": 2
+                        },
+                        {
+                            "text": "Okay",
+                            "value": 3
+                        },
+                        {
+                            "text": "Poor",
+                            "value": 4
+                        },
+                        {
+                            "text": "Very poor",
+                            "value": 5
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "identifier": "unusual_events_occured",
+            "type": "form",
+            "title": "Did any unusual events affect your sleep last night?",
+            "text": "ex. emergency, sickness, travel, ....",
+            "inputFields": [
+                {
+                    "type" : "boolean",
+                    "uiHint" : "list",
+                    "optional" : false
+                }
+            ]
+        }
+    ]
+}

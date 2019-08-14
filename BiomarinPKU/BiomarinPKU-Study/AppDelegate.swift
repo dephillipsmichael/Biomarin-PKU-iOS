@@ -43,6 +43,9 @@ typealias FitbitCompletionHandler = (_ accessToken: String?, _ error: Error?) ->
 @UIApplicationMain
 class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
+    let onboardingTaskId = "signin"
+    let haveShownStudyIntroKey = "haveShownStudyIntro"
+    
     static let colorPalette = RSDColorPalette(version: 1,
                                               primary: RSDColorMatrix.shared.colorKey(for: .palette(.butterscotch),
                                                                                       shade: .medium),
@@ -70,7 +73,8 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
     func showAppropriateViewController(animated: Bool) {
         let isFitbitConnected = UserDefaults.standard.bool(forKey: FitbitStep.isFitbitConnectedKey)
-        if BridgeSDK.authManager.isAuthenticated() && isFitbitConnected {
+        let haveShownStudyIntro = UserDefaults.standard.bool(forKey: haveShownStudyIntroKey)
+        if BridgeSDK.authManager.isAuthenticated() && isFitbitConnected && haveShownStudyIntro {
             showMainViewController(animated: animated)
         } else {
             showSignInViewController(animated: animated)
@@ -88,9 +92,6 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         
         // Setup reminders
         RSDStudyConfiguration.shared.shouldShowRemindMe = true
-        
-        // Set our custom survey configuration
-        SBASurveyConfiguration.shared = PKUSurveyConfiguration()
         
         // Register for BrainBasline results
         let bblContext = BrainBaselineManager.brainBaselineContext
@@ -132,12 +133,30 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         let externalIDStep = ExternalIDRegistrationStep(identifier: "enterExternalID", type: "externalID")
         let fitbitStep = FitbitStep(identifier: "fitbit", type: "connectFitbit")
         
-        var navigator = RSDConditionalStepNavigatorObject(with: [externalIDStep, fitbitStep])
+        var navigator = RSDConditionalStepNavigatorObject(with: [externalIDStep, fitbitStep, studyIntroStep1(), studyIntroStep2()])
         navigator.progressMarkers = []
-        let task = RSDTaskObject(identifier: "signin", stepNavigator: navigator)
+        let task = RSDTaskObject(identifier: onboardingTaskId, stepNavigator: navigator)
         let vc = RSDTaskViewController(task: task)
         vc.delegate = self
         self.transition(to: vc, state: .onboarding, animated: true)
+    }
+    
+    func studyIntroStep1() -> RSDStep {
+        let step = IntroStepObject(identifier: "intro1")
+        step.title = Localization.localizedString("STUDY_INTRO_TITLE_1")
+        step.text = Localization.localizedString("STUDY_INTRO_TEXT_1")
+        step.shouldHideActions = [.navigation(.cancel), .navigation(.goBackward), .navigation(.skip)]
+        step.imageTheme = RSDFetchableImageThemeElementObject(imageName: "Intro1Header")
+        return step
+    }
+    
+    func studyIntroStep2() -> RSDStep {
+        let step = IntroStepObject(identifier: "intro2")
+        step.text = Localization.localizedString("STUDY_INTRO_TEXT_2")
+        step.shouldHideActions = [.navigation(.cancel), .navigation(.skip)]
+        step.imageTheme = RSDFetchableImageThemeElementObject(imageName: "Intro2Header")
+        step.actions = [.navigation(.goForward): RSDUIActionObject(buttonTitle: Localization.localizedString("BUTTON_LETS_GO"))]
+        return step
     }
     
     func openStoryboard(_ name: String) -> UIStoryboard? {
@@ -149,6 +168,14 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
     func taskController(_ taskController: RSDTaskController, didFinishWith reason: RSDTaskFinishReason, error: Error?) {
         guard BridgeSDK.authManager.isAuthenticated() else { return }
+        
+        // Once we have shown the user the study intro screen,
+        // set the value in local memory so they can proceed to the app
+        if reason == .completed &&
+            taskController.taskViewModel.identifier == onboardingTaskId {
+            UserDefaults.standard.set(true, forKey: haveShownStudyIntroKey)
+        }
+        
         showAppropriateViewController(animated: true)
     }
     
@@ -191,11 +218,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
                     completion?(nil, error)
                     return
                 }
-                // TODO: mdephillips 8/4/19 there is a bug in the fitbit auth
-                // setup that is causing the "oauthAccessToken" obj to come
-                // down from bridge as a UserSessionInfo obj with no access token
-                //let accessToken = oauthAccessTokenUnwrapped.accessToken
-                let accessToken = ""
+                let accessToken = oauthAccessTokenUnwrapped.accessToken
                 debugPrint("access token: \(String(describing: accessToken))")
                 completion?(accessToken, nil)
             }
@@ -219,30 +242,8 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     }
 }
 
-extension AppDelegate {
-    class func setupHeader(_ header: RSDStepNavigationView) {
-        // Setup the design system fro the table header
-        let primary = AppDelegate.designSystem.colorRules.backgroundPrimary
-        header.setDesignSystem(AppDelegate.designSystem, with: primary)
-        
-        // Style the cancel button a dark color
-        let cancelTint = self.designSystem.colorRules.textColor(on: primary, for: .heading1)
-        header.cancelButton?.imageView?.tintColor = cancelTint
-        
-        header.titleLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading1)
-        header.titleLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading1)
-        
-        header.textLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading1)
-        header.textLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading1)
-        
-        header.detailLabel?.font = AppDelegate.designSystem.fontRules.font(for: .heading4)
-        header.detailLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .heading4)
-    }
-    
-    class func setupFooter(_ footer: RSDNavigationFooterView) {
-        guard let primaryButtonFont = (self.designSystem.fontRules as? FontRules)?.font(for: .primary) else { return }
-        
-        footer.backButton?.titleLabel?.font = primaryButtonFont
-        footer.nextButton?.titleLabel?.font = primaryButtonFont
+class IntroStepObject: RSDUIStepObject, RSDStepViewControllerVendor {
+    public func instantiateViewController(with parent: RSDPathComponent?) -> (UIViewController & RSDStepController)? {
+        return RSDInstructionStepViewController(step: self, parent: parent)
     }
 }

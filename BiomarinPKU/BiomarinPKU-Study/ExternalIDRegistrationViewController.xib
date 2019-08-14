@@ -35,7 +35,7 @@
                                     <rect key="frame" x="32" y="416.33333333333331" width="311" height="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUa-ZL-tEd" userLabel="Rule View">
                                     <rect key="frame" x="32" y="449.33333333333331" width="311" height="1"/>

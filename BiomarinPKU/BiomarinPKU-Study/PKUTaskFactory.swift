@@ -1,5 +1,5 @@
 //
-//  PKUSurveyConfiguration.swift
+//  PKUTaskFactory.swift
 //  BiomarinPKU
 //
 //  Copyright © 2019 Sage Bionetworks. All rights reserved.
@@ -31,12 +31,26 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-import Foundation
 import BridgeApp
 
-open class PKUSurveyConfiguration: SBASurveyConfiguration {
-    /// Is the input field optional? Default = `true`.
-    override open func isOptional(for inputField: RSDInputField) -> Bool {
-        return false
+extension RSDStepType {
+    public static let brainBaseline: RSDStepType = "brainBaseline"
+    public static let brainBaselineOverview: RSDStepType = "brainBaselineOverview"
+    public static let emojiChoice: RSDStepType = "emojiChoice"
+}
+
+open class PKUTaskFactory: SBAFactory {
+    /// Override the base factory to vend PKU specific step objects.
+    override open func decodeStep(from decoder: Decoder, with type: RSDStepType) throws -> RSDStep? {
+        switch type {
+        case .brainBaseline:
+            return try BrainBaselineStepObject(from: decoder)
+        case .brainBaselineOverview:
+            return try BrainBaselineOverviewStepObject(from: decoder)
+        case .emojiChoice:
+            return try EmojiChoiceFormStepObject(from: decoder)
+        default:
+            return try super.decodeStep(from: decoder, with: type)
+        }
     }
 }
