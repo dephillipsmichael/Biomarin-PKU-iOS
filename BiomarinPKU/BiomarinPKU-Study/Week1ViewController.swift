@@ -181,7 +181,9 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
             let i = activity.rawValue
             self.activityButtons?[i].setTitle(activity.title(), for: .normal)
             self.activityDetailLabels?[i].text = activity.detail()
-            self.activityDoneIcons?[i].isHidden = !activity.isComplete(for: scheduleManager.dayOfStudy())
+            let isComplete = activity.isComplete(for: scheduleManager.dayOfStudy())
+            self.activityButtons?[i].isEnabled = !isComplete
+            self.activityDoneIcons?[i].isHidden = !isComplete
         }
         
         updateTimeFormattedText()

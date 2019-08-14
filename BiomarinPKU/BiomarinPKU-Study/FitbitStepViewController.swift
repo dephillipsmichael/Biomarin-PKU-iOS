@@ -70,7 +70,7 @@ class FitbitStep : RSDUIStepObject, RSDStepViewControllerVendor, RSDNavigationSk
     }
 }
 
-class FitbitStepViewController: RSDStepViewController {
+class FitbitStepViewController: RSDInstructionStepViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

@@ -71,7 +71,7 @@ public class Week1ScheduleManager : SBAScheduleManager {
     }
     
     override public func availablePredicate() -> NSPredicate {
-        return SBBScheduledActivity.notFinishedAvailableNowPredicate()
+        return NSPredicate(value: true)
     }
     
     open func scheduledActivity(for week1Activity: Week1Activity, on day: Int) -> SBBScheduledActivity? {

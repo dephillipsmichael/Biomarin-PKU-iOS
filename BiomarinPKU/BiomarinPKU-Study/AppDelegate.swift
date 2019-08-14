@@ -142,7 +142,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     }
     
     func studyIntroStep1() -> RSDStep {
-        let step = PKUInstructionStep(identifier: "intro1")
+        let step = IntroStepObject(identifier: "intro1")
         step.title = Localization.localizedString("STUDY_INTRO_TITLE_1")
         step.text = Localization.localizedString("STUDY_INTRO_TEXT_1")
         step.shouldHideActions = [.navigation(.cancel), .navigation(.goBackward), .navigation(.skip)]
@@ -151,7 +151,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     }
     
     func studyIntroStep2() -> RSDStep {
-        let step = PKUInstructionStep(identifier: "intro2")
+        let step = IntroStepObject(identifier: "intro2")
         step.text = Localization.localizedString("STUDY_INTRO_TEXT_2")
         step.shouldHideActions = [.navigation(.cancel), .navigation(.skip)]
         step.imageTheme = RSDFetchableImageThemeElementObject(imageName: "Intro2Header")
@@ -242,30 +242,8 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     }
 }
 
-extension AppDelegate {
-    class func setupHeader(_ header: RSDStepNavigationView) {
-        // Setup the design system fro the table header
-        let primary = AppDelegate.designSystem.colorRules.backgroundPrimary
-        header.setDesignSystem(AppDelegate.designSystem, with: primary)
-        
-        // Style the cancel button a dark color
-        let cancelTint = self.designSystem.colorRules.textColor(on: primary, for: .xLargeHeader)
-        header.cancelButton?.imageView?.tintColor = cancelTint
-        
-        header.titleLabel?.font = AppDelegate.designSystem.fontRules.font(for: .xLargeHeader)
-        header.titleLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .xLargeHeader)
-        
-        header.textLabel?.font = AppDelegate.designSystem.fontRules.font(for: .largeHeader)
-        header.textLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .largeHeader)
-        
-        header.detailLabel?.font = AppDelegate.designSystem.fontRules.font(for: .mediumHeader)
-        header.detailLabel?.textColor = AppDelegate.designSystem.colorRules.textColor(on: primary, for: .mediumHeader)
-    }
-    
-    class func setupFooter(_ footer: RSDNavigationFooterView) {
-//        guard let psrimaryButtonFont = (self.designSystem.fontRules as? FontRules)?.font(for: .primary) else { return }
-//
-//        footer.backButton?.titleLabel?.font = primaryButtonFont
-//        footer.nextButton?.titleLabel?.font = primaryButtonFont
+class IntroStepObject: RSDUIStepObject, RSDStepViewControllerVendor {
+    public func instantiateViewController(with parent: RSDPathComponent?) -> (UIViewController & RSDStepController)? {
+        return RSDInstructionStepViewController(step: self, parent: parent)
     }
 }
