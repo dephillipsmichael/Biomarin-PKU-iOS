@@ -142,7 +142,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     }
     
     func studyIntroStep1() -> RSDStep {
-        let step = PKUInstructionStep(identifier: "inrto1")
+        let step = PKUInstructionStep(identifier: "intro1")
         step.title = Localization.localizedString("STUDY_INTRO_TITLE_1")
         step.text = Localization.localizedString("STUDY_INTRO_TEXT_1")
         step.shouldHideActions = [.navigation(.cancel), .navigation(.goBackward), .navigation(.skip)]
@@ -151,7 +151,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     }
     
     func studyIntroStep2() -> RSDStep {
-        let step = PKUInstructionStep(identifier: "inrto2")
+        let step = PKUInstructionStep(identifier: "intro2")
         step.text = Localization.localizedString("STUDY_INTRO_TEXT_2")
         step.shouldHideActions = [.navigation(.cancel), .navigation(.skip)]
         step.imageTheme = RSDFetchableImageThemeElementObject(imageName: "Intro2Header")
@@ -218,11 +218,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
                     completion?(nil, error)
                     return
                 }
-                // TODO: mdephillips 8/4/19 there is a bug in the fitbit auth
-                // setup that is causing the "oauthAccessToken" obj to come
-                // down from bridge as a UserSessionInfo obj with no access token
-                //let accessToken = oauthAccessTokenUnwrapped.accessToken
-                let accessToken = ""
+                let accessToken = oauthAccessTokenUnwrapped.accessToken
                 debugPrint("access token: \(String(describing: accessToken))")
                 completion?(accessToken, nil)
             }
