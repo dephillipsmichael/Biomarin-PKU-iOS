@@ -46,21 +46,4 @@ class AppDelegateTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testSetupHeaderFooter() {
-        let header = RSDStepNavigationView(frame: CGRect(x: 0, y: 0, width: 0, height: 0    ))
-        AppDelegate.setupHeader(header)
-        let footer = RSDNavigationFooterView(frame: CGRect(x: 0, y: 0, width: 0, height: 0    ))
-        AppDelegate.setupFooter(footer)
-    }
-    
-    func testPkuFontRules() {
-        let fontRules = PKUFontRules(version: 1)
-        for type in RSDDesignSystem.TextType.allCases {
-            _ = fontRules.font(for: type)
-        }
-        for type in RSDDesignSystem.ButtonType.allCases {
-            _ = fontRules.font(for: type)
-        }
-    }
 }

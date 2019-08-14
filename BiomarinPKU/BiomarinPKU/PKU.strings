@@ -36,9 +36,36 @@
 "RELEASE_VERSION_%@" = "PKU App Version %@";
 "RELEASE_DATE_%@" = "Released on %@";
 "STUDY_TITLE" = "A BioMarin PKU Research Study";
-"CONNECT_FITBIT" = "Connect Fitbit";
 "BUTTON_TITLE_BEGIN" = "Begin";
 "SEE_THIS_IN_ACTION" = "See this in action";
+"BUTTON_LETS_GO" = "Let's go!";
+
+"STUDY_INTRO_TITLE_1" = "Hello,";
+"STUDY_INTRO_TEXT_1" = "Welcome to Day 1 of your journey!\n\nFor the first week you’ll be doing all 4 activities every day.";
+"STUDY_INTRO_TEXT_2" = "Following Week One, you will only need to do the Check-Ins daily and can choose which day you’d like to do your Cognition and Physical Challenge.\n\nReady to get started?";
+
+"WEEK_1_DAY" = "Day";
+"WEEK_1_DAY_FORMAT_%@" = "%@ of 7";
+"WEEK_1_TITLE" = "Let’s begin your journey!";
+"WEEK_1_TEXT" = "By completing your first 4 activities in a day for one week, you will then be able to unlock your entire journey.";
+"WEEK_1_EXPIRES_FORMAT_%@" = "Today’s activities expire in %@";
+"WEEK_1_ACTIVITY_SLEEP" = "Sleep Check-In";
+"WEEK_1_ACTIVITY_PHYSICAL" = "Physical Challenge";
+"WEEK_1_ACTIVITY_COGNITION" = "Cognition";
+"WEEK_1_ACTIVITY_DAILY" = "Daily Check-In";
+"WEEK_1_MINUTES_SLEEP" = "1 minute";
+"WEEK_1_MINUTES_PHYSICAL" = "3 minutes";
+"WEEK_1_MINUTES_COGNITION" = "6 minutes";
+"WEEK_1_MINUTES_DAILY" = "1 minute";
+"VIEW_ACCOUNT_DETAILS" = "View Account Details";
+"TAP_TO_END_STUDY_BUTTON" = "(Tap to End Study)";
+
+"CONNECT_FITBIT" = "Connect Fitbit";
+"CONNECT_FITBIT_MSG" = "Please check the email is tied to this participant.";
+
+"ENTER_PARTICIPANT_ID" = "Enter Participant ID";
+"RE_ENTER_PARTICIPANT_ID" = "Re-enter Participant ID";
+"PARTICPANT_IDS_DID_NOT_MATCH" = "Participant IDs did not match. Please try again";
 
 "BRAIN_BASELINE_INSTRUCTION_TEXT" = "Please tilt your device.";
 "BRAIN_BASELINE_MEASUREMENTS_TITLE" = "Measurement";

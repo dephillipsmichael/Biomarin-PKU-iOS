@@ -43,41 +43,18 @@ open class FontRules: RSDFontRules {
     public let latoBoldItalicName   = "Lato-BoldItalic"
     public let latoLightItalicName  = "Lato-LightItalic"
     
-    override open func font(for buttonType: RSDDesignSystem.ButtonType) -> RSDFont {
-        switch buttonType {
-        case .primary:
-            return RSDFont(name: latoBoldName, size: 20)!
-        case .secondary:
-            return RSDFont(name: latoBoldName, size: 20)!
-        }
-    }
-    
-    /// Returns the font to use for a given text type.
-    ///
-    /// - parameter textType: The text type for the font.
-    /// - returns: The font to use for this text.
-    override open func font(for textType: RSDDesignSystem.TextType) -> RSDFont {
-        switch textType {
-        case .heading1:
-            return RSDFont(name: latoBoldName, size: 24)!
-        case .heading2:
-            return RSDFont(name: latoBoldName, size: 18)!
-        case .heading3:
-            return RSDFont(name: latoBoldName, size: 16)!
-        case .heading4:
-            return RSDFont(name: latoRegularName, size: 14)!
-        case .fieldHeader:
-            return RSDFont(name: latoBoldName, size: 16)!
-        case .body:
-            return RSDFont(name: latoRegularName, size: 18)!
-        case .bodyDetail:
-            return RSDFont(name: latoRegularName, size: 16)!
-        case .small:
-            return RSDFont(name: latoRegularName, size: 14)!
-        case .microHeader:
-            return RSDFont(name: latoBoldName, size: 12)!
-        case .counter:
-            return RSDFont(name: latoLightName, size: 80)!
+    override open func font(ofSize fontSize: CGFloat, weight: RSDFont.Weight = .regular) -> RSDFont {
+        
+        // TODO: mdephillips 7/18/19 there is no weight for italic, how can we get italic fonts?
+        switch weight {
+        case .light:
+            return RSDFont(name: latoLightName, size: fontSize)!
+        case .bold:
+            return RSDFont(name: latoBoldName, size: fontSize)!
+        case .black:
+            return RSDFont(name: latoBlackName, size: fontSize)!
+        default:  // includes .regular and everything else
+            return RSDFont(name: latoRegularName, size: fontSize)!
         }
     }
 }

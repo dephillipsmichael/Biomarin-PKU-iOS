@@ -52,16 +52,4 @@ class BrainBaselineManagerTests: XCTestCase {
         // Can't test participant health codes
         XCTAssertNil(identifier)
     }
-    
-    func testBbProperties() {
-        let bblProps = BrainBaselineManager.brainBaselineProperties()
-        
-        let dataGroups = bblProps["study_group"] as? Array<String>
-        XCTAssertNotNil(dataGroups)
-        
-        if let dataGroupsUnwrapped = dataGroups {
-            XCTAssertTrue(dataGroupsUnwrapped.count > 0)
-            XCTAssertTrue(dataGroupsUnwrapped.contains("test_user"))
-        }
-    }
 }

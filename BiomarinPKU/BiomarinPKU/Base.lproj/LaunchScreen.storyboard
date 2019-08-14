@@ -25,16 +25,11 @@
                                     <constraint firstAttribute="width" secondItem="tAy-0H-xsV" secondAttribute="height" multiplier="1:1" id="rvW-PO-Mib"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="F9h-Xm-dKV">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" name="appPrimary"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="tAy-0H-xsV" secondAttribute="bottom" id="79p-mf-Cd7"/>
                             <constraint firstAttribute="trailing" secondItem="tAy-0H-xsV" secondAttribute="trailing" id="YFc-aI-J6O"/>
-                            <constraint firstItem="F9h-Xm-dKV" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="dKZ-MT-9vE"/>
-                            <constraint firstItem="F9h-Xm-dKV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hoG-fx-Z2R"/>
                             <constraint firstItem="tAy-0H-xsV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="xza-2m-4yQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

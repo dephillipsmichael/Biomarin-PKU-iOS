@@ -15,14 +15,23 @@
 		441651D722F10B8700E02DAC /* Tremor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441651D122F10B8700E02DAC /* Tremor.mp4 */; };
 		CB0D00A222E804B900F5DD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A122E804B900F5DD4D /* AppDelegate.swift */; };
 		CB0D00A322E804FF00F5DD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8061179227BA025005FCABF /* AppDelegate.swift */; };
-		CB0D00A722E80B1A00F5DD4D /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A622E80B1A00F5DD4D /* TaskListTableViewController.swift */; };
-		CB0D00A922E80B3100F5DD4D /* TaskListScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A822E80B3100F5DD4D /* TaskListScheduleManager.swift */; };
+		CB0D00A722E80B1A00F5DD4D /* Week1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A622E80B1A00F5DD4D /* Week1ViewController.swift */; };
 		CB0D00AA22E80B3C00F5DD4D /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */; };
 		CB0D00C022EE36BF00F5DD4D /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
 		CB0D00C422EE3CA500F5DD4D /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C322EE3CA500F5DD4D /* BrainBaselineManager.swift */; };
 		CB0D00C622EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C522EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift */; };
 		CB0D00CA22EE45E900F5DD4D /* FontRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C922EE45E900F5DD4D /* FontRules.swift */; };
 		CB0D00CB22EE463E00F5DD4D /* FontRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C922EE45E900F5DD4D /* FontRules.swift */; };
+		CB1A259B22F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A259922F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift */; };
+		CB1A259C22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */; };
+		CB1A25A222F7314900ED3A57 /* FitbitStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */; };
+		CB2B536D22FF846F00C3F87F /* Week1ScheduleManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2B536C22FF846F00C3F87F /* Week1ScheduleManagerTests.swift */; };
+		CB2B536F2301BE4A00C3F87F /* ExternalIdViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2B536E2301BE4A00C3F87F /* ExternalIdViewControllerTests.swift */; };
+		CB2B53722301C3C000C3F87F /* PKUCodableStepObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2B53702301C3C000C3F87F /* PKUCodableStepObjectTests.swift */; };
+		CB2B53732301C3C000C3F87F /* PKUCopyStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2B53712301C3C000C3F87F /* PKUCopyStepTests.swift */; };
+		CB2B5375230219E200C3F87F /* Week1ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2B5374230219E200C3F87F /* Week1ViewControllerTests.swift */; };
+		CB3B194E22FCCDF5007CF330 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3B194D22FCCDF4007CF330 /* Assets.xcassets */; };
+		CB3B195622FD00E5007CF330 /* Week1ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B195522FD00E5007CF330 /* Week1ScheduleManager.swift */; };
 		CB46274C22D7843400AD79B1 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */; };
 		CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
 		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
@@ -38,7 +47,13 @@
 		CB55116422A0D34F0036CD6F /* Go No Go.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115F22A0D34E0036CD6F /* Go No Go.json */; };
 		CB6836C922D44A040001066A /* BrainBaselineOverviewStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */; };
 		CB6836CB22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */; };
-		CB80522122D6AF1E0050E834 /* PKUSurveyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */; };
+		CB7F4CC322FF1DCD003EBB5C /* Sleep Check-In.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7F4CBF22FF1DCD003EBB5C /* Sleep Check-In.json */; };
+		CB7F4CC422FF1DCD003EBB5C /* Daily Check-In.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7F4CC122FF1DCD003EBB5C /* Daily Check-In.json */; };
+		CB7F4CC522FF1DD1003EBB5C /* Daily Check-In.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7F4CC122FF1DCD003EBB5C /* Daily Check-In.json */; };
+		CB7F4CC622FF1DD3003EBB5C /* Sleep Check-In.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7F4CBF22FF1DCD003EBB5C /* Sleep Check-In.json */; };
+		CB7F4CC822FF2103003EBB5C /* PKUTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7F4CC722FF2103003EBB5C /* PKUTaskFactory.swift */; };
+		CB7F4CCB22FF4DEB003EBB5C /* LearnMoreStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7F4CC922FF4DEB003EBB5C /* LearnMoreStepViewController.swift */; };
+		CB7F4CCE22FF5D5B003EBB5C /* LearnMoreStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7F4CCD22FF5D5A003EBB5C /* LearnMoreStepViewController.xib */; };
 		CB80522322D6E84F0050E834 /* BrainBaselinManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522222D6E84F0050E834 /* BrainBaselinManagerTests.swift */; };
 		CB80522522D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522422D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift */; };
 		CB9DBB4A22D658BD00F89E77 /* PKUCodableStepObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */; };
@@ -56,7 +71,6 @@
 		F806117F227BA025005FCABF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F806117D227BA025005FCABF /* Main.storyboard */; };
 		F8061181227BA026005FCABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8061180227BA026005FCABF /* Assets.xcassets */; };
 		F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8061182227BA026005FCABF /* LaunchScreen.storyboard */; };
-		F806118F227BA027005FCABF /* TaskListScheduleManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F806118E227BA027005FCABF /* TaskListScheduleManagerTests.swift */; };
 		F8087B76227BC7B2005BDDEC /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */; };
 		F8087B77227BC7B2005BDDEC /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8087B79227BC7B2005BDDEC /* BridgeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8087B78227BC7B2005BDDEC /* BridgeApp.framework */; };
@@ -70,15 +84,11 @@
 		F8087B8F227BCA16005BDDEC /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8087B8D227BCA16005BDDEC /* BridgeInfo-private.plist */; };
 		F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */ = {isa = PBXBuildFile; fileRef = F8087B8E227BCA16005BDDEC /* biomarin-pku.pem */; };
 		F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8087B91227BCA40005BDDEC /* BridgeInfo.plist */; };
-		F8087BA4227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA3227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift */; };
 		F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */; };
 		F8087BAD227BEB95005BDDEC /* TaskListScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */; };
 		F83EEBBC229DA96500476F7F /* ResearchMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; };
 		F83EEBBD229DA96500476F7F /* ResearchMotion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F83EEBBB229DA96500476F7F /* ResearchMotion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FF3CC63022D7BAA70037E65B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3CC62F22D7BAA70037E65B /* ViewController.swift */; };
 		FF3CC63322D7BAA70037E65B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC63122D7BAA70037E65B /* Main.storyboard */; };
-		FF3CC63F22D7BEF90037E65B /* PKUTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55114322A0B9920036CD6F /* PKUTaskFactory.swift */; };
-		FF3CC64022D7BEFD0037E65B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8061180227BA026005FCABF /* Assets.xcassets */; };
 		FF3CC64122D7C1B70037E65B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8061182227BA026005FCABF /* LaunchScreen.storyboard */; };
 		FF3CC64222D7C1FB0037E65B /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
 		FF3CC64322D7C1FB0037E65B /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
@@ -95,12 +105,8 @@
 		FF3CC64E22D7C2B00037E65B /* N Back.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115922A0D34E0036CD6F /* N Back.json */; };
 		FF3CC64F22D7C2B00037E65B /* Spatial Memory.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115D22A0D34E0036CD6F /* Spatial Memory.json */; };
 		FF3CC65022D7C2B00037E65B /* Task Switch.json in Resources */ = {isa = PBXBuildFile; fileRef = CBD4F70522A4670B000C402F /* Task Switch.json */; };
-		FF3CC65222D7C2C80037E65B /* ExternalIDRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA3227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift */; };
 		FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */; };
-		FF3CC65522D7C2C80037E65B /* SurveyStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */; };
-		FF3CC65622D7C2C80037E65B /* LearnMoreStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */; };
 		FF3CC65722D7C2D30037E65B /* MotorControl+Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */; };
-		FF3CC65922D7C2D30037E65B /* PKUSurveyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */; };
 		FF3CC65B22D7C31A0037E65B /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC65A22D7C31A0037E65B /* BridgeInfo.plist */; };
 		FF3CC65D22D7C3300037E65B /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC65C22D7C3300037E65B /* BridgeInfo-private.plist */; };
 		FF3CC65F22D7C3430037E65B /* biomarin-pku-study.pem in Resources */ = {isa = PBXBuildFile; fileRef = FF3CC65E22D7C3420037E65B /* biomarin-pku-study.pem */; };
@@ -124,6 +130,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CB2B536722FF845000C3F87F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F806116E227BA025005FCABF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF3CC62A22D7BAA60037E65B;
+			remoteInfo = "BiomarinPKU-Study";
+		};
 		F806118B227BA027005FCABF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F806116E227BA025005FCABF /* Project object */;
@@ -175,12 +188,23 @@
 		441651D022F10B8600E02DAC /* KineticTremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = KineticTremor.mp4; sourceTree = "<group>"; };
 		441651D122F10B8700E02DAC /* Tremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tremor.mp4; sourceTree = "<group>"; };
 		CB0D00A122E804B900F5DD4D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB0D00A622E80B1A00F5DD4D /* TaskListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
-		CB0D00A822E80B3100F5DD4D /* TaskListScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListScheduleManager.swift; sourceTree = "<group>"; };
+		CB0D00A622E80B1A00F5DD4D /* Week1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week1ViewController.swift; sourceTree = "<group>"; };
 		CB0D00C122EE377700F5DD4D /* BiomarinPKU-Study.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BiomarinPKU-Study.entitlements"; sourceTree = "<group>"; };
 		CB0D00C322EE3CA500F5DD4D /* BrainBaselineManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB0D00C522EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineStepViewController.swift; sourceTree = "<group>"; };
 		CB0D00C922EE45E900F5DD4D /* FontRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontRules.swift; sourceTree = "<group>"; };
+		CB1A259922F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalIDRegistrationViewController.swift; sourceTree = "<group>"; };
+		CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalIDRegistrationViewController.xib; sourceTree = "<group>"; };
+		CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitbitStepViewController.swift; sourceTree = "<group>"; };
+		CB2B536222FF845000C3F87F /* BiomarinPKUStudyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiomarinPKUStudyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB2B536622FF845000C3F87F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB2B536C22FF846F00C3F87F /* Week1ScheduleManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week1ScheduleManagerTests.swift; sourceTree = "<group>"; };
+		CB2B536E2301BE4A00C3F87F /* ExternalIdViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalIdViewControllerTests.swift; sourceTree = "<group>"; };
+		CB2B53702301C3C000C3F87F /* PKUCodableStepObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCodableStepObjectTests.swift; sourceTree = "<group>"; };
+		CB2B53712301C3C000C3F87F /* PKUCopyStepTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCopyStepTests.swift; sourceTree = "<group>"; };
+		CB2B5374230219E200C3F87F /* Week1ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week1ViewControllerTests.swift; sourceTree = "<group>"; };
+		CB3B194D22FCCDF4007CF330 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB3B195522FD00E5007CF330 /* Week1ScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week1ScheduleManager.swift; sourceTree = "<group>"; };
 		CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
@@ -195,15 +219,17 @@
 		CB55116022A0D34F0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Go No Go.json"; sourceTree = "<group>"; };
 		CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrainBaselineOverviewStepViewController.xib; sourceTree = "<group>"; };
 		CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineOverviewStepViewController.swift; sourceTree = "<group>"; };
-		CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKUSurveyConfiguration.swift; sourceTree = "<group>"; };
+		CB7F4CC022FF1DCD003EBB5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Sleep Check-In.json"; sourceTree = "<group>"; };
+		CB7F4CC222FF1DCD003EBB5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Daily Check-In.json"; sourceTree = "<group>"; };
+		CB7F4CC722FF2103003EBB5C /* PKUTaskFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUTaskFactory.swift; sourceTree = "<group>"; };
+		CB7F4CC922FF4DEB003EBB5C /* LearnMoreStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnMoreStepViewController.swift; sourceTree = "<group>"; };
+		CB7F4CCD22FF5D5A003EBB5C /* LearnMoreStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LearnMoreStepViewController.xib; sourceTree = "<group>"; };
 		CB80522222D6E84F0050E834 /* BrainBaselinManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselinManagerTests.swift; sourceTree = "<group>"; };
 		CB80522422D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineStepViewControllerTests.swift; sourceTree = "<group>"; };
 		CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCodableStepObjectTests.swift; sourceTree = "<group>"; };
 		CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCopyStepTests.swift; sourceTree = "<group>"; };
 		CBD4F70622A4670B000C402F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Task Switch.json"; sourceTree = "<group>"; };
 		CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiChoiceTableStepViewController.swift; sourceTree = "<group>"; };
-		CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyStepViewController.swift; sourceTree = "<group>"; };
-		CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnMoreStepViewController.swift; sourceTree = "<group>"; };
 		CBF8CB42228F84460089BDF0 /* lato_black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_black.ttf; sourceTree = "<group>"; };
 		CBF8CB43228F84460089BDF0 /* lato_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bold.ttf; sourceTree = "<group>"; };
 		CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bolditalic.ttf; sourceTree = "<group>"; };
@@ -221,7 +247,6 @@
 		F8061183227BA026005FCABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8061185227BA026005FCABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F806118A227BA027005FCABF /* BiomarinPKUTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiomarinPKUTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F806118E227BA027005FCABF /* TaskListScheduleManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListScheduleManagerTests.swift; sourceTree = "<group>"; };
 		F8061190227BA027005FCABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8087B75227BC7B2005BDDEC /* BridgeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BridgeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8087B78227BC7B2005BDDEC /* BridgeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BridgeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,13 +257,11 @@
 		F8087B8E227BCA16005BDDEC /* biomarin-pku.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "biomarin-pku.pem"; path = "../../../iOSPrivateProjectInfo/BiomarinPKU/biomarin-pku.pem"; sourceTree = "<group>"; };
 		F8087B91227BCA40005BDDEC /* BridgeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BridgeInfo.plist; sourceTree = "<group>"; };
 		F8087B93227BCA92005BDDEC /* BiomarinPKU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BiomarinPKU.entitlements; sourceTree = "<group>"; };
-		F8087BA3227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalIDRegistrationViewController.swift; sourceTree = "<group>"; };
 		F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
 		F8087BAA227BDE94005BDDEC /* MotorControl+Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MotorControl+Bridge.swift"; sourceTree = "<group>"; };
 		F8087BAC227BEB95005BDDEC /* TaskListScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListScheduleManager.swift; sourceTree = "<group>"; };
 		F83EEBBB229DA96500476F7F /* ResearchMotion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchMotion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF3CC62B22D7BAA60037E65B /* BiomarinPKU-Study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BiomarinPKU-Study.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF3CC62F22D7BAA70037E65B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FF3CC63222D7BAA70037E65B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF3CC63922D7BAA70037E65B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF3CC65A22D7C31A0037E65B /* BridgeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BridgeInfo.plist; sourceTree = "<group>"; };
@@ -247,6 +270,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CB2B535F22FF845000C3F87F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8061173227BA025005FCABF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,8 +318,8 @@
 		CB0D00A422E8083700F5DD4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CB80522022D6AF1E0050E834 /* PKUSurveyConfiguration.swift */,
-				CB0D00A822E80B3100F5DD4D /* TaskListScheduleManager.swift */,
+				CB7F4CC722FF2103003EBB5C /* PKUTaskFactory.swift */,
+				CB3B195522FD00E5007CF330 /* Week1ScheduleManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -297,10 +327,13 @@
 		CB0D00A522E80A4F00F5DD4D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CB0D00A622E80B1A00F5DD4D /* TaskListTableViewController.swift */,
-				CBD4F73222A84B9E000C402F /* SurveyStepViewController.swift */,
+				CB0D00A622E80B1A00F5DD4D /* Week1ViewController.swift */,
 				CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */,
-				CBD4F73422A8BB0E000C402F /* LearnMoreStepViewController.swift */,
+				CB1A259922F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift */,
+				CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */,
+				CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */,
+				CB7F4CC922FF4DEB003EBB5C /* LearnMoreStepViewController.swift */,
+				CB7F4CCD22FF5D5A003EBB5C /* LearnMoreStepViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -312,6 +345,19 @@
 				CB0D00C522EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift */,
 			);
 			name = BrainBaseline;
+			sourceTree = "<group>";
+		};
+		CB2B536322FF845000C3F87F /* BiomarinPKUStudyTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB2B53702301C3C000C3F87F /* PKUCodableStepObjectTests.swift */,
+				CB2B53712301C3C000C3F87F /* PKUCopyStepTests.swift */,
+				CB2B536C22FF846F00C3F87F /* Week1ScheduleManagerTests.swift */,
+				CB2B5374230219E200C3F87F /* Week1ViewControllerTests.swift */,
+				CB2B536E2301BE4A00C3F87F /* ExternalIdViewControllerTests.swift */,
+				CB2B536622FF845000C3F87F /* Info.plist */,
+			);
+			path = BiomarinPKUStudyTests;
 			sourceTree = "<group>";
 		};
 		CB5510E322A08AC30036CD6F /* BrainBaseline */ = {
@@ -335,6 +381,8 @@
 				CB55115922A0D34E0036CD6F /* N Back.json */,
 				CB55115D22A0D34E0036CD6F /* Spatial Memory.json */,
 				CBD4F70522A4670B000C402F /* Task Switch.json */,
+				CB7F4CC122FF1DCD003EBB5C /* Daily Check-In.json */,
+				CB7F4CBF22FF1DCD003EBB5C /* Sleep Check-In.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -389,6 +437,7 @@
 				F8061178227BA025005FCABF /* BiomarinPKU */,
 				FF3CC62C22D7BAA70037E65B /* BiomarinPKU-Study */,
 				F806118D227BA027005FCABF /* BiomarinPKUTests */,
+				CB2B536322FF845000C3F87F /* BiomarinPKUStudyTests */,
 				F8087B88227BC7CB005BDDEC /* Frameworks */,
 				F8061177227BA025005FCABF /* Products */,
 			);
@@ -400,6 +449,7 @@
 				F8061176227BA025005FCABF /* BiomarinPKU.app */,
 				F806118A227BA027005FCABF /* BiomarinPKUTests.xctest */,
 				FF3CC62B22D7BAA60037E65B /* BiomarinPKU-Study.app */,
+				CB2B536222FF845000C3F87F /* BiomarinPKUStudyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -429,7 +479,6 @@
 				CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */,
 				CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */,
 				CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */,
-				F806118E227BA027005FCABF /* TaskListScheduleManagerTests.swift */,
 				CB80522222D6E84F0050E834 /* BrainBaselinManagerTests.swift */,
 				CB80522422D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift */,
 				F8061190227BA027005FCABF /* Info.plist */,
@@ -466,7 +515,6 @@
 		F8087BA2227BDA4E005BDDEC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F8087BA3227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift */,
 				F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */,
 			);
 			name = "View Controllers";
@@ -486,8 +534,8 @@
 			isa = PBXGroup;
 			children = (
 				CB0D00A122E804B900F5DD4D /* AppDelegate.swift */,
-				FF3CC62F22D7BAA70037E65B /* ViewController.swift */,
 				FF3CC63122D7BAA70037E65B /* Main.storyboard */,
+				CB3B194D22FCCDF4007CF330 /* Assets.xcassets */,
 				CB0D00A422E8083700F5DD4D /* Model */,
 				CB0D00A522E80A4F00F5DD4D /* View Controllers */,
 				CB0D00C222EE3C8000F5DD4D /* BrainBaseline */,
@@ -511,6 +559,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CB2B536122FF845000C3F87F /* BiomarinPKUStudyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB2B536922FF845000C3F87F /* Build configuration list for PBXNativeTarget "BiomarinPKUStudyTests" */;
+			buildPhases = (
+				CB2B535E22FF845000C3F87F /* Sources */,
+				CB2B535F22FF845000C3F87F /* Frameworks */,
+				CB2B536022FF845000C3F87F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB2B536822FF845000C3F87F /* PBXTargetDependency */,
+			);
+			name = BiomarinPKUStudyTests;
+			productName = BiomarinPKUStudyTests;
+			productReference = CB2B536222FF845000C3F87F /* BiomarinPKUStudyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F8061175227BA025005FCABF /* BiomarinPKU */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8061193227BA027005FCABF /* Build configuration list for PBXNativeTarget "BiomarinPKU" */;
@@ -572,10 +638,14 @@
 		F806116E227BA025005FCABF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Sage Bionetworks";
 				TargetAttributes = {
+					CB2B536122FF845000C3F87F = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = FF3CC62A22D7BAA60037E65B;
+					};
 					F8061175227BA025005FCABF = {
 						CreatedOnToolsVersion = 10.2;
 						LastSwiftMigration = 1020;
@@ -633,11 +703,19 @@
 				F8061175227BA025005FCABF /* BiomarinPKU */,
 				FF3CC62A22D7BAA60037E65B /* BiomarinPKU-Study */,
 				F8061189227BA027005FCABF /* BiomarinPKUTests */,
+				CB2B536122FF845000C3F87F /* BiomarinPKUStudyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CB2B536022FF845000C3F87F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8061174227BA025005FCABF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -646,6 +724,7 @@
 				441651D422F10B8700E02DAC /* KineticTremor.mp4 in Resources */,
 				F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */,
 				CB55116122A0D34F0036CD6F /* N Back.json in Resources */,
+				CB7F4CC422FF1DCD003EBB5C /* Daily Check-In.json in Resources */,
 				CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */,
 				F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */,
 				441651D622F10B8700E02DAC /* Tremor.mp4 in Resources */,
@@ -668,6 +747,7 @@
 				441651D222F10B8700E02DAC /* Tapping.mp4 in Resources */,
 				CB55111922A0A11C0036CD6F /* BrainBaselineStepViewController.xib in Resources */,
 				CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */,
+				CB7F4CC322FF1DCD003EBB5C /* Sleep Check-In.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,6 +762,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB7F4CC522FF1DD1003EBB5C /* Daily Check-In.json in Resources */,
 				FF3CC67022D7C6710037E65B /* BrainBaselineStepViewController.xib in Resources */,
 				441651D522F10B8700E02DAC /* KineticTremor.mp4 in Resources */,
 				FF3CC64D22D7C2B00037E65B /* Go No Go.json in Resources */,
@@ -694,9 +775,10 @@
 				FF3CC65022D7C2B00037E65B /* Task Switch.json in Resources */,
 				FF3CC64122D7C1B70037E65B /* LaunchScreen.storyboard in Resources */,
 				FF3CC64A22D7C2AA0037E65B /* PKU.strings in Resources */,
-				FF3CC64022D7BEFD0037E65B /* Assets.xcassets in Resources */,
 				FF3CC64322D7C1FB0037E65B /* lato_bold.ttf in Resources */,
+				CB7F4CCE22FF5D5B003EBB5C /* LearnMoreStepViewController.xib in Resources */,
 				FF3CC64422D7C1FB0037E65B /* lato_bolditalic.ttf in Resources */,
+				CB1A259C22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib in Resources */,
 				FF3CC64722D7C1FB0037E65B /* lato_lightitalic.ttf in Resources */,
 				FF3CC64222D7C1FB0037E65B /* lato_black.ttf in Resources */,
 				FF3CC64B22D7C2B00037E65B /* Attentional Blink.json in Resources */,
@@ -707,6 +789,8 @@
 				FF3CC65D22D7C3300037E65B /* BridgeInfo-private.plist in Resources */,
 				441651D322F10B8700E02DAC /* Tapping.mp4 in Resources */,
 				FF3CC65F22D7C3430037E65B /* biomarin-pku-study.pem in Resources */,
+				CB3B194E22FCCDF5007CF330 /* Assets.xcassets in Resources */,
+				CB7F4CC622FF1DD3003EBB5C /* Sleep Check-In.json in Resources */,
 				FF3CC64E22D7C2B00037E65B /* N Back.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -734,15 +818,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CB2B535E22FF845000C3F87F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB2B5375230219E200C3F87F /* Week1ViewControllerTests.swift in Sources */,
+				CB2B536F2301BE4A00C3F87F /* ExternalIdViewControllerTests.swift in Sources */,
+				CB2B536D22FF846F00C3F87F /* Week1ScheduleManagerTests.swift in Sources */,
+				CB2B53722301C3C000C3F87F /* PKUCodableStepObjectTests.swift in Sources */,
+				CB2B53732301C3C000C3F87F /* PKUCopyStepTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8061172227BA025005FCABF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CB55114422A0B9920036CD6F /* PKUTaskFactory.swift in Sources */,
 				CB55110B22A095440036CD6F /* BrainBaselineStepViewController.swift in Sources */,
-				F8087BA4227BDA63005BDDEC /* ExternalIDRegistrationViewController.swift in Sources */,
 				CB0D00A322E804FF00F5DD4D /* AppDelegate.swift in Sources */,
-				CB80522122D6AF1E0050E834 /* PKUSurveyConfiguration.swift in Sources */,
 				CBF8CB5C229053A40089BDF0 /* PKUBuildDateUtil.m in Sources */,
 				CB6836CB22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift in Sources */,
 				F8087BAB227BDE94005BDDEC /* MotorControl+Bridge.swift in Sources */,
@@ -758,7 +852,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB80522522D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift in Sources */,
-				F806118F227BA027005FCABF /* TaskListScheduleManagerTests.swift in Sources */,
 				CB80522322D6E84F0050E834 /* BrainBaselinManagerTests.swift in Sources */,
 				CB9DBB4C22D658D300F89E77 /* PKUCopyStepTests.swift in Sources */,
 				CB46274C22D7843400AD79B1 /* AppDelegateTests.swift in Sources */,
@@ -770,21 +863,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF3CC65622D7C2C80037E65B /* LearnMoreStepViewController.swift in Sources */,
 				FF3CC67122D7C6710037E65B /* BrainBaselineOverviewStepViewController.swift in Sources */,
-				FF3CC63F22D7BEF90037E65B /* PKUTaskFactory.swift in Sources */,
+				CB1A25A222F7314900ED3A57 /* FitbitStepViewController.swift in Sources */,
 				FF3CC64922D7C2100037E65B /* PKUBuildDateUtil.m in Sources */,
-				CB0D00A722E80B1A00F5DD4D /* TaskListTableViewController.swift in Sources */,
-				FF3CC65922D7C2D30037E65B /* PKUSurveyConfiguration.swift in Sources */,
+				CB7F4CCB22FF4DEB003EBB5C /* LearnMoreStepViewController.swift in Sources */,
+				CB0D00A722E80B1A00F5DD4D /* Week1ViewController.swift in Sources */,
 				CB0D00C422EE3CA500F5DD4D /* BrainBaselineManager.swift in Sources */,
+				CB7F4CC822FF2103003EBB5C /* PKUTaskFactory.swift in Sources */,
 				CB0D00A222E804B900F5DD4D /* AppDelegate.swift in Sources */,
-				FF3CC63022D7BAA70037E65B /* ViewController.swift in Sources */,
+				CB3B195622FD00E5007CF330 /* Week1ScheduleManager.swift in Sources */,
 				CB0D00CB22EE463E00F5DD4D /* FontRules.swift in Sources */,
+				CB1A259B22F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift in Sources */,
 				FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */,
 				CB0D00C622EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift in Sources */,
-				FF3CC65522D7C2C80037E65B /* SurveyStepViewController.swift in Sources */,
-				CB0D00A922E80B3100F5DD4D /* TaskListScheduleManager.swift in Sources */,
-				FF3CC65222D7C2C80037E65B /* ExternalIDRegistrationViewController.swift in Sources */,
 				FF3CC65722D7C2D30037E65B /* MotorControl+Bridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,6 +883,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CB2B536822FF845000C3F87F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF3CC62A22D7BAA60037E65B /* BiomarinPKU-Study */;
+			targetProxy = CB2B536722FF845000C3F87F /* PBXContainerItemProxy */;
+		};
 		F806118C227BA027005FCABF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F8061175227BA025005FCABF /* BiomarinPKU */;
@@ -840,6 +936,22 @@
 			name = "Go No Go.json";
 			sourceTree = "<group>";
 		};
+		CB7F4CBF22FF1DCD003EBB5C /* Sleep Check-In.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB7F4CC022FF1DCD003EBB5C /* Base */,
+			);
+			name = "Sleep Check-In.json";
+			sourceTree = "<group>";
+		};
+		CB7F4CC122FF1DCD003EBB5C /* Daily Check-In.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB7F4CC222FF1DCD003EBB5C /* Base */,
+			);
+			name = "Daily Check-In.json";
+			sourceTree = "<group>";
+		};
 		CBD4F70522A4670B000C402F /* Task Switch.json */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -875,6 +987,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CB2B536A22FF845000C3F87F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KA9Z8R6M6K;
+				INFOPLIST_FILE = BiomarinPKUStudyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.sagebionetworks.BiomarinPKUStudyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BiomarinPKU-Study.app/BiomarinPKU-Study";
+			};
+			name = Debug;
+		};
+		CB2B536B22FF845000C3F87F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KA9Z8R6M6K;
+				INFOPLIST_FILE = BiomarinPKUStudyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.sagebionetworks.BiomarinPKUStudyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BiomarinPKU-Study.app/BiomarinPKU-Study";
+			};
+			name = Release;
+		};
 		F8061191227BA027005FCABF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1139,6 +1293,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CB2B536922FF845000C3F87F /* Build configuration list for PBXNativeTarget "BiomarinPKUStudyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB2B536A22FF845000C3F87F /* Debug */,
+				CB2B536B22FF845000C3F87F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F8061171227BA025005FCABF /* Build configuration list for PBXProject "BiomarinPKU" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

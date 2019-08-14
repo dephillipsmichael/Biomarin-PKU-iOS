@@ -110,8 +110,8 @@ open class BrainBaselineOverviewStepViewController: RSDStepViewController {
             self.scrollView.backgroundColor = background.color
             
             [self.measurementTitleLabel, self.yourObjectiveTitleLabel, self.instructionsTitleLabel].forEach ({ (label) in
-                label?.font = self.designSystem.fontRules.font(for: .heading3)
-                label?.textColor = self.designSystem.colorRules.textColor(on: background, for: .heading3)
+                label?.font = self.designSystem.fontRules.font(for: .mediumHeader)
+                label?.textColor = self.designSystem.colorRules.textColor(on: background, for: .mediumHeader)
             })
             
             [self.measurementTextLabel, self.yourObjectiveTextLabel, self.instructionsTextLabel].forEach ({ (label) in
