@@ -92,20 +92,26 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
     
     let scheduleManager = Week1ScheduleManager()
     
+    var deepLinkActivity: Week1Activity?
+    var activitiesLoaded: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()        
         
         // Add an observer to observe schedule changes
         NotificationCenter.default.addObserver(forName: .SBAUpdatedScheduledActivities, object: scheduleManager, queue: OperationQueue.main) { (notification) in
+            
             self.loadingView.isHidden = true
             self.activitiesContainer.isHidden = false
             self.refreshUI()
+            
+            self.activitiesLoaded = true
+            self.runDeepLinkIfApplicable()
         }
         
         // Reload the schedules and show loading UI
         self.loadingView.isHidden = false
         self.activitiesContainer.isHidden = true
-        scheduleManager.reloadData()
         
         // Schedule expiration timer to run every second
         self.expirationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimeFormattedText), userInfo: nil, repeats: true)
@@ -114,8 +120,12 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // User has seen their activities so reset badge number
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
         refreshUI()
         updateDesignSystem()
+        scheduleManager.reloadData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -236,6 +246,7 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
         }
         
         let taskViewModel = scheduleManager.instantiateTaskViewModel(for: schedule)
+        
         let taskVc = RSDTaskViewController(taskViewModel: taskViewModel)
         taskVc.delegate = self
         self.present(taskVc, animated: true, completion: nil)
@@ -271,16 +282,36 @@ class Week1ViewController: UIViewController, RSDTaskViewControllerDelegate {
         // Let the schedule manager handle the cleanup.
         scheduleManager.taskController(taskController, didFinishWith: reason, error: error)
         
-        // Mark day as completed and refresh the UI
-        if let activity = scheduleManager.currentActivity,
-            error == nil, reason == .completed {
-            activity.complete(for: scheduleManager.dayOfCurrentActivity)
-            refreshUI()
+        // Check if the task was completed successfully
+        if error == nil && reason == .completed {
+            // The result may contain reminder information
+            // Send it to the reminder manager for processing
+            ReminderManager.shared.updateNotifications(for: taskController.taskViewModel.taskResult)
+            
+            // Mark day as completed and refresh the UI
+            if let activity = scheduleManager.currentActivity {
+                activity.complete(for: scheduleManager.dayOfCurrentActivity)
+                refreshUI()
+            }
         }
+
         scheduleManager.currentActivity = nil
     }
     
     func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {
         scheduleManager.taskController(taskController, readyToSave: taskViewModel)
-    }    
+    }
+    
+    /// Here we can customize which VCs show for a step within a survey
+    func taskViewController(_ taskViewController: UIViewController, viewControllerForStep stepModel: RSDStepViewModel) -> UIViewController? {
+        self.scheduleManager.customizeStepViewModel(stepModel: stepModel)
+        return nil
+    }
+    
+    func runDeepLinkIfApplicable() {
+        if let activity = self.deepLinkActivity {
+            self.presentTaskViewController(for: activity)
+            self.deepLinkActivity = nil
+        }
+    }
 }

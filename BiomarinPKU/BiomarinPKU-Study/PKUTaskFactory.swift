@@ -37,6 +37,7 @@ extension RSDStepType {
     public static let brainBaseline: RSDStepType = "brainBaseline"
     public static let brainBaselineOverview: RSDStepType = "brainBaselineOverview"
     public static let emojiChoice: RSDStepType = "emojiChoice"
+    public static let reminder: RSDStepType = "reminder"
 }
 
 open class PKUTaskFactory: SBAFactory {
@@ -49,6 +50,8 @@ open class PKUTaskFactory: SBAFactory {
             return try BrainBaselineOverviewStepObject(from: decoder)
         case .emojiChoice:
             return try EmojiChoiceFormStepObject(from: decoder)
+        case .reminder:
+            return try ReminderStepObject(from: decoder)
         default:
             return try super.decodeStep(from: decoder, with: type)
         }

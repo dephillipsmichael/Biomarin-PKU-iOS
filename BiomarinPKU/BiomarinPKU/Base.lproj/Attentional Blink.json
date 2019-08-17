@@ -25,6 +25,11 @@
             "identifier"   : "Brain Baseline",
             "type"         : "brainBaseline",
             "testName"     : "PTBlink-Phone-BioMarin-PKU"
+        },
+        {
+            "identifier":"reminder",
+            "type":"transform",
+            "resourceTransformer": { "resourceName": "Cognition Reminder Daily.json"}
         }
     ]
 }

@@ -37,6 +37,7 @@ import BridgeSDK
 import Research
 import SafariServices
 import BrainBaseline
+import UserNotifications
 
 typealias FitbitCompletionHandler = (_ accessToken: String?, _ error: Error?) -> ()
 
@@ -45,6 +46,8 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
     let onboardingTaskId = "signin"
     let haveShownStudyIntroKey = "haveShownStudyIntro"
+    
+    var deepLinkActivity: Week1Activity?
     
     static let colorPalette = RSDColorPalette(version: 1,
                                               primary: RSDColorMatrix.shared.colorKey(for: .palette(.butterscotch),
@@ -109,22 +112,31 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
             }
         }
         
+        // Setup reminder manager
+        ReminderManager.shared.setupNotifications()
+        UNUserNotificationCenter.current().delegate = ReminderManager.shared
+        
         return super.application(application, willFinishLaunchingWithOptions: launchOptions)
     }
 
     override func applicationDidBecomeActive(_ application: UIApplication) {
         super.applicationDidBecomeActive(application)
+        
         self.showAppropriateViewController(animated: true)
     }
     
     func showMainViewController(animated: Bool) {
-        guard self.rootViewController?.state != .main else { return }
+        guard self.rootViewController?.state != .main else {
+            setDeepLinkActivityOnViewController()
+            return
+        }
         guard let storyboard = openStoryboard("Main"),
             let vc = storyboard.instantiateInitialViewController()
             else {
                 fatalError("Failed to instantiate initial view controller in the main storyboard.")
         }
         self.transition(to: vc, state: .main, animated: true)
+        setDeepLinkActivityOnViewController()
     }
     
     func showSignInViewController(animated: Bool) {
@@ -139,6 +151,12 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         let vc = RSDTaskViewController(task: task)
         vc.delegate = self
         self.transition(to: vc, state: .onboarding, animated: true)
+    }
+    
+    func setDeepLinkActivityOnViewController() {
+        guard let activity = self.deepLinkActivity else { return }
+        (self.rootViewController?.children.first(where: { $0 is Week1ViewController }) as? Week1ViewController)?.deepLinkActivity = activity
+        self.deepLinkActivity = nil
     }
     
     func studyIntroStep1() -> RSDStep {

@@ -17,7 +17,7 @@
                 "skip":{
                     "type":"reminder",
                     "buttonTitle": "I can’t do this now",
-                    "reminderIdentifier":"Sleep Check-In"
+                    "reminderIdentifier": "Sleep Check-In"
                 }
             },
             "learnMoreTitle": "Why are we asking about your sleep?",
@@ -64,6 +64,28 @@
                     "optional" : false
                 }
             ]
+        },
+        {
+            "identifier": "reminder",
+            "type": "reminder",
+            "title": "When would you like to do the Sleep Check-In?",
+            "text": "We recommend doing the sleep check-in right when you wake up.",
+            "detail": "Set reminder",
+            "defaultTime": "9:00 AM",
+            "hideDayOfWeek": true,
+            "reminderType": "sleep",
+            "doNotRemindMeTitle": "Do not send me reminders",
+            "shouldHideActions": ["goBackward", "cancel"],
+            "image":{
+                "type":"fetchable",
+                "imageName": "SleepReminder",
+            },
+            "actions": {
+                "goForward": {
+                    "type" : "default",
+                    "buttonTitle" : "Save reminder"
+                }
+            }
         }
     ]
 }

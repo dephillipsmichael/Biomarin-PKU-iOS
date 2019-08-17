@@ -22,9 +22,9 @@
             }
         },
         {
-            "identifier"   : "Brain Baseline",
-            "type"         : "brainBaseline",
-            "testName"     : "PTSPWM-Phone-BioMarin-PKU"
+            "identifier":"reminder",
+            "type":"transform",
+            "resourceTransformer": { "resourceName": "Cognition Reminder Daily.json"}
         }
     ]
 }
