@@ -1,22 +1,22 @@
 {
-    "identifier": "Cognition Reminder",
-    "type":"section",
+    "taskIdentifier": "Sleep Reminder",
     "progressMarkers": [],
     "steps":
     [
         {
             "identifier": "reminder",
             "type": "reminder",
-            "title": "Let’s set a Daily Reminder for  for Cognition Challenge",
+            "title": "When would you like to do the Sleep Check-In?",
+            "text": "We recommend doing the sleep check-in right when you wake up.",
             "detail": "Set reminder",
-            "defaultTime": "6:30 PM",
+            "defaultTime": "9:00 AM",
             "hideDayOfWeek": true,
-            "reminderType": "cognition",
+            "reminderType": "sleep",
             "doNotRemindMeTitle": "Do not send me reminders",
             "shouldHideActions": ["goBackward", "cancel"],
             "image":{
                 "type":"fetchable",
-                "imageName": "CognitionReminder",
+                "imageName": "SleepReminder",
             },
             "actions": {
                 "goForward": {

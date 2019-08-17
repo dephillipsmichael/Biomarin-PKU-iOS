@@ -36,7 +36,7 @@ import BridgeApp
 import MotorControl
 
 /// Subclass the schedule manager to set up a predicate to filter the schedules.
-public class Week1ScheduleManager : SBAScheduleManager {
+public class ActivityScheduleManager : SBAScheduleManager {
     
     open var today: Date {
         return Date()
@@ -58,7 +58,7 @@ public class Week1ScheduleManager : SBAScheduleManager {
     }
     
     // The current activity task the user is doing
-    public var currentActivity: Week1Activity? = nil
+    public var currentActivity: ActivityType? = nil
     // The day of study that the user started doing the current activity task
     public var dayOfCurrentActivity = 0
     
@@ -74,7 +74,7 @@ public class Week1ScheduleManager : SBAScheduleManager {
         return NSPredicate(value: true)
     }
     
-    open func scheduledActivity(for week1Activity: Week1Activity, on day: Int) -> SBBScheduledActivity? {
+    open func scheduledActivity(for week1Activity: ActivityType, on day: Int) -> SBBScheduledActivity? {
         let taskId = week1Activity.taskIdentifier(for: day)
         return self.scheduledActivities.first { $0.activityIdentifier == taskId }
     }
@@ -121,7 +121,7 @@ public class Week1ScheduleManager : SBAScheduleManager {
     }
 }
 
-public enum Week1Activity: Int, CaseIterable {
+public enum ActivityType: Int, CaseIterable {
     case sleep = 0
     case physical = 1
     case cognition = 2
@@ -196,6 +196,15 @@ public enum Week1Activity: Int, CaseIterable {
             return Localization.localizedString("WEEK_1_MINUTES_COGNITION")
         case .daily:
             return Localization.localizedString("WEEK_1_MINUTES_DAILY")
+        }
+    }
+    
+    func reminderType() -> ReminderType {
+        switch self {
+        case .daily: return .daily
+        case .sleep: return .sleep
+        case .physical: return .physical
+        case .cognition: return .cognition
         }
     }
 }

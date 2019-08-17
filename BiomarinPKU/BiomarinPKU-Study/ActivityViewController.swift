@@ -90,9 +90,9 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     
     var expirationTimer = Timer()
     
-    let scheduleManager = Week1ScheduleManager()
+    let scheduleManager = ActivityScheduleManager()
     
-    var deepLinkActivity: Week1Activity?
+    var deepLinkActivity: ActivityType?
     var activitiesLoaded: Bool = false
     
     override func viewDidLoad() {
@@ -166,7 +166,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         
         self.endStudyButton.setTitleColor(designSystem.colorRules.textColor(on: backgroundLight, for: .smallNumber), for: .normal)
         
-        for activity in Week1Activity.allCases {
+        for activity in ActivityType.allCases {
             let i = activity.rawValue
             
             self.activityDetailLabels?[i].textColor = designSystem.colorRules.textColor(on: backgroundLight, for: .microDetail)
@@ -187,7 +187,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         }
         self.endStudyButton.setTitle(Localization.localizedString("TAP_TO_END_STUDY_BUTTON"), for: .normal)
         
-        for activity in Week1Activity.allCases {
+        for activity in ActivityType.allCases {
             let i = activity.rawValue
             self.activityButtons?[i].setTitle(activity.title(), for: .normal)
             self.activityDetailLabels?[i].text = activity.detail()
@@ -235,7 +235,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         self.presentTaskViewController(for: .physical)
     }
     
-    func presentTaskViewController(for activity: Week1Activity) {
+    func presentTaskViewController(for activity: ActivityType) {
         scheduleManager.dayOfCurrentActivity = self.scheduleManager.dayOfStudy()
         scheduleManager.currentActivity = activity
         
@@ -288,10 +288,20 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
             // Send it to the reminder manager for processing
             ReminderManager.shared.updateNotifications(for: taskController.taskViewModel.taskResult)
             
-            // Mark day as completed and refresh the UI
             if let activity = scheduleManager.currentActivity {
+                // Mark day as completed and refresh the UI
                 activity.complete(for: scheduleManager.dayOfCurrentActivity)
                 refreshUI()
+                
+                // Check if we need to show the reminder screen
+                if !activity.reminderType().hasBeenScheduled() {
+                    //let taskInfo
+//                    let taskViewModel = RSDTaskViewModel(taskInfo: taskInfo)
+//                    taskViewModel.dataManager = DataStorageManager.shared
+//                    let taskViewController = RSDTaskViewController(taskViewModel: taskViewModel)
+//                    taskViewController.delegate = self
+//                    self.present(taskViewController, animated: true, completion: nil)
+                }
             }
         }
 

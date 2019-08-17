@@ -36,7 +36,7 @@ import XCTest
 import BridgeApp
 @testable import BiomarinPKU_Study
 
-class Week1ScheduleManagerTests: XCTestCase {
+class ActivityScheduleManagerTests: XCTestCase {
     
     let scheduleManager = TestableWeek1ScheduleManager()
     
@@ -155,7 +155,7 @@ class Week1ScheduleManagerTests: XCTestCase {
     }
 }
 
-class TestableWeek1ScheduleManager: Week1ScheduleManager {
+class TestableWeek1ScheduleManager: ActivityScheduleManager {
     
     var mockToday = Date()
     

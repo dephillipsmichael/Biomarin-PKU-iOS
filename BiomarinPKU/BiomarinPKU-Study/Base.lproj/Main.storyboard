@@ -1,44 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Week1 View Controller-->
+        <!--Activity View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="Week1ViewController" customModule="BiomarinPKU_Study" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ActivityViewController" customModule="BiomarinPKU_Study" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMi-WH-FvO" userLabel="Background">
-                                <rect key="frame" x="0.0" y="44" width="414" height="264"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="236.5"/>
                                 <color key="backgroundColor" red="1" green="0.82654009908633319" blue="0.30440196591197399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's begin the journey!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="164-7P-iie">
-                                <rect key="frame" x="32" y="108" width="350" height="36"/>
+                                <rect key="frame" x="32" y="84" width="536" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By completing your first 4 activities in a day for one week, you will then be able to unlock your entire journey. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPv-hi-3vG">
-                                <rect key="frame" x="32" y="144" width="350" height="110"/>
+                                <rect key="frame" x="32" y="120" width="536" height="82.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIF-Qi-Cyw" userLabel="Account Details Container">
-                                <rect key="frame" x="0.0" y="44" width="414" height="54"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="54"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FxC-GB-wnx" userLabel="Button Account Details">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="gzo-Ld-pw0"/>
                                         </constraints>
@@ -52,7 +48,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcU-a3-8tu" userLabel="Shadow" customClass="RSDShadowGradient" customModule="ResearchUI">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="4"/>
+                                        <rect key="frame" x="0.0" y="50" width="600" height="4"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="zSA-70-TNo"/>
@@ -65,7 +61,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukb-hf-m90" customClass="RSDUnderlinedButton" customModule="ResearchUI">
-                                        <rect key="frame" x="191" y="44.5" width="151" height="40"/>
+                                        <rect key="frame" x="191" y="44.5" width="168" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="WVt-C5-joH"/>
                                         </constraints>
@@ -78,7 +74,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DownArrowIcon" translatesAutoresizingMaskIntoConstraints="NO" id="mAo-vE-XeJ">
-                                        <rect key="frame" x="370" y="19.5" width="20" height="11"/>
+                                        <rect key="frame" x="560" y="17" width="16" height="16"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,7 +96,7 @@
                                 <viewLayoutGuide key="safeArea" id="iSn-xm-tsZ"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LCA-S0-ZPp" userLabel="OuterCircle">
-                                <rect key="frame" x="159" y="260" width="96" height="96"/>
+                                <rect key="frame" x="252" y="208.5" width="96" height="96"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJA-Nk-9ka" userLabel="InnerCircle">
                                         <rect key="frame" x="4" y="4" width="88" height="88"/>
@@ -140,42 +136,42 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today’s activities expire in 00:59:04" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TO-gf-s8t" userLabel="Expires">
-                                <rect key="frame" x="24" y="364" width="366" height="21"/>
+                                <rect key="frame" x="24" y="312.5" width="552" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIe-gP-crF" userLabel="Activities Container">
-                                <rect key="frame" x="0.0" y="393" width="414" height="503"/>
+                                <rect key="frame" x="0.0" y="341.5" width="600" height="258.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVJ-dD-aDr" userLabel="Top">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="251.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="129.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLh-J6-x4c" userLabel="Left">
-                                                <rect key="frame" x="0.0" y="0.0" width="207" height="251.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="129.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWj-Vn-pqA">
-                                                        <rect key="frame" x="0.0" y="156" width="207" height="24"/>
+                                                        <rect key="frame" x="0.0" y="94.5" width="300" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityIconSleep" translatesAutoresizingMaskIntoConstraints="NO" id="zYA-re-R0A" userLabel="Activity Icon">
-                                                        <rect key="frame" x="63.5" y="75" width="80" height="53.5"/>
+                                                        <rect key="frame" x="110" y="14" width="80" height="53.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="80" id="LBs-vt-IJq"/>
                                                             <constraint firstAttribute="width" secondItem="zYA-re-R0A" secondAttribute="height" multiplier="3:2" id="yfh-mo-9Nb"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityDoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="kLH-1Z-04g" userLabel="Done">
-                                                        <rect key="frame" x="131.5" y="63" width="24" height="24"/>
+                                                        <rect key="frame" x="178" y="2" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="KfQ-wp-jhW"/>
                                                             <constraint firstAttribute="width" secondItem="kLH-1Z-04g" secondAttribute="height" multiplier="1:1" id="N3Z-55-eUI"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eY-FH-NqM" customClass="RSDUnderlinedButton" customModule="ResearchUI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="207" height="251.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="129.5"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="36" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="Sleep Check-In"/>
                                                         <connections>
@@ -199,10 +195,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2c-k1-z16" userLabel="Right">
-                                                <rect key="frame" x="207" y="0.0" width="207" height="251.5"/>
+                                                <rect key="frame" x="300" y="0.0" width="300" height="129.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDL-Qk-Kd4" customClass="RSDUnderlinedButton" customModule="ResearchUI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="207" height="251.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="129.5"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="36" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="Physical Challenge"/>
                                                         <connections>
@@ -210,20 +206,20 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpm-wg-tY1">
-                                                        <rect key="frame" x="0.0" y="156" width="207" height="24"/>
+                                                        <rect key="frame" x="0.0" y="94.5" width="300" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityIconPhysical" translatesAutoresizingMaskIntoConstraints="NO" id="GTg-dN-eqn" userLabel="Activity Icon">
-                                                        <rect key="frame" x="71.5" y="70" width="64" height="64"/>
+                                                        <rect key="frame" x="118" y="8.5" width="64" height="64"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="GTg-dN-eqn" secondAttribute="height" multiplier="1:1" id="UDs-e8-1Rk"/>
                                                             <constraint firstAttribute="width" constant="64" id="cmg-Ko-HzR"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityDoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GPy-TC-p8w" userLabel="Done">
-                                                        <rect key="frame" x="123.5" y="58" width="24" height="24"/>
+                                                        <rect key="frame" x="170" y="-3.5" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="jtc-Wf-JB2"/>
                                                             <constraint firstAttribute="width" secondItem="GPy-TC-p8w" secondAttribute="height" multiplier="1:1" id="p0r-79-I37"/>
@@ -259,13 +255,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUh-EG-d2l" userLabel="Bottom">
-                                        <rect key="frame" x="0.0" y="251.5" width="414" height="251.5"/>
+                                        <rect key="frame" x="0.0" y="129.5" width="600" height="129"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3I-Do-CpY" userLabel="Left">
-                                                <rect key="frame" x="0.0" y="0.0" width="207" height="251.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="129"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMC-xi-Afl" customClass="RSDUnderlinedButton" customModule="ResearchUI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="207" height="251.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="129"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="36" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="Cognition"/>
                                                         <connections>
@@ -273,20 +269,20 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfW-om-r6p">
-                                                        <rect key="frame" x="0.0" y="156" width="207" height="24"/>
+                                                        <rect key="frame" x="0.0" y="94.5" width="300" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityIconCognition" translatesAutoresizingMaskIntoConstraints="NO" id="0Yz-zp-Gvm" userLabel="Activity Icon">
-                                                        <rect key="frame" x="71.5" y="70" width="64" height="64"/>
+                                                        <rect key="frame" x="118" y="8.5" width="64" height="64"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="0Yz-zp-Gvm" secondAttribute="height" multiplier="1:1" id="HIA-Yp-aAr"/>
                                                             <constraint firstAttribute="width" constant="64" id="zuZ-rX-oNy"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityDoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Uwk-WM-9qD" userLabel="Done">
-                                                        <rect key="frame" x="123.5" y="58" width="24" height="24"/>
+                                                        <rect key="frame" x="170" y="-3.5" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="PYy-kB-b15"/>
                                                             <constraint firstAttribute="width" secondItem="Uwk-WM-9qD" secondAttribute="height" multiplier="1:1" id="sSR-zg-cN9"/>
@@ -309,10 +305,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYr-Qj-C87" userLabel="Right">
-                                                <rect key="frame" x="207" y="0.0" width="207" height="251.5"/>
+                                                <rect key="frame" x="300" y="0.0" width="300" height="129"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pz7-4l-jRD" customClass="RSDUnderlinedButton" customModule="ResearchUI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="207" height="251.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="129"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="36" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="Daily Check-In"/>
                                                         <connections>
@@ -320,20 +316,20 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7e-4Z-P6j">
-                                                        <rect key="frame" x="0.0" y="156" width="207" height="24"/>
+                                                        <rect key="frame" x="0.0" y="94.5" width="300" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityIconDaily" translatesAutoresizingMaskIntoConstraints="NO" id="50r-C5-DLZ" userLabel="Activity Icon">
-                                                        <rect key="frame" x="76.5" y="75" width="54" height="54"/>
+                                                        <rect key="frame" x="123" y="13.5" width="54" height="54"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="54" id="KCk-pG-aTc"/>
                                                             <constraint firstAttribute="width" secondItem="50r-C5-DLZ" secondAttribute="height" multiplier="1:1" id="Rfo-3o-wMN"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityDoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="LTH-JD-EEG" userLabel="Done">
-                                                        <rect key="frame" x="118.5" y="63" width="24" height="24"/>
+                                                        <rect key="frame" x="165" y="1.5" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="ekC-6B-yoq"/>
                                                             <constraint firstAttribute="width" secondItem="LTH-JD-EEG" secondAttribute="height" multiplier="1:1" id="euO-c5-ixR"/>
@@ -369,14 +365,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4Y-5N-ZoH" userLabel="Shadow" customClass="RSDShadowGradient" customModule="ResearchUI">
-                                        <rect key="frame" x="0.0" y="499" width="414" height="4"/>
+                                        <rect key="frame" x="0.0" y="254.5" width="600" height="4"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="dZI-L6-p2V"/>
                                         </constraints>
                                     </view>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zmk-N3-BfY">
-                                        <rect key="frame" x="188.5" y="233" width="37" height="37"/>
+                                        <rect key="frame" x="281.5" y="111" width="37" height="37"/>
                                         <color key="color" red="0.96078431369999995" green="0.70196078429999997" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </activityIndicatorView>
                                 </subviews>

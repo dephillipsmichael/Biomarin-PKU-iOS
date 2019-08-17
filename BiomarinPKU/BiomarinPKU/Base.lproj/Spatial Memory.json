@@ -20,11 +20,6 @@
                     "type": "default",
                     "buttonTitle" : "Start" },
             }
-        },
-        {
-            "identifier":"reminder",
-            "type":"transform",
-            "resourceTransformer": { "resourceName": "Cognition Reminder Daily.json"}
         }
     ]
 }

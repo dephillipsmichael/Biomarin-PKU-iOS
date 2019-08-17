@@ -72,7 +72,7 @@ open class ReminderManager : NSObject, UNUserNotificationCenterDelegate {
             return
         }
         
-        if let vc = (AppDelegate.shared as? AppDelegate)?.rootViewController?.children.first(where: { $0 is Week1ViewController }) as? Week1ViewController {
+        if let vc = (AppDelegate.shared as? AppDelegate)?.rootViewController?.children.first(where: { $0 is ActivityViewController }) as? ActivityViewController {
             if vc.activitiesLoaded {
                 vc.presentTaskViewController(for: reminderType.activity())
             } else {
@@ -272,7 +272,11 @@ public enum ReminderType: String, CaseIterable, Decodable {
         }
     }
     
-    func activity() -> Week1Activity {
+    func jsonFileName() -> String {
+        return "\(self.rawValue.capitalized) Reminder"
+    }
+    
+    func activity() -> ActivityType {
         switch self {
         case .daily: return .daily
         case .sleep: return .sleep

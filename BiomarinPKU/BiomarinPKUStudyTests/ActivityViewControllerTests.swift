@@ -36,9 +36,9 @@ import XCTest
 import BridgeApp
 @testable import BiomarinPKU_Study
 
-class Week1ViewControllerTests: XCTestCase {
+class ActivityViewControllerTests: XCTestCase {
     
-    let vc = Week1ViewController(nibName: "", bundle: Bundle.main)
+    let vc = ActivityViewController(nibName: "", bundle: Bundle.main)
     
     override func setUp() {
         super.setUp()

@@ -1,22 +1,22 @@
 {
-    "identifier" : "Physical Reminder",
-    "type":"section",
+    "taskIdentifier": "Daily Reminder",
     "progressMarkers": [],
     "steps":
     [
         {
             "identifier": "reminder",
             "type": "reminder",
-            "title": "Let’s set a Daily Reminder for  for Physical Activity Challenge",
+            "title": "When would you like to do the Daily Check-In?",
+            "text": "You can always change your time later if it no longer works for you.",
             "detail": "Set reminder",
-            "defaultTime": "6:30 PM",
+            "defaultTime": "9:00 AM",
             "hideDayOfWeek": true,
-            "reminderType": "physical",
+            "reminderType": "daily",
             "doNotRemindMeTitle": "Do not send me reminders",
             "shouldHideActions": ["goBackward", "cancel"],
             "image":{
                 "type":"fetchable",
-                "imageName": "PhysicalReminder",
+                "imageName": "DailyReminder",
             },
             "actions": {
                 "goForward": {

@@ -47,7 +47,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     let onboardingTaskId = "signin"
     let haveShownStudyIntroKey = "haveShownStudyIntro"
     
-    var deepLinkActivity: Week1Activity?
+    var deepLinkActivity: ActivityType?
     
     static let colorPalette = RSDColorPalette(version: 1,
                                               primary: RSDColorMatrix.shared.colorKey(for: .palette(.butterscotch),
@@ -155,7 +155,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
     func setDeepLinkActivityOnViewController() {
         guard let activity = self.deepLinkActivity else { return }
-        (self.rootViewController?.children.first(where: { $0 is Week1ViewController }) as? Week1ViewController)?.deepLinkActivity = activity
+        (self.rootViewController?.children.first(where: { $0 is ActivityViewController }) as? ActivityViewController)?.deepLinkActivity = activity
         self.deepLinkActivity = nil
     }
     
