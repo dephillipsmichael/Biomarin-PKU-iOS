@@ -639,6 +639,7 @@
 				FF3CC62822D7BAA60037E65B /* Frameworks */,
 				FF3CC62922D7BAA60037E65B /* Resources */,
 				FF3CC66C22D7C5710037E65B /* Embed Frameworks */,
+				44B12C412305E9BC00D0907E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -820,6 +821,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		44B12C412305E9BC00D0907E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n\nBiomarinPKU-Study/strip-frameworks.sh\n\nfi\n";
+		};
 		807A798122BBEC09009FC86B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1209,7 +1227,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "BiomarinPKU/BiomarinPKU-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1236,7 +1254,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BiomarinPKU/BiomarinPKU-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
