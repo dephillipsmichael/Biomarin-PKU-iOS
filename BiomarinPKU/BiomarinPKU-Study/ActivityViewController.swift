@@ -90,7 +90,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     
     var expirationTimer = Timer()
     
-    let scheduleManager = ActivityScheduleManager()
+    let scheduleManager = ActivityScheduleManager.shared
     
     var deepLinkActivity: ActivityType?
     var activitiesLoaded: Bool = false
@@ -276,36 +276,39 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     }
     
     func taskController(_ taskController: RSDTaskController, didFinishWith reason: RSDTaskFinishReason, error: Error?) {
-        // dismiss the view controller
-        (taskController as? UIViewController)?.dismiss(animated: true, completion: nil)
         
         // Let the schedule manager handle the cleanup.
         scheduleManager.taskController(taskController, didFinishWith: reason, error: error)
         
-        // Check if the task was completed successfully
-        if error == nil && reason == .completed {
-            // The result may contain reminder information
-            // Send it to the reminder manager for processing
-            ReminderManager.shared.updateNotifications(for: taskController.taskViewModel.taskResult)
-            
-            if let activity = scheduleManager.currentActivity {
-                // Mark day as completed and refresh the UI
-                activity.complete(for: scheduleManager.dayOfCurrentActivity)
-                refreshUI()
+        let activity = self.scheduleManager.currentActivity
+        // Dismiss the view controller
+        (taskController as? UIViewController)?.dismiss(animated: true, completion: {
+            // Check if the task was completed successfully
+            if error == nil && reason == .completed {
+                // The result may contain reminder information
+                // Send it to the reminder manager for processing
+                ReminderManager.shared.updateNotifications(for: taskController.taskViewModel.taskResult)
                 
-                // Check if we need to show the reminder screen
-                if !activity.reminderType().hasBeenScheduled() {
-                    //let taskInfo
-//                    let taskViewModel = RSDTaskViewModel(taskInfo: taskInfo)
-//                    taskViewModel.dataManager = DataStorageManager.shared
-//                    let taskViewController = RSDTaskViewController(taskViewModel: taskViewModel)
-//                    taskViewController.delegate = self
-//                    self.present(taskViewController, animated: true, completion: nil)
+                if let activityUnwrapped = activity {
+                    // Mark day as completed and refresh the UI
+                    activityUnwrapped.complete(for: self.scheduleManager.dayOfCurrentActivity)
+                    self.refreshUI()
+                    self.presentReminderTaskIfApplicable(afterCompleted: activityUnwrapped.reminderType())
                 }
             }
-        }
+        })
 
         scheduleManager.currentActivity = nil
+    }
+    
+    func presentReminderTaskIfApplicable(afterCompleted type: ReminderType) {
+        // Check if we need to show the reminder screen
+        if !type.hasBeenScheduled() {
+            let task = type.taskViewModel(dayOfStudy: self.scheduleManager.dayOfStudy(), alwaysShow: false)
+            let taskViewController = RSDTaskViewController(task: task)
+            taskViewController.delegate = self
+            self.present(taskViewController, animated: true, completion: nil)
+        }
     }
     
     func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {

@@ -39,6 +39,8 @@
 "BUTTON_TITLE_BEGIN" = "Begin";
 "SEE_THIS_IN_ACTION" = "See this in action";
 "BUTTON_LETS_GO" = "Let's go!";
+"BUTTON_EDIT_DETAILS" = "Edit details";
+"SAVE_REMINDER_BUTTON" = "Save reminder";
 
 "STUDY_INTRO_TITLE_1" = "Hello,";
 "STUDY_INTRO_TEXT_1" = "Welcome to Day 1 of your journey!\n\nFor the first week you’ll be doing all 4 activities every day.";
@@ -55,13 +57,15 @@
 "WEEK_1_TEXT" = "By completing your first 4 activities in a day for one week, you will then be able to unlock your entire journey.";
 "WEEK_1_EXPIRES_FORMAT_%@" = "Today’s activities expire in %@";
 "WEEK_1_ACTIVITY_SLEEP" = "Sleep Check-In";
-"WEEK_1_ACTIVITY_PHYSICAL" = "Physical Challenge";
-"WEEK_1_ACTIVITY_COGNITION" = "Cognition";
-"WEEK_1_ACTIVITY_DAILY" = "Daily Check-In";
-"WEEK_1_MINUTES_SLEEP" = "1 minute";
-"WEEK_1_MINUTES_PHYSICAL" = "3 minutes";
-"WEEK_1_MINUTES_COGNITION" = "6 minutes";
-"WEEK_1_MINUTES_DAILY" = "1 minute";
+
+"ACTIVITY_PHYSICAL" = "Physical Challenge";
+"ACTIVITY_COGNITION" = "Cognition";
+"ACTIVITY_DAILY" = "Daily Check-In";
+"ACTIVITY_SLEEP" = "Sleep Check-In";
+"MINUTES_SLEEP" = "1 minute";
+"MINUTES_PHYSICAL" = "3 minutes";
+"MINUTES_COGNITION" = "6 minutes";
+"MINUTES_DAILY" = "1 minute";
 "VIEW_ACCOUNT_DETAILS" = "View Account Details";
 "TAP_TO_END_STUDY_BUTTON" = "(Tap to End Study)";
 
@@ -76,3 +80,23 @@
 "BRAIN_BASELINE_MEASUREMENTS_TITLE" = "Measurement";
 "BRAIN_BASELINE_YOUR_OBJECTIVE_TITLE" = "Your Objective";
 "BRAIN_BASELINE_INSTRUCTIONS_TITLE" = "Instructions";
+
+"NO_REMINDER_HAS_BEEN_SET" = "No reminder has been set";
+"REMINDER_DAILY_%@" = "Daily at %@";
+"REMINDER_WEEKLY_%@_%@" = "%@s at %@";
+"SETTINGS_TITLE" = "Your Activity Reminders";
+"SETTINGS_TEXT" = "You can edit the schedule for your activity reminders in the list below.";
+"NO_REMINDERS_PLEASE" = "No reminders please";
+
+"REMINDER_DAILY_STEP_TITLE" = "When would you like to do the Daily Check-In?";
+"REMINDER_DAILY_STEP_TEXT" = "You can always change your time later if it no longer works for you.";
+"REMINDER_SLEEP_STEP_TITLE" = "When would you like to do the Sleep Check-In?";
+"REMINDER_SLEEP_STEP_TEXT" = "We recommend doing the sleep check-in right when you wake up.";
+"REMINDER_PHYSICAL_STEP_TITLE_DAILY" = "Let’s set a Daily Reminder for your Physical Activity Challenge";
+"REMINDER_PHYSICAL_STEP_TITLE_WEEKLY" = "Let’s set a Weekly Reminder for your Physical Activity Challenge";
+"REMINDER_COGNITION_STEP_TITLE_DAILY" = "Let’s set a Daily Reminder for your Cognitive Activity Challenge";
+"REMINDER_COGNITION_STEP_TITLE_WEEKLY" = "Let’s set a Weekly Reminder for your Cognitive Activity Challenge";
+
+
+
+

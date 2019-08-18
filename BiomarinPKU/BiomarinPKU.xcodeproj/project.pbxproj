@@ -23,12 +23,6 @@
 		CB0D00CA22EE45E900F5DD4D /* FontRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C922EE45E900F5DD4D /* FontRules.swift */; };
 		CB0D00CB22EE463E00F5DD4D /* FontRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C922EE45E900F5DD4D /* FontRules.swift */; };
 		CB11172B2305FFE7004E6E3F /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB11172A2305FFE7004E6E3F /* ReminderManager.swift */; };
-		CB11173B23071290004E6E3F /* Physical Reminder.json in Resources */ = {isa = PBXBuildFile; fileRef = CB11173823071290004E6E3F /* Physical Reminder.json */; };
-		CB11173C230713C9004E6E3F /* Cognition Reminder.json in Resources */ = {isa = PBXBuildFile; fileRef = CB11173623071290004E6E3F /* Cognition Reminder.json */; };
-		CB11173D230713CD004E6E3F /* Physical Reminder.json in Resources */ = {isa = PBXBuildFile; fileRef = CB11173823071290004E6E3F /* Physical Reminder.json */; };
-		CB11173E230713CF004E6E3F /* Cognition Reminder.json in Resources */ = {isa = PBXBuildFile; fileRef = CB11173623071290004E6E3F /* Cognition Reminder.json */; };
-		CB11BC812308C74300157D0C /* Sleep Reminder.json in Resources */ = {isa = PBXBuildFile; fileRef = CB11BC7D2308C74300157D0C /* Sleep Reminder.json */; };
-		CB11BC822308C74300157D0C /* Daily Reminder.json in Resources */ = {isa = PBXBuildFile; fileRef = CB11BC7F2308C74300157D0C /* Daily Reminder.json */; };
 		CB1A259B22F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A259922F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift */; };
 		CB1A259C22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */; };
 		CB1A25A222F7314900ED3A57 /* FitbitStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */; };
@@ -42,6 +36,7 @@
 		CB3B194E22FCCDF5007CF330 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3B194D22FCCDF4007CF330 /* Assets.xcassets */; };
 		CB3B195622FD00E5007CF330 /* ActivityScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B195522FD00E5007CF330 /* ActivityScheduleManager.swift */; };
 		CB46274C22D7843400AD79B1 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */; };
+		CB53CC77230994A10028F85C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB53CC76230994A10028F85C /* SettingsViewController.swift */; };
 		CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
 		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
 		CB5510F422A091B40036CD6F /* BrainBaseline.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -203,10 +198,6 @@
 		CB0D00C522EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineStepViewController.swift; sourceTree = "<group>"; };
 		CB0D00C922EE45E900F5DD4D /* FontRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontRules.swift; sourceTree = "<group>"; };
 		CB11172A2305FFE7004E6E3F /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
-		CB11173723071290004E6E3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Cognition Reminder.json"; sourceTree = "<group>"; };
-		CB11173923071290004E6E3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Physical Reminder.json"; sourceTree = "<group>"; };
-		CB11BC7E2308C74300157D0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Sleep Reminder.json"; sourceTree = "<group>"; };
-		CB11BC802308C74300157D0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Daily Reminder.json"; sourceTree = "<group>"; };
 		CB1A259922F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalIDRegistrationViewController.swift; sourceTree = "<group>"; };
 		CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalIDRegistrationViewController.xib; sourceTree = "<group>"; };
 		CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitbitStepViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +213,7 @@
 		CB3B194D22FCCDF4007CF330 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB3B195522FD00E5007CF330 /* ActivityScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityScheduleManager.swift; sourceTree = "<group>"; };
 		CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
+		CB53CC76230994A10028F85C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
 		CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrainBaseline.framework; sourceTree = "<group>"; };
@@ -353,6 +345,7 @@
 				CB7F4CCD22FF5D5A003EBB5C /* LearnMoreStepViewController.xib */,
 				CB2C40F82304863300FC4745 /* ReminderStepViewController.swift */,
 				CB2C40FA2304864E00FC4745 /* ReminderStepViewController.xib */,
+				CB53CC76230994A10028F85C /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -402,10 +395,6 @@
 				CBD4F70522A4670B000C402F /* Task Switch.json */,
 				CB7F4CC122FF1DCD003EBB5C /* Daily Check-In.json */,
 				CB7F4CBF22FF1DCD003EBB5C /* Sleep Check-In.json */,
-				CB11BC7F2308C74300157D0C /* Daily Reminder.json */,
-				CB11BC7D2308C74300157D0C /* Sleep Reminder.json */,
-				CB11173623071290004E6E3F /* Cognition Reminder.json */,
-				CB11173823071290004E6E3F /* Physical Reminder.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -748,11 +737,9 @@
 				441651D422F10B8700E02DAC /* KineticTremor.mp4 in Resources */,
 				F8061184227BA026005FCABF /* LaunchScreen.storyboard in Resources */,
 				CB55116122A0D34F0036CD6F /* N Back.json in Resources */,
-				CB11BC822308C74300157D0C /* Daily Reminder.json in Resources */,
 				CB7F4CC422FF1DCD003EBB5C /* Daily Check-In.json in Resources */,
 				CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */,
 				F8087B92227BCA40005BDDEC /* BridgeInfo.plist in Resources */,
-				CB11BC812308C74300157D0C /* Sleep Reminder.json in Resources */,
 				441651D622F10B8700E02DAC /* Tremor.mp4 in Resources */,
 				CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */,
 				F8087B90227BCA16005BDDEC /* biomarin-pku.pem in Resources */,
@@ -772,9 +759,7 @@
 				F8087B8F227BCA16005BDDEC /* BridgeInfo-private.plist in Resources */,
 				441651D222F10B8700E02DAC /* Tapping.mp4 in Resources */,
 				CB55111922A0A11C0036CD6F /* BrainBaselineStepViewController.xib in Resources */,
-				CB11173E230713CF004E6E3F /* Cognition Reminder.json in Resources */,
 				CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */,
-				CB11173B23071290004E6E3F /* Physical Reminder.json in Resources */,
 				CB7F4CC322FF1DCD003EBB5C /* Sleep Check-In.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -798,7 +783,6 @@
 				FF3CC64522D7C1FB0037E65B /* lato_italic.ttf in Resources */,
 				FF3CC64F22D7C2B00037E65B /* Spatial Memory.json in Resources */,
 				CB2C40FB2304864E00FC4745 /* ReminderStepViewController.xib in Resources */,
-				CB11173D230713CD004E6E3F /* Physical Reminder.json in Resources */,
 				441651D722F10B8700E02DAC /* Tremor.mp4 in Resources */,
 				FF3CC67222D7C6710037E65B /* BrainBaselineOverviewStepViewController.xib in Resources */,
 				FF3CC64622D7C1FB0037E65B /* lato_light.ttf in Resources */,
@@ -815,7 +799,6 @@
 				FF3CC63322D7BAA70037E65B /* Main.storyboard in Resources */,
 				FF3CC64C22D7C2B00037E65B /* Symbol Substitution.json in Resources */,
 				CB0D00C022EE36BF00F5DD4D /* BBLStudy-BioMarin-PKU.bundle in Resources */,
-				CB11173C230713C9004E6E3F /* Cognition Reminder.json in Resources */,
 				FF3CC64822D7C1FB0037E65B /* lato_regular.ttf in Resources */,
 				FF3CC65D22D7C3300037E65B /* BridgeInfo-private.plist in Resources */,
 				441651D322F10B8700E02DAC /* Tapping.mp4 in Resources */,
@@ -923,6 +906,7 @@
 				CB3B195622FD00E5007CF330 /* ActivityScheduleManager.swift in Sources */,
 				CB0D00CB22EE463E00F5DD4D /* FontRules.swift in Sources */,
 				CB1A259B22F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift in Sources */,
+				CB53CC77230994A10028F85C /* SettingsViewController.swift in Sources */,
 				FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */,
 				CB0D00C622EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift in Sources */,
 				CB2C40F92304863300FC4745 /* ReminderStepViewController.swift in Sources */,
@@ -946,38 +930,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CB11173623071290004E6E3F /* Cognition Reminder.json */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB11173723071290004E6E3F /* Base */,
-			);
-			name = "Cognition Reminder.json";
-			sourceTree = "<group>";
-		};
-		CB11173823071290004E6E3F /* Physical Reminder.json */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB11173923071290004E6E3F /* Base */,
-			);
-			name = "Physical Reminder.json";
-			sourceTree = "<group>";
-		};
-		CB11BC7D2308C74300157D0C /* Sleep Reminder.json */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB11BC7E2308C74300157D0C /* Base */,
-			);
-			name = "Sleep Reminder.json";
-			sourceTree = "<group>";
-		};
-		CB11BC7F2308C74300157D0C /* Daily Reminder.json */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB11BC802308C74300157D0C /* Base */,
-			);
-			name = "Daily Reminder.json";
-			sourceTree = "<group>";
-		};
 		CB55113622A0B7ED0036CD6F /* Attentional Blink.json */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -243,6 +243,18 @@ public enum ReminderType: String, CaseIterable, Decodable {
         }
     }
     
+    func doNotRemindSetting() -> Bool {
+        return UserDefaults.standard.bool(forKey: self.doNotRemindIdentifier())
+    }
+    
+    func timeSetting() -> String? {
+        return UserDefaults.standard.string(forKey: self.timeRemindIdentifier())
+    }
+    
+    func daySetting() -> Int {
+        return UserDefaults.standard.integer(forKey: self.dayRemindIdentifier())
+    }
+    
     func doNotRemindIdentifier() -> String {
         return "\(self.rawValue)\(ReminderStepObject.doNotRemindResultIdentifier)"
     }
@@ -272,8 +284,26 @@ public enum ReminderType: String, CaseIterable, Decodable {
         }
     }
     
+    func defaultTime() -> String {
+        switch self {
+        case .daily: return "9:00 AM"
+        case .sleep: return "9:00 AM"
+        case .physical: return "6:30 PM"
+        case .cognition: return "6:30 PM"
+        }
+    }
+    
+    func defaultDay() -> String? {
+        switch self {
+        case .daily: return nil
+        case .sleep: return nil
+        case .physical: return RSDWeekday.saturday.text
+        case .cognition: return RSDWeekday.saturday.text
+        }
+    }
+    
     func jsonFileName() -> String {
-        return "\(self.rawValue.capitalized) Reminder"
+        return "\(self.rawValue.capitalized) Reminder.json"
     }
     
     func activity() -> ActivityType {
@@ -282,6 +312,68 @@ public enum ReminderType: String, CaseIterable, Decodable {
         case .sleep: return .sleep
         case .physical: return .physical
         case .cognition: return .cognition
+        }
+    }
+    
+    func taskViewModel(dayOfStudy: Int, alwaysShow: Bool = false) -> RSDTaskObject {
+        let reminderStep = ReminderStepObject(identifier: "reminder")
+        reminderStep.reminderType = self
+        reminderStep.defaultTime = self.defaultTime()
+        reminderStep.defaultDayOfWeek = self.defaultDay()
+        reminderStep.alwaysShow = alwaysShow
+        reminderStep.hideDayOfWeek = (self == .daily || self == .sleep || dayOfStudy <= 7)
+        
+        reminderStep.doNotRemindMeTitle = Localization.localizedString("NO_REMINDERS_PLEASE")
+        reminderStep.title = self.stepTitle(dayOfStudy: dayOfStudy)
+        reminderStep.text = self.stepText()
+        
+        reminderStep.imageTheme = RSDFetchableImageThemeElementObject(imageName: "\(self.rawValue.capitalized)Reminder")
+        
+        if alwaysShow {
+            reminderStep.shouldHideActions = [.navigation(.skip)]
+        } else {
+            reminderStep.shouldHideActions = [.navigation(.skip), .navigation(.goForward), .navigation(.cancel)]
+        }
+        
+        reminderStep.actions = [.navigation(.goForward) : RSDUIActionObject(buttonTitle: Localization.localizedString("SAVE_REMINDER_BUTTON"))]
+        
+        var navigator = RSDConditionalStepNavigatorObject(with: [reminderStep])
+        navigator.progressMarkers = []
+        let task = RSDTaskObject(identifier: "reminderTask", stepNavigator: navigator)
+        return task
+    }
+    
+    fileprivate func stepTitle(dayOfStudy: Int) -> String? {
+        switch self {
+        case .daily:
+            return Localization.localizedString("REMINDER_DAILY_STEP_TITLE")
+        case .sleep:
+            return Localization.localizedString("REMINDER_SLEEP_STEP_TITLE")
+        case .physical:
+            if dayOfStudy > 7 {
+                return Localization.localizedString("REMINDER_PHYSICAL_STEP_TITLE_WEEKLY")
+            } else {
+                return Localization.localizedString("REMINDER_PHYSICAL_STEP_TITLE_DAILY")
+            }
+        case .cognition:
+            if dayOfStudy > 7 {
+                return Localization.localizedString("REMINDER_COGNITION_STEP_TITLE_WEEKLY")
+            } else {
+                return Localization.localizedString("REMINDER_COGNITION_STEP_TITLE_DAILY")
+            }
+        }
+    }
+    
+    fileprivate func stepText() -> String? {
+        switch self {
+        case .daily:
+            return Localization.localizedString("REMINDER_DAILY_STEP_TEXT")
+        case .sleep:
+            return Localization.localizedString("REMINDER_SLEEP_STEP_TEXT")
+        case .physical:
+            return nil
+        case .cognition:
+            return nil
         }
     }
 }

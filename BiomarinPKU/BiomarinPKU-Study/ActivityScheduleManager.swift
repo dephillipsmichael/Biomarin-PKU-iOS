@@ -38,6 +38,8 @@ import MotorControl
 /// Subclass the schedule manager to set up a predicate to filter the schedules.
 public class ActivityScheduleManager : SBAScheduleManager {
     
+    public static var shared = ActivityScheduleManager()
+    
     open var today: Date {
         return Date()
     }
@@ -128,7 +130,8 @@ public enum ActivityType: Int, CaseIterable {
     case daily = 3
     
     func isComplete(for day: Int) -> Bool {
-        return UserDefaults.standard.bool(forKey: completeDefaultKey(for: day))
+        return false
+        //return UserDefaults.standard.bool(forKey: completeDefaultKey(for: day))
     }
     
     func complete(for day: Int) {
@@ -176,26 +179,26 @@ public enum ActivityType: Int, CaseIterable {
     func title() -> String {
         switch self {
         case .sleep:
-            return Localization.localizedString("WEEK_1_ACTIVITY_SLEEP")
+            return Localization.localizedString("ACTIVITY_SLEEP")
         case .physical:
-            return Localization.localizedString("WEEK_1_ACTIVITY_PHYSICAL")
+            return Localization.localizedString("ACTIVITY_PHYSICAL")
         case .cognition:
-            return Localization.localizedString("WEEK_1_ACTIVITY_COGNITION")
+            return Localization.localizedString("ACTIVITY_COGNITION")
         case .daily:
-            return Localization.localizedString("WEEK_1_ACTIVITY_DAILY")
+            return Localization.localizedString("ACTIVITY_DAILY")
         }
     }
     
     func detail() -> String {
         switch self {
         case .sleep:
-            return Localization.localizedString("WEEK_1_MINUTES_SLEEP")
+            return Localization.localizedString("MINUTES_SLEEP")
         case .physical:
-            return Localization.localizedString("WEEK_1_MINUTES_PHYSICAL")
+            return Localization.localizedString("MINUTES_PHYSICAL")
         case .cognition:
-            return Localization.localizedString("WEEK_1_MINUTES_COGNITION")
+            return Localization.localizedString("MINUTES_COGNITION")
         case .daily:
-            return Localization.localizedString("WEEK_1_MINUTES_DAILY")
+            return Localization.localizedString("MINUTES_DAILY")
         }
     }
     
