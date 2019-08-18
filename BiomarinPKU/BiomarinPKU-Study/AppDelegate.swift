@@ -155,7 +155,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
     func setDeepLinkActivityOnViewController() {
         guard let activity = self.deepLinkActivity else { return }
-        (self.rootViewController?.children.first(where: { $0 is ActivityViewController }) as? ActivityViewController)?.deepLinkActivity = activity
+        ((self.rootViewController?.children.first(where: { $0 is UITabBarController }) as? UITabBarController)?.children.first(where: { $0 is ActivityViewController }) as? ActivityViewController)?.deepLinkActivity = activity
         self.deepLinkActivity = nil
     }
     

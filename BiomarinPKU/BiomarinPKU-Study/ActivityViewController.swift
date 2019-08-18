@@ -96,7 +96,9 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     var activitiesLoaded: Bool = false
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        
+        ActivityScheduleManager.shared = ActivityScheduleManager()
         
         // Add an observer to observe schedule changes
         NotificationCenter.default.addObserver(forName: .SBAUpdatedScheduledActivities, object: scheduleManager, queue: OperationQueue.main) { (notification) in
@@ -236,7 +238,9 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     }
     
     func presentTaskViewController(for activity: ActivityType) {
-        scheduleManager.dayOfCurrentActivity = self.scheduleManager.dayOfStudy()
+        let day = self.scheduleManager.dayOfStudy()
+        guard !activity.isComplete(for: day) else { return }
+        scheduleManager.dayOfCurrentActivity = day
         scheduleManager.currentActivity = activity
         
         guard let schedule = self.scheduleManager.scheduledActivity(for: activity, on: scheduleManager.dayOfCurrentActivity) else {

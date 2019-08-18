@@ -41,11 +41,13 @@
 "BUTTON_LETS_GO" = "Let's go!";
 "BUTTON_EDIT_DETAILS" = "Edit details";
 "SAVE_REMINDER_BUTTON" = "Save reminder";
+"REMIND_ME_LATER_BUTTON" = "Remind me later";
 
 "STUDY_INTRO_TITLE_1" = "Hello,";
 "STUDY_INTRO_TEXT_1" = "Welcome to Day 1 of your journey!\n\nFor the first week you’ll be doing all 4 activities every day.";
 "STUDY_INTRO_TEXT_2" = "Following Week One, you will only need to do the Check-Ins daily and can choose which day you’d like to do your Cognition and Physical Challenge.\n\nReady to get started?";
 
+"REMINDER_LATER_CHECK_IN" = "Time to do your check-in";
 "REMINDER_DAILY_TITLE" = "Time for your daily check-in";
 "REMINDER_SLEEP_TITLE" = "Time for your sleep check-in";
 "REMINDER_COGNITION_TITLE" = "Time for your cognitive challenge";

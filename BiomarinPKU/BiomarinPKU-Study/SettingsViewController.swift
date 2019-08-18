@@ -48,6 +48,11 @@ class SettingsViewController: UITableViewController, RSDTaskViewControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let tabBar = self.tabBarController {
+            let adjustForTabbarInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: tabBar.tabBar.frame.height, right: 0)
+            self.tableView.contentInset = adjustForTabbarInsets
+            self.tableView.scrollIndicatorInsets = adjustForTabbarInsets
+        }
         self.updateDesignSystem()
     }
     
@@ -148,7 +153,7 @@ class SettingsTableViewCell: UITableViewCell {
         setDetailText(text: Localization.localizedString("BUTTON_EDIT_DETAILS"))
         
         // The text label shows the reminder setting
-        if !type.hasBeenScheduled() || !type.doNotRemindSetting() {
+        if !type.hasBeenScheduled() || type.doNotRemindSetting() {
             self.titleDetailLabel?.text = Localization.localizedString("NO_REMINDER_HAS_BEEN_SET")
         } else if let timeStr = type.timeSetting() {
             let weekdayInt = type.daySetting()

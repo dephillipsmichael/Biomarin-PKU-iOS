@@ -210,15 +210,14 @@ open class EmojiChoiceTableStepViewController: RSDTableStepViewController {
         guard let reminderIdentifier = reminderAction?.reminderIdentifier else { return }
         
         let content = UNMutableNotificationContent()
-        if let title = (self.step as? RSDTaskInfoStep)?.taskInfo.title ?? self.uiStep?.title {
-            content.body = Localization.localizedStringWithFormatKey("REMINDER_NOTIFICATION_WITH_TITLE_%@", title)
-        } else {
-            content.body = Localization.localizedString("REMINDER_NOTIFICATION_WITHOUT_TITLE")
+        content.title = Localization.localizedString("REMINDER_LATER_CHECK_IN")
+        if reminderIdentifier == "\(ReminderType.daily.rawValue)Later" {
+            content.title = Localization.localizedString("REMINDER_DAILY_TITLE")
+        } else if reminderIdentifier == "\(ReminderType.sleep.rawValue)Later" {
+            content.title = Localization.localizedString("REMINDER_SLEEP_TITLE")
         }
         content.sound = UNNotificationSound.default
-        if let bundleIdentifier = Bundle.main.bundleIdentifier {
-            content.categoryIdentifier = "\(bundleIdentifier).RemindMeLater"
-        }
+        content.categoryIdentifier = TaskReminderNotificationCategory
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
         let request = UNNotificationRequest(identifier: reminderIdentifier, content: content, trigger: trigger)
         

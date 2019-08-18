@@ -66,19 +66,30 @@ open class ReminderManager : NSObject, UNUserNotificationCenterDelegate {
                                      didReceive response: UNNotificationResponse,
                                      withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        let identifier = response.notification.request.identifier
+        debugPrint("Received notification with identifier \(response.notification.request.identifier)")
+        
+        // The one-off remind me later will show up with "Later" suffix so remove that
+        let identifier = response.notification.request.identifier.replacingOccurrences(of: "Later", with: "")
         guard let reminderType = ReminderType(rawValue: identifier) else {
             debugPrint("Unknown reminder type received \(identifier)")
             return
         }
         
-        if let vc = (AppDelegate.shared as? AppDelegate)?.rootViewController?.children.first(where: { $0 is ActivityViewController }) as? ActivityViewController {
-            if vc.activitiesLoaded {
-                vc.presentTaskViewController(for: reminderType.activity())
-            } else {
-                vc.deepLinkActivity = reminderType.activity()
+        if let tabVc = (AppDelegate.shared as? AppDelegate)?.rootViewController?.children.first(where: { $0 is UITabBarController }) as? UITabBarController {
+            // Make sure the activity tab is selected instead of being on reminders tab
+            tabVc.selectedIndex = 0
+            if let vc = tabVc.children.first(where: { $0 is ActivityViewController }) as? ActivityViewController {
+                if vc.activitiesLoaded {
+                    // If ativities are already loaded,
+                    // send user directly to the corresponding activity
+                    vc.presentTaskViewController(for: reminderType.activity())
+                } else {
+                    // Otherwise, tell the vc to deep link after activities are loaded
+                    vc.deepLinkActivity = reminderType.activity()
+                }
             }
         } else {
+            // App is first launching, so tell the to app delegate to deep link to the activity
             (AppDelegate.shared as? AppDelegate)?.deepLinkActivity = reminderType.activity()
         }
         
@@ -103,7 +114,13 @@ open class ReminderManager : NSObject, UNUserNotificationCenterDelegate {
                     $0.identifier == type.rawValue else { return nil }
                 return $0.identifier
             }
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: requestIds)
+           
+            if requestIds.count > 0 {
+               debugPrint("Cancelling notifications with ids \(requestIds)")
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: requestIds)
+            } else {
+                debugPrint("No existing notifications found to cancel")
+            }
         }
     }
     
@@ -131,11 +148,11 @@ open class ReminderManager : NSObject, UNUserNotificationCenterDelegate {
                     if let dayAnswer = self.findDayAnswer(for: type, from: result) {
                         if let weekly = self.weeklyDateComponents(with: timeAnswer, on: dayAnswer) {
                             type.saveReminderInfo(doNotRemind: doNotRemindAnswer, at: timeAnswer, on: dayAnswer)
-                            self.scheduleReminderNotification(for: type, dateComponents: weekly)
+                            self.scheduleReminderNotification(for: type, dateComponents: weekly, identifier: type.rawValue)
                         }
                     } else if let daily = self.dailyDateComponents(with: timeAnswer) {
                         type.saveReminderInfo(doNotRemind: doNotRemindAnswer, at: timeAnswer, on: nil)
-                        self.scheduleReminderNotification(for: type, dateComponents: daily)
+                        self.scheduleReminderNotification(for: type, dateComponents: daily, identifier: type.rawValue)
                     }
                 } else {
                     type.saveReminderInfo(doNotRemind: doNotRemindAnswer, at: nil, on: nil)
@@ -144,7 +161,7 @@ open class ReminderManager : NSObject, UNUserNotificationCenterDelegate {
         }
     }
     
-    func scheduleReminderNotification(for type: ReminderType, dateComponents: DateComponents) {
+    func scheduleReminderNotification(for type: ReminderType, dateComponents: DateComponents, identifier: String) {
         
         debugPrint("Scheduling notification reminder type \(type) at time \(dateComponents.hour ?? 0):\(dateComponents.minute ?? 0) on weekday \(dateComponents.weekday ?? -1)")
         
@@ -155,13 +172,11 @@ open class ReminderManager : NSObject, UNUserNotificationCenterDelegate {
         content.sound = UNNotificationSound.default
         content.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber;
         content.categoryIdentifier = TaskReminderNotificationCategory
-        // We want all the task reminders to show up in a group
-        content.threadIdentifier = "TaskThread"
+        content.threadIdentifier = identifier
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
         // Create the request.
-        let identifier = type.rawValue
         let request =  UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         // use dispatch async to allow the method to return and put updating reminders on the next run loop
@@ -175,6 +190,7 @@ open class ReminderManager : NSObject, UNUserNotificationCenterDelegate {
                     // we still don't want to message the user about it
                     break
                 case .authorized, .provisional:
+                    debugPrint("Notification authorized, adding request \(request)")
                     UNUserNotificationCenter.current().add(request)
                     break
                 @unknown default:
@@ -332,7 +348,7 @@ public enum ReminderType: String, CaseIterable, Decodable {
         if alwaysShow {
             reminderStep.shouldHideActions = [.navigation(.skip)]
         } else {
-            reminderStep.shouldHideActions = [.navigation(.skip), .navigation(.goForward), .navigation(.cancel)]
+            reminderStep.shouldHideActions = [.navigation(.skip), .navigation(.goBackward), .navigation(.cancel)]
         }
         
         reminderStep.actions = [.navigation(.goForward) : RSDUIActionObject(buttonTitle: Localization.localizedString("SAVE_REMINDER_BUTTON"))]

@@ -17,7 +17,7 @@
                 "skip":{
                     "type":"reminder",
                     "buttonTitle": "I can’t do this now",
-                    "reminderIdentifier":"Daily Check-In"
+                    "reminderIdentifier":"dailyLater"
                 }
             },
             "learnMoreTitle": "Why are we asking about how PKU affects your day?",

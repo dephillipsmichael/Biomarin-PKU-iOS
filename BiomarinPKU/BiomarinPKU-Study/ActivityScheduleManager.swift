@@ -90,6 +90,11 @@ public class ActivityScheduleManager : SBAScheduleManager {
                 // they are specific to the PKU project, so we must add it here
                 overviewStep.actions?[.navigation(.learnMore)] = overviewLearnMoreAction
             }
+            
+            if let _ = overviewStep.action(for: .navigation(.skip), on: overviewStep) as? RSDReminderUIActionObject {
+                // We should adjust the reminder identifier to match our paradigm
+                overviewStep.actions?[.navigation(.skip)] = RSDReminderUIActionObject(reminderIdentifier: "\(ReminderType.physical.rawValue)Later", buttonTitle: Localization.localizedString("REMIND_ME_LATER_BUTTON"))
+            }
         }
     }
     
@@ -130,8 +135,7 @@ public enum ActivityType: Int, CaseIterable {
     case daily = 3
     
     func isComplete(for day: Int) -> Bool {
-        return false
-        //return UserDefaults.standard.bool(forKey: completeDefaultKey(for: day))
+        return UserDefaults.standard.bool(forKey: completeDefaultKey(for: day))
     }
     
     func complete(for day: Int) {
