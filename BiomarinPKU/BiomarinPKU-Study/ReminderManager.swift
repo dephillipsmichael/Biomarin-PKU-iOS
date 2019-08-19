@@ -318,7 +318,7 @@ public enum ReminderType: String, CaseIterable, Decodable {
     
     func defaultTime() -> String {
         switch self {
-        case .daily: return "9:00 AM"
+        case .daily: return "6:30 PM"
         case .sleep: return "9:00 AM"
         case .physical: return "6:30 PM"
         case .cognition: return "6:30 PM"
