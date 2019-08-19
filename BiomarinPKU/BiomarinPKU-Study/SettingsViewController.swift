@@ -43,7 +43,13 @@ class SettingsViewController: UITableViewController, RSDTaskViewControllerDelega
     // The header background behind the title and text
     @IBOutlet public var headerBackground: UIView!
     
-    let scheduleManager = ActivityScheduleManager.shared
+    var scheduleManager: ActivityScheduleManager {
+        return ActivityScheduleManager.shared
+    }
+    
+    var reminderManager: ReminderManager {
+        return ReminderManager.shared
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +93,22 @@ class SettingsViewController: UITableViewController, RSDTaskViewControllerDelega
         self.present(taskViewController, animated: true, completion: nil)
     }
     
+    func reminderSettingText(for type: ReminderType) -> String {
+        // The text label shows the reminder setting
+        if !self.reminderManager.hasReminderBeenScheduled(type: type) ||
+            self.reminderManager.doNotRemindSetting(for: type) {
+            return Localization.localizedString("NO_REMINDER_HAS_BEEN_SET")
+        } else if let timeStr = self.reminderManager.timeSetting(for: type) {
+            let weekdayInt = self.reminderManager.daySetting(for: type)
+            if weekdayInt == 0 { // daily
+                return Localization.localizedStringWithFormatKey("REMINDER_DAILY_%@", timeStr)
+            } else if let weekday = RSDWeekday(rawValue: weekdayInt) {  // weekly
+                return Localization.localizedStringWithFormatKey("REMINDER_WEEKLY_%@_%@", weekday.text ?? "", timeStr)
+            }
+        }
+        return ""
+    }
+    
     func taskController(_ taskController: RSDTaskController, didFinishWith reason: RSDTaskFinishReason, error: Error?) {
         
         // Let the schedule manager handle the cleanup.
@@ -120,7 +142,8 @@ class SettingsViewController: UITableViewController, RSDTaskViewControllerDelega
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsTableViewCell
         
-        cell.setReminderType(ReminderType.allCases[indexPath.row])
+        let type = ReminderType.allCases[indexPath.row]
+        cell.setReminderType(type, settingsText: self.reminderSettingText(for: type))
         cell.setDesignSystem(AppDelegate.designSystem, with: AppDelegate.designSystem.colorRules.backgroundLight)
         
         return cell
@@ -148,21 +171,10 @@ class SettingsTableViewCell: UITableViewCell {
     /// Divider view that is associated with this cell.
     @IBOutlet open var dividerView: UIView?
     
-    func setReminderType(_ type: ReminderType) {
+    func setReminderType(_ type: ReminderType, settingsText: String) {
         self.titleLabel?.text = type.activity().title()
         setDetailText(text: Localization.localizedString("BUTTON_EDIT_DETAILS"))
-        
-        // The text label shows the reminder setting
-        if !type.hasBeenScheduled() || type.doNotRemindSetting() {
-            self.titleDetailLabel?.text = Localization.localizedString("NO_REMINDER_HAS_BEEN_SET")
-        } else if let timeStr = type.timeSetting() {
-            let weekdayInt = type.daySetting()
-            if weekdayInt == 0 { // daily
-                self.titleDetailLabel?.text = Localization.localizedStringWithFormatKey("REMINDER_DAILY_%@", timeStr)
-            } else if let weekday = RSDWeekday(rawValue: weekdayInt) {  // weekly
-                self.titleDetailLabel?.text = Localization.localizedStringWithFormatKey("REMINDER_WEEKLY_%@_%@", weekday.text ?? "", timeStr)
-            }
-        }
+        self.titleDetailLabel?.text = settingsText
     }
     
     open func setDesignSystem(_ designSystem: RSDDesignSystem, with background: RSDColorTile) {

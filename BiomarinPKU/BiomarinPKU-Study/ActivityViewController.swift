@@ -307,7 +307,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     
     func presentReminderTaskIfApplicable(afterCompleted type: ReminderType) {
         // Check if we need to show the reminder screen
-        if !type.hasBeenScheduled() {
+        if !ReminderManager.shared.hasReminderBeenScheduled(type: type) {
             let task = type.taskViewModel(dayOfStudy: self.scheduleManager.dayOfStudy(), alwaysShow: false)
             let taskViewController = RSDTaskViewController(task: task)
             taskViewController.delegate = self

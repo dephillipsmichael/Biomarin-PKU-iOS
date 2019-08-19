@@ -49,6 +49,10 @@
 		CB55116222A0D34F0036CD6F /* Symbol Substitution.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115B22A0D34E0036CD6F /* Symbol Substitution.json */; };
 		CB55116322A0D34F0036CD6F /* Spatial Memory.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115D22A0D34E0036CD6F /* Spatial Memory.json */; };
 		CB55116422A0D34F0036CD6F /* Go No Go.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115F22A0D34E0036CD6F /* Go No Go.json */; };
+		CB5B91BB230A0F7700B80EF0 /* ReminderManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5B91BA230A0F7700B80EF0 /* ReminderManagerTests.swift */; };
+		CB5B91BD230A0F8700B80EF0 /* ReminderStepViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5B91BC230A0F8700B80EF0 /* ReminderStepViewControllerTests.swift */; };
+		CB5B91BF230A142F00B80EF0 /* MockReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5B91BE230A142F00B80EF0 /* MockReminderManager.swift */; };
+		CB5B91C1230A4D6800B80EF0 /* SettingsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5B91C0230A4D6800B80EF0 /* SettingsViewControllerTests.swift */; };
 		CB6836C922D44A040001066A /* BrainBaselineOverviewStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */; };
 		CB6836CB22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */; };
 		CB7F4CC322FF1DCD003EBB5C /* Sleep Check-In.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7F4CBF22FF1DCD003EBB5C /* Sleep Check-In.json */; };
@@ -225,6 +229,10 @@
 		CB55115C22A0D34E0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Symbol Substitution.json"; sourceTree = "<group>"; };
 		CB55115E22A0D34E0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Spatial Memory.json"; sourceTree = "<group>"; };
 		CB55116022A0D34F0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Go No Go.json"; sourceTree = "<group>"; };
+		CB5B91BA230A0F7700B80EF0 /* ReminderManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManagerTests.swift; sourceTree = "<group>"; };
+		CB5B91BC230A0F8700B80EF0 /* ReminderStepViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderStepViewControllerTests.swift; sourceTree = "<group>"; };
+		CB5B91BE230A142F00B80EF0 /* MockReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockReminderManager.swift; sourceTree = "<group>"; };
+		CB5B91C0230A4D6800B80EF0 /* SettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerTests.swift; sourceTree = "<group>"; };
 		CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrainBaselineOverviewStepViewController.xib; sourceTree = "<group>"; };
 		CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineOverviewStepViewController.swift; sourceTree = "<group>"; };
 		CB7F4CC022FF1DCD003EBB5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Sleep Check-In.json"; sourceTree = "<group>"; };
@@ -367,6 +375,10 @@
 				CB2B536C22FF846F00C3F87F /* ActivityScheduleManagerTests.swift */,
 				CB2B5374230219E200C3F87F /* ActivityViewControllerTests.swift */,
 				CB2B536E2301BE4A00C3F87F /* ExternalIdViewControllerTests.swift */,
+				CB5B91BA230A0F7700B80EF0 /* ReminderManagerTests.swift */,
+				CB5B91BC230A0F8700B80EF0 /* ReminderStepViewControllerTests.swift */,
+				CB5B91C0230A4D6800B80EF0 /* SettingsViewControllerTests.swift */,
+				CB5B91BE230A142F00B80EF0 /* MockReminderManager.swift */,
 				CB2B536622FF845000C3F87F /* Info.plist */,
 			);
 			path = BiomarinPKUStudyTests;
@@ -855,9 +867,13 @@
 			files = (
 				CB2B5375230219E200C3F87F /* ActivityViewControllerTests.swift in Sources */,
 				CB2B536F2301BE4A00C3F87F /* ExternalIdViewControllerTests.swift in Sources */,
+				CB5B91BD230A0F8700B80EF0 /* ReminderStepViewControllerTests.swift in Sources */,
 				CB2B536D22FF846F00C3F87F /* ActivityScheduleManagerTests.swift in Sources */,
+				CB5B91C1230A4D6800B80EF0 /* SettingsViewControllerTests.swift in Sources */,
 				CB2B53722301C3C000C3F87F /* PKUCodableStepObjectTests.swift in Sources */,
 				CB2B53732301C3C000C3F87F /* PKUCopyStepTests.swift in Sources */,
+				CB5B91BB230A0F7700B80EF0 /* ReminderManagerTests.swift in Sources */,
+				CB5B91BF230A142F00B80EF0 /* MockReminderManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

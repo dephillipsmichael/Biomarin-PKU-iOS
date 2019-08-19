@@ -236,6 +236,22 @@ open class ReminderManager : NSObject, UNUserNotificationCenterDelegate {
         }
         return RSDWeekday(rawValue: intAnswer)
     }
+    
+    open func hasReminderBeenScheduled(type: ReminderType) -> Bool {
+        return type.hasBeenScheduled()
+    }
+    
+    open func doNotRemindSetting(for type: ReminderType) -> Bool {
+        return type.doNotRemindSetting()
+    }
+    
+    open func timeSetting(for type: ReminderType) -> String? {
+        return type.timeSetting()
+    }
+    
+    open func daySetting(for type: ReminderType) -> Int {
+        return type.daySetting()
+    }
 }
 
 public enum ReminderType: String, CaseIterable, Decodable {
@@ -244,7 +260,7 @@ public enum ReminderType: String, CaseIterable, Decodable {
     case physical = "physical"
     case cognition = "cognition"
     
-    func hasBeenScheduled() -> Bool {
+    fileprivate func hasBeenScheduled() -> Bool {
         return UserDefaults.standard.object(forKey: self.doNotRemindIdentifier()) != nil
     }
     
@@ -259,15 +275,15 @@ public enum ReminderType: String, CaseIterable, Decodable {
         }
     }
     
-    func doNotRemindSetting() -> Bool {
+    fileprivate func doNotRemindSetting() -> Bool {
         return UserDefaults.standard.bool(forKey: self.doNotRemindIdentifier())
     }
     
-    func timeSetting() -> String? {
+    fileprivate func timeSetting() -> String? {
         return UserDefaults.standard.string(forKey: self.timeRemindIdentifier())
     }
     
-    func daySetting() -> Int {
+    fileprivate func daySetting() -> Int {
         return UserDefaults.standard.integer(forKey: self.dayRemindIdentifier())
     }
     
@@ -359,7 +375,7 @@ public enum ReminderType: String, CaseIterable, Decodable {
         return task
     }
     
-    fileprivate func stepTitle(dayOfStudy: Int) -> String? {
+    func stepTitle(dayOfStudy: Int) -> String? {
         switch self {
         case .daily:
             return Localization.localizedString("REMINDER_DAILY_STEP_TITLE")

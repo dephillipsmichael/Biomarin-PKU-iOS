@@ -147,35 +147,68 @@ public enum ActivityType: Int, CaseIterable {
         return String(format: "%@%d", key, day)
     }
     
+    func weekOfStudy(dayOfStudy: Int) -> Int {
+        return ((dayOfStudy - 1) / 7) + 1
+    }
+    
     func taskIdentifier(for day: Int) -> String {
+        let week = self.weekOfStudy(dayOfStudy: day)
         switch self {
         case .sleep:
             return RSDIdentifier.sleepCheckInTask.identifier
         case .daily:
             return RSDIdentifier.dailyCheckInTask.identifier
         case .physical:
-            switch day % 3 {
-            case 1:
-                return RSDIdentifier.tappingTask.identifier
-            case 2:
-                return RSDIdentifier.tremorTask.identifier
-            default: // 3
-                return RSDIdentifier.kineticTremorTask.identifier
+            if week <= 1 { // Week 1 logic, rotate every 3 days
+                switch day % 3 {
+                case 1:
+                    return RSDIdentifier.tappingTask.identifier
+                case 2:
+                    return RSDIdentifier.tremorTask.identifier
+                default: // case 0:
+                    return RSDIdentifier.kineticTremorTask.identifier
+                }
+            } else { // All weeks after week 1
+                switch week % 3 {
+                case 1:
+                    return RSDIdentifier.tappingTask.identifier
+                case 2:
+                    return RSDIdentifier.tremorTask.identifier
+                default: // case 0:
+                    return RSDIdentifier.kineticTremorTask.identifier
+                }
             }
         case .cognition:
-            switch day % 6 {
-            case 1:
-                return RSDIdentifier.goNoGoTask.identifier
-            case 2:
-                return RSDIdentifier.symbolSubstitutionTask.identifier
-            case 3:
-                return RSDIdentifier.spatialMemoryTask.identifier
-            case 4:
-                return RSDIdentifier.nBackTask.identifier
-            case 5:
-                return RSDIdentifier.taskSwitchTask.identifier
-            default: // 6
-                return RSDIdentifier.attentionalBlinkTask.identifier
+            if week <= 1 { // Week 1 logic, rotate e ery 6 days
+                switch day % 6 {
+                case 1:
+                    return RSDIdentifier.goNoGoTask.identifier
+                case 2:
+                    return RSDIdentifier.symbolSubstitutionTask.identifier
+                case 3:
+                    return RSDIdentifier.spatialMemoryTask.identifier
+                case 4:
+                    return RSDIdentifier.nBackTask.identifier
+                case 5:
+                    return RSDIdentifier.taskSwitchTask.identifier
+                default: // case 0:
+                    return RSDIdentifier.attentionalBlinkTask.identifier
+                }
+            } else { // All weeks after week 1
+                switch week % 6 {
+                case 1:
+                    return RSDIdentifier.goNoGoTask.identifier
+                case 2:
+                    return RSDIdentifier.symbolSubstitutionTask.identifier
+                case 3:
+                    return RSDIdentifier.spatialMemoryTask.identifier
+                case 4:
+                    return RSDIdentifier.nBackTask.identifier
+                case 5:
+                    return RSDIdentifier.taskSwitchTask.identifier
+                default: // case 0:
+                    return RSDIdentifier.attentionalBlinkTask.identifier
+                }
             }
         }
     }

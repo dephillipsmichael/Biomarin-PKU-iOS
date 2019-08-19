@@ -1,5 +1,5 @@
 //
-// ActivityViewControllerTests.swift
+// MockReminderManager.swift
 // BiomarinPKUStudyTests
 
 // Copyright © 2019 Sage Bionetworks. All rights reserved.
@@ -36,41 +36,25 @@ import XCTest
 import BridgeApp
 @testable import BiomarinPKU_Study
 
-class ActivityViewControllerTests: XCTestCase {
+open class MockReminderManager: ReminderManager {
+    var hasReminderBeenScheduled = false
+    var doNotRemindSetting = false
+    var timeSetting: String?
+    var daySetting = RSDWeekday.sunday.rawValue
     
-    let vc = ActivityViewController(nibName: "", bundle: Bundle.main)
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override open func hasReminderBeenScheduled(type: ReminderType) -> Bool {
+        return hasReminderBeenScheduled
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    override open func doNotRemindSetting(for type: ReminderType) -> Bool {
+        return doNotRemindSetting
     }
     
-    func testExpiresTime() {
-        let expiresTime = date(5, 0, 0, 0)
-        
-        var now = date(4, 5, 0, 0)
-        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "19:00:00")
-        
-        now = date(4, 23, 59, 59)
-        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "00:00:01")
-        
-        now = date(5, 0, 0, 0)
-        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "00:00:00")
-        
-        now = date(4, 0, 0, 1)
-        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "23:59:59")
-        
-        now = date(4, 11, 11, 11)
-        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "12:48:49")
+    override open func timeSetting(for type: ReminderType) -> String? {
+        return timeSetting
     }
     
-    private func date(_ day: Int, _ hour: Int, _ min: Int, _ sec: Int) -> Date {
-        return Calendar.current.date(from: DateComponents(year: 2019, month: 8, day: day, hour: hour, minute: min, second: sec))!
+    override open func daySetting(for type: ReminderType) -> Int {
+        return daySetting
     }
 }
-

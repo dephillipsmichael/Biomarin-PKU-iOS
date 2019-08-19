@@ -102,19 +102,19 @@ class ReminderStepObject : RSDUIStepObject, RSDStepViewControllerVendor, RSDNavi
             return
         }
         
-        self.hideDayOfWeek = copy.hideDayOfWeek
-        self.defaultTime = copy.defaultTime
-        self.defaultDayOfWeek = copy.defaultDayOfWeek
-        self.doNotRemindMeTitle = copy.doNotRemindMeTitle
-        self.reminderType = copy.reminderType
-        self.alwaysShow = copy.alwaysShow
+        copy.hideDayOfWeek = self.hideDayOfWeek
+        copy.defaultTime = self.defaultTime
+        copy.defaultDayOfWeek = self.defaultDayOfWeek
+        copy.doNotRemindMeTitle = self.doNotRemindMeTitle
+        copy.reminderType = self.reminderType
+        copy.alwaysShow = self.alwaysShow
     }
     
     func shouldSkipStep(with result: RSDTaskResult?, isPeeking: Bool) -> Bool {
         if self.alwaysShow ?? false {
             return false
         }
-        return self.reminderType.hasBeenScheduled()
+        return ReminderManager.shared.hasReminderBeenScheduled(type: self.reminderType)
     }
 }
 
@@ -372,7 +372,7 @@ class ReminderStepViewController: RSDStepViewController, UIScrollViewDelegate, U
                         if granted {
                             self.saveResultAndGoForward()
                         } else {
-                            self.presentAlertWithOk(title: "Please accept notification permission to receive reminders", message: "", actionHandler: nil)
+                            self.presentAlertWithOk(title: Localization.localizedString("REMINDER_PERMISSION_ERROR"), message: "", actionHandler: nil)
                         }
                     }
                 }
@@ -386,22 +386,35 @@ class ReminderStepViewController: RSDStepViewController, UIScrollViewDelegate, U
             return
         }
         
+        var taskResult = self.stepViewModel.parentTaskPath?.taskResult
         if !(self.reminderStep?.hideDayOfWeek ?? false),
             let dayStr = self.dayOfWeekButton.title(for: .normal),
             let weekday = self.weekday(from: dayStr) {
-            let dayResult = RSDAnswerResultObject(identifier: "\(reminderType.rawValue)\(ReminderStepObject.dayResultIdentifier)", answerType: .integer, value: weekday.rawValue)
-            self.stepViewModel.parentTaskPath?.taskResult.stepHistory.append(dayResult)
+            let dayResult = self.createDayResult(day: weekday, for: reminderType)
+            taskResult?.stepHistory.append(dayResult)
         }
         
         if let timeStr = self.reminderTimeButton.title(for: .normal) {
-            let timeResult = RSDAnswerResultObject(identifier: "\(reminderType.rawValue)\(ReminderStepObject.timeResultIdentifier)", answerType: .string, value: timeStr)
-            self.stepViewModel.parentTaskPath?.taskResult.stepHistory.append(timeResult)
+            let timeResult = self.createTimeReseult(timeStr: timeStr, for: reminderType)
+            taskResult?.stepHistory.append(timeResult)
         }
         
-        let doNotRemindResult = RSDAnswerResultObject(identifier: "\(reminderType.rawValue)\(ReminderStepObject.doNotRemindResultIdentifier)", answerType: .boolean, value: self.doNotRemindMeButton.isSelected)
-        self.stepViewModel.parentTaskPath?.taskResult.stepHistory.append(doNotRemindResult)
+        let doNotRemindResult = self.createDoNotRemindResult(doNotRemind: self.doNotRemindMeButton.isSelected, for: reminderType)
+        taskResult?.stepHistory.append(doNotRemindResult)
         
         super.goForward()
+    }
+    
+    func createTimeReseult(timeStr: String, for type: ReminderType) -> RSDAnswerResult {
+        return RSDAnswerResultObject(identifier: "\(type.rawValue)\(ReminderStepObject.timeResultIdentifier)", answerType: .string, value: timeStr)
+    }
+    
+    func createDoNotRemindResult(doNotRemind: Bool, for type: ReminderType) -> RSDAnswerResult {
+        return RSDAnswerResultObject(identifier: "\(type.rawValue)\(ReminderStepObject.doNotRemindResultIdentifier)", answerType: .boolean, value: doNotRemind)
+    }
+    
+    func createDayResult(day: RSDWeekday, for type: ReminderType) -> RSDAnswerResult {
+        return RSDAnswerResultObject(identifier: "\(type.rawValue)\(ReminderStepObject.dayResultIdentifier)", answerType: .integer, value: day.rawValue)
     }
     
     func weekday(from weekdayTitle: String) -> RSDWeekday? {

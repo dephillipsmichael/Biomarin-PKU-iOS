@@ -99,6 +99,6 @@
 "REMINDER_COGNITION_STEP_TITLE_DAILY" = "Let’s set a Daily Reminder for your Cognitive Activity Challenge";
 "REMINDER_COGNITION_STEP_TITLE_WEEKLY" = "Let’s set a Weekly Reminder for your Cognitive Activity Challenge";
 
-
+"REMINDER_PERMISSION_ERROR" = "Please accept notification permission in Settings to receive reminders.";
 
 
