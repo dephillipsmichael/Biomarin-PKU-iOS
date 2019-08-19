@@ -48,7 +48,7 @@
 
 "STUDY_INTRO_TITLE_1" = "Hello,";
 "STUDY_INTRO_TEXT_1" = "Welcome to Day 1 of your journey!\n\nFor the first week you’ll be doing all 4 activities every day.";
-"STUDY_INTRO_TEXT_2" = "Following Week One, you will only need to do the Check-Ins daily and can choose which day you’d like to do your Cognition and Physical Challenge.\n\nReady to get started?";
+"STUDY_INTRO_TEXT_2" = "Following Week One, you will only need to do the Check-Ins daily and can choose which day you’d like to be reminded to do your weekly Cognition and Physical Challenge.\n\nReady to get started?";
 
 "WEEK_1_COMPLETE_TITLE_1" = "You've completed Week One!";
 "WEEK_1_COMPLETE_TEXT" = "For the next phase of the study, you will continue to do check-ins every day, but the physical challenge and cognitive challenge will be once per week on a day you choose.";
