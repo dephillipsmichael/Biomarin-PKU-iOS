@@ -172,15 +172,33 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         let step = IntroStepObject(identifier: "intro2")
         step.text = Localization.localizedString("STUDY_INTRO_TEXT_2")
         step.shouldHideActions = [.navigation(.cancel), .navigation(.skip)]
-        step.imageTheme = RSDFetchableImageThemeElementObject(imageName: "Intro2Header")
+        step.imageTheme = RSDFetchableImageThemeElementObject(imageName: "Intro1Header")
         step.actions = [.navigation(.goForward): RSDUIActionObject(buttonTitle: Localization.localizedString("BUTTON_LETS_GO"))]
         return step
     }
     
-    func openStoryboard(_ name: String) -> UIStoryboard? {
-        return UIStoryboard(name: name, bundle: nil)
+    func week1CompleteSteps(dayOfStudy: Int) -> [RSDStep] {
+        let intro = IntroStepObject(identifier: "intro")
+        intro.title = Localization.localizedString("WEEK_1_COMPLETE_TITLE_1")
+        intro.text = Localization.localizedString("WEEK_1_COMPLETE_TEXT")
+        intro.shouldHideActions = [.navigation(.cancel), .navigation(.goBackward), .navigation(.skip)]
+        intro.imageTheme = RSDFetchableImageThemeElementObject(imageName: "Intro1Header")
+        intro.actions = [.navigation(.goForward): RSDUIActionObject(buttonTitle: Localization.localizedString("WEEK_1_COMPLETE_NEXT_BUTTON"))]
+        
+        let reminderPhysicalStep = ReminderType.physical.createReminderStep(identifier: "physicalReminder", dayOfStudy: dayOfStudy, alwaysShow: true)
+        reminderPhysicalStep.shouldHideActions?.append(contentsOf: [.navigation(.cancel), .navigation(.goBackward)])
+        reminderPhysicalStep.actions?[.navigation(.goForward)] = RSDUIActionObject(buttonTitle: Localization.localizedString("SET_NEXT_REMINDER"))
+        
+        let reminderCognitiveStep = ReminderType.cognition.createReminderStep(identifier: "cognitiveReminder", dayOfStudy: dayOfStudy, alwaysShow: true)
+        reminderPhysicalStep.shouldHideActions?.append(contentsOf: [.navigation(.cancel), .navigation(.goBackward)])
+        reminderCognitiveStep.actions?[.navigation(.goForward)] = RSDUIActionObject(buttonTitle: Localization.localizedString("BUTTON_DONE"))
+        
+        return [intro, reminderPhysicalStep, reminderCognitiveStep]
     }
     
+    func openStoryboard(_ name: String) -> UIStoryboard? {
+        return UIStoryboard(name: name, bundle: nil)
+    }    
     
     // MARK: RSDTaskViewControllerDelegate
     

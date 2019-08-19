@@ -143,8 +143,14 @@ public enum ActivityType: Int, CaseIterable {
     }
     
     func completeDefaultKey(for day: Int) -> String {
-        let key = String(describing: self)
-        return String(format: "%@%d", key, day)
+        let week = self.weekOfStudy(dayOfStudy: day)
+        if self == .daily || self == .sleep || week <= 1 {
+            let keySuffix = "\(String(describing: self))Day"
+            return String(format: "%@%d", keySuffix, day)
+        } else { // After week 1 is complete for phsyical and cognitive
+            let keySuffix = "\(String(describing: self))Week"
+            return String(format: "%@%d", keySuffix, week)
+        }
     }
     
     func weekOfStudy(dayOfStudy: Int) -> Int {

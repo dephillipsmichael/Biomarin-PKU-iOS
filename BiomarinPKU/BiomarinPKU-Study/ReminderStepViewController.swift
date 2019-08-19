@@ -386,21 +386,20 @@ class ReminderStepViewController: RSDStepViewController, UIScrollViewDelegate, U
             return
         }
         
-        var taskResult = self.stepViewModel.parentTaskPath?.taskResult
         if !(self.reminderStep?.hideDayOfWeek ?? false),
             let dayStr = self.dayOfWeekButton.title(for: .normal),
             let weekday = self.weekday(from: dayStr) {
             let dayResult = self.createDayResult(day: weekday, for: reminderType)
-            taskResult?.stepHistory.append(dayResult)
+            self.stepViewModel.parentTaskPath?.taskResult.stepHistory.append(dayResult)
         }
         
         if let timeStr = self.reminderTimeButton.title(for: .normal) {
             let timeResult = self.createTimeReseult(timeStr: timeStr, for: reminderType)
-            taskResult?.stepHistory.append(timeResult)
+            self.stepViewModel.parentTaskPath?.taskResult.stepHistory.append(timeResult)
         }
         
         let doNotRemindResult = self.createDoNotRemindResult(doNotRemind: self.doNotRemindMeButton.isSelected, for: reminderType)
-        taskResult?.stepHistory.append(doNotRemindResult)
+        self.stepViewModel.parentTaskPath?.taskResult.stepHistory.append(doNotRemindResult)
         
         super.goForward()
     }

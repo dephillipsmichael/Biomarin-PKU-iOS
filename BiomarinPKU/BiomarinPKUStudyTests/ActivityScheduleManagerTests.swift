@@ -161,17 +161,30 @@ class ActivityScheduleManagerTests: XCTestCase {
     }
     
     func testCompleteDefaultKey() {
-        let sleepkey = ActivityType.sleep.completeDefaultKey(for: 1)
-        XCTAssertEqual(sleepkey, "sleep1")
+        XCTAssertEqual(ActivityType.sleep.completeDefaultKey(for: 1), "sleepDay1")
+        XCTAssertEqual(ActivityType.daily.completeDefaultKey(for: 1), "dailyDay1")
+        XCTAssertEqual(ActivityType.cognition.completeDefaultKey(for: 1), "cognitionDay1")
+        XCTAssertEqual(ActivityType.physical.completeDefaultKey(for: 1), "physicalDay1")
         
-        let dailykey = ActivityType.daily.completeDefaultKey(for: 1)
-        XCTAssertEqual(dailykey, "daily1")
+        XCTAssertEqual(ActivityType.sleep.completeDefaultKey(for: 7), "sleepDay7")
+        XCTAssertEqual(ActivityType.daily.completeDefaultKey(for: 7), "dailyDay7")
+        XCTAssertEqual(ActivityType.cognition.completeDefaultKey(for: 7), "cognitionDay7")
+        XCTAssertEqual(ActivityType.physical.completeDefaultKey(for: 7), "physicalDay7")
         
-        let cognitionKey = ActivityType.cognition.completeDefaultKey(for: 1)
-        XCTAssertEqual(cognitionKey, "cognition1")
+        XCTAssertEqual(ActivityType.sleep.completeDefaultKey(for: 8), "sleepDay8")
+        XCTAssertEqual(ActivityType.daily.completeDefaultKey(for: 8), "dailyDay8")
+        XCTAssertEqual(ActivityType.cognition.completeDefaultKey(for: 8), "cognitionWeek2")
+        XCTAssertEqual(ActivityType.physical.completeDefaultKey(for:8), "physicalWeek2")
         
-        let physicalKey = ActivityType.physical.completeDefaultKey(for: 1)
-        XCTAssertEqual(physicalKey, "physical1")
+        XCTAssertEqual(ActivityType.sleep.completeDefaultKey(for: 14), "sleepDay14")
+        XCTAssertEqual(ActivityType.daily.completeDefaultKey(for: 14), "dailyDay14")
+        XCTAssertEqual(ActivityType.cognition.completeDefaultKey(for: 14), "cognitionWeek2")
+        XCTAssertEqual(ActivityType.physical.completeDefaultKey(for:14), "physicalWeek2")
+        
+        XCTAssertEqual(ActivityType.sleep.completeDefaultKey(for: 15), "sleepDay15")
+        XCTAssertEqual(ActivityType.daily.completeDefaultKey(for: 15), "dailyDay15")
+        XCTAssertEqual(ActivityType.cognition.completeDefaultKey(for: 15), "cognitionWeek3")
+        XCTAssertEqual(ActivityType.physical.completeDefaultKey(for:15), "physicalWeek3")
     }
     
     func testDayOfStudy() {

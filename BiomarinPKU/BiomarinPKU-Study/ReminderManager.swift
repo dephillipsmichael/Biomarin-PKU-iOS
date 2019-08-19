@@ -271,7 +271,7 @@ public enum ReminderType: String, CaseIterable, Decodable {
             standard.set(timeUnwrapped, forKey: self.timeRemindIdentifier())
         }
         if let dayUnwrapped = day {
-            standard.set(dayUnwrapped, forKey: self.dayRemindIdentifier())
+            standard.set(dayUnwrapped.rawValue, forKey: self.dayRemindIdentifier())
         }
     }
     
@@ -347,17 +347,24 @@ public enum ReminderType: String, CaseIterable, Decodable {
         }
     }
     
-    func taskViewModel(dayOfStudy: Int, alwaysShow: Bool = false) -> RSDTaskObject {
-        let reminderStep = ReminderStepObject(identifier: "reminder")
+    func createReminderStep(identifier: String, dayOfStudy: Int, alwaysShow: Bool = false) -> ReminderStepObject {
+        let reminderStep = ReminderStepObject(identifier: identifier)
         reminderStep.reminderType = self
         reminderStep.defaultTime = self.defaultTime()
         reminderStep.defaultDayOfWeek = self.defaultDay()
         reminderStep.alwaysShow = alwaysShow
-        reminderStep.hideDayOfWeek = (self == .daily || self == .sleep || dayOfStudy <= 7)
+        
+        let isDaily = (self == .daily || self == .sleep || dayOfStudy <= 7)
+        reminderStep.hideDayOfWeek = isDaily
         
         reminderStep.doNotRemindMeTitle = Localization.localizedString("NO_REMINDERS_PLEASE")
         reminderStep.title = self.stepTitle(dayOfStudy: dayOfStudy)
         reminderStep.text = self.stepText()
+        if isDaily {
+            reminderStep.detail = Localization.localizedString("SET_REMINDER")
+        } else {
+            reminderStep.detail = Localization.localizedString("SET_WEEKLY_REMINDER")
+        }
         
         reminderStep.imageTheme = RSDFetchableImageThemeElementObject(imageName: "\(self.rawValue.capitalized)Reminder")
         
@@ -368,7 +375,11 @@ public enum ReminderType: String, CaseIterable, Decodable {
         }
         
         reminderStep.actions = [.navigation(.goForward) : RSDUIActionObject(buttonTitle: Localization.localizedString("SAVE_REMINDER_BUTTON"))]
-        
+        return reminderStep
+    }
+    
+    func taskViewModel(dayOfStudy: Int, alwaysShow: Bool = false) -> RSDTaskObject {
+        let reminderStep = self.createReminderStep(identifier: "reminder", dayOfStudy: dayOfStudy, alwaysShow: alwaysShow)
         var navigator = RSDConditionalStepNavigatorObject(with: [reminderStep])
         navigator.progressMarkers = []
         let task = RSDTaskObject(identifier: "reminderTask", stepNavigator: navigator)
