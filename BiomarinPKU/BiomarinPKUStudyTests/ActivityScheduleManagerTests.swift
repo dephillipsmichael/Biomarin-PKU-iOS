@@ -242,6 +242,24 @@ class ActivityScheduleManagerTests: XCTestCase {
         XCTAssertEqual(ActivityType.daily.weekOfStudy(dayOfStudy: scheduleManager.dayOfStudy()), 2)
     }
     
+    func testDaliyTypesTest() {
+        for dayIdx in 1...7 {
+            XCTAssertEqual(ActivityType.dailyTypes(for: dayIdx).count, 4)
+        }
+        for dayIdx in 8...21 {
+            XCTAssertEqual(ActivityType.dailyTypes(for: dayIdx).count, 2)
+        }
+    }
+    
+    func testWeeklyTypesTest() {
+        for dayIdx in 1...7 {
+            XCTAssertEqual(ActivityType.weeklyTypes(for: dayIdx).count, 0)
+        }
+        for dayIdx in 8...21 {
+            XCTAssertEqual(ActivityType.weeklyTypes(for: dayIdx).count, 2)
+        }
+    }
+    
     private func studyDate(_ day: Int, _ hour: Int, _ min: Int, _ sec: Int) -> Date {
         return Calendar.current.date(from: DateComponents(year: 2019, month: 8, day: day, hour: hour, minute: min, second: sec))!
     }

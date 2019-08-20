@@ -161,6 +161,22 @@ public enum ActivityType: Int, CaseIterable {
         return ((dayOfStudy - 1) / 7) + 1
     }
     
+    static func dailyTypes(for day: Int) -> [ActivityType] {
+        var dailyTypes: [ActivityType] = [.daily, .sleep]
+        if day <= 7 {
+            dailyTypes.append(contentsOf: [.physical, .cognition])
+        }
+        return dailyTypes
+    }
+    
+    static func weeklyTypes(for day: Int) -> [ActivityType] {
+        var weeklyTypes = [ActivityType]()
+        if day > 7 {
+            weeklyTypes.append(contentsOf: [.physical, .cognition])
+        }
+        return weeklyTypes
+    }
+    
     func taskIdentifier(for day: Int) -> String {
         let week = self.weekOfStudy(dayOfStudy: day)
         switch self {
@@ -236,16 +252,40 @@ public enum ActivityType: Int, CaseIterable {
         }
     }
     
-    func detail() -> String {
+    func detail(for day: Int, isComplete: Bool) -> String {
         switch self {
         case .sleep:
-            return Localization.localizedString("MINUTES_SLEEP")
+            if !isComplete {
+                return Localization.localizedString("MINUTES_SLEEP")
+            } else {
+                return Localization.localizedString("DONE_FOR_DAY")
+            }
         case .physical:
-            return Localization.localizedString("MINUTES_PHYSICAL")
+            if !isComplete {
+                return Localization.localizedString("MINUTES_PHYSICAL")
+            } else {
+                if day <= 7 {
+                    return Localization.localizedString("DONE_FOR_DAY")
+                } else {
+                    return Localization.localizedString("DONE_FOR_WEEK")
+                }
+            }
         case .cognition:
-            return Localization.localizedString("MINUTES_COGNITION")
+            if !isComplete {
+                return Localization.localizedString("MINUTES_COGNITION")
+            } else {
+                if day <= 7 {
+                    return Localization.localizedString("DONE_FOR_DAY")
+                } else {
+                    return Localization.localizedString("DONE_FOR_WEEK")
+                }
+            }
         case .daily:
-            return Localization.localizedString("MINUTES_DAILY")
+            if !isComplete {
+                return Localization.localizedString("MINUTES_DAILY")
+            } else {
+                return Localization.localizedString("DONE_FOR_DAY")
+            }
         }
     }
     

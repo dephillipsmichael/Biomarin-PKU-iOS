@@ -70,11 +70,19 @@ class ActivityViewControllerTests: XCTestCase {
     }
     
     func testExpiresLabelText() {
+        // Expire test
         for dayIdx in 1...7 { // Week 1
-            XCTAssertEqual(vc.expiresLabelText(for: dayIdx, expiresTimeStr: "12:34:56"), "Today’s activities expire in 12:34:56")
+            XCTAssertEqual(vc.expiresLabelText(for: dayIdx, expiresTimeStr: "12:34:56", allComplete: false), "Today’s activities expire in 12:34:56")
         }
-        for dayIdx in 8...21 { // Week 2
-            XCTAssertEqual(vc.expiresLabelText(for: dayIdx, expiresTimeStr: "12:34:56"), "Daily activities expire in 12:34:56")
+        for dayIdx in 8...21 { // Week 2-3
+            XCTAssertEqual(vc.expiresLabelText(for: dayIdx, expiresTimeStr: "12:34:56", allComplete: false), "Daily activities expire in 12:34:56")
+        }
+        // Renew test
+        for dayIdx in 1...7 { // Week 1
+            XCTAssertEqual(vc.expiresLabelText(for: dayIdx, expiresTimeStr: "12:34:56", allComplete: true), "Today’s activities renew in 12:34:56")
+        }
+        for dayIdx in 8...21 { // Week 2-3
+            XCTAssertEqual(vc.expiresLabelText(for: dayIdx, expiresTimeStr: "12:34:56", allComplete: true), "Daily activities renew in 12:34:56")
         }
     }
     
@@ -105,16 +113,72 @@ class ActivityViewControllerTests: XCTestCase {
     
     func testExpiresTimeWeeklyText() {
         for dayIdx in 1...7 { // Week 1, hide weekly expiration text
-            XCTAssertNil(vc.expiresWeeklyLabelText(for: dayIdx, week: 1, expiresTimeStr: "12:34:56"))
+            XCTAssertNil(vc.expiresWeeklyLabelText(for: dayIdx, week: 1, expiresTimeStr: "12:34:56", allComplete: false))
         }
-        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 8, week: 2, expiresTimeStr: "12:34:56"), "Weekly activities expire in 7 days")
-        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 9, week: 2, expiresTimeStr: "12:34:56"), "Weekly activities expire in 6 days")
-        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 10, week: 2, expiresTimeStr: "12:34:56"), "Weekly activities expire in 5 days")
-        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 11, week: 2, expiresTimeStr: "12:34:56"), "Weekly activities expire in 4 days")
-        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 12, week: 2, expiresTimeStr: "12:34:56"), "Weekly activities expire in 3 days")
-        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 13, week: 2, expiresTimeStr: "12:34:56"), "Weekly activities expire in 2 days")
-        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 14, week: 2, expiresTimeStr: "12:34:56"), "Weekly activities expire in 12:34:56")
-        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 15, week: 3, expiresTimeStr: "12:34:56"), "Weekly activities expire in 7 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 8, week: 2, expiresTimeStr: "12:34:56", allComplete: false), "Weekly activities expire in 7 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 9, week: 2, expiresTimeStr: "12:34:56", allComplete: false), "Weekly activities expire in 6 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 10, week: 2, expiresTimeStr: "12:34:56", allComplete: false), "Weekly activities expire in 5 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 11, week: 2, expiresTimeStr: "12:34:56", allComplete: false), "Weekly activities expire in 4 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 12, week: 2, expiresTimeStr: "12:34:56", allComplete: false), "Weekly activities expire in 3 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 13, week: 2, expiresTimeStr: "12:34:56", allComplete: false), "Weekly activities expire in 2 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 14, week: 2, expiresTimeStr: "12:34:56", allComplete: false), "Weekly activities expire in 12:34:56")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 15, week: 3, expiresTimeStr: "12:34:56", allComplete: false), "Weekly activities expire in 7 days")
+        
+        for dayIdx in 1...7 { // Week 1, hide weekly expiration text
+            XCTAssertNil(vc.expiresWeeklyLabelText(for: dayIdx, week: 1, expiresTimeStr: "12:34:56", allComplete: true))
+        }
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 8, week: 2, expiresTimeStr: "12:34:56", allComplete: true), "Weekly activities renew in 7 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 9, week: 2, expiresTimeStr: "12:34:56", allComplete: true), "Weekly activities renew in 6 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 10, week: 2, expiresTimeStr: "12:34:56", allComplete: true), "Weekly activities renew in 5 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 11, week: 2, expiresTimeStr: "12:34:56", allComplete: true), "Weekly activities renew in 4 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 12, week: 2, expiresTimeStr: "12:34:56", allComplete: true), "Weekly activities renew in 3 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 13, week: 2, expiresTimeStr: "12:34:56", allComplete: true), "Weekly activities renew in 2 days")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 14, week: 2, expiresTimeStr: "12:34:56", allComplete: true), "Weekly activities renew in 12:34:56")
+        XCTAssertEqual(vc.expiresWeeklyLabelText(for: 15, week: 3, expiresTimeStr: "12:34:56", allComplete: true), "Weekly activities renew in 7 days")
+    }
+    
+    func testActivityDetailText() {
+        for dayIdx in 1...7 {
+            XCTAssertEqual(ActivityType.daily.detail(for: dayIdx, isComplete: false), "1 minute")
+            XCTAssertEqual(ActivityType.sleep.detail(for: dayIdx, isComplete: false), "1 minute")
+            XCTAssertEqual(ActivityType.cognition.detail(for: dayIdx, isComplete: false), "6 minutes")
+            XCTAssertEqual(ActivityType.physical.detail(for:dayIdx, isComplete: false), "3 minutes")
+            
+            XCTAssertEqual(ActivityType.daily.detail(for: dayIdx, isComplete: true), "Done for day")
+            XCTAssertEqual(ActivityType.sleep.detail(for: dayIdx, isComplete: true), "Done for day")
+            XCTAssertEqual(ActivityType.cognition.detail(for: dayIdx, isComplete: true), "Done for day")
+            XCTAssertEqual(ActivityType.physical.detail(for: dayIdx, isComplete: true), "Done for day")
+        }
+        
+        for dayIdx in 8...14 {
+            XCTAssertEqual(ActivityType.daily.detail(for: dayIdx, isComplete: false), "1 minute")
+            XCTAssertEqual(ActivityType.sleep.detail(for: dayIdx, isComplete: false), "1 minute")
+            XCTAssertEqual(ActivityType.cognition.detail(for: dayIdx, isComplete: false), "6 minutes")
+            XCTAssertEqual(ActivityType.physical.detail(for:dayIdx, isComplete: false), "3 minutes")
+            
+            XCTAssertEqual(ActivityType.daily.detail(for: dayIdx, isComplete: true), "Done for day")
+            XCTAssertEqual(ActivityType.sleep.detail(for: dayIdx, isComplete: true), "Done for day")
+            XCTAssertEqual(ActivityType.cognition.detail(for: dayIdx, isComplete: true), "Done for week")
+            XCTAssertEqual(ActivityType.physical.detail(for: dayIdx, isComplete: true), "Done for week")
+        }
+    }
+    
+    func testHeaderTitle() {
+        for dayIdx in 1...7 { // Week 1
+            XCTAssertEqual(vc.headerTitle(for: dayIdx), "Let’s begin your journey!")
+        }
+        for dayIdx in 8...15 { // Week 2 and first day of Week 3
+            XCTAssertEqual(vc.headerTitle(for: dayIdx), "Continuing your journey")
+        }
+    }
+    
+    func testHeaderText() {
+        for dayIdx in 1...7 { // Week 1
+            XCTAssertEqual(vc.headerText(for: dayIdx), "By completing your first 4 activities in a day for one week, you will then be able to unlock your entire journey.")
+        }
+        for dayIdx in 8...15 { // Week 2 and first day of Week 3
+            XCTAssertEqual(vc.headerText(for: dayIdx), "In this phase of the study, please do your check-ins once per day and your challenges once per week.")
+        }
     }
     
     private func date(_ day: Int, _ hour: Int, _ min: Int, _ sec: Int) -> Date {
