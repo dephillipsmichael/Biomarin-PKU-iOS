@@ -106,6 +106,6 @@
 "REMINDER_COGNITION_STEP_TITLE_DAILY" = "Let’s set a Daily Reminder for your Cognitive Activity Challenge";
 "REMINDER_COGNITION_STEP_TITLE_WEEKLY" = "Let’s set a Weekly Reminder for your Cognitive Activity Challenge";
 
-"REMINDER_PERMISSION_ERROR" = "Please accept notification permission in Settings to receive reminders.";
+"REMINDER_PERMISSION_ERROR" = "This app needs the notification permission to schedule a reminder.\n\nYou can enable the notification permission by turning on 'Allow notifications' in the app's settings.";
 
 

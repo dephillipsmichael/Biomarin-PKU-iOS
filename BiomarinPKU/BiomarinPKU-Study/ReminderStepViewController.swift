@@ -372,7 +372,23 @@ class ReminderStepViewController: RSDStepViewController, UIScrollViewDelegate, U
                         if granted {
                             self.saveResultAndGoForward()
                         } else {
-                            self.presentAlertWithOk(title: Localization.localizedString("REMINDER_PERMISSION_ERROR"), message: "", actionHandler: nil)
+                            let title = Localization.localizedString("NOT_AUTHORIZED")
+                            let message = Localization.localizedString("REMINDER_PERMISSION_ERROR")
+                            
+                            var actions = [UIAlertAction]()
+                            if let url = URL(string:UIApplication.openSettingsURLString),
+                                UIApplication.shared.canOpenURL(url) {
+                                let settingsAction = UIAlertAction(title: Localization.localizedString("GOTO_SETTINGS"), style: .default) { (_) in
+                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                }
+                                actions.append(settingsAction)
+                            }
+                            
+                            let okAction = UIAlertAction(title: Localization.buttonOK(), style: .default) { (_) in
+                                // no-op other than dismiss
+                            }
+                            actions.append(okAction)
+                            self.presentAlertWithActions(title: title, message: message, preferredStyle: .alert, actions: actions)
                         }
                     }
                 }
