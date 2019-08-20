@@ -298,7 +298,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         } else {
             self.expiresLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_EXPIRES_FORMAT_%@", expiresTimeStr)
             
-            let daysUntilWeeklyExpiration = (weekOfStudy * 7) - dayOfStudy
+            let daysUntilWeeklyExpiration = (weekOfStudy * 7) - dayOfStudy + 1
             if daysUntilWeeklyExpiration <= 1 {
                 self.expiresWeeklyLabel.text = Localization.localizedStringWithFormatKey("AFTER_WEEK_1_EXPIRES_WEEKLY_FORMAT_HOURS_%@", expiresTimeStr)
             } else {
