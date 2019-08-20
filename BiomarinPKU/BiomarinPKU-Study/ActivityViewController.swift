@@ -74,8 +74,9 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     // The end study button
     @IBOutlet public var endStudyButton: UIButton!
     
-    // The expires time label
+    // The expires time label for daily and weekly
     @IBOutlet public var expiresLabel: UILabel!
+    @IBOutlet public var expiresWeeklyLabel: UILabel!
     
     // The loading view for when the schedules are being loaded
     @IBOutlet public var loadingView: UIActivityIndicatorView!
@@ -89,6 +90,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     @IBOutlet var activityDoneIcons: Array<UIImageView>?
     
     var expirationTimer = Timer()
+    var expirationgDay: Int?
     
     let scheduleManager = ActivityScheduleManager.shared
     
@@ -128,6 +130,12 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         
         // Schedule expiration timer to run every second
         self.expirationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimeFormattedText), userInfo: nil, repeats: true)
+        
+        // Only set this on load, otheriwse the buttons flash when switching tabs
+        for activity in ActivityType.allCases {
+            let i = activity.rawValue
+            self.activityButtons?[i].setTitle(activity.title(), for: .normal)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -169,6 +177,9 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         self.expiresLabel.font = designSystem.fontRules.font(for: .italicDetail)
         self.expiresLabel.textColor = designSystem.colorRules.textColor(on: backgroundLight, for: .italicDetail)
         
+        self.expiresWeeklyLabel.font = designSystem.fontRules.font(for: .italicDetail)
+        self.expiresWeeklyLabel.textColor = designSystem.colorRules.textColor(on: backgroundLight, for: .italicDetail)
+        
         self.accountDetailsContainer.backgroundColor = backgroundLight.color
         
         self.accountDetailsButton.titleLabel?.font = designSystem.fontRules.font(for: .microDetail)
@@ -190,7 +201,6 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     func refreshUI() {
         self.titleLabel.text = Localization.localizedString("WEEK_1_TITLE")
         self.textLabel.text = Localization.localizedString("WEEK_1_TEXT")
-        self.dayTitleLabel.text = Localization.localizedString("WEEK_1_DAY")
     self.accountDetailsButton.setTitle(Localization.localizedString("VIEW_ACCOUNT_DETAILS"), for: .normal)
         
         // Setup external ID to display as XXXX - XXXXX
@@ -202,7 +212,6 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         
         for activity in ActivityType.allCases {
             let i = activity.rawValue
-            self.activityButtons?[i].setTitle(activity.title(), for: .normal)
             self.activityDetailLabels?[i].text = activity.detail()
             let isComplete = activity.isComplete(for: scheduleManager.dayOfStudy())
             self.activityButtons?[i].isEnabled = !isComplete
@@ -279,11 +288,38 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     @objc func updateTimeFormattedText() {
         let expiresTimeStr = self.timeUntilExpiration(from: Date(), until: Calendar.current.startOfDay(for: Date()).addingNumberOfDays(1))
         
-        self.expiresLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_EXPIRES_FORMAT_%@", expiresTimeStr)
+        let dayOfStudy = scheduleManager.dayOfStudy()
+        let weekOfStudy = scheduleManager.weekOfStudy(dayOfStudy: dayOfStudy)
+        if dayOfStudy <= 7 {
+            self.expiresLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_EXPIRES_FORMAT_%@", expiresTimeStr)
+            self.expiresWeeklyLabel.text = nil
+            self.dayTitleLabel.text = Localization.localizedString(Localization.localizedString("WEEK_1_DAY"))
+            self.dayLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_DAY_FORMAT_%@", String(dayOfStudy))
+        } else {
+            self.expiresLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_EXPIRES_FORMAT_%@", expiresTimeStr)
+            
+            let daysUntilWeeklyExpiration = (weekOfStudy * 7) - dayOfStudy
+            if daysUntilWeeklyExpiration <= 1 {
+                self.expiresWeeklyLabel.text = Localization.localizedStringWithFormatKey("AFTER_WEEK_1_EXPIRES_WEEKLY_FORMAT_HOURS_%@", expiresTimeStr)
+            } else {
+                self.expiresWeeklyLabel.text = Localization.localizedStringWithFormatKey("AFTER_WEEK_1_EXPIRES_WEEKLY_FORMAT_DAYS_%@", String(daysUntilWeeklyExpiration))
+            }
+            
+            self.dayTitleLabel.text = Localization.localizedString(Localization.localizedString("WEEK"))
+            self.dayLabel.text = Localization.localizedStringWithFormatKey("AFTER_WEEK_1_DAY_FORMAT_%@", String(weekOfStudy))
+        }
         
-        self.dayLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_DAY_FORMAT_%@", String(scheduleManager.dayOfStudy()))
+        if let previous = self.expirationgDay,
+            dayOfStudy != previous {
+            self.scheduleManager.reloadData()
+            if dayOfStudy == 8 && self.shouldRunWeek1CompleteTask() {
+                self.runWeek1CompelteTask()
+            }
+        }
         
-        // TODO: mdephillips 8/10/19 check for and transition past the first week of the study if applicable
+        // Keep track of previous day and week so we can determine
+        // when day and week thresholds are passed
+        self.expirationgDay = dayOfStudy
     }
     
     func timeUntilExpiration(from now: Date, until expiration: Date) -> String {

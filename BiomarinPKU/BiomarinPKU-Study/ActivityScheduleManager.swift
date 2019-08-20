@@ -52,6 +52,10 @@ public class ActivityScheduleManager : SBAScheduleManager {
         return self.dayOfStudy(at: today)
     }
     
+    open func weekOfStudy(dayOfStudy: Int) -> Int {
+        return ActivityType.daily.weekOfStudy(dayOfStudy: dayOfStudy)
+    }
+    
     open var studyStartDate: Date {
         // The activites are scheduled when the user first requests them
         // Therefore, the day the user first signed in and started their study,

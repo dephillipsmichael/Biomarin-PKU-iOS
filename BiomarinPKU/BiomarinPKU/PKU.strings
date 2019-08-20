@@ -61,11 +61,16 @@
 "REMINDER_PHYSICAL_TITLE" = "Time for your physical challenge";
 
 "WEEK_1_DAY" = "Day";
+"WEEK" = "Week";
 "WEEK_1_DAY_FORMAT_%@" = "%@ of 7";
+"AFTER_WEEK_1_DAY_FORMAT_%@" = "%@";
 "WEEK_1_TITLE" = "Let’s begin your journey!";
 "WEEK_1_TEXT" = "By completing your first 4 activities in a day for one week, you will then be able to unlock your entire journey.";
 "WEEK_1_EXPIRES_FORMAT_%@" = "Today’s activities expire in %@";
+"AFTER_WEEK_1_EXPIRES_FORMAT_%@" = "Daily activities expire in %@";
 "WEEK_1_ACTIVITY_SLEEP" = "Sleep Check-In";
+"AFTER_WEEK_1_EXPIRES_WEEKLY_FORMAT_DAYS_%@" = "Weekly activities expire in %@ days";
+"AFTER_WEEK_1_EXPIRES_WEEKLY_FORMAT_HOURS_%@" = "Weekly activities expire in %@";
 
 "ACTIVITY_PHYSICAL" = "Physical Challenge";
 "ACTIVITY_COGNITION" = "Cognition";

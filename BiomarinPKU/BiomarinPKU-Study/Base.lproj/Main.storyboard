@@ -145,7 +145,7 @@
                                     <constraint firstItem="ZJA-Nk-9ka" firstAttribute="top" secondItem="LCA-S0-ZPp" secondAttribute="top" constant="4" id="oxz-BK-G6n"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today’s activities expire in 00:59:04" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TO-gf-s8t" userLabel="Expires">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today’s activities expire in 00:59:04" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9TO-gf-s8t" userLabel="Expires">
                                 <rect key="frame" x="24" y="364" width="366" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -210,26 +210,26 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDL-Qk-Kd4" customClass="RSDUnderlinedButton" customModule="ResearchUI">
                                                         <rect key="frame" x="0.0" y="0.0" width="207" height="210"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="36" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="Physical Challenge"/>
+                                                        <state key="normal" title="Daily Check-In"/>
                                                         <connections>
-                                                            <action selector="physicalTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="t6k-Gf-qF6"/>
+                                                            <action selector="dailyCheckInTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="cjS-Jt-DLF"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpm-wg-tY1">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpm-wg-tY1">
                                                         <rect key="frame" x="0.0" y="135" width="207" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityIconPhysical" translatesAutoresizingMaskIntoConstraints="NO" id="GTg-dN-eqn" userLabel="Activity Icon">
-                                                        <rect key="frame" x="71.5" y="49" width="64" height="64"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityIconDaily" translatesAutoresizingMaskIntoConstraints="NO" id="GTg-dN-eqn" userLabel="Activity Icon">
+                                                        <rect key="frame" x="76.5" y="54" width="54" height="54"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="GTg-dN-eqn" secondAttribute="height" multiplier="1:1" id="UDs-e8-1Rk"/>
-                                                            <constraint firstAttribute="width" constant="64" id="cmg-Ko-HzR"/>
+                                                            <constraint firstAttribute="width" constant="54" id="cmg-Ko-HzR"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityDoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GPy-TC-p8w" userLabel="Done">
-                                                        <rect key="frame" x="123.5" y="37" width="24" height="24"/>
+                                                        <rect key="frame" x="118.5" y="42" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="jtc-Wf-JB2"/>
                                                             <constraint firstAttribute="width" secondItem="GPy-TC-p8w" secondAttribute="height" multiplier="1:1" id="p0r-79-I37"/>
@@ -320,26 +320,26 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pz7-4l-jRD" customClass="RSDUnderlinedButton" customModule="ResearchUI">
                                                         <rect key="frame" x="0.0" y="0.0" width="207" height="210"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="36" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="Daily Check-In"/>
+                                                        <state key="normal" title="Physical Challenge"/>
                                                         <connections>
-                                                            <action selector="dailyCheckInTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="IE1-vQ-bh8"/>
+                                                            <action selector="physicalTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="u6G-Zo-dQy"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7e-4Z-P6j">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7e-4Z-P6j">
                                                         <rect key="frame" x="0.0" y="135" width="207" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityIconDaily" translatesAutoresizingMaskIntoConstraints="NO" id="50r-C5-DLZ" userLabel="Activity Icon">
-                                                        <rect key="frame" x="76.5" y="54" width="54" height="54"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityIconPhysical" translatesAutoresizingMaskIntoConstraints="NO" id="50r-C5-DLZ" userLabel="Activity Icon">
+                                                        <rect key="frame" x="71.5" y="49" width="64" height="64"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="54" id="KCk-pG-aTc"/>
+                                                            <constraint firstAttribute="width" constant="64" id="KCk-pG-aTc"/>
                                                             <constraint firstAttribute="width" secondItem="50r-C5-DLZ" secondAttribute="height" multiplier="1:1" id="Rfo-3o-wMN"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActivityDoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="LTH-JD-EEG" userLabel="Done">
-                                                        <rect key="frame" x="118.5" y="42" width="24" height="24"/>
+                                                        <rect key="frame" x="123.5" y="37" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="ekC-6B-yoq"/>
                                                             <constraint firstAttribute="width" secondItem="LTH-JD-EEG" secondAttribute="height" multiplier="1:1" id="euO-c5-ixR"/>
@@ -382,15 +382,24 @@
                                         </constraints>
                                     </view>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zmk-N3-BfY">
-                                        <rect key="frame" x="188.5" y="191.5" width="37" height="37"/>
+                                        <rect key="frame" x="188.5" y="159.5" width="37" height="37"/>
                                         <color key="color" red="0.96078431369999995" green="0.70196078429999997" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This week’s activities expire in 00:59:04" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JmT-pT-FDC" userLabel="Expires Week">
+                                        <rect key="frame" x="24" y="199.5" width="366" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="JmT-pT-FDC" secondAttribute="trailing" constant="24" id="5ub-Kh-QUu"/>
                                     <constraint firstItem="b4Y-5N-ZoH" firstAttribute="leading" secondItem="OIe-gP-crF" secondAttribute="leading" id="ETX-nV-zOa"/>
                                     <constraint firstItem="iVJ-dD-aDr" firstAttribute="top" secondItem="OIe-gP-crF" secondAttribute="top" id="Erp-uc-MUE"/>
+                                    <constraint firstItem="JmT-pT-FDC" firstAttribute="centerY" secondItem="OIe-gP-crF" secondAttribute="centerY" id="MNp-ZK-Bj0"/>
                                     <constraint firstAttribute="trailing" secondItem="b4Y-5N-ZoH" secondAttribute="trailing" id="ayl-Ku-nJx"/>
+                                    <constraint firstItem="JmT-pT-FDC" firstAttribute="leading" secondItem="OIe-gP-crF" secondAttribute="leading" constant="24" id="bMe-eG-I3B"/>
                                     <constraint firstAttribute="trailing" secondItem="iVJ-dD-aDr" secondAttribute="trailing" id="cnG-6y-aC1"/>
                                     <constraint firstAttribute="trailing" secondItem="VUh-EG-d2l" secondAttribute="trailing" id="hBB-xq-9d9"/>
                                     <constraint firstItem="VUh-EG-d2l" firstAttribute="leading" secondItem="OIe-gP-crF" secondAttribute="leading" id="ha6-Ox-20G"/>
@@ -400,7 +409,7 @@
                                     <constraint firstAttribute="bottom" secondItem="b4Y-5N-ZoH" secondAttribute="bottom" id="tJq-VR-QT4"/>
                                     <constraint firstItem="iVJ-dD-aDr" firstAttribute="height" secondItem="VUh-EG-d2l" secondAttribute="height" id="urV-Ga-17K"/>
                                     <constraint firstAttribute="bottom" secondItem="VUh-EG-d2l" secondAttribute="bottom" id="vpV-fS-hRA"/>
-                                    <constraint firstItem="zmk-N3-BfY" firstAttribute="centerY" secondItem="OIe-gP-crF" secondAttribute="centerY" id="xNx-Ii-PqI"/>
+                                    <constraint firstItem="zmk-N3-BfY" firstAttribute="centerY" secondItem="OIe-gP-crF" secondAttribute="centerY" constant="-32" id="xNx-Ii-PqI"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -446,22 +455,23 @@
                         <outlet property="dayTitleLabel" destination="6cG-Lh-7hq" id="tX0-dZ-SRh"/>
                         <outlet property="endStudyButton" destination="Ukb-hf-m90" id="5eT-xS-M6d"/>
                         <outlet property="expiresLabel" destination="9TO-gf-s8t" id="Suu-ck-Z05"/>
+                        <outlet property="expiresWeeklyLabel" destination="JmT-pT-FDC" id="BGb-fC-kXe"/>
                         <outlet property="headerBackground" destination="TMi-WH-FvO" id="awp-Ur-kCW"/>
                         <outlet property="loadingView" destination="zmk-N3-BfY" id="OmM-mo-WtD"/>
                         <outlet property="textLabel" destination="PPv-hi-3vG" id="R0e-ed-kVo"/>
                         <outlet property="titleLabel" destination="164-7P-iie" id="Hzw-tV-XpD"/>
-                        <outletCollection property="activityButtons" destination="8eY-FH-NqM" collectionClass="NSMutableArray" id="Ru0-AX-JQL"/>
-                        <outletCollection property="activityDetailLabels" destination="PWj-Vn-pqA" collectionClass="NSMutableArray" id="mu9-3z-DyB"/>
-                        <outletCollection property="activityDoneIcons" destination="kLH-1Z-04g" collectionClass="NSMutableArray" id="j9Y-3p-F7Y"/>
-                        <outletCollection property="activityButtons" destination="ZDL-Qk-Kd4" collectionClass="NSMutableArray" id="Pvp-Eb-SYX"/>
-                        <outletCollection property="activityDetailLabels" destination="Kpm-wg-tY1" collectionClass="NSMutableArray" id="aEY-2Z-fj6"/>
-                        <outletCollection property="activityDoneIcons" destination="GPy-TC-p8w" collectionClass="NSMutableArray" id="1Mk-p5-Zhe"/>
-                        <outletCollection property="activityButtons" destination="uMC-xi-Afl" collectionClass="NSMutableArray" id="64r-fO-zij"/>
-                        <outletCollection property="activityDetailLabels" destination="sfW-om-r6p" collectionClass="NSMutableArray" id="A71-hz-V4h"/>
-                        <outletCollection property="activityDoneIcons" destination="Uwk-WM-9qD" collectionClass="NSMutableArray" id="QEG-FF-wuv"/>
-                        <outletCollection property="activityButtons" destination="pz7-4l-jRD" collectionClass="NSMutableArray" id="HaD-Iu-dzK"/>
-                        <outletCollection property="activityDetailLabels" destination="i7e-4Z-P6j" collectionClass="NSMutableArray" id="sfr-qL-9rE"/>
-                        <outletCollection property="activityDoneIcons" destination="LTH-JD-EEG" collectionClass="NSMutableArray" id="mhX-Pj-K9o"/>
+                        <outletCollection property="activityButtons" destination="8eY-FH-NqM" collectionClass="NSMutableArray" id="UPZ-3J-1mQ"/>
+                        <outletCollection property="activityButtons" destination="pz7-4l-jRD" collectionClass="NSMutableArray" id="ynx-gG-WvO"/>
+                        <outletCollection property="activityButtons" destination="uMC-xi-Afl" collectionClass="NSMutableArray" id="glU-07-UMq"/>
+                        <outletCollection property="activityButtons" destination="ZDL-Qk-Kd4" collectionClass="NSMutableArray" id="B6J-Ts-OBg"/>
+                        <outletCollection property="activityDetailLabels" destination="PWj-Vn-pqA" collectionClass="NSMutableArray" id="Ze4-vL-vE4"/>
+                        <outletCollection property="activityDetailLabels" destination="i7e-4Z-P6j" collectionClass="NSMutableArray" id="v75-nY-Tc6"/>
+                        <outletCollection property="activityDetailLabels" destination="sfW-om-r6p" collectionClass="NSMutableArray" id="RKf-G5-Oxi"/>
+                        <outletCollection property="activityDetailLabels" destination="Kpm-wg-tY1" collectionClass="NSMutableArray" id="u4L-OF-mwD"/>
+                        <outletCollection property="activityDoneIcons" destination="kLH-1Z-04g" collectionClass="NSMutableArray" id="HJz-KH-CGX"/>
+                        <outletCollection property="activityDoneIcons" destination="LTH-JD-EEG" collectionClass="NSMutableArray" id="Nsa-nx-ytQ"/>
+                        <outletCollection property="activityDoneIcons" destination="Uwk-WM-9qD" collectionClass="NSMutableArray" id="Dka-VV-W2k"/>
+                        <outletCollection property="activityDoneIcons" destination="GPy-TC-p8w" collectionClass="NSMutableArray" id="3A7-cj-DYB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -498,7 +508,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleAspectFit" id="omF-LR-gLS" customClass="PKUTaskTableHeaderView" customModule="BiomarinPKU" customModuleProvider="target">
+                        <view key="tableHeaderView" contentMode="scaleAspectFit" id="omF-LR-gLS" customClass="PKUTaskTableHeaderView" customModule="BiomarinPKU_Study" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="211"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
