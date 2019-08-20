@@ -131,6 +131,57 @@ class PKUCodableStepObjectTests: XCTestCase {
             return
         }
     }
+    
+    func testReminderStepObject_Codable() {
+        
+        let json = """
+        {
+            "identifier": "foo",
+            "type": "reminder",
+            "title": "Hello World!",
+            "text": "Some text.",
+            "image": {    "type": "fetchable",
+                          "imageName": "before" },
+            "alwaysShow"  : true,
+            "defaultDayOfWeek" : "Saturday",
+            "defaultTime"  : "9:00 AM",
+            "doNotRemindMeTitle" : "title 2",
+            "hideDayOfWeek"  : true,
+            "reminderType"  : "cognition",
+            "actions": { "goForward": { "type" : "default",
+                                        "buttonTitle" : "Go, Dogs! Go!" }}
+
+        }
+        """.data(using: .utf8)! // our data in native (JSON) format
+        
+        do {
+            
+            let factory = PKUTaskFactory()
+            let decoder = factory.createJSONDecoder()
+            
+            let object = try decoder.decode(ReminderStepObject.self, from: json)
+            
+            XCTAssertEqual(object.identifier, "foo")
+            XCTAssertEqual(object.title, "Hello World!")
+            XCTAssertEqual(object.text, "Some text.")
+            XCTAssertEqual((object.imageTheme as? RSDFetchableImageThemeElementObject)?.imageName, "before")
+            
+            XCTAssertEqual(object.alwaysShow, true)
+            XCTAssertEqual(object.hideDayOfWeek, true)
+            XCTAssertEqual(object.defaultTime, "9:00 AM")
+            XCTAssertEqual(object.defaultDayOfWeek, "Saturday")
+            XCTAssertEqual(object.doNotRemindMeTitle, "title 2")
+            XCTAssertEqual(object.reminderType, ReminderType.cognition)
+            
+            let goForwardAction = object.action(for: .navigation(.goForward), on: object)
+            XCTAssertNotNil(goForwardAction)
+            XCTAssertEqual(goForwardAction?.buttonTitle, "Go, Dogs! Go!")
+            
+        } catch let err {
+            XCTFail("Failed to decode/encode object: \(err)")
+            return
+        }
+    }
 }
 
 struct TestImageWrapperDelegate : RSDImageWrapperDelegate {

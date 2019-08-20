@@ -37,6 +37,7 @@ import BridgeSDK
 import Research
 import SafariServices
 import BrainBaseline
+import UserNotifications
 
 typealias FitbitCompletionHandler = (_ accessToken: String?, _ error: Error?) -> ()
 
@@ -45,6 +46,8 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
     let onboardingTaskId = "signin"
     let haveShownStudyIntroKey = "haveShownStudyIntro"
+    
+    var deepLinkActivity: ActivityType?
     
     static let colorPalette = RSDColorPalette(version: 1,
                                               primary: RSDColorMatrix.shared.colorKey(for: .palette(.butterscotch),
@@ -109,22 +112,31 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
             }
         }
         
+        // Setup reminder manager
+        ReminderManager.shared.setupNotifications()
+        UNUserNotificationCenter.current().delegate = ReminderManager.shared
+        
         return super.application(application, willFinishLaunchingWithOptions: launchOptions)
     }
 
     override func applicationDidBecomeActive(_ application: UIApplication) {
         super.applicationDidBecomeActive(application)
+        
         self.showAppropriateViewController(animated: true)
     }
     
     func showMainViewController(animated: Bool) {
-        guard self.rootViewController?.state != .main else { return }
+        guard self.rootViewController?.state != .main else {
+            setDeepLinkActivityOnViewController()
+            return
+        }
         guard let storyboard = openStoryboard("Main"),
             let vc = storyboard.instantiateInitialViewController()
             else {
                 fatalError("Failed to instantiate initial view controller in the main storyboard.")
         }
         self.transition(to: vc, state: .main, animated: true)
+        setDeepLinkActivityOnViewController()
     }
     
     func showSignInViewController(animated: Bool) {
@@ -141,6 +153,12 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         self.transition(to: vc, state: .onboarding, animated: true)
     }
     
+    func setDeepLinkActivityOnViewController() {
+        guard let activity = self.deepLinkActivity else { return }
+        ((self.rootViewController?.children.first(where: { $0 is UITabBarController }) as? UITabBarController)?.children.first(where: { $0 is ActivityViewController }) as? ActivityViewController)?.deepLinkActivity = activity
+        self.deepLinkActivity = nil
+    }
+    
     func studyIntroStep1() -> RSDStep {
         let step = IntroStepObject(identifier: "intro1")
         step.title = Localization.localizedString("STUDY_INTRO_TITLE_1")
@@ -154,15 +172,33 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         let step = IntroStepObject(identifier: "intro2")
         step.text = Localization.localizedString("STUDY_INTRO_TEXT_2")
         step.shouldHideActions = [.navigation(.cancel), .navigation(.skip)]
-        step.imageTheme = RSDFetchableImageThemeElementObject(imageName: "Intro2Header")
+        step.imageTheme = RSDFetchableImageThemeElementObject(imageName: "Intro1Header")
         step.actions = [.navigation(.goForward): RSDUIActionObject(buttonTitle: Localization.localizedString("BUTTON_LETS_GO"))]
         return step
     }
     
-    func openStoryboard(_ name: String) -> UIStoryboard? {
-        return UIStoryboard(name: name, bundle: nil)
+    func week1CompleteSteps(dayOfStudy: Int) -> [RSDStep] {
+        let intro = IntroStepObject(identifier: "intro")
+        intro.title = Localization.localizedString("WEEK_1_COMPLETE_TITLE_1")
+        intro.text = Localization.localizedString("WEEK_1_COMPLETE_TEXT")
+        intro.shouldHideActions = [.navigation(.cancel), .navigation(.goBackward), .navigation(.skip)]
+        intro.imageTheme = RSDFetchableImageThemeElementObject(imageName: "Intro1Header")
+        intro.actions = [.navigation(.goForward): RSDUIActionObject(buttonTitle: Localization.localizedString("WEEK_1_COMPLETE_NEXT_BUTTON"))]
+        
+        let reminderPhysicalStep = ReminderType.physical.createReminderStep(identifier: "physicalReminder", dayOfStudy: dayOfStudy, alwaysShow: true)
+        reminderPhysicalStep.shouldHideActions?.append(contentsOf: [.navigation(.cancel), .navigation(.goBackward)])
+        reminderPhysicalStep.actions?[.navigation(.goForward)] = RSDUIActionObject(buttonTitle: Localization.localizedString("SET_NEXT_REMINDER"))
+        
+        let reminderCognitiveStep = ReminderType.cognition.createReminderStep(identifier: "cognitiveReminder", dayOfStudy: dayOfStudy, alwaysShow: true)
+        reminderPhysicalStep.shouldHideActions?.append(contentsOf: [.navigation(.cancel), .navigation(.goBackward)])
+        reminderCognitiveStep.actions?[.navigation(.goForward)] = RSDUIActionObject(buttonTitle: Localization.localizedString("BUTTON_DONE"))
+        
+        return [intro, reminderPhysicalStep, reminderCognitiveStep]
     }
     
+    func openStoryboard(_ name: String) -> UIStoryboard? {
+        return UIStoryboard(name: name, bundle: nil)
+    }    
     
     // MARK: RSDTaskViewControllerDelegate
     

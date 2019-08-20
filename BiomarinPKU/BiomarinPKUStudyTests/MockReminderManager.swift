@@ -1,8 +1,8 @@
 //
-//  PKUTaskFactory.swift
-//  BiomarinPKU
-//
-//  Copyright © 2019 Sage Bionetworks. All rights reserved.
+// MockReminderManager.swift
+// BiomarinPKUStudyTests
+
+// Copyright © 2019 Sage Bionetworks. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -31,29 +31,30 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
+import Foundation
+import XCTest
 import BridgeApp
+@testable import BiomarinPKU_Study
 
-extension RSDStepType {
-    public static let brainBaseline: RSDStepType = "brainBaseline"
-    public static let brainBaselineOverview: RSDStepType = "brainBaselineOverview"
-    public static let emojiChoice: RSDStepType = "emojiChoice"
-    public static let reminder: RSDStepType = "reminder"
-}
-
-open class PKUTaskFactory: SBAFactory {
-    /// Override the base factory to vend PKU specific step objects.
-    override open func decodeStep(from decoder: Decoder, with type: RSDStepType) throws -> RSDStep? {
-        switch type {
-        case .brainBaseline:
-            return try BrainBaselineStepObject(from: decoder)
-        case .brainBaselineOverview:
-            return try BrainBaselineOverviewStepObject(from: decoder)
-        case .emojiChoice:
-            return try EmojiChoiceFormStepObject(from: decoder)
-        case .reminder:
-            return try ReminderStepObject(from: decoder)
-        default:
-            return try super.decodeStep(from: decoder, with: type)
-        }
+open class MockReminderManager: ReminderManager {
+    var hasReminderBeenScheduled = false
+    var doNotRemindSetting = false
+    var timeSetting: String?
+    var daySetting = RSDWeekday.sunday.rawValue
+    
+    override open func hasReminderBeenScheduled(type: ReminderType) -> Bool {
+        return hasReminderBeenScheduled
+    }
+    
+    override open func doNotRemindSetting(for type: ReminderType) -> Bool {
+        return doNotRemindSetting
+    }
+    
+    override open func timeSetting(for type: ReminderType) -> String? {
+        return timeSetting
+    }
+    
+    override open func daySetting(for type: ReminderType) -> Int {
+        return daySetting
     }
 }

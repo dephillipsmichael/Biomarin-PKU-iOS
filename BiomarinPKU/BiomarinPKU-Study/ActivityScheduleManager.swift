@@ -36,7 +36,9 @@ import BridgeApp
 import MotorControl
 
 /// Subclass the schedule manager to set up a predicate to filter the schedules.
-public class Week1ScheduleManager : SBAScheduleManager {
+public class ActivityScheduleManager : SBAScheduleManager {
+    
+    public static var shared = ActivityScheduleManager()
     
     open var today: Date {
         return Date()
@@ -58,7 +60,7 @@ public class Week1ScheduleManager : SBAScheduleManager {
     }
     
     // The current activity task the user is doing
-    public var currentActivity: Week1Activity? = nil
+    public var currentActivity: ActivityType? = nil
     // The day of study that the user started doing the current activity task
     public var dayOfCurrentActivity = 0
     
@@ -74,7 +76,7 @@ public class Week1ScheduleManager : SBAScheduleManager {
         return NSPredicate(value: true)
     }
     
-    open func scheduledActivity(for week1Activity: Week1Activity, on day: Int) -> SBBScheduledActivity? {
+    open func scheduledActivity(for week1Activity: ActivityType, on day: Int) -> SBBScheduledActivity? {
         let taskId = week1Activity.taskIdentifier(for: day)
         return self.scheduledActivities.first { $0.activityIdentifier == taskId }
     }
@@ -87,6 +89,11 @@ public class Week1ScheduleManager : SBAScheduleManager {
                 // This is not included in the MCT framework because
                 // they are specific to the PKU project, so we must add it here
                 overviewStep.actions?[.navigation(.learnMore)] = overviewLearnMoreAction
+            }
+            
+            if let _ = overviewStep.action(for: .navigation(.skip), on: overviewStep) as? RSDReminderUIActionObject {
+                // We should adjust the reminder identifier to match our paradigm
+                overviewStep.actions?[.navigation(.skip)] = RSDReminderUIActionObject(reminderIdentifier: "\(ReminderType.physical.rawValue)Later", buttonTitle: Localization.localizedString("REMIND_ME_LATER_BUTTON"))
             }
         }
     }
@@ -121,7 +128,7 @@ public class Week1ScheduleManager : SBAScheduleManager {
     }
 }
 
-public enum Week1Activity: Int, CaseIterable {
+public enum ActivityType: Int, CaseIterable {
     case sleep = 0
     case physical = 1
     case cognition = 2
@@ -136,39 +143,78 @@ public enum Week1Activity: Int, CaseIterable {
     }
     
     func completeDefaultKey(for day: Int) -> String {
-        let key = String(describing: self)
-        return String(format: "%@%d", key, day)
+        let week = self.weekOfStudy(dayOfStudy: day)
+        if self == .daily || self == .sleep || week <= 1 {
+            let keySuffix = "\(String(describing: self))Day"
+            return String(format: "%@%d", keySuffix, day)
+        } else { // After week 1 is complete for phsyical and cognitive
+            let keySuffix = "\(String(describing: self))Week"
+            return String(format: "%@%d", keySuffix, week)
+        }
+    }
+    
+    func weekOfStudy(dayOfStudy: Int) -> Int {
+        return ((dayOfStudy - 1) / 7) + 1
     }
     
     func taskIdentifier(for day: Int) -> String {
+        let week = self.weekOfStudy(dayOfStudy: day)
         switch self {
         case .sleep:
             return RSDIdentifier.sleepCheckInTask.identifier
         case .daily:
             return RSDIdentifier.dailyCheckInTask.identifier
         case .physical:
-            switch day % 3 {
-            case 1:
-                return RSDIdentifier.tappingTask.identifier
-            case 2:
-                return RSDIdentifier.tremorTask.identifier
-            default: // 3
-                return RSDIdentifier.kineticTremorTask.identifier
+            if week <= 1 { // Week 1 logic, rotate every 3 days
+                switch day % 3 {
+                case 1:
+                    return RSDIdentifier.tappingTask.identifier
+                case 2:
+                    return RSDIdentifier.tremorTask.identifier
+                default: // case 0:
+                    return RSDIdentifier.kineticTremorTask.identifier
+                }
+            } else { // All weeks after week 1
+                switch week % 3 {
+                case 1:
+                    return RSDIdentifier.tappingTask.identifier
+                case 2:
+                    return RSDIdentifier.tremorTask.identifier
+                default: // case 0:
+                    return RSDIdentifier.kineticTremorTask.identifier
+                }
             }
         case .cognition:
-            switch day % 6 {
-            case 1:
-                return RSDIdentifier.goNoGoTask.identifier
-            case 2:
-                return RSDIdentifier.symbolSubstitutionTask.identifier
-            case 3:
-                return RSDIdentifier.spatialMemoryTask.identifier
-            case 4:
-                return RSDIdentifier.nBackTask.identifier
-            case 5:
-                return RSDIdentifier.taskSwitchTask.identifier
-            default: // 6
-                return RSDIdentifier.attentionalBlinkTask.identifier
+            if week <= 1 { // Week 1 logic, rotate e ery 6 days
+                switch day % 6 {
+                case 1:
+                    return RSDIdentifier.goNoGoTask.identifier
+                case 2:
+                    return RSDIdentifier.symbolSubstitutionTask.identifier
+                case 3:
+                    return RSDIdentifier.spatialMemoryTask.identifier
+                case 4:
+                    return RSDIdentifier.nBackTask.identifier
+                case 5:
+                    return RSDIdentifier.taskSwitchTask.identifier
+                default: // case 0:
+                    return RSDIdentifier.attentionalBlinkTask.identifier
+                }
+            } else { // All weeks after week 1
+                switch week % 6 {
+                case 1:
+                    return RSDIdentifier.goNoGoTask.identifier
+                case 2:
+                    return RSDIdentifier.symbolSubstitutionTask.identifier
+                case 3:
+                    return RSDIdentifier.spatialMemoryTask.identifier
+                case 4:
+                    return RSDIdentifier.nBackTask.identifier
+                case 5:
+                    return RSDIdentifier.taskSwitchTask.identifier
+                default: // case 0:
+                    return RSDIdentifier.attentionalBlinkTask.identifier
+                }
             }
         }
     }
@@ -176,26 +222,35 @@ public enum Week1Activity: Int, CaseIterable {
     func title() -> String {
         switch self {
         case .sleep:
-            return Localization.localizedString("WEEK_1_ACTIVITY_SLEEP")
+            return Localization.localizedString("ACTIVITY_SLEEP")
         case .physical:
-            return Localization.localizedString("WEEK_1_ACTIVITY_PHYSICAL")
+            return Localization.localizedString("ACTIVITY_PHYSICAL")
         case .cognition:
-            return Localization.localizedString("WEEK_1_ACTIVITY_COGNITION")
+            return Localization.localizedString("ACTIVITY_COGNITION")
         case .daily:
-            return Localization.localizedString("WEEK_1_ACTIVITY_DAILY")
+            return Localization.localizedString("ACTIVITY_DAILY")
         }
     }
     
     func detail() -> String {
         switch self {
         case .sleep:
-            return Localization.localizedString("WEEK_1_MINUTES_SLEEP")
+            return Localization.localizedString("MINUTES_SLEEP")
         case .physical:
-            return Localization.localizedString("WEEK_1_MINUTES_PHYSICAL")
+            return Localization.localizedString("MINUTES_PHYSICAL")
         case .cognition:
-            return Localization.localizedString("WEEK_1_MINUTES_COGNITION")
+            return Localization.localizedString("MINUTES_COGNITION")
         case .daily:
-            return Localization.localizedString("WEEK_1_MINUTES_DAILY")
+            return Localization.localizedString("MINUTES_DAILY")
+        }
+    }
+    
+    func reminderType() -> ReminderType {
+        switch self {
+        case .daily: return .daily
+        case .sleep: return .sleep
+        case .physical: return .physical
+        case .cognition: return .cognition
         }
     }
 }

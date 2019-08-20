@@ -1,5 +1,5 @@
 //
-// Week1ViewControllerTests.swift
+// SettingsViewControllerTests.swift
 // BiomarinPKUStudyTests
 
 // Copyright © 2019 Sage Bionetworks. All rights reserved.
@@ -36,12 +36,17 @@ import XCTest
 import BridgeApp
 @testable import BiomarinPKU_Study
 
-class Week1ViewControllerTests: XCTestCase {
+class SettingsViewControllerTests: XCTestCase {
     
-    let vc = Week1ViewController(nibName: "", bundle: Bundle.main)
+    open var manager: MockReminderManager {
+        return ReminderManager.shared as! MockReminderManager
+    }
+    
+    let vc = SettingsViewController(nibName: nil, bundle: nil)
     
     override func setUp() {
         super.setUp()
+        ReminderManager.shared = MockReminderManager()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -50,27 +55,47 @@ class Week1ViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExpiresTime() {
-        let expiresTime = date(5, 0, 0, 0)
+    func testReminderSettingsText() {
+        manager.hasReminderBeenScheduled = false
+        manager.doNotRemindSetting = false
+        manager.timeSetting = nil
+        manager.daySetting = 0
+        var settingStr = vc.reminderSettingText(for: .daily)
+        XCTAssertEqual(settingStr, "No reminder has been set")
         
-        var now = date(4, 5, 0, 0)
-        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "19:00:00")
+        manager.hasReminderBeenScheduled = true
+        manager.doNotRemindSetting = true
+        manager.timeSetting = nil
+        manager.daySetting = 0
+        settingStr = vc.reminderSettingText(for: .daily)
+        XCTAssertEqual(settingStr, "No reminder has been set")
         
-        now = date(4, 23, 59, 59)
-        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "00:00:01")
+        manager.hasReminderBeenScheduled = true
+        manager.doNotRemindSetting = true
+        manager.timeSetting = "9:00 AM"
+        manager.daySetting = 2
+        settingStr = vc.reminderSettingText(for: .daily)
+        XCTAssertEqual(settingStr, "No reminder has been set")
         
-        now = date(5, 0, 0, 0)
-        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "00:00:00")
+        manager.hasReminderBeenScheduled = true
+        manager.doNotRemindSetting = true
+        manager.timeSetting = nil
+        manager.daySetting = 1
+        settingStr = vc.reminderSettingText(for: .daily)
+        XCTAssertEqual(settingStr, "No reminder has been set")
         
-        now = date(4, 0, 0, 1)
-        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "23:59:59")
+        manager.hasReminderBeenScheduled = true
+        manager.doNotRemindSetting = false
+        manager.timeSetting = "9:00 AM"
+        manager.daySetting = 0
+        settingStr = vc.reminderSettingText(for: .daily)
+        XCTAssertEqual(settingStr, "Daily at 9:00 AM")
         
-        now = date(4, 11, 11, 11)
-        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "12:48:49")
-    }
-    
-    private func date(_ day: Int, _ hour: Int, _ min: Int, _ sec: Int) -> Date {
-        return Calendar.current.date(from: DateComponents(year: 2019, month: 8, day: day, hour: hour, minute: min, second: sec))!
+        manager.hasReminderBeenScheduled = true
+        manager.doNotRemindSetting = false
+        manager.timeSetting = "9:00 AM"
+        manager.daySetting = 1
+        settingStr = vc.reminderSettingText(for: .daily)
+        XCTAssertEqual(settingStr, "Sundays at 9:00 AM")
     }
 }
-

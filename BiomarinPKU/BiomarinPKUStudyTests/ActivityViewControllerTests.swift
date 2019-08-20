@@ -1,8 +1,8 @@
 //
-//  PKUTaskFactory.swift
-//  BiomarinPKU
-//
-//  Copyright © 2019 Sage Bionetworks. All rights reserved.
+// ActivityViewControllerTests.swift
+// BiomarinPKUStudyTests
+
+// Copyright © 2019 Sage Bionetworks. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -31,29 +31,46 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
+import Foundation
+import XCTest
 import BridgeApp
+@testable import BiomarinPKU_Study
 
-extension RSDStepType {
-    public static let brainBaseline: RSDStepType = "brainBaseline"
-    public static let brainBaselineOverview: RSDStepType = "brainBaselineOverview"
-    public static let emojiChoice: RSDStepType = "emojiChoice"
-    public static let reminder: RSDStepType = "reminder"
-}
-
-open class PKUTaskFactory: SBAFactory {
-    /// Override the base factory to vend PKU specific step objects.
-    override open func decodeStep(from decoder: Decoder, with type: RSDStepType) throws -> RSDStep? {
-        switch type {
-        case .brainBaseline:
-            return try BrainBaselineStepObject(from: decoder)
-        case .brainBaselineOverview:
-            return try BrainBaselineOverviewStepObject(from: decoder)
-        case .emojiChoice:
-            return try EmojiChoiceFormStepObject(from: decoder)
-        case .reminder:
-            return try ReminderStepObject(from: decoder)
-        default:
-            return try super.decodeStep(from: decoder, with: type)
-        }
+class ActivityViewControllerTests: XCTestCase {
+    
+    let vc = ActivityViewController(nibName: "", bundle: Bundle.main)
+    
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+    
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+    
+    func testExpiresTime() {
+        let expiresTime = date(5, 0, 0, 0)
+        
+        var now = date(4, 5, 0, 0)
+        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "19:00:00")
+        
+        now = date(4, 23, 59, 59)
+        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "00:00:01")
+        
+        now = date(5, 0, 0, 0)
+        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "00:00:00")
+        
+        now = date(4, 0, 0, 1)
+        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "23:59:59")
+        
+        now = date(4, 11, 11, 11)
+        XCTAssertEqual(vc.timeUntilExpiration(from: now, until: expiresTime), "12:48:49")
+    }
+    
+    private func date(_ day: Int, _ hour: Int, _ min: Int, _ sec: Int) -> Date {
+        return Calendar.current.date(from: DateComponents(year: 2019, month: 8, day: day, hour: hour, minute: min, second: sec))!
     }
 }
+

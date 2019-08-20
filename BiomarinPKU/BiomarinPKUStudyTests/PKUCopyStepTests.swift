@@ -88,4 +88,47 @@ class PKUCopyStepTests: XCTestCase {
             XCTFail("\(String(describing: copy.actions)) does not include expected learn more action")
         }
     }
+    
+    func testCopy_ReminderStepObject() {
+        let step = ReminderStepObject(identifier: "foo")
+        step.title = "title"
+        step.text = "text"
+        
+        step.viewTheme = RSDViewThemeElementObject(viewIdentifier: "fooView")
+        step.colorMapping = RSDSingleColorThemeElementObject(colorStyle: .primary)
+        step.imageTheme = RSDFetchableImageThemeElementObject(imageName: "fooIcon")
+        
+        step.alwaysShow = true
+        step.defaultDayOfWeek = "Saturday"
+        step.defaultTime = "9:00 AM"
+        step.doNotRemindMeTitle = "title 2"
+        step.hideDayOfWeek = true
+        step.reminderType = .cognition
+        
+        step.actions = [.navigation(.learnMore) : RSDVideoViewUIActionObject(url: "fooFile", buttonTitle: "tap foo")]
+        
+        let copy = step.copy(with: "bar")
+        XCTAssertEqual(copy.identifier, "bar")
+        XCTAssertEqual(copy.title, "title")
+        XCTAssertEqual(copy.text, "text")
+        XCTAssertEqual(copy.viewTheme?.viewIdentifier, "fooView")
+        
+        XCTAssertEqual((copy.colorMapping as? RSDSingleColorThemeElementObject)?.colorStyle, .primary)
+        
+        XCTAssertEqual((copy.imageTheme as? RSDFetchableImageThemeElementObject)?.imageName, "fooIcon")
+
+        XCTAssertEqual(copy.alwaysShow, true)
+        XCTAssertEqual(copy.defaultDayOfWeek, "Saturday")
+        XCTAssertEqual(copy.defaultTime, "9:00 AM")
+        XCTAssertEqual(copy.doNotRemindMeTitle, "title 2")
+        XCTAssertEqual(copy.hideDayOfWeek, true)
+        XCTAssertEqual(copy.reminderType, .cognition)
+        
+        if let learnAction = copy.actions?[.navigation(.learnMore)] as? RSDVideoViewUIActionObject {
+            XCTAssertEqual(learnAction.url, "fooFile")
+            XCTAssertEqual(learnAction.buttonTitle, "tap foo")
+        } else {
+            XCTFail("\(String(describing: copy.actions)) does not include expected learn more action")
+        }
+    }
 }

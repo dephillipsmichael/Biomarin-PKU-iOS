@@ -90,13 +90,18 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     
     var expirationTimer = Timer()
     
-    let scheduleManager = Week1ScheduleManager()
+    let scheduleManager = ActivityScheduleManager.shared
     
-    var deepLinkActivity: Week1Activity?
+    var deepLinkActivity: ActivityType?
     var activitiesLoaded: Bool = false
     
+    let hasRunWeek1CompleteKey = "hasRunWeek1CompleteTask"
+    let week1CompleteTaskId = "Week1Complete"
+    
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        
+        ActivityScheduleManager.shared = ActivityScheduleManager()
         
         // Add an observer to observe schedule changes
         NotificationCenter.default.addObserver(forName: .SBAUpdatedScheduledActivities, object: scheduleManager, queue: OperationQueue.main) { (notification) in
@@ -106,7 +111,15 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
             self.refreshUI()
             
             self.activitiesLoaded = true
+            
+            // Deep link to an activity if the user tapped a notification
             self.runDeepLinkIfApplicable()
+            
+            // Check if we have transitioned from week 1 to week 2
+            // and the user hasn't seen the week 1 complete task
+            if self.shouldRunWeek1CompleteTask() {
+                self.runWeek1CompelteTask()
+            }
         }
         
         // Reload the schedules and show loading UI
@@ -166,7 +179,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         
         self.endStudyButton.setTitleColor(designSystem.colorRules.textColor(on: backgroundLight, for: .smallNumber), for: .normal)
         
-        for activity in Week1Activity.allCases {
+        for activity in ActivityType.allCases {
             let i = activity.rawValue
             
             self.activityDetailLabels?[i].textColor = designSystem.colorRules.textColor(on: backgroundLight, for: .microDetail)
@@ -187,7 +200,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         }
         self.endStudyButton.setTitle(Localization.localizedString("TAP_TO_END_STUDY_BUTTON"), for: .normal)
         
-        for activity in Week1Activity.allCases {
+        for activity in ActivityType.allCases {
             let i = activity.rawValue
             self.activityButtons?[i].setTitle(activity.title(), for: .normal)
             self.activityDetailLabels?[i].text = activity.detail()
@@ -235,8 +248,19 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         self.presentTaskViewController(for: .physical)
     }
     
-    func presentTaskViewController(for activity: Week1Activity) {
-        scheduleManager.dayOfCurrentActivity = self.scheduleManager.dayOfStudy()
+    func presentTaskViewController(for activity: ActivityType) {
+        let day = self.scheduleManager.dayOfStudy()
+        guard !activity.isComplete(for: day) else { return }
+        
+        guard !self.shouldRunWeek1CompleteTask() else {
+            debugPrint("User needs to see week 1 complete task first before running task")
+            // Set the activity action as a deep link so it shows
+            // after the user runs their week 1 complete task
+            self.deepLinkActivity = activity
+            return
+        }
+        
+        scheduleManager.dayOfCurrentActivity = day
         scheduleManager.currentActivity = activity
         
         guard let schedule = self.scheduleManager.scheduledActivity(for: activity, on: scheduleManager.dayOfCurrentActivity) else {
@@ -276,26 +300,48 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     }
     
     func taskController(_ taskController: RSDTaskController, didFinishWith reason: RSDTaskFinishReason, error: Error?) {
-        // dismiss the view controller
-        (taskController as? UIViewController)?.dismiss(animated: true, completion: nil)
         
         // Let the schedule manager handle the cleanup.
         scheduleManager.taskController(taskController, didFinishWith: reason, error: error)
         
-        // Check if the task was completed successfully
-        if error == nil && reason == .completed {
-            // The result may contain reminder information
-            // Send it to the reminder manager for processing
-            ReminderManager.shared.updateNotifications(for: taskController.taskViewModel.taskResult)
-            
-            // Mark day as completed and refresh the UI
-            if let activity = scheduleManager.currentActivity {
-                activity.complete(for: scheduleManager.dayOfCurrentActivity)
-                refreshUI()
-            }
+        let completed = (error == nil && reason == .completed)
+        
+        // If we completed the week 1 complete task, save its new state
+        if completed && taskController.task.identifier == week1CompleteTaskId {
+            self.setHasRunWeek1CompleteTask()
         }
+        
+        let activity = self.scheduleManager.currentActivity
+        // Dismiss the view controller
+        (taskController as? UIViewController)?.dismiss(animated: true, completion: {
+            // Check if the task was completed successfully
+            if completed {
+                // The result may contain reminder information
+                // Send it to the reminder manager for processing
+                ReminderManager.shared.updateNotifications(for: taskController.taskViewModel.taskResult)
+                
+                if let activityUnwrapped = activity {
+                    // Mark day as completed and refresh the UI
+                    activityUnwrapped.complete(for: self.scheduleManager.dayOfCurrentActivity)
+                    self.refreshUI()
+                    self.presentReminderTaskIfApplicable(afterCompleted: activityUnwrapped.reminderType())
+                }
+                
+                self.runDeepLinkIfApplicable()
+            }
+        })
 
         scheduleManager.currentActivity = nil
+    }
+    
+    func presentReminderTaskIfApplicable(afterCompleted type: ReminderType) {
+        // Check if we need to show the reminder screen
+        if !ReminderManager.shared.hasReminderBeenScheduled(type: type) {
+            let task = type.taskViewModel(dayOfStudy: self.scheduleManager.dayOfStudy(), alwaysShow: false)
+            let taskViewController = RSDTaskViewController(task: task)
+            taskViewController.delegate = self
+            self.present(taskViewController, animated: true, completion: nil)
+        }
     }
     
     func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {
@@ -309,9 +355,32 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     }
     
     func runDeepLinkIfApplicable() {
+        // Ignore any deep links for now if we need to run week 1 complete task
+        guard !self.shouldRunWeek1CompleteTask() else { return }
         if let activity = self.deepLinkActivity {
             self.presentTaskViewController(for: activity)
             self.deepLinkActivity = nil
         }
+    }
+    
+    func runWeek1CompelteTask() {
+        guard let appDelegate = AppDelegate.shared as? AppDelegate else { return }
+        let dayOfStudy = self.scheduleManager.dayOfStudy()
+        let steps = appDelegate.week1CompleteSteps(dayOfStudy: dayOfStudy)
+        var navigator = RSDConditionalStepNavigatorObject(with: steps)
+        navigator.progressMarkers = []
+        let task = RSDTaskObject(identifier: week1CompleteTaskId, stepNavigator: navigator)
+        let taskViewController = RSDTaskViewController(task: task)
+        taskViewController.delegate = self
+        self.present(taskViewController, animated: true, completion: nil)
+    }
+    
+    func shouldRunWeek1CompleteTask() -> Bool {
+        return self.scheduleManager.dayOfStudy() >= 8 &&
+            !UserDefaults.standard.bool(forKey: hasRunWeek1CompleteKey)
+    }
+    
+    func setHasRunWeek1CompleteTask() {
+        UserDefaults.standard.set(true, forKey: hasRunWeek1CompleteKey)
     }
 }

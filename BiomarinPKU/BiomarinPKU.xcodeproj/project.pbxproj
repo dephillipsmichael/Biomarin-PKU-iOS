@@ -15,24 +15,28 @@
 		441651D722F10B8700E02DAC /* Tremor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441651D122F10B8700E02DAC /* Tremor.mp4 */; };
 		CB0D00A222E804B900F5DD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A122E804B900F5DD4D /* AppDelegate.swift */; };
 		CB0D00A322E804FF00F5DD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8061179227BA025005FCABF /* AppDelegate.swift */; };
-		CB0D00A722E80B1A00F5DD4D /* Week1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A622E80B1A00F5DD4D /* Week1ViewController.swift */; };
+		CB0D00A722E80B1A00F5DD4D /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A622E80B1A00F5DD4D /* ActivityViewController.swift */; };
 		CB0D00AA22E80B3C00F5DD4D /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8087BA5227BDC4D005BDDEC /* TaskListTableViewController.swift */; };
 		CB0D00C022EE36BF00F5DD4D /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
 		CB0D00C422EE3CA500F5DD4D /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C322EE3CA500F5DD4D /* BrainBaselineManager.swift */; };
 		CB0D00C622EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C522EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift */; };
 		CB0D00CA22EE45E900F5DD4D /* FontRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C922EE45E900F5DD4D /* FontRules.swift */; };
 		CB0D00CB22EE463E00F5DD4D /* FontRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00C922EE45E900F5DD4D /* FontRules.swift */; };
+		CB11172B2305FFE7004E6E3F /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB11172A2305FFE7004E6E3F /* ReminderManager.swift */; };
 		CB1A259B22F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A259922F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift */; };
 		CB1A259C22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */; };
 		CB1A25A222F7314900ED3A57 /* FitbitStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */; };
-		CB2B536D22FF846F00C3F87F /* Week1ScheduleManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2B536C22FF846F00C3F87F /* Week1ScheduleManagerTests.swift */; };
+		CB2B536D22FF846F00C3F87F /* ActivityScheduleManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2B536C22FF846F00C3F87F /* ActivityScheduleManagerTests.swift */; };
 		CB2B536F2301BE4A00C3F87F /* ExternalIdViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2B536E2301BE4A00C3F87F /* ExternalIdViewControllerTests.swift */; };
 		CB2B53722301C3C000C3F87F /* PKUCodableStepObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2B53702301C3C000C3F87F /* PKUCodableStepObjectTests.swift */; };
 		CB2B53732301C3C000C3F87F /* PKUCopyStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2B53712301C3C000C3F87F /* PKUCopyStepTests.swift */; };
-		CB2B5375230219E200C3F87F /* Week1ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2B5374230219E200C3F87F /* Week1ViewControllerTests.swift */; };
+		CB2B5375230219E200C3F87F /* ActivityViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2B5374230219E200C3F87F /* ActivityViewControllerTests.swift */; };
+		CB2C40F92304863300FC4745 /* ReminderStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C40F82304863300FC4745 /* ReminderStepViewController.swift */; };
+		CB2C40FB2304864E00FC4745 /* ReminderStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB2C40FA2304864E00FC4745 /* ReminderStepViewController.xib */; };
 		CB3B194E22FCCDF5007CF330 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3B194D22FCCDF4007CF330 /* Assets.xcassets */; };
-		CB3B195622FD00E5007CF330 /* Week1ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B195522FD00E5007CF330 /* Week1ScheduleManager.swift */; };
+		CB3B195622FD00E5007CF330 /* ActivityScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B195522FD00E5007CF330 /* ActivityScheduleManager.swift */; };
 		CB46274C22D7843400AD79B1 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */; };
+		CB53CC77230994A10028F85C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB53CC76230994A10028F85C /* SettingsViewController.swift */; };
 		CB5510E522A08AD50036CD6F /* BrainBaselineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */; };
 		CB5510E922A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */; };
 		CB5510F422A091B40036CD6F /* BrainBaseline.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -45,6 +49,10 @@
 		CB55116222A0D34F0036CD6F /* Symbol Substitution.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115B22A0D34E0036CD6F /* Symbol Substitution.json */; };
 		CB55116322A0D34F0036CD6F /* Spatial Memory.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115D22A0D34E0036CD6F /* Spatial Memory.json */; };
 		CB55116422A0D34F0036CD6F /* Go No Go.json in Resources */ = {isa = PBXBuildFile; fileRef = CB55115F22A0D34E0036CD6F /* Go No Go.json */; };
+		CB5B91BB230A0F7700B80EF0 /* ReminderManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5B91BA230A0F7700B80EF0 /* ReminderManagerTests.swift */; };
+		CB5B91BD230A0F8700B80EF0 /* ReminderStepViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5B91BC230A0F8700B80EF0 /* ReminderStepViewControllerTests.swift */; };
+		CB5B91BF230A142F00B80EF0 /* MockReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5B91BE230A142F00B80EF0 /* MockReminderManager.swift */; };
+		CB5B91C1230A4D6800B80EF0 /* SettingsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5B91C0230A4D6800B80EF0 /* SettingsViewControllerTests.swift */; };
 		CB6836C922D44A040001066A /* BrainBaselineOverviewStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */; };
 		CB6836CB22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */; };
 		CB7F4CC322FF1DCD003EBB5C /* Sleep Check-In.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7F4CBF22FF1DCD003EBB5C /* Sleep Check-In.json */; };
@@ -188,24 +196,28 @@
 		441651D022F10B8600E02DAC /* KineticTremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = KineticTremor.mp4; sourceTree = "<group>"; };
 		441651D122F10B8700E02DAC /* Tremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tremor.mp4; sourceTree = "<group>"; };
 		CB0D00A122E804B900F5DD4D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB0D00A622E80B1A00F5DD4D /* Week1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week1ViewController.swift; sourceTree = "<group>"; };
+		CB0D00A622E80B1A00F5DD4D /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		CB0D00C122EE377700F5DD4D /* BiomarinPKU-Study.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BiomarinPKU-Study.entitlements"; sourceTree = "<group>"; };
 		CB0D00C322EE3CA500F5DD4D /* BrainBaselineManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB0D00C522EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineStepViewController.swift; sourceTree = "<group>"; };
 		CB0D00C922EE45E900F5DD4D /* FontRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontRules.swift; sourceTree = "<group>"; };
+		CB11172A2305FFE7004E6E3F /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
 		CB1A259922F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalIDRegistrationViewController.swift; sourceTree = "<group>"; };
 		CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalIDRegistrationViewController.xib; sourceTree = "<group>"; };
 		CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitbitStepViewController.swift; sourceTree = "<group>"; };
 		CB2B536222FF845000C3F87F /* BiomarinPKUStudyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiomarinPKUStudyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2B536622FF845000C3F87F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CB2B536C22FF846F00C3F87F /* Week1ScheduleManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week1ScheduleManagerTests.swift; sourceTree = "<group>"; };
+		CB2B536C22FF846F00C3F87F /* ActivityScheduleManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityScheduleManagerTests.swift; sourceTree = "<group>"; };
 		CB2B536E2301BE4A00C3F87F /* ExternalIdViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalIdViewControllerTests.swift; sourceTree = "<group>"; };
 		CB2B53702301C3C000C3F87F /* PKUCodableStepObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCodableStepObjectTests.swift; sourceTree = "<group>"; };
 		CB2B53712301C3C000C3F87F /* PKUCopyStepTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCopyStepTests.swift; sourceTree = "<group>"; };
-		CB2B5374230219E200C3F87F /* Week1ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week1ViewControllerTests.swift; sourceTree = "<group>"; };
+		CB2B5374230219E200C3F87F /* ActivityViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewControllerTests.swift; sourceTree = "<group>"; };
+		CB2C40F82304863300FC4745 /* ReminderStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderStepViewController.swift; sourceTree = "<group>"; };
+		CB2C40FA2304864E00FC4745 /* ReminderStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReminderStepViewController.xib; sourceTree = "<group>"; };
 		CB3B194D22FCCDF4007CF330 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CB3B195522FD00E5007CF330 /* Week1ScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week1ScheduleManager.swift; sourceTree = "<group>"; };
+		CB3B195522FD00E5007CF330 /* ActivityScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityScheduleManager.swift; sourceTree = "<group>"; };
 		CB46274B22D7843400AD79B1 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
+		CB53CC76230994A10028F85C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CB5510E422A08AD50036CD6F /* BrainBaselineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineManager.swift; sourceTree = "<group>"; };
 		CB5510E822A08D170036CD6F /* BBLStudy-BioMarin-PKU.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "BBLStudy-BioMarin-PKU.bundle"; path = "../BBLStudy-BioMarin-PKU.bundle"; sourceTree = "<group>"; };
 		CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrainBaseline.framework; sourceTree = "<group>"; };
@@ -217,6 +229,10 @@
 		CB55115C22A0D34E0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Symbol Substitution.json"; sourceTree = "<group>"; };
 		CB55115E22A0D34E0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Spatial Memory.json"; sourceTree = "<group>"; };
 		CB55116022A0D34F0036CD6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Go No Go.json"; sourceTree = "<group>"; };
+		CB5B91BA230A0F7700B80EF0 /* ReminderManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManagerTests.swift; sourceTree = "<group>"; };
+		CB5B91BC230A0F8700B80EF0 /* ReminderStepViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderStepViewControllerTests.swift; sourceTree = "<group>"; };
+		CB5B91BE230A142F00B80EF0 /* MockReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockReminderManager.swift; sourceTree = "<group>"; };
+		CB5B91C0230A4D6800B80EF0 /* SettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerTests.swift; sourceTree = "<group>"; };
 		CB6836C822D44A040001066A /* BrainBaselineOverviewStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrainBaselineOverviewStepViewController.xib; sourceTree = "<group>"; };
 		CB6836CA22D44A3F0001066A /* BrainBaselineOverviewStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrainBaselineOverviewStepViewController.swift; sourceTree = "<group>"; };
 		CB7F4CC022FF1DCD003EBB5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Sleep Check-In.json"; sourceTree = "<group>"; };
@@ -319,7 +335,8 @@
 			isa = PBXGroup;
 			children = (
 				CB7F4CC722FF2103003EBB5C /* PKUTaskFactory.swift */,
-				CB3B195522FD00E5007CF330 /* Week1ScheduleManager.swift */,
+				CB3B195522FD00E5007CF330 /* ActivityScheduleManager.swift */,
+				CB11172A2305FFE7004E6E3F /* ReminderManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -327,13 +344,16 @@
 		CB0D00A522E80A4F00F5DD4D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CB0D00A622E80B1A00F5DD4D /* Week1ViewController.swift */,
+				CB0D00A622E80B1A00F5DD4D /* ActivityViewController.swift */,
 				CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */,
 				CB1A259922F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift */,
 				CB1A259A22F65BA400ED3A57 /* ExternalIDRegistrationViewController.xib */,
 				CB1A25A022F7314900ED3A57 /* FitbitStepViewController.swift */,
 				CB7F4CC922FF4DEB003EBB5C /* LearnMoreStepViewController.swift */,
 				CB7F4CCD22FF5D5A003EBB5C /* LearnMoreStepViewController.xib */,
+				CB2C40F82304863300FC4745 /* ReminderStepViewController.swift */,
+				CB2C40FA2304864E00FC4745 /* ReminderStepViewController.xib */,
+				CB53CC76230994A10028F85C /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -352,9 +372,13 @@
 			children = (
 				CB2B53702301C3C000C3F87F /* PKUCodableStepObjectTests.swift */,
 				CB2B53712301C3C000C3F87F /* PKUCopyStepTests.swift */,
-				CB2B536C22FF846F00C3F87F /* Week1ScheduleManagerTests.swift */,
-				CB2B5374230219E200C3F87F /* Week1ViewControllerTests.swift */,
+				CB2B536C22FF846F00C3F87F /* ActivityScheduleManagerTests.swift */,
+				CB2B5374230219E200C3F87F /* ActivityViewControllerTests.swift */,
 				CB2B536E2301BE4A00C3F87F /* ExternalIdViewControllerTests.swift */,
+				CB5B91BA230A0F7700B80EF0 /* ReminderManagerTests.swift */,
+				CB5B91BC230A0F8700B80EF0 /* ReminderStepViewControllerTests.swift */,
+				CB5B91C0230A4D6800B80EF0 /* SettingsViewControllerTests.swift */,
+				CB5B91BE230A142F00B80EF0 /* MockReminderManager.swift */,
 				CB2B536622FF845000C3F87F /* Info.plist */,
 			);
 			path = BiomarinPKUStudyTests;
@@ -770,6 +794,7 @@
 				FF3CC65B22D7C31A0037E65B /* BridgeInfo.plist in Resources */,
 				FF3CC64522D7C1FB0037E65B /* lato_italic.ttf in Resources */,
 				FF3CC64F22D7C2B00037E65B /* Spatial Memory.json in Resources */,
+				CB2C40FB2304864E00FC4745 /* ReminderStepViewController.xib in Resources */,
 				441651D722F10B8700E02DAC /* Tremor.mp4 in Resources */,
 				FF3CC67222D7C6710037E65B /* BrainBaselineOverviewStepViewController.xib in Resources */,
 				FF3CC64622D7C1FB0037E65B /* lato_light.ttf in Resources */,
@@ -840,11 +865,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB2B5375230219E200C3F87F /* Week1ViewControllerTests.swift in Sources */,
+				CB2B5375230219E200C3F87F /* ActivityViewControllerTests.swift in Sources */,
 				CB2B536F2301BE4A00C3F87F /* ExternalIdViewControllerTests.swift in Sources */,
-				CB2B536D22FF846F00C3F87F /* Week1ScheduleManagerTests.swift in Sources */,
+				CB5B91BD230A0F8700B80EF0 /* ReminderStepViewControllerTests.swift in Sources */,
+				CB2B536D22FF846F00C3F87F /* ActivityScheduleManagerTests.swift in Sources */,
+				CB5B91C1230A4D6800B80EF0 /* SettingsViewControllerTests.swift in Sources */,
 				CB2B53722301C3C000C3F87F /* PKUCodableStepObjectTests.swift in Sources */,
 				CB2B53732301C3C000C3F87F /* PKUCopyStepTests.swift in Sources */,
+				CB5B91BB230A0F7700B80EF0 /* ReminderManagerTests.swift in Sources */,
+				CB5B91BF230A142F00B80EF0 /* MockReminderManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,18 +911,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF3CC67122D7C6710037E65B /* BrainBaselineOverviewStepViewController.swift in Sources */,
+				CB11172B2305FFE7004E6E3F /* ReminderManager.swift in Sources */,
 				CB1A25A222F7314900ED3A57 /* FitbitStepViewController.swift in Sources */,
 				FF3CC64922D7C2100037E65B /* PKUBuildDateUtil.m in Sources */,
 				CB7F4CCB22FF4DEB003EBB5C /* LearnMoreStepViewController.swift in Sources */,
-				CB0D00A722E80B1A00F5DD4D /* Week1ViewController.swift in Sources */,
+				CB0D00A722E80B1A00F5DD4D /* ActivityViewController.swift in Sources */,
 				CB0D00C422EE3CA500F5DD4D /* BrainBaselineManager.swift in Sources */,
 				CB7F4CC822FF2103003EBB5C /* PKUTaskFactory.swift in Sources */,
 				CB0D00A222E804B900F5DD4D /* AppDelegate.swift in Sources */,
-				CB3B195622FD00E5007CF330 /* Week1ScheduleManager.swift in Sources */,
+				CB3B195622FD00E5007CF330 /* ActivityScheduleManager.swift in Sources */,
 				CB0D00CB22EE463E00F5DD4D /* FontRules.swift in Sources */,
 				CB1A259B22F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift in Sources */,
+				CB53CC77230994A10028F85C /* SettingsViewController.swift in Sources */,
 				FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */,
 				CB0D00C622EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift in Sources */,
+				CB2C40F92304863300FC4745 /* ReminderStepViewController.swift in Sources */,
 				FF3CC65722D7C2D30037E65B /* MotorControl+Bridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

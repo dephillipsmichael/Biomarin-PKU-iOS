@@ -20,11 +20,6 @@
                     "type": "default",
                     "buttonTitle" : "Start" },
             }
-        },
-        {
-            "identifier"   : "Brain Baseline",
-            "type"         : "brainBaseline",
-            "testName"     : "PTSPWM-Phone-BioMarin-PKU"
         }
     ]
 }
