@@ -290,28 +290,19 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         
         let dayOfStudy = scheduleManager.dayOfStudy()
         let weekOfStudy = scheduleManager.weekOfStudy(dayOfStudy: dayOfStudy)
-        if dayOfStudy <= 7 {
-            self.expiresLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_EXPIRES_FORMAT_%@", expiresTimeStr)
-            self.expiresWeeklyLabel.text = nil
-            self.dayTitleLabel.text = Localization.localizedString(Localization.localizedString("WEEK_1_DAY"))
-            self.dayLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_DAY_FORMAT_%@", String(dayOfStudy))
-        } else {
-            self.expiresLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_EXPIRES_FORMAT_%@", expiresTimeStr)
-            
-            let daysUntilWeeklyExpiration = (weekOfStudy * 7) - dayOfStudy + 1
-            if daysUntilWeeklyExpiration <= 1 {
-                self.expiresWeeklyLabel.text = Localization.localizedStringWithFormatKey("AFTER_WEEK_1_EXPIRES_WEEKLY_FORMAT_HOURS_%@", expiresTimeStr)
-            } else {
-                self.expiresWeeklyLabel.text = Localization.localizedStringWithFormatKey("AFTER_WEEK_1_EXPIRES_WEEKLY_FORMAT_DAYS_%@", String(daysUntilWeeklyExpiration))
-            }
-            
-            self.dayTitleLabel.text = Localization.localizedString(Localization.localizedString("WEEK"))
-            self.dayLabel.text = Localization.localizedStringWithFormatKey("AFTER_WEEK_1_DAY_FORMAT_%@", String(weekOfStudy))
-        }
         
+        self.expiresLabel.text = self.expiresLabelText(for: dayOfStudy, expiresTimeStr: expiresTimeStr)
+        self.expiresWeeklyLabel.text = self.expiresWeeklyLabelText(for: dayOfStudy, week: weekOfStudy, expiresTimeStr: expiresTimeStr)
+        self.dayLabel.text = self.dayLabelText(for: dayOfStudy, week: weekOfStudy)
+        self.dayTitleLabel.text = self.dayTitleLabelText(for: dayOfStudy)
+        
+        // Check for day crossover
         if let previous = self.expirationgDay,
             dayOfStudy != previous {
+            // Reload data on day crossover so new activities can be done
             self.scheduleManager.reloadData()
+            
+            // Check for week 1 complete crossover and run task if so
             if dayOfStudy == 8 && self.shouldRunWeek1CompleteTask() {
                 self.runWeek1CompelteTask()
             }
@@ -320,6 +311,43 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         // Keep track of previous day and week so we can determine
         // when day and week thresholds are passed
         self.expirationgDay = dayOfStudy
+    }
+    
+    func expiresLabelText(for day: Int, expiresTimeStr: String) -> String? {
+        if day <= 7 {
+            return Localization.localizedStringWithFormatKey("WEEK_1_EXPIRES_FORMAT_%@", expiresTimeStr)
+        } else {
+            return Localization.localizedStringWithFormatKey("AFTER_WEEK_1_EXPIRES_FORMAT_%@", expiresTimeStr)
+        }
+    }
+    
+    func expiresWeeklyLabelText(for day: Int, week: Int, expiresTimeStr: String) -> String? {
+        if day <= 7 {
+            return nil
+        } else {
+            let daysUntilWeeklyExpiration = (week * 7) - day + 1
+            if daysUntilWeeklyExpiration <= 1 {
+                return Localization.localizedStringWithFormatKey("AFTER_WEEK_1_EXPIRES_WEEKLY_FORMAT_HOURS_%@", expiresTimeStr)
+            } else {
+                return Localization.localizedStringWithFormatKey("AFTER_WEEK_1_EXPIRES_WEEKLY_FORMAT_DAYS_%@", String(daysUntilWeeklyExpiration))
+            }
+        }
+    }
+    
+    func dayLabelText(for day: Int, week: Int) -> String? {
+        if day <= 7 {
+            return Localization.localizedStringWithFormatKey("WEEK_1_DAY_FORMAT_%@", String(day))
+        } else {
+            return Localization.localizedStringWithFormatKey("AFTER_WEEK_1_DAY_FORMAT_%@", String(week))
+        }
+    }
+    
+    func dayTitleLabelText(for day: Int) -> String? {
+        if day <= 7 {
+            return Localization.localizedString(Localization.localizedString("WEEK_1_DAY"))
+        } else {
+            return Localization.localizedString(Localization.localizedString("WEEK"))
+        }
     }
     
     func timeUntilExpiration(from now: Date, until expiration: Date) -> String {
