@@ -74,8 +74,9 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     // The end study button
     @IBOutlet public var endStudyButton: UIButton!
     
-    // The expires time label
+    // The expires time label for daily and weekly
     @IBOutlet public var expiresLabel: UILabel!
+    @IBOutlet public var expiresWeeklyLabel: UILabel!
     
     // The loading view for when the schedules are being loaded
     @IBOutlet public var loadingView: UIActivityIndicatorView!
@@ -89,6 +90,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     @IBOutlet var activityDoneIcons: Array<UIImageView>?
     
     var expirationTimer = Timer()
+    var expirationgDay: Int?
     
     let scheduleManager = ActivityScheduleManager.shared
     
@@ -128,6 +130,12 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         
         // Schedule expiration timer to run every second
         self.expirationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimeFormattedText), userInfo: nil, repeats: true)
+        
+        // Only set this on load, otheriwse the buttons flash when switching tabs
+        for activity in ActivityType.allCases {
+            let i = activity.rawValue
+            self.activityButtons?[i].setTitle(activity.title(), for: .normal)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -169,6 +177,9 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         self.expiresLabel.font = designSystem.fontRules.font(for: .italicDetail)
         self.expiresLabel.textColor = designSystem.colorRules.textColor(on: backgroundLight, for: .italicDetail)
         
+        self.expiresWeeklyLabel.font = designSystem.fontRules.font(for: .italicDetail)
+        self.expiresWeeklyLabel.textColor = designSystem.colorRules.textColor(on: backgroundLight, for: .italicDetail)
+        
         self.accountDetailsContainer.backgroundColor = backgroundLight.color
         
         self.accountDetailsButton.titleLabel?.font = designSystem.fontRules.font(for: .microDetail)
@@ -188,9 +199,10 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     }
     
     func refreshUI() {
-        self.titleLabel.text = Localization.localizedString("WEEK_1_TITLE")
-        self.textLabel.text = Localization.localizedString("WEEK_1_TEXT")
-        self.dayTitleLabel.text = Localization.localizedString("WEEK_1_DAY")
+        let dayOfStudy = self.scheduleManager.dayOfStudy()
+        
+        self.titleLabel.text = self.headerTitle(for: dayOfStudy)
+        self.textLabel.text = self.headerText(for: dayOfStudy)
     self.accountDetailsButton.setTitle(Localization.localizedString("VIEW_ACCOUNT_DETAILS"), for: .normal)
         
         // Setup external ID to display as XXXX - XXXXX
@@ -202,9 +214,8 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         
         for activity in ActivityType.allCases {
             let i = activity.rawValue
-            self.activityButtons?[i].setTitle(activity.title(), for: .normal)
-            self.activityDetailLabels?[i].text = activity.detail()
-            let isComplete = activity.isComplete(for: scheduleManager.dayOfStudy())
+            let isComplete = activity.isComplete(for: dayOfStudy)
+            self.activityDetailLabels?[i].text = activity.detail(for: dayOfStudy, isComplete: isComplete)
             self.activityButtons?[i].isEnabled = !isComplete
             self.activityDoneIcons?[i].isHidden = !isComplete
         }
@@ -279,11 +290,112 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     @objc func updateTimeFormattedText() {
         let expiresTimeStr = self.timeUntilExpiration(from: Date(), until: Calendar.current.startOfDay(for: Date()).addingNumberOfDays(1))
         
-        self.expiresLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_EXPIRES_FORMAT_%@", expiresTimeStr)
+        let dayOfStudy = scheduleManager.dayOfStudy()
+        let weekOfStudy = scheduleManager.weekOfStudy(dayOfStudy: dayOfStudy)
         
-        self.dayLabel.text = Localization.localizedStringWithFormatKey("WEEK_1_DAY_FORMAT_%@", String(scheduleManager.dayOfStudy()))
+        let dailyComplete = self.areAllDailyActivitiesComplete(on: dayOfStudy)
+        self.expiresLabel.text = self.expiresLabelText(for: dayOfStudy, expiresTimeStr: expiresTimeStr, allComplete: dailyComplete)
         
-        // TODO: mdephillips 8/10/19 check for and transition past the first week of the study if applicable
+        let weeklyComplete = self.areAllWeeklyActivitiesComplete(on: dayOfStudy)
+        self.expiresWeeklyLabel.text = self.expiresWeeklyLabelText(for: dayOfStudy, week: weekOfStudy, expiresTimeStr: expiresTimeStr, allComplete: weeklyComplete)
+        
+        self.dayLabel.text = self.dayLabelText(for: dayOfStudy, week: weekOfStudy)
+        self.dayTitleLabel.text = self.dayTitleLabelText(for: dayOfStudy)
+        
+        // Check for day crossover
+        if let previous = self.expirationgDay,
+            dayOfStudy != previous {
+            // Reload data on day crossover so new activities can be done
+            self.scheduleManager.reloadData()
+            
+            // Check for week 1 complete crossover and run task if so
+            if dayOfStudy == 8 && self.shouldRunWeek1CompleteTask() {
+                self.runWeek1CompelteTask()
+            }
+        }
+        
+        // Keep track of previous day and week so we can determine
+        // when day and week thresholds are passed
+        self.expirationgDay = dayOfStudy
+    }
+    
+    func areAllDailyActivitiesComplete(on day: Int) -> Bool {
+        let dailyTypes = ActivityType.dailyTypes(for: day)
+        return dailyTypes.filter { !$0.isComplete(for: day) }.count == 0
+    }
+    
+    func areAllWeeklyActivitiesComplete(on day: Int) -> Bool {
+        let weeklyTypes = ActivityType.weeklyTypes(for: day)
+        return weeklyTypes.filter { !$0.isComplete(for: day) }.count == 0
+    }
+    
+    func headerTitle(for day: Int) -> String {
+        if day <= 7 {
+            return Localization.localizedString("WEEK_1_TITLE")
+        } else {
+            return Localization.localizedString("AFTER_WEEK_1_TITLE")
+        }
+    }
+    
+    func headerText(for day: Int) -> String {
+        if day <= 7 {
+            return Localization.localizedString("WEEK_1_TEXT")
+        } else {
+            return Localization.localizedString("AFTER_WEEK_1_TEXT")
+        }
+    }
+    
+    func expiresLabelText(for day: Int, expiresTimeStr: String, allComplete: Bool) -> String? {
+        if day <= 7 {
+            if !allComplete {
+                return Localization.localizedStringWithFormatKey("WEEK_1_EXPIRES_FORMAT_%@", expiresTimeStr)
+            } else {
+                return Localization.localizedStringWithFormatKey("WEEK_1_RENEW_FORMAT_%@", expiresTimeStr)
+            }
+        } else {
+            if !allComplete {
+                return Localization.localizedStringWithFormatKey("AFTER_WEEK_1_EXPIRES_FORMAT_%@", expiresTimeStr)
+            } else {
+                return Localization.localizedStringWithFormatKey("AFTER_WEEK_1_RENEW_FORMAT_%@", expiresTimeStr)
+            }
+        }
+    }
+    
+    func expiresWeeklyLabelText(for day: Int, week: Int, expiresTimeStr: String, allComplete: Bool) -> String? {
+        if day <= 7 {
+            return nil
+        } else {
+            let daysUntilWeeklyExpiration = (week * 7) - day + 1
+            if daysUntilWeeklyExpiration <= 1 {
+                if !allComplete {
+                    return Localization.localizedStringWithFormatKey("AFTER_WEEK_1_EXPIRES_WEEKLY_FORMAT_HOURS_%@", expiresTimeStr)
+                } else {
+                    return Localization.localizedStringWithFormatKey("AFTER_WEEK_1_RENEW_WEEKLY_FORMAT_HOURS_%@", expiresTimeStr)
+                }
+            } else {
+                if !allComplete {
+                    return Localization.localizedStringWithFormatKey("AFTER_WEEK_1_EXPIRES_WEEKLY_FORMAT_DAYS_%@", String(daysUntilWeeklyExpiration))
+                } else {
+                    return Localization.localizedStringWithFormatKey("AFTER_WEEK_1_RENEW_WEEKLY_FORMAT_DAYS_%@", String(daysUntilWeeklyExpiration))
+                }
+            }
+        }
+    }
+    
+    func dayLabelText(for day: Int, week: Int) -> String? {
+        if day <= 7 {
+            return Localization.localizedStringWithFormatKey("WEEK_1_DAY_FORMAT_%@", String(day))
+        } else {
+            return Localization.localizedStringWithFormatKey("AFTER_WEEK_1_DAY_FORMAT_%@", String(week))
+        }
+    }
+    
+    func dayTitleLabelText(for day: Int) -> String? {
+        if day <= 7 {
+            return Localization.localizedString(Localization.localizedString("WEEK_1_DAY"))
+        } else {
+            return Localization.localizedString(Localization.localizedString("WEEK"))
+        }
     }
     
     func timeUntilExpiration(from now: Date, until expiration: Date) -> String {
