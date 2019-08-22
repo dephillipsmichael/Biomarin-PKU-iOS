@@ -48,47 +48,23 @@ class ExternalIDRegistrationStep : RSDUIStepObject, RSDStepViewControllerVendor,
     }
 }
 
-class ExternalIDRegistrationViewController: RSDStepViewController, UITextFieldDelegate {
+class ExternalIDRegistrationViewController: BaseTextFieldStepViewController, UITextFieldDelegate {
     
     // The first participant ID entry, they need to enter it twice
     var firstEntry: String?
     
-    // ImageView header
-    @IBOutlet public var imageView: UIImageView!
-    
-    // Title label for external ID entry
-    @IBOutlet public var titleLabel: UILabel!
     // The hyphen text that is used in the external ID format "XXXX - XXXXX"
     let hyphenText = " - "
     // Format is [4 digit site ID] - [4 digit participant ID]
     let siteIdLength = 4
     let participantIdLength = 4
     
-    // Textfield for external ID entry
-    @IBOutlet public var textField: UITextField!
-    
-    // The textfield underline
-    @IBOutlet public var ruleView: UIView!
-    
-    // The submit button
-    @IBOutlet public var submitButton: RSDRoundedButton!
-    
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        // Looks for single taps to dismiss keyboard
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        
         self.designSystem = AppDelegate.designSystem
         let background = self.designSystem.colorRules.backgroundLight
-        self.view.backgroundColor = background.color
         self.view.subviews[0].backgroundColor = background.color
-        
-        self.imageView.backgroundColor = self.designSystem.colorRules.backgroundPrimary.color
         
         #if DEBUG
             // During development, we should use alpha-numeric external IDs
@@ -97,37 +73,9 @@ class ExternalIDRegistrationViewController: RSDStepViewController, UITextFieldDe
             // Production external IDs will be of the format
             self.textField.keyboardType = .numberPad
         #endif
-        
-        self.textField.font = self.designSystem.fontRules.font(for: .largeHeader, compatibleWith: traitCollection)
-        self.textField.textColor = self.designSystem.colorRules.textColor(on: background, for: .largeHeader)
         self.textField.delegate = self
         
-        self.ruleView.backgroundColor = self.designSystem.colorRules.tintedButtonColor(on: background)
-        
-        self.submitButton.setDesignSystem(self.designSystem, with: self.designSystem.colorRules.backgroundLight)
-        self.submitButton.setTitle(Localization.localizedString("BUTTON_SUBMIT"), for: .normal)
-        self.submitButton.isEnabled = false
-        
         setFirstEntryTitle()
-        self.titleLabel.font = self.designSystem.fontRules.font(for: .xLargeHeader)
-        self.titleLabel.textColor = self.designSystem.colorRules.textColor(on: background, for: .xLargeHeader)
-    }
-    
-    //Calls this function when the tap is recognized.
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-        self.view.frame.origin.y = 0
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            self.view.frame.origin.y -= keyboardSize.height
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
     }
     
     func setRentryTitle() {
@@ -140,10 +88,6 @@ class ExternalIDRegistrationViewController: RSDStepViewController, UITextFieldDe
     
     func setMismatchedParticipantIDTitle() {
         self.titleLabel.text = Localization.localizedString("PARTICPANT_IDS_DID_NOT_MATCH")
-    }
-    
-    func clearExternalIDTextField() {
-        textField.text = nil
     }
     
     func externalId() -> String? {
@@ -214,14 +158,14 @@ class ExternalIDRegistrationViewController: RSDStepViewController, UITextFieldDe
         if self.firstEntry == nil {
             self.firstEntry = externalId
             self.setRentryTitle()
-            self.clearExternalIDTextField()
+            self.clearTextField()
             return
         }
         
         if externalId != self.firstEntry {
             self.firstEntry = nil
             self.setMismatchedParticipantIDTitle()
-            self.clearExternalIDTextField()
+            self.clearTextField()
             return
         }
         
@@ -254,7 +198,7 @@ class ExternalIDRegistrationViewController: RSDStepViewController, UITextFieldDe
         })
     }
     
-    @IBAction func submitTapped() {
+    @IBAction override open func submitTapped() {
         self.nextButton?.isEnabled = false
         self.signUpAndSignIn { (task, result, error) in
             DispatchQueue.main.async {

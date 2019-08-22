@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IZb-Fb-rvx">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lato_bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="lato_regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--End Of Study View Controller-->
+        <scene sceneID="iQW-41-Ioy">
+            <objects>
+                <tableViewController id="IZb-Fb-rvx" customClass="EndOfStudyViewController" customModule="BiomarinPKU_Study" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" id="4M3-Ax-4In">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <view key="tableHeaderView" contentMode="scaleAspectFit" id="OKX-ZC-nC6" customClass="TaskTableHeaderView" customModule="BiomarinPKU_Study" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="235"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="McP-1S-QmL" userLabel="CenterContainer">
+                                    <rect key="frame" x="0.0" y="40" width="414" height="140"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="bdS-Me-AJM">
+                                            <rect key="frame" x="48" y="12" width="318" height="128"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A BioMarin PKU Research Study" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h81-S1-6JI">
+                                            <rect key="frame" x="8" y="126" width="398" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="bdS-Me-AJM" secondAttribute="bottom" id="MNZ-sL-oWn"/>
+                                        <constraint firstItem="h81-S1-6JI" firstAttribute="top" secondItem="bdS-Me-AJM" secondAttribute="bottom" constant="-14" id="dzm-5S-4zx"/>
+                                        <constraint firstAttribute="trailing" secondItem="h81-S1-6JI" secondAttribute="trailing" constant="8" id="e5j-WM-U22"/>
+                                        <constraint firstAttribute="trailing" secondItem="bdS-Me-AJM" secondAttribute="trailing" constant="48" id="ogx-99-11Y"/>
+                                        <constraint firstItem="h81-S1-6JI" firstAttribute="leading" secondItem="McP-1S-QmL" secondAttribute="leading" constant="8" id="vg5-QV-nYG"/>
+                                        <constraint firstAttribute="height" constant="140" id="whQ-kq-f2M"/>
+                                        <constraint firstItem="bdS-Me-AJM" firstAttribute="leading" secondItem="McP-1S-QmL" secondAttribute="leading" constant="48" id="xah-wF-Ocr"/>
+                                        <constraint firstItem="bdS-Me-AJM" firstAttribute="top" secondItem="McP-1S-QmL" secondAttribute="top" constant="12" id="zsP-Md-LfV"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" name="appPrimary"/>
+                            <constraints>
+                                <constraint firstItem="McP-1S-QmL" firstAttribute="top" secondItem="OKX-ZC-nC6" secondAttribute="top" constant="40" id="Py9-aM-fxQ"/>
+                                <constraint firstAttribute="trailing" secondItem="McP-1S-QmL" secondAttribute="trailing" id="XYB-AH-aAH"/>
+                                <constraint firstItem="McP-1S-QmL" firstAttribute="leading" secondItem="OKX-ZC-nC6" secondAttribute="leading" id="vg9-1c-jee"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="imageView" destination="bdS-Me-AJM" id="f1G-43-cyn"/>
+                                <outlet property="titleLabel" destination="h81-S1-6JI" id="RgT-P9-tt6"/>
+                            </connections>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="E9Z-qk-9gZ" customClass="TaskTableFooterView" customModule="BiomarinPKU_Study" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="375" width="414" height="200"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PKU App  Version 0.1 Released on 02/02/19" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbW-gh-eIz" userLabel="Version">
+                                    <rect key="frame" x="138" y="119.5" width="138" height="33"/>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2K4-6D-VS2" customClass="RSDRoundedButton" customModule="ResearchUI">
+                                    <rect key="frame" x="16" y="35" width="382" height="58"/>
+                                    <color key="backgroundColor" red="0.25490196079999999" green="0.40784313729999999" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="58" id="i1c-vu-ka9"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                    <state key="normal" title="Done">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="doneTapped" destination="IZb-Fb-rvx" eventType="touchUpInside" id="JnS-4B-T6o"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="2K4-6D-VS2" firstAttribute="centerY" secondItem="E9Z-qk-9gZ" secondAttribute="centerY" constant="-36" id="JG7-op-TDA"/>
+                                <constraint firstItem="KbW-gh-eIz" firstAttribute="centerY" secondItem="E9Z-qk-9gZ" secondAttribute="centerY" constant="36" id="Xn4-sy-4a9"/>
+                                <constraint firstItem="KbW-gh-eIz" firstAttribute="centerX" secondItem="E9Z-qk-9gZ" secondAttribute="centerX" id="aR9-6q-Uk7"/>
+                                <constraint firstAttribute="trailing" secondItem="2K4-6D-VS2" secondAttribute="trailing" constant="16" id="gx9-dI-68N"/>
+                                <constraint firstItem="2K4-6D-VS2" firstAttribute="leading" secondItem="E9Z-qk-9gZ" secondAttribute="leading" constant="16" id="jdY-Rz-qoW"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="doneButton" destination="2K4-6D-VS2" id="yNN-aw-05F"/>
+                                <outlet property="titleLabel" destination="KbW-gh-eIz" id="dt0-gg-fc9"/>
+                            </connections>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PKUTaskCell" rowHeight="112" id="yAB-fI-NsN" userLabel="TaskCell" customClass="TaskTableviewCell" customModule="BiomarinPKU_Study" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="263" width="414" height="112"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yAB-fI-NsN" id="JJ1-ZW-7yT">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9NR-gT-TTG" userLabel="TopContainer">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfF-s3-56x">
+                                                    <rect key="frame" x="18" y="45" width="188" height="22"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
+                                                    <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lvf-nz-zGd" userLabel="Done Container">
+                                                    <rect key="frame" x="246" y="26" width="150" height="52"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DoneSmall" translatesAutoresizingMaskIntoConstraints="NO" id="JXR-A8-fa6">
+                                                            <rect key="frame" x="45.5" y="12" width="28" height="28"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="28" id="Qmw-yC-uv2"/>
+                                                                <constraint firstAttribute="width" secondItem="JXR-A8-fa6" secondAttribute="height" multiplier="1:1" id="Ze7-Lo-Tdy"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Done" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ATD-j6-CF4">
+                                                            <rect key="frame" x="73.5" y="15.5" width="40.5" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="ATD-j6-CF4" firstAttribute="leading" secondItem="JXR-A8-fa6" secondAttribute="trailing" id="20j-VT-Kkg"/>
+                                                        <constraint firstAttribute="height" constant="52" id="4GV-1O-7Qk"/>
+                                                        <constraint firstItem="ATD-j6-CF4" firstAttribute="centerY" secondItem="Lvf-nz-zGd" secondAttribute="centerY" id="6HU-6b-lwX"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ATD-j6-CF4" secondAttribute="trailing" constant="36" id="O8k-9L-sia"/>
+                                                        <constraint firstItem="JXR-A8-fa6" firstAttribute="centerY" secondItem="Lvf-nz-zGd" secondAttribute="centerY" id="rRF-fZ-pya"/>
+                                                        <constraint firstAttribute="width" constant="150" id="sa3-WV-qXZ"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRG-Ge-b0w" customClass="RSDRoundedButton" customModule="ResearchUI">
+                                                    <rect key="frame" x="246" y="30" width="150" height="52"/>
+                                                    <color key="backgroundColor" red="0.25490196079999999" green="0.40784313729999999" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="52" id="3ii-vo-JPL"/>
+                                                        <constraint firstAttribute="width" constant="150" id="I1S-Fv-EbY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                                    <state key="normal" title="Begin">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Lvf-nz-zGd" firstAttribute="centerY" secondItem="9NR-gT-TTG" secondAttribute="centerY" id="80L-5Q-B1U"/>
+                                                <constraint firstItem="bRG-Ge-b0w" firstAttribute="leading" secondItem="bfF-s3-56x" secondAttribute="trailing" constant="40" id="BHj-p7-uEF"/>
+                                                <constraint firstItem="bfF-s3-56x" firstAttribute="leading" secondItem="9NR-gT-TTG" secondAttribute="leading" constant="18" id="FBL-Yy-ORb"/>
+                                                <constraint firstAttribute="trailing" secondItem="Lvf-nz-zGd" secondAttribute="trailing" constant="18" id="Mgb-kC-0vr"/>
+                                                <constraint firstAttribute="trailing" secondItem="bRG-Ge-b0w" secondAttribute="trailing" constant="18" id="o2e-0R-pM9"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Pj-4L-0Bp" userLabel="Divider">
+                                            <rect key="frame" x="0.0" y="104" width="414" height="8"/>
+                                            <color key="backgroundColor" name="appPrimary"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="8" id="6KK-iu-AcD"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bfF-s3-56x" firstAttribute="centerY" secondItem="JJ1-ZW-7yT" secondAttribute="centerY" id="5D7-Vj-jld"/>
+                                        <constraint firstItem="9NR-gT-TTG" firstAttribute="top" secondItem="JJ1-ZW-7yT" secondAttribute="top" id="Bp5-SH-T8m"/>
+                                        <constraint firstItem="8Pj-4L-0Bp" firstAttribute="leading" secondItem="JJ1-ZW-7yT" secondAttribute="leading" id="EDI-AU-fmZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="9NR-gT-TTG" secondAttribute="trailing" id="FCo-eh-nij"/>
+                                        <constraint firstItem="9NR-gT-TTG" firstAttribute="leading" secondItem="JJ1-ZW-7yT" secondAttribute="leading" id="L7I-Xn-9mG"/>
+                                        <constraint firstItem="bRG-Ge-b0w" firstAttribute="centerY" secondItem="JJ1-ZW-7yT" secondAttribute="centerY" id="QgK-tH-bae"/>
+                                        <constraint firstItem="8Pj-4L-0Bp" firstAttribute="top" secondItem="9NR-gT-TTG" secondAttribute="bottom" id="go0-LD-WPO"/>
+                                        <constraint firstAttribute="bottom" secondItem="8Pj-4L-0Bp" secondAttribute="bottom" id="h6h-Vq-TpN"/>
+                                        <constraint firstAttribute="trailing" secondItem="8Pj-4L-0Bp" secondAttribute="trailing" id="zda-T4-frO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="actionButton" destination="bRG-Ge-b0w" id="aac-Zf-tDV"/>
+                                    <outlet property="dividerView" destination="8Pj-4L-0Bp" id="WPL-or-eos"/>
+                                    <outlet property="doneContainer" destination="Lvf-nz-zGd" id="qcH-l3-XLV"/>
+                                    <outlet property="doneLabel" destination="ATD-j6-CF4" id="lz4-49-w9o"/>
+                                    <outlet property="titleLabel" destination="bfF-s3-56x" id="XBc-MX-l9D"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="IZb-Fb-rvx" id="64N-Bj-VYW"/>
+                            <outlet property="delegate" destination="IZb-Fb-rvx" id="W4U-Ya-qQd"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d28-0j-ftP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447.82608695652175" y="90.401785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="DoneSmall" width="28" height="28"/>
+        <image name="Header" width="189" height="72"/>
+        <namedColor name="appPrimary">
+            <color red="0.96078431372549022" green="0.70196078431372544" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

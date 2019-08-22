@@ -97,6 +97,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     var deepLinkActivity: ActivityType?
     var activitiesLoaded: Bool = false
     
+    let endStudyTaskIdentifier = "endStudyTask"
     let hasRunWeek1CompleteKey = "hasRunWeek1CompleteTask"
     let week1CompleteTaskId = "Week1Complete"
     
@@ -239,8 +240,13 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     }
     
     @IBAction func endStudyTapped() {
-        // TODO: mdephillips 8/8/19 show leave study pin screen
-        self.presentAlertWithOk(title: "This feature will be implemented in a future version", message: "", actionHandler: nil)
+        let endStudyStep = EndStudyPinStepObject(identifier: "endStudy")
+        var navigator = RSDConditionalStepNavigatorObject(with: [endStudyStep])
+        navigator.progressMarkers = []
+        let task = RSDTaskObject(identifier: endStudyTaskIdentifier, stepNavigator: navigator)
+        let taskViewController = RSDTaskViewController(task: task)
+        taskViewController.delegate = self
+        self.present(taskViewController, animated: true, completion: nil)
     }
     
     @IBAction func sleepCheckInTapped() {
@@ -418,8 +424,9 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         
         let completed = (error == nil && reason == .completed)
         
+        let taskId = taskController.task.identifier
         // If we completed the week 1 complete task, save its new state
-        if completed && taskController.task.identifier == week1CompleteTaskId {
+        if completed && taskId == week1CompleteTaskId {
             self.setHasRunWeek1CompleteTask()
         }
         
@@ -437,6 +444,11 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
                     activityUnwrapped.complete(for: self.scheduleManager.dayOfCurrentActivity)
                     self.refreshUI()
                     self.presentReminderTaskIfApplicable(afterCompleted: activityUnwrapped.reminderType())
+                }
+                
+                if taskId == self.endStudyTaskIdentifier,
+                    let appDelegate = AppDelegate.shared as? AppDelegate {
+                    appDelegate.endStudy()
                 }
                 
                 self.runDeepLinkIfApplicable()

@@ -68,7 +68,9 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
      See https://ajkueterman.com/apple/wwdc/sfauthenticationsession-and-aswebauthenticationsession/
      */
     var authSession: SFAuthenticationSession?
-    var fitbitCompletionHandler: FitbitCompletionHandler?    
+    var fitbitCompletionHandler: FitbitCompletionHandler?
+    
+    let studyEndedKey = "studyEnded"
 
     override func instantiateColorPalette() -> RSDColorPalette? {
         return AppDelegate.colorPalette
@@ -78,7 +80,11 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         let isFitbitConnected = UserDefaults.standard.bool(forKey: FitbitStep.isFitbitConnectedKey)
         let haveShownStudyIntro = UserDefaults.standard.bool(forKey: haveShownStudyIntroKey)
         if BridgeSDK.authManager.isAuthenticated() && isFitbitConnected && haveShownStudyIntro {
-            showMainViewController(animated: animated)
+            if self.isStudyEnded() {
+                self.showEndOfStudyViewController(animated: animated)
+            } else {
+                showMainViewController(animated: animated)
+            }
         } else {
             showSignInViewController(animated: animated)
         }
@@ -137,6 +143,32 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         }
         self.transition(to: vc, state: .main, animated: true)
         setDeepLinkActivityOnViewController()
+    }
+    
+    func showEndOfStudyViewController(animated: Bool) {
+        guard let storyboard = openStoryboard("EndOfStudy"),
+            let vc = storyboard.instantiateInitialViewController()
+            else {
+                fatalError("Failed to instantiate initial view controller in the main storyboard.")
+        }
+        guard let window = self.window else { return }
+        if let root = self.rootViewController {
+            root.set(viewController: vc, state: .main, animated: animated)
+        }
+        else {
+            if (animated) {
+                UIView.transition(with: window,
+                                  duration: 0.3,
+                                  options: .transitionCrossDissolve,
+                                  animations: {
+                                    window.rootViewController = vc
+                },
+                                  completion: nil)
+            }
+            else {
+                window.rootViewController = vc
+            }
+        }
     }
     
     func showSignInViewController(animated: Bool) {
@@ -275,6 +307,15 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         // SFAuthenticationSession from there. emm 2017-11-03
         self.authSession = SFAuthenticationSession(url: authURL, callbackURLScheme: nil, completionHandler: self.fitbitAuthCompletionHandler)
         authSession!.start()
+    }
+    
+    func endStudy() {
+        UserDefaults.standard.set(true, forKey: studyEndedKey)
+        self.showEndOfStudyViewController(animated: true)
+    }
+    
+    func isStudyEnded() -> Bool {
+        return UserDefaults.standard.bool(forKey: studyEndedKey)
     }
 }
 
