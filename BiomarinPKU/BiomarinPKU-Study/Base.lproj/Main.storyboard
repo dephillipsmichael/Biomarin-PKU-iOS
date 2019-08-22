@@ -71,9 +71,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukb-hf-m90" customClass="RSDUnderlinedButton" customModule="ResearchUI">
-                                        <rect key="frame" x="191" y="44.5" width="151" height="40"/>
+                                        <rect key="frame" x="191" y="52.5" width="151" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="WVt-C5-joH"/>
+                                            <constraint firstAttribute="height" constant="24" id="WVt-C5-joH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="(Tap to End Study)">

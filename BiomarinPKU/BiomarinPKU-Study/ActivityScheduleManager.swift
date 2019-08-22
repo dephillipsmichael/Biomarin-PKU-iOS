@@ -63,6 +63,18 @@ public class ActivityScheduleManager : SBAScheduleManager {
         return self.scheduledActivities.first?.scheduledOn.startOfDay() ?? today.startOfDay()
     }
     
+    public let endOfStudySortOrder: [RSDIdentifier] =
+        [.tappingTask, .tremorTask, .kineticTremorTask, .attentionalBlinkTask, .symbolSubstitutionTask, .goNoGoTask, .nBackTask, .spatialMemoryTask, .taskSwitchTask, .dailyCheckInTask, .sleepCheckInTask]
+    
+    open var endOfStudySortedSchedules: [SBBScheduledActivity]? {
+        guard (scheduledActivities.count) > 0 else { return nil }
+        return scheduledActivities.sorted(by: { (scheduleA, scheduleB) -> Bool in
+            let idxA = endOfStudySortOrder.firstIndex(of: RSDIdentifier(rawValue: scheduleA.activityIdentifier ?? "")) ?? endOfStudySortOrder.count
+            let idxB = endOfStudySortOrder.firstIndex(of: RSDIdentifier(rawValue: scheduleB.activityIdentifier ?? "")) ?? endOfStudySortOrder.count
+            return idxA < idxB
+        })
+    }
+    
     // The current activity task the user is doing
     public var currentActivity: ActivityType? = nil
     // The day of study that the user started doing the current activity task
@@ -129,6 +141,14 @@ public class ActivityScheduleManager : SBAScheduleManager {
         taskController.taskViewModel.taskResult.stepHistory.append(RSDAnswerResultObject(identifier: "dayOfStudy", answerType: .integer, value: dayOfCurrentActivity))
         
         super.taskController(taskController, readyToSave: taskViewModel)
+    }
+    
+    func completeEndOfStudy(taskIdentifier: String) {
+        UserDefaults.standard.set(true, forKey: "endOfStudyComplete\(taskIdentifier)")
+    }
+    
+    func isEndOfStudyComplete(taskIdentifier: String) -> Bool {
+        return UserDefaults.standard.bool(forKey: "endOfStudyComplete\(taskIdentifier)")
     }
 }
 

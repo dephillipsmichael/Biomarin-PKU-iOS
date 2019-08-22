@@ -121,4 +121,8 @@
 
 "REMINDER_PERMISSION_ERROR" = "This app needs the notification permission to schedule a reminder.\n\nYou can enable the notification permission by turning on 'Allow notifications' in the app's settings.";
 
+"INCORRECT_PIN" = "The PIN you entered is incorrect. Ask your study coordinator and try again.";
+"ENTER_PIN_TITLE" = "Please ask the study coordinator for the PIN to end the study";
+"ENTER_PIN" = "Enter PIN";
+
 

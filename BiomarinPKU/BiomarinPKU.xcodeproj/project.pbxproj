@@ -67,6 +67,11 @@
 		CB9DBB4A22D658BD00F89E77 /* PKUCodableStepObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */; };
 		CB9DBB4C22D658D300F89E77 /* PKUCopyStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */; };
 		CBD4F70722A4670B000C402F /* Task Switch.json in Resources */ = {isa = PBXBuildFile; fileRef = CBD4F70522A4670B000C402F /* Task Switch.json */; };
+		CBEC4FCF230DC245007542D5 /* EndyStudyPinStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC4FCD230DC244007542D5 /* EndyStudyPinStepViewController.swift */; };
+		CBEC4FD0230DC245007542D5 /* EndStudyPinStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBEC4FCE230DC245007542D5 /* EndStudyPinStepViewController.xib */; };
+		CBEC4FD2230DC463007542D5 /* BaseTextFieldStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC4FD1230DC463007542D5 /* BaseTextFieldStepViewController.swift */; };
+		CBEC4FD5230DCA3B007542D5 /* EndOfStudy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBEC4FD3230DCA3B007542D5 /* EndOfStudy.storyboard */; };
+		CBEC4FDA230DCCB8007542D5 /* EndOfStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC4FD9230DCCB8007542D5 /* EndOfStudyViewController.swift */; };
 		CBF8CB4C228F844A0089BDF0 /* lato_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB42228F84460089BDF0 /* lato_black.ttf */; };
 		CBF8CB4E228F844E0089BDF0 /* lato_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB43228F84460089BDF0 /* lato_bold.ttf */; };
 		CBF8CB4F228F844E0089BDF0 /* lato_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */; };
@@ -246,6 +251,11 @@
 		CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCopyStepTests.swift; sourceTree = "<group>"; };
 		CBD4F70622A4670B000C402F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = "Base.lproj/Task Switch.json"; sourceTree = "<group>"; };
 		CBD4F71B22A496D3000C402F /* EmojiChoiceTableStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiChoiceTableStepViewController.swift; sourceTree = "<group>"; };
+		CBEC4FCD230DC244007542D5 /* EndyStudyPinStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndyStudyPinStepViewController.swift; sourceTree = "<group>"; };
+		CBEC4FCE230DC245007542D5 /* EndStudyPinStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EndStudyPinStepViewController.xib; sourceTree = "<group>"; };
+		CBEC4FD1230DC463007542D5 /* BaseTextFieldStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextFieldStepViewController.swift; sourceTree = "<group>"; };
+		CBEC4FD4230DCA3B007542D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EndOfStudy.storyboard; sourceTree = "<group>"; };
+		CBEC4FD9230DCCB8007542D5 /* EndOfStudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndOfStudyViewController.swift; sourceTree = "<group>"; };
 		CBF8CB42228F84460089BDF0 /* lato_black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_black.ttf; sourceTree = "<group>"; };
 		CBF8CB43228F84460089BDF0 /* lato_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bold.ttf; sourceTree = "<group>"; };
 		CBF8CB45228F84460089BDF0 /* lato_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lato_bolditalic.ttf; sourceTree = "<group>"; };
@@ -354,6 +364,10 @@
 				CB2C40F82304863300FC4745 /* ReminderStepViewController.swift */,
 				CB2C40FA2304864E00FC4745 /* ReminderStepViewController.xib */,
 				CB53CC76230994A10028F85C /* SettingsViewController.swift */,
+				CBEC4FCD230DC244007542D5 /* EndyStudyPinStepViewController.swift */,
+				CBEC4FCE230DC245007542D5 /* EndStudyPinStepViewController.xib */,
+				CBEC4FD1230DC463007542D5 /* BaseTextFieldStepViewController.swift */,
+				CBEC4FD9230DCCB8007542D5 /* EndOfStudyViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -559,6 +573,7 @@
 			children = (
 				CB0D00A122E804B900F5DD4D /* AppDelegate.swift */,
 				FF3CC63122D7BAA70037E65B /* Main.storyboard */,
+				CBEC4FD3230DCA3B007542D5 /* EndOfStudy.storyboard */,
 				CB3B194D22FCCDF4007CF330 /* Assets.xcassets */,
 				CB0D00A422E8083700F5DD4D /* Model */,
 				CB0D00A522E80A4F00F5DD4D /* View Controllers */,
@@ -800,6 +815,7 @@
 				FF3CC64622D7C1FB0037E65B /* lato_light.ttf in Resources */,
 				FF3CC65022D7C2B00037E65B /* Task Switch.json in Resources */,
 				FF3CC64122D7C1B70037E65B /* LaunchScreen.storyboard in Resources */,
+				CBEC4FD5230DCA3B007542D5 /* EndOfStudy.storyboard in Resources */,
 				FF3CC64A22D7C2AA0037E65B /* PKU.strings in Resources */,
 				FF3CC64322D7C1FB0037E65B /* lato_bold.ttf in Resources */,
 				CB7F4CCE22FF5D5B003EBB5C /* LearnMoreStepViewController.xib in Resources */,
@@ -809,6 +825,7 @@
 				FF3CC64222D7C1FB0037E65B /* lato_black.ttf in Resources */,
 				FF3CC64B22D7C2B00037E65B /* Attentional Blink.json in Resources */,
 				FF3CC63322D7BAA70037E65B /* Main.storyboard in Resources */,
+				CBEC4FD0230DC245007542D5 /* EndStudyPinStepViewController.xib in Resources */,
 				FF3CC64C22D7C2B00037E65B /* Symbol Substitution.json in Resources */,
 				CB0D00C022EE36BF00F5DD4D /* BBLStudy-BioMarin-PKU.bundle in Resources */,
 				FF3CC64822D7C1FB0037E65B /* lato_regular.ttf in Resources */,
@@ -916,15 +933,18 @@
 				FF3CC64922D7C2100037E65B /* PKUBuildDateUtil.m in Sources */,
 				CB7F4CCB22FF4DEB003EBB5C /* LearnMoreStepViewController.swift in Sources */,
 				CB0D00A722E80B1A00F5DD4D /* ActivityViewController.swift in Sources */,
+				CBEC4FCF230DC245007542D5 /* EndyStudyPinStepViewController.swift in Sources */,
 				CB0D00C422EE3CA500F5DD4D /* BrainBaselineManager.swift in Sources */,
 				CB7F4CC822FF2103003EBB5C /* PKUTaskFactory.swift in Sources */,
 				CB0D00A222E804B900F5DD4D /* AppDelegate.swift in Sources */,
 				CB3B195622FD00E5007CF330 /* ActivityScheduleManager.swift in Sources */,
+				CBEC4FD2230DC463007542D5 /* BaseTextFieldStepViewController.swift in Sources */,
 				CB0D00CB22EE463E00F5DD4D /* FontRules.swift in Sources */,
 				CB1A259B22F65BA400ED3A57 /* ExternalIDRegistrationViewController.swift in Sources */,
 				CB53CC77230994A10028F85C /* SettingsViewController.swift in Sources */,
 				FF3CC65422D7C2C80037E65B /* EmojiChoiceTableStepViewController.swift in Sources */,
 				CB0D00C622EE3CFF00F5DD4D /* BrainBaselineStepViewController.swift in Sources */,
+				CBEC4FDA230DCCB8007542D5 /* EndOfStudyViewController.swift in Sources */,
 				CB2C40F92304863300FC4745 /* ReminderStepViewController.swift in Sources */,
 				FF3CC65722D7C2D30037E65B /* MotorControl+Bridge.swift in Sources */,
 			);
@@ -1008,6 +1028,14 @@
 				CBD4F70622A4670B000C402F /* Base */,
 			);
 			name = "Task Switch.json";
+			sourceTree = "<group>";
+		};
+		CBEC4FD3230DCA3B007542D5 /* EndOfStudy.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBEC4FD4230DCA3B007542D5 /* Base */,
+			);
+			name = EndOfStudy.storyboard;
 			sourceTree = "<group>";
 		};
 		F806117D227BA025005FCABF /* Main.storyboard */ = {

@@ -104,6 +104,7 @@ open class ReminderManager : NSObject, UNUserNotificationCenterDelegate {
     public func cancelAllNotifications() {
         debugPrint("Cancelling all notifications")
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
     public func cancelNotification(for type: ReminderType) {

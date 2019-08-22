@@ -379,6 +379,7 @@ class ReminderStepViewController: RSDStepViewController, UIScrollViewDelegate, U
                             if let url = URL(string:UIApplication.openSettingsURLString),
                                 UIApplication.shared.canOpenURL(url) {
                                 let settingsAction = UIAlertAction(title: Localization.localizedString("GOTO_SETTINGS"), style: .default) { (_) in
+                                    self.doNotRemindMeButton.isSelected = true
                                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                                 }
                                 actions.append(settingsAction)
@@ -386,6 +387,7 @@ class ReminderStepViewController: RSDStepViewController, UIScrollViewDelegate, U
                             
                             let okAction = UIAlertAction(title: Localization.buttonOK(), style: .default) { (_) in
                                 // no-op other than dismiss
+                                self.doNotRemindMeButton.isSelected = true
                             }
                             actions.append(okAction)
                             self.presentAlertWithActions(title: title, message: message, preferredStyle: .alert, actions: actions)
