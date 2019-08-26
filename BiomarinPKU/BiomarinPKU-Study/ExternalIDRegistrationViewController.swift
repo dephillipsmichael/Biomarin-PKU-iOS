@@ -94,7 +94,7 @@ class ExternalIDRegistrationViewController: BaseTextFieldStepViewController, UIT
         let text = self.textField?.text
         if text?.isEmpty ?? true { return nil }
         // Remove the hyphen text from the external ID
-        return text?.replacingOccurrences(of: hyphenText, with: "")
+        return text?.replacingOccurrences(of: " ", with: "") // remove spaces
     }
     
     ///
