@@ -53,6 +53,7 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.tremor).task)
         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.tapping).task)
         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.kineticTremor).task)
+        SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.restingKineticTremor).task)
         
         // reload the schedules and add an observer to observe changes.
         scheduleManager.reloadData()
