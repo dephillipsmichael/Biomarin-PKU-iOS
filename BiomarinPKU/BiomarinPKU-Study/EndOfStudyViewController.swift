@@ -38,6 +38,8 @@ import MotorControl
 
 class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDelegate, RSDButtonCellDelegate {
     
+    let endStudyCompleteTaskId = "endStudyComplete"
+    
     var scheduleManager: ActivityScheduleManager {
         return ActivityScheduleManager.shared
     }
@@ -143,15 +145,39 @@ class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDele
                 dictionary.keys.forEach { key in
                     defaults.removeObject(forKey: key)
                 }
-                (AppDelegate.shared as? AppDelegate)?.showAppropriateViewController(animated: true)
+                
+                // Show end of study completion screen
+                var navigator = RSDConditionalStepNavigatorObject(with: [self.studyCompleteStep()])
+                navigator.progressMarkers = []
+                let task = RSDTaskObject(identifier: self.endStudyCompleteTaskId, stepNavigator: navigator)
+                let vc = RSDTaskViewController(task: task)
+                vc.delegate = self
+                self.present(vc, animated: true, completion: nil)
             }
         }
+    }
+    
+    func studyCompleteStep() -> RSDStep {
+        let step = IntroStepObject(identifier: "intro1")
+        step.title = Localization.localizedString("STUDY_COMPLETE_TITLE")
+        step.text = Localization.localizedString("STUDY_COMPLETE_TEXT")
+        step.shouldHideActions = [.navigation(.cancel), .navigation(.goBackward), .navigation(.skip)]
+        step.imageTheme = RSDFetchableImageThemeElementObject(imageName: "EndStudyCompleteHeader")
+        return step
     }
     
     func taskController(_ taskController: RSDTaskController, didFinishWith reason: RSDTaskFinishReason, error: Error?) {
         
         // dismiss the view controller
-        (taskController as? UIViewController)?.dismiss(animated: true, completion: nil)
+        (taskController as? UIViewController)?.dismiss(animated: true, completion: {
+            if taskController.task.identifier == self.endStudyCompleteTaskId {
+                (AppDelegate.shared as? AppDelegate)?.showAppropriateViewController(animated: true)
+            }
+        })
+        
+        if taskController.task.identifier == self.endStudyCompleteTaskId {
+            return // the completion block will send the user to another screen
+        }
         
         // Let the schedule manager handle the cleanup.
         scheduleManager.taskController(taskController, didFinishWith: reason, error: error)
