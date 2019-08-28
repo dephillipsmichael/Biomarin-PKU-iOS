@@ -97,6 +97,14 @@ class ExternalIDRegistrationViewController: BaseTextFieldStepViewController, UIT
         return text?.replacingOccurrences(of: " ", with: "") // remove spaces
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.dismissKeyboard()
+        if self.submitButton.isEnabled {
+            self.submitTapped()
+        }
+        return true
+    }
+    
     ///
     /// The External ID textfield (displayed as Participant ID to the user)
     /// has the format of [4 digit site ID] [4 digit participant ID]

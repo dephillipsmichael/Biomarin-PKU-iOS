@@ -208,8 +208,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         
         // Setup external ID to display as XXXX - XXXXX
         if let externalID = SBAParticipantManager.shared.studyParticipant?.externalId {
-            let fourthIndex = externalID.index(externalID.startIndex, offsetBy: 4)
-            self.accountLabel.text = "\(externalID.prefix(upTo: fourthIndex)) - \(externalID.suffix(from: fourthIndex))"
+            self.accountLabel.text = externalID.replacingOccurrences(of: "-", with: " - ")
         }
         self.endStudyButton.setTitle(Localization.localizedString("TAP_TO_END_STUDY_BUTTON"), for: .normal)
         
