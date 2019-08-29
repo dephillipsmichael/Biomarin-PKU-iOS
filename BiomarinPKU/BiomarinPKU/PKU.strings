@@ -77,8 +77,8 @@
 "AFTER_WEEK_1_EXPIRES_WEEKLY_FORMAT_HOURS_%@" = "Weekly activities expire in %@";
 "AFTER_WEEK_1_RENEW_WEEKLY_FORMAT_DAYS_%@" = "Weekly activities renew in %@ days";
 "AFTER_WEEK_1_RENEW_WEEKLY_FORMAT_HOURS_%@" = "Weekly activities renew in %@";
-"DONE_FOR_DAY" = "Done for day";
-"DONE_FOR_WEEK" = "Done for week";
+"DONE_FOR_DAY" = "Done for the day";
+"DONE_FOR_WEEK" = "Done for the week";
 
 "ACTIVITY_PHYSICAL" = "Physical Challenge";
 "ACTIVITY_COGNITION" = "Cognitive Challenge";

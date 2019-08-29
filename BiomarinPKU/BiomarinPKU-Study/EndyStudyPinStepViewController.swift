@@ -57,6 +57,14 @@ class EndStudyPinStepViewController: BaseTextFieldStepViewController, UITextFiel
         self.textField.delegate = self
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.dismissKeyboard()
+        if self.submitButton.isEnabled {
+            self.submitTapped()
+        }
+        return true
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let text = textField.text ?? ""
         if let textRange = Range(range, in: text) {
