@@ -1241,7 +1241,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.sagebionetworks.BiomarinPKU;
+				PRODUCT_BUNDLE_IDENTIFIER = org.sageBionetworks.BiomarinPKU.trainingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BiomarinPKU/BiomarinPKU-Bridging-Header.h";
@@ -1269,7 +1269,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.sagebionetworks.BiomarinPKU;
+				PRODUCT_BUNDLE_IDENTIFIER = org.sageBionetworks.BiomarinPKU.trainingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BiomarinPKU/BiomarinPKU-Bridging-Header.h";
