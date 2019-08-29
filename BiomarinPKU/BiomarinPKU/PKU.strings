@@ -50,6 +50,9 @@
 "STUDY_INTRO_TEXT_1" = "Welcome to Day 1 of your journey!\n\nFor the first week you’ll be doing all 4 activities every day.";
 "STUDY_INTRO_TEXT_2" = "Following Week One, you will only need to do the Check-Ins daily and can choose which day you’d like to be reminded to do your weekly Cognition and Physical Challenge.\n\nReady to get started?";
 
+"STUDY_COMPLETE_TITLE" = "Thank you for being a part of the study!";
+"STUDY_COMPLETE_TEXT" = "Your data is helping the team to understand PKU. Please give the phone back to the research coordinator on your next visit.";
+
 "WEEK_1_COMPLETE_TITLE_1" = "You've completed Week One!";
 "WEEK_1_COMPLETE_TEXT" = "For the next phase of the study, you will continue to do check-ins every day, but the physical challenge and cognitive challenge will be once per week on a day you choose.";
 "WEEK_1_COMPLETE_NEXT_BUTTON" = "Set days for challenges";
