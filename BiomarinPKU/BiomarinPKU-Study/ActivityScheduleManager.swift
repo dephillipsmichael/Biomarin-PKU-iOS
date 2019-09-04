@@ -64,7 +64,7 @@ public class ActivityScheduleManager : SBAScheduleManager {
     }
     
     public let endOfStudySortOrder: [RSDIdentifier] =
-        [.tappingTask, .tremorTask, .kineticTremorTask, .attentionalBlinkTask, .symbolSubstitutionTask, .goNoGoTask, .nBackTask, .spatialMemoryTask, .taskSwitchTask, .dailyCheckInTask, .sleepCheckInTask]
+        [.tappingTask, .restingKineticTremorTask, .attentionalBlinkTask, .symbolSubstitutionTask, .goNoGoTask, .nBackTask, .spatialMemoryTask, .taskSwitchTask, .dailyCheckInTask, .sleepCheckInTask]
     
     open var endOfStudySortedSchedules: [SBBScheduledActivity]? {
         guard (scheduledActivities.count) > 0 else { return nil }
@@ -86,6 +86,7 @@ public class ActivityScheduleManager : SBAScheduleManager {
         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.tremor).task)
         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.tapping).task)
         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.kineticTremor).task)
+        SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.restingKineticTremor).task)
     }
     
     override public func availablePredicate() -> NSPredicate {
@@ -124,6 +125,8 @@ public class ActivityScheduleManager : SBAScheduleManager {
                 return "Tremor.mp4"
             case MCTTaskIdentifier.kineticTremor.rawValue:
                 return "KineticTremor.mp4"
+            case MCTTaskIdentifier.restingKineticTremor.rawValue:
+                return "RestingKineticTremor.mp4"
             default:
                 return nil
             }
@@ -159,7 +162,8 @@ public enum ActivityType: Int, CaseIterable {
     case daily = 3
     
     func isComplete(for day: Int) -> Bool {
-        return UserDefaults.standard.bool(forKey: completeDefaultKey(for: day))
+        return false
+        //return UserDefaults.standard.bool(forKey: completeDefaultKey(for: day))
     }
     
     func complete(for day: Int) {
@@ -206,22 +210,18 @@ public enum ActivityType: Int, CaseIterable {
             return RSDIdentifier.dailyCheckInTask.identifier
         case .physical:
             if week <= 1 { // Week 1 logic, rotate every 3 days
-                switch day % 3 {
+                switch day % 2 {
                 case 1:
-                    return RSDIdentifier.tappingTask.identifier
-                case 2:
-                    return RSDIdentifier.tremorTask.identifier
+                    return RSDIdentifier.restingKineticTremorTask.identifier
                 default: // case 0:
-                    return RSDIdentifier.kineticTremorTask.identifier
+                    return RSDIdentifier.restingKineticTremorTask.identifier
                 }
             } else { // All weeks after week 1
-                switch week % 3 {
+                switch week % 2 {
                 case 1:
-                    return RSDIdentifier.tappingTask.identifier
-                case 2:
-                    return RSDIdentifier.tremorTask.identifier
+                    return RSDIdentifier.restingKineticTremorTask.identifier
                 default: // case 0:
-                    return RSDIdentifier.kineticTremorTask.identifier
+                    return RSDIdentifier.restingKineticTremorTask.identifier
                 }
             }
         case .cognition:

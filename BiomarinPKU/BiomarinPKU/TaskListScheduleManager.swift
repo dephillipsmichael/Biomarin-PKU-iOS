@@ -38,7 +38,7 @@ import MotorControl
 /// Subclass the schedule manager to set up a predicate to filter the schedules.
 public class TaskListScheduleManager : SBAScheduleManager {
     
-    public let tasks: [RSDIdentifier] = [.tappingTask, .tremorTask, .kineticTremorTask,
+    public let tasks: [RSDIdentifier] = [.tappingTask, .restingKineticTremorTask,
         .attentionalBlinkTask, .symbolSubstitutionTask, .goNoGoTask, .nBackTask,
         .spatialMemoryTask, .taskSwitchTask]
     
@@ -68,6 +68,8 @@ public class TaskListScheduleManager : SBAScheduleManager {
             return MCTTaskInfo(MCTTaskIdentifier.tremor)
         } else if (taskId == .kineticTremorTask) {
             return MCTTaskInfo(MCTTaskIdentifier.kineticTremor)
+        } else if (taskId == .restingKineticTremorTask) {
+            return MCTTaskInfo(MCTTaskIdentifier.restingKineticTremor)
         } else {
             return RSDTaskInfoObject(with: taskId.rawValue)
         }
@@ -88,6 +90,8 @@ public class TaskListScheduleManager : SBAScheduleManager {
             return "Phone Hold"
         case .kineticTremorTask:
             return "Finger-to-Nose"
+        case .restingKineticTremorTask:
+            return "Tremor"
         case .symbolSubstitutionTask:
             return "Digit Symbol Substitution"
         case .goNoGoTask:
@@ -123,6 +127,8 @@ public class TaskListScheduleManager : SBAScheduleManager {
                 return "Tremor.mp4"
             case MCTTaskIdentifier.kineticTremor.rawValue:
                 return "KineticTremor.mp4"
+            case MCTTaskIdentifier.restingKineticTremor.rawValue:
+                return "RestingKineticTremor.mp4"
             default:
                 return nil
             }

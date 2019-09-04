@@ -127,36 +127,36 @@ class ActivityScheduleManagerTests: XCTestCase {
         XCTAssertEqual(day1, RSDIdentifier.tappingTask.identifier)
         
         let day2 = ActivityType.physical.taskIdentifier(for: 2)
-        XCTAssertEqual(day2, RSDIdentifier.tremorTask.identifier)
+        XCTAssertEqual(day2, RSDIdentifier.restingKineticTremorTask.identifier)
         
         let day3 = ActivityType.physical.taskIdentifier(for: 3)
-        XCTAssertEqual(day3, RSDIdentifier.kineticTremorTask.identifier)
+        XCTAssertEqual(day3, RSDIdentifier.tappingTask.identifier)
         
         let day4 = ActivityType.physical.taskIdentifier(for: 4)
-        XCTAssertEqual(day4, RSDIdentifier.tappingTask.identifier)
+        XCTAssertEqual(day4, RSDIdentifier.restingKineticTremorTask.identifier)
         
         let day5 = ActivityType.physical.taskIdentifier(for: 5)
-        XCTAssertEqual(day5, RSDIdentifier.tremorTask.identifier)
+        XCTAssertEqual(day5, RSDIdentifier.tappingTask.identifier)
         
         let day6 = ActivityType.physical.taskIdentifier(for: 6)
-        XCTAssertEqual(day6, RSDIdentifier.kineticTremorTask.identifier)
+        XCTAssertEqual(day6, RSDIdentifier.restingKineticTremorTask.identifier)
         
         let day7 = ActivityType.physical.taskIdentifier(for: 7)
         XCTAssertEqual(day7, RSDIdentifier.tappingTask.identifier)
         
         for dayIdx in 8...14 { // Week 2
             let day = ActivityType.physical.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.tremorTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.restingKineticTremorTask.identifier)
         }
         
         for dayIdx in 15...21 { // Week 3
             let day = ActivityType.physical.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.kineticTremorTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.tappingTask.identifier)
         }
         
         for dayIdx in 22...28 { // Week 3
             let day = ActivityType.physical.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.tappingTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.restingKineticTremorTask.identifier)
         }
     }
     
