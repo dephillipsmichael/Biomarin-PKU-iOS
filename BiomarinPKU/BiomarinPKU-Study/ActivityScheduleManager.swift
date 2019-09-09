@@ -162,8 +162,7 @@ public enum ActivityType: Int, CaseIterable {
     case daily = 3
     
     func isComplete(for day: Int) -> Bool {
-        return false
-        //return UserDefaults.standard.bool(forKey: completeDefaultKey(for: day))
+        return UserDefaults.standard.bool(forKey: completeDefaultKey(for: day))
     }
     
     func complete(for day: Int) {
