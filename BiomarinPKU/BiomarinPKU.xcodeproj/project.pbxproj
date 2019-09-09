@@ -62,6 +62,9 @@
 		CB80522522D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80522422D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift */; };
 		CB9DBB4A22D658BD00F89E77 /* PKUCodableStepObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */; };
 		CB9DBB4C22D658D300F89E77 /* PKUCopyStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */; };
+		CBB5A8A82326D63A00CD9DCA /* BridgeAppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB5A8A72326D63A00CD9DCA /* BridgeAppUI.framework */; };
+		CBB5A8A92326D64000CD9DCA /* BridgeAppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB5A8A72326D63A00CD9DCA /* BridgeAppUI.framework */; };
+		CBB5A8AA2326D64000CD9DCA /* BridgeAppUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CBB5A8A72326D63A00CD9DCA /* BridgeAppUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CBD18B0E2314962B00846B9E /* RestingKineticTremor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CBD18B0D2314962700846B9E /* RestingKineticTremor.mp4 */; };
 		CBD18B0F2314962B00846B9E /* RestingKineticTremor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CBD18B0D2314962700846B9E /* RestingKineticTremor.mp4 */; };
 		CBD18B112314966700846B9E /* Tremor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CBD18B102314966500846B9E /* Tremor.mp4 */; };
@@ -190,6 +193,7 @@
 				FF3CC66B22D7C5710037E65B /* BridgeSDK.framework in Embed Frameworks */,
 				FF3CC66E22D7C5A10037E65B /* ResearchMotion.framework in Embed Frameworks */,
 				FF3CC66122D7C5700037E65B /* BrainBaseline.framework in Embed Frameworks */,
+				CBB5A8AA2326D64000CD9DCA /* BridgeAppUI.framework in Embed Frameworks */,
 				FF3CC66522D7C5710037E65B /* Research.framework in Embed Frameworks */,
 				FF3CC66322D7C5710037E65B /* ResearchUI.framework in Embed Frameworks */,
 			);
@@ -249,6 +253,7 @@
 		CB80522422D7753B0050E834 /* BrainBaselineStepViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBaselineStepViewControllerTests.swift; sourceTree = "<group>"; };
 		CB9DBB4922D658BD00F89E77 /* PKUCodableStepObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCodableStepObjectTests.swift; sourceTree = "<group>"; };
 		CB9DBB4B22D658D300F89E77 /* PKUCopyStepTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKUCopyStepTests.swift; sourceTree = "<group>"; };
+		CBB5A8A72326D63A00CD9DCA /* BridgeAppUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BridgeAppUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD18B0D2314962700846B9E /* RestingKineticTremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = RestingKineticTremor.mp4; sourceTree = "<group>"; };
 		CBD18B102314966500846B9E /* Tremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tremor.mp4; sourceTree = "<group>"; };
 		CBD18B132314967700846B9E /* KineticTremor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = KineticTremor.mp4; sourceTree = "<group>"; };
@@ -331,9 +336,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB5A8A82326D63A00CD9DCA /* BridgeAppUI.framework in Frameworks */,
 				FF3CC66822D7C5710037E65B /* BridgeApp.framework in Frameworks */,
 				FF3CC66622D7C5710037E65B /* MotorControl.framework in Frameworks */,
 				FF3CC66A22D7C5710037E65B /* BridgeSDK.framework in Frameworks */,
+				CBB5A8A92326D64000CD9DCA /* BridgeAppUI.framework in Frameworks */,
 				FF3CC66D22D7C5A10037E65B /* ResearchMotion.framework in Frameworks */,
 				FF3CC66022D7C5700037E65B /* BrainBaseline.framework in Frameworks */,
 				FF3CC66422D7C5710037E65B /* Research.framework in Frameworks */,
@@ -531,6 +538,7 @@
 		F8087B88227BC7CB005BDDEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CBB5A8A72326D63A00CD9DCA /* BridgeAppUI.framework */,
 				CB5510EC22A08F3F0036CD6F /* BrainBaseline.framework */,
 				F8087B81227BC7B2005BDDEC /* ResearchUI.framework */,
 				F8087B7E227BC7B2005BDDEC /* Research.framework */,
