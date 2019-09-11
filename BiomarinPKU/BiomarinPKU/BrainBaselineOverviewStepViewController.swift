@@ -33,6 +33,7 @@
 
 import UIKit
 import BridgeApp
+import BridgeAppUI
 
 /// The scrolling brainbaseline overview step view controller is a custom subclass of
 /// uses a scrollview to allow showing detailed overview instructions.

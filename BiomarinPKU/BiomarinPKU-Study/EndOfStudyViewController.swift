@@ -33,6 +33,7 @@
 
 import UIKit
 import BridgeApp
+import BridgeAppUI
 import BridgeSDK
 import MotorControl
 
@@ -206,7 +207,7 @@ class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDele
     }
     
     func allComplete() -> Bool {
-        return self.scheduleManager.endOfStudySortOrder.filter( { !self.scheduleManager.isEndOfStudyComplete(taskIdentifier: $0.identifier) } ).count <= 0
+        return self.scheduleManager.endOfStudySortOrder.filter( { !self.scheduleManager.isEndOfStudyComplete(taskIdentifier: $0.rawValue) } ).count <= 0
     }
 }
 

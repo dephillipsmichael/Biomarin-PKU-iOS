@@ -33,6 +33,7 @@
 
 import UIKit
 import BridgeApp
+import BridgeAppUI
 
 class SettingsViewController: UITableViewController, RSDTaskViewControllerDelegate {
     
