@@ -53,110 +53,110 @@ class ActivityScheduleManagerTests: XCTestCase {
     func testWeek1Sleep() {
         for i in 1...7 {
             let taskId = ActivityType.sleep.taskIdentifier(for: i)
-            XCTAssertEqual(taskId, RSDIdentifier.sleepCheckInTask.identifier)
+            XCTAssertEqual(taskId, RSDIdentifier.sleepCheckInTask.rawValue)
         }
     }
     
     func testWeek1Daily() {
         for i in 1...7 {
             let taskId = ActivityType.daily.taskIdentifier(for: i)
-            XCTAssertEqual(taskId, RSDIdentifier.dailyCheckInTask.identifier)
+            XCTAssertEqual(taskId, RSDIdentifier.dailyCheckInTask.rawValue)
         }
     }
     
     func testWeek1Cognition() {
         let day1 = ActivityType.cognition.taskIdentifier(for: 1)
-        XCTAssertEqual(day1, RSDIdentifier.goNoGoTask.identifier)
+        XCTAssertEqual(day1, RSDIdentifier.goNoGoTask.rawValue)
         
         let day2 = ActivityType.cognition.taskIdentifier(for: 2)
-        XCTAssertEqual(day2, RSDIdentifier.symbolSubstitutionTask.identifier)
+        XCTAssertEqual(day2, RSDIdentifier.symbolSubstitutionTask.rawValue)
         
         let day3 = ActivityType.cognition.taskIdentifier(for: 3)
-        XCTAssertEqual(day3, RSDIdentifier.spatialMemoryTask.identifier)
+        XCTAssertEqual(day3, RSDIdentifier.spatialMemoryTask.rawValue)
         
         let day4 = ActivityType.cognition.taskIdentifier(for: 4)
-        XCTAssertEqual(day4, RSDIdentifier.nBackTask.identifier)
+        XCTAssertEqual(day4, RSDIdentifier.nBackTask.rawValue)
         
         let day5 = ActivityType.cognition.taskIdentifier(for: 5)
-        XCTAssertEqual(day5, RSDIdentifier.taskSwitchTask.identifier)
+        XCTAssertEqual(day5, RSDIdentifier.taskSwitchTask.rawValue)
         
         let day6 = ActivityType.cognition.taskIdentifier(for: 6)
-        XCTAssertEqual(day6, RSDIdentifier.attentionalBlinkTask.identifier)
+        XCTAssertEqual(day6, RSDIdentifier.attentionalBlinkTask.rawValue)
         
         let day7 = ActivityType.cognition.taskIdentifier(for: 7)
-        XCTAssertEqual(day7, RSDIdentifier.goNoGoTask.identifier)
+        XCTAssertEqual(day7, RSDIdentifier.goNoGoTask.rawValue)
         
         for dayIdx in 8...14 { // Week 2
             let day = ActivityType.cognition.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.symbolSubstitutionTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.symbolSubstitutionTask.rawValue)
         }
         
         for dayIdx in 15...21 { // Week 3
             let day = ActivityType.cognition.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.spatialMemoryTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.spatialMemoryTask.rawValue)
         }
         
         for dayIdx in 22...28 { // Week 3
             let day = ActivityType.cognition.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.nBackTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.nBackTask.rawValue)
         }
         
         for dayIdx in 29...35 { // Week 4
             let day = ActivityType.cognition.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.taskSwitchTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.taskSwitchTask.rawValue)
         }
         
         for dayIdx in 36...42 { // Week 5
             let day = ActivityType.cognition.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.attentionalBlinkTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.attentionalBlinkTask.rawValue)
         }
         
         for dayIdx in 43...49 { // Week 6
             let day = ActivityType.cognition.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.goNoGoTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.goNoGoTask.rawValue)
         }
         
         for dayIdx in 50...56 { // Week 7
             let day = ActivityType.cognition.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.symbolSubstitutionTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.symbolSubstitutionTask.rawValue)
         }
     }
     
     func testWeek1Physical() {
         let day1 = ActivityType.physical.taskIdentifier(for: 1)
-        XCTAssertEqual(day1, RSDIdentifier.tappingTask.identifier)
+        XCTAssertEqual(day1, RSDIdentifier.tappingTask.rawValue)
         
         let day2 = ActivityType.physical.taskIdentifier(for: 2)
-        XCTAssertEqual(day2, RSDIdentifier.tremorTask.identifier)
+        XCTAssertEqual(day2, RSDIdentifier.restingKineticTremorTask.rawValue)
         
         let day3 = ActivityType.physical.taskIdentifier(for: 3)
-        XCTAssertEqual(day3, RSDIdentifier.kineticTremorTask.identifier)
+        XCTAssertEqual(day3, RSDIdentifier.tappingTask.rawValue)
         
         let day4 = ActivityType.physical.taskIdentifier(for: 4)
-        XCTAssertEqual(day4, RSDIdentifier.tappingTask.identifier)
+        XCTAssertEqual(day4, RSDIdentifier.restingKineticTremorTask.rawValue)
         
         let day5 = ActivityType.physical.taskIdentifier(for: 5)
-        XCTAssertEqual(day5, RSDIdentifier.tremorTask.identifier)
+        XCTAssertEqual(day5, RSDIdentifier.tappingTask.rawValue)
         
         let day6 = ActivityType.physical.taskIdentifier(for: 6)
-        XCTAssertEqual(day6, RSDIdentifier.kineticTremorTask.identifier)
+        XCTAssertEqual(day6, RSDIdentifier.restingKineticTremorTask.rawValue)
         
         let day7 = ActivityType.physical.taskIdentifier(for: 7)
-        XCTAssertEqual(day7, RSDIdentifier.tappingTask.identifier)
+        XCTAssertEqual(day7, RSDIdentifier.tappingTask.rawValue)
         
         for dayIdx in 8...14 { // Week 2
             let day = ActivityType.physical.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.tremorTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.restingKineticTremorTask.rawValue)
         }
         
         for dayIdx in 15...21 { // Week 3
             let day = ActivityType.physical.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.kineticTremorTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.tappingTask.rawValue)
         }
         
         for dayIdx in 22...28 { // Week 3
             let day = ActivityType.physical.taskIdentifier(for: dayIdx)
-            XCTAssertEqual(day, RSDIdentifier.tappingTask.identifier)
+            XCTAssertEqual(day, RSDIdentifier.restingKineticTremorTask.rawValue)
         }
     }
     

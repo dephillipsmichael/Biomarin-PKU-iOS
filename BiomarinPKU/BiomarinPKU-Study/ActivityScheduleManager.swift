@@ -64,7 +64,7 @@ public class ActivityScheduleManager : SBAScheduleManager {
     }
     
     public let endOfStudySortOrder: [RSDIdentifier] =
-        [.tappingTask, .tremorTask, .kineticTremorTask, .attentionalBlinkTask, .symbolSubstitutionTask, .goNoGoTask, .nBackTask, .spatialMemoryTask, .taskSwitchTask, .dailyCheckInTask, .sleepCheckInTask]
+        [.tappingTask, .restingKineticTremorTask, .attentionalBlinkTask, .symbolSubstitutionTask, .goNoGoTask, .nBackTask, .spatialMemoryTask, .taskSwitchTask, .dailyCheckInTask, .sleepCheckInTask]
     
     open var endOfStudySortedSchedules: [SBBScheduledActivity]? {
         guard (scheduledActivities.count) > 0 else { return nil }
@@ -86,6 +86,7 @@ public class ActivityScheduleManager : SBAScheduleManager {
         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.tremor).task)
         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.tapping).task)
         SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.kineticTremor).task)
+        SBABridgeConfiguration.shared.addMapping(with: MCTTaskInfo(.restingKineticTremor).task)
     }
     
     override public func availablePredicate() -> NSPredicate {
@@ -124,6 +125,8 @@ public class ActivityScheduleManager : SBAScheduleManager {
                 return "Tremor.mp4"
             case MCTTaskIdentifier.kineticTremor.rawValue:
                 return "KineticTremor.mp4"
+            case MCTTaskIdentifier.restingKineticTremor.rawValue:
+                return "RestingKineticTremor.mp4"
             default:
                 return nil
             }
@@ -201,59 +204,55 @@ public enum ActivityType: Int, CaseIterable {
         let week = self.weekOfStudy(dayOfStudy: day)
         switch self {
         case .sleep:
-            return RSDIdentifier.sleepCheckInTask.identifier
+            return RSDIdentifier.sleepCheckInTask.rawValue
         case .daily:
-            return RSDIdentifier.dailyCheckInTask.identifier
+            return RSDIdentifier.dailyCheckInTask.rawValue
         case .physical:
-            if week <= 1 { // Week 1 logic, rotate every 3 days
-                switch day % 3 {
+            if week <= 1 { // Week 1 logic, rotate every other days
+                switch day % 2 {
                 case 1:
-                    return RSDIdentifier.tappingTask.identifier
-                case 2:
-                    return RSDIdentifier.tremorTask.identifier
+                    return RSDIdentifier.tappingTask.rawValue
                 default: // case 0:
-                    return RSDIdentifier.kineticTremorTask.identifier
+                    return RSDIdentifier.restingKineticTremorTask.rawValue
                 }
             } else { // All weeks after week 1
-                switch week % 3 {
+                switch week % 2 {
                 case 1:
-                    return RSDIdentifier.tappingTask.identifier
-                case 2:
-                    return RSDIdentifier.tremorTask.identifier
+                    return RSDIdentifier.tappingTask.rawValue
                 default: // case 0:
-                    return RSDIdentifier.kineticTremorTask.identifier
+                    return RSDIdentifier.restingKineticTremorTask.rawValue
                 }
             }
         case .cognition:
-            if week <= 1 { // Week 1 logic, rotate e ery 6 days
+            if week <= 1 { // Week 1 logic, rotate every 6 days
                 switch day % 6 {
                 case 1:
-                    return RSDIdentifier.goNoGoTask.identifier
+                    return RSDIdentifier.goNoGoTask.rawValue
                 case 2:
-                    return RSDIdentifier.symbolSubstitutionTask.identifier
+                    return RSDIdentifier.symbolSubstitutionTask.rawValue
                 case 3:
-                    return RSDIdentifier.spatialMemoryTask.identifier
+                    return RSDIdentifier.spatialMemoryTask.rawValue
                 case 4:
-                    return RSDIdentifier.nBackTask.identifier
+                    return RSDIdentifier.nBackTask.rawValue
                 case 5:
-                    return RSDIdentifier.taskSwitchTask.identifier
+                    return RSDIdentifier.taskSwitchTask.rawValue
                 default: // case 0:
-                    return RSDIdentifier.attentionalBlinkTask.identifier
+                    return RSDIdentifier.attentionalBlinkTask.rawValue
                 }
             } else { // All weeks after week 1
                 switch week % 6 {
                 case 1:
-                    return RSDIdentifier.goNoGoTask.identifier
+                    return RSDIdentifier.goNoGoTask.rawValue
                 case 2:
-                    return RSDIdentifier.symbolSubstitutionTask.identifier
+                    return RSDIdentifier.symbolSubstitutionTask.rawValue
                 case 3:
-                    return RSDIdentifier.spatialMemoryTask.identifier
+                    return RSDIdentifier.spatialMemoryTask.rawValue
                 case 4:
-                    return RSDIdentifier.nBackTask.identifier
+                    return RSDIdentifier.nBackTask.rawValue
                 case 5:
-                    return RSDIdentifier.taskSwitchTask.identifier
+                    return RSDIdentifier.taskSwitchTask.rawValue
                 default: // case 0:
-                    return RSDIdentifier.attentionalBlinkTask.identifier
+                    return RSDIdentifier.attentionalBlinkTask.rawValue
                 }
             }
         }

@@ -33,7 +33,8 @@
 
 import UIKit
 import BrainBaseline
-import BridgeApp
+import ResearchUI
+import BridgeAppUI
 
 extension UIInterfaceOrientationMask {
     func includes(orientation: UIInterfaceOrientation) -> Bool {

@@ -39,6 +39,7 @@ public extension RSDIdentifier {
     static let tappingTask: RSDIdentifier = MCTTaskIdentifier.tapping.identifier
     static let tremorTask: RSDIdentifier = MCTTaskIdentifier.tremor.identifier
     static let kineticTremorTask: RSDIdentifier = MCTTaskIdentifier.kineticTremor.identifier
+    static let restingKineticTremorTask: RSDIdentifier = MCTTaskIdentifier.restingKineticTremor.identifier
     static let goNoGoTask: RSDIdentifier = "Go No Go"
     static let nBackTask: RSDIdentifier = "N Back"
     static let spatialMemoryTask: RSDIdentifier = "Spatial Memory"

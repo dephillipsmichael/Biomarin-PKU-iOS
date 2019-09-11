@@ -144,10 +144,10 @@ class ActivityViewControllerTests: XCTestCase {
             XCTAssertEqual(ActivityType.cognition.detail(for: dayIdx, isComplete: false), "6 minutes")
             XCTAssertEqual(ActivityType.physical.detail(for:dayIdx, isComplete: false), "3 minutes")
             
-            XCTAssertEqual(ActivityType.daily.detail(for: dayIdx, isComplete: true), "Done for day")
-            XCTAssertEqual(ActivityType.sleep.detail(for: dayIdx, isComplete: true), "Done for day")
-            XCTAssertEqual(ActivityType.cognition.detail(for: dayIdx, isComplete: true), "Done for day")
-            XCTAssertEqual(ActivityType.physical.detail(for: dayIdx, isComplete: true), "Done for day")
+            XCTAssertEqual(ActivityType.daily.detail(for: dayIdx, isComplete: true), "Done for the day")
+            XCTAssertEqual(ActivityType.sleep.detail(for: dayIdx, isComplete: true), "Done for the day")
+            XCTAssertEqual(ActivityType.cognition.detail(for: dayIdx, isComplete: true), "Done for the day")
+            XCTAssertEqual(ActivityType.physical.detail(for: dayIdx, isComplete: true), "Done for the day")
         }
         
         for dayIdx in 8...14 {
@@ -156,10 +156,10 @@ class ActivityViewControllerTests: XCTestCase {
             XCTAssertEqual(ActivityType.cognition.detail(for: dayIdx, isComplete: false), "6 minutes")
             XCTAssertEqual(ActivityType.physical.detail(for:dayIdx, isComplete: false), "3 minutes")
             
-            XCTAssertEqual(ActivityType.daily.detail(for: dayIdx, isComplete: true), "Done for day")
-            XCTAssertEqual(ActivityType.sleep.detail(for: dayIdx, isComplete: true), "Done for day")
-            XCTAssertEqual(ActivityType.cognition.detail(for: dayIdx, isComplete: true), "Done for week")
-            XCTAssertEqual(ActivityType.physical.detail(for: dayIdx, isComplete: true), "Done for week")
+            XCTAssertEqual(ActivityType.daily.detail(for: dayIdx, isComplete: true), "Done for the day")
+            XCTAssertEqual(ActivityType.sleep.detail(for: dayIdx, isComplete: true), "Done for the day")
+            XCTAssertEqual(ActivityType.cognition.detail(for: dayIdx, isComplete: true), "Done for the week")
+            XCTAssertEqual(ActivityType.physical.detail(for: dayIdx, isComplete: true), "Done for the week")
         }
     }
     
