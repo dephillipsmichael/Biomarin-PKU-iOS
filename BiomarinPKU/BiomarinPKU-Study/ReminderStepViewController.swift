@@ -134,10 +134,15 @@ class ReminderStepViewController: RSDStepViewController, UIScrollViewDelegate, U
     @IBOutlet public var dayOfWeekHeight: NSLayoutConstraint!
     @IBOutlet public var dayOfWeekRuleViewHeight: NSLayoutConstraint!
     
+    /// Reminder manager for this step view controller
+    var reminderManager: ReminderManager {
+        return ReminderManager.shared
+    }
+    
     /// Time picker that shows when user taps reminder time button
     let timePicker = UIDatePicker()
     var timePickerFormatter: DateFormatter {
-        return ReminderManager.shared.timeFormatter
+        return self.reminderManager.timeFormatter
     }
     
     /// The day of week picker that shows when user taps day of week button
@@ -165,6 +170,7 @@ class ReminderStepViewController: RSDStepViewController, UIScrollViewDelegate, U
         view.addGestureRecognizer(tap)
         
         self.initPickers()
+        self.initDoNotRemindMeButton()
         self.updateDesignSystem()
         self.refreshUI()
     }
@@ -175,14 +181,31 @@ class ReminderStepViewController: RSDStepViewController, UIScrollViewDelegate, U
         self.refreshFooterShadow()
     }
     
+    func initDoNotRemindMeButton() {
+        if let type = self.reminderStep?.reminderType,
+            self.reminderManager.hasReminderBeenScheduled(type: type),
+            self.reminderManager.doNotRemindSetting(for: type) {
+            self.doNotRemindMeButton.isSelected = true
+        }
+    }
+    
     func initPickers() {
         self.doNotRemindMeButton.isSelected = false
         
         self.timePicker.isHidden = true
         self.timePicker.datePickerMode = .time
         self.timePicker.addTarget(self, action: #selector(self.timeChanged), for: .valueChanged)
-        
-        if let defaultTime = self.reminderStep?.defaultTime {
+    
+        // Check for a previously cached reminder time setting
+        if let type = self.reminderStep?.reminderType,
+            self.reminderManager.hasReminderBeenScheduled(type: type),
+            !self.reminderManager.doNotRemindSetting(for: type),
+            let timeStr = self.reminderManager.timeSetting(for: type) {
+            
+            self.timePicker.date = self.time(from: timeStr)
+            self.reminderTimeButton.setTitle(timeStr, for: .normal)
+            
+        } else if let defaultTime = self.reminderStep?.defaultTime {
             self.timePicker.date = self.time(from: defaultTime)
             self.reminderTimeButton.setTitle(defaultTime, for: .normal)
         } else {
@@ -193,8 +216,18 @@ class ReminderStepViewController: RSDStepViewController, UIScrollViewDelegate, U
         self.dayOfWeekPicker.isHidden = true
         self.dayOfWeekPicker.dataSource = self
         self.dayOfWeekPicker.delegate = self
+        
+        
         if self.reminderStep?.hideDayOfWeek ?? false {
             self.dayOfWeekButton.setTitle(nil, for: .normal)
+        } else if let type = self.reminderStep?.reminderType,
+            self.reminderManager.hasReminderBeenScheduled(type: type),
+            !self.reminderManager.doNotRemindSetting(for: type),
+            let weekday = RSDWeekday(rawValue: self.reminderManager.daySetting(for: type)) {
+            
+            self.dayOfWeekPicker.selectRow(weekday.rawValue - 1, inComponent: 0, animated: false)
+            self.dayOfWeekButton.setTitle(weekday.text, for: .normal)
+            
         } else if let defaultDay = self.reminderStep?.defaultDayOfWeek,
             let weekday = self.weekday(from: defaultDay) {
             self.dayOfWeekPicker.selectRow(weekday.rawValue - 1, inComponent: 0, animated: false)
