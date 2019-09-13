@@ -39,19 +39,19 @@ import BridgeApp
 
 class BaseTextFieldStepViewController: RSDStepViewController {
     
-    // ImageView header
+    /// ImageView header
     @IBOutlet public var imageView: UIImageView!
     
-    // Title label for external ID entry
+    /// Title label for external ID entry
     @IBOutlet public var titleLabel: UILabel!
     
-    // Textfield for external ID entry
+    /// Textfield for external ID entry
     @IBOutlet public var textField: UITextField!
     
-    // The textfield underline
+    /// The textfield underline
     @IBOutlet public var ruleView: UIView!
     
-    // The submit button
+    /// The submit button
     @IBOutlet public var submitButton: RSDRoundedButton!
     
     override open func viewDidLoad() {

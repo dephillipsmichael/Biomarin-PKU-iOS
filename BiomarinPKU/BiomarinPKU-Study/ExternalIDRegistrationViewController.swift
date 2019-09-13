@@ -50,14 +50,17 @@ class ExternalIDRegistrationStep : RSDUIStepObject, RSDStepViewControllerVendor,
 
 class ExternalIDRegistrationViewController: BaseTextFieldStepViewController, UITextFieldDelegate {
     
-    // The first participant ID entry, they need to enter it twice
+    /// The first participant ID entry, they need to enter it twice
     var firstEntry: String?
     
-    // The hyphen text that is used in the external ID format "XXXX - XXXXX"
+    /// The hyphen text that is used in the external ID format "XXXX - XXXXX"
     let hyphenText = " - "
-    // Format is [4 digit site ID] - [4 digit participant ID]
+    /// Format is [4 digit site ID] - [4 digit participant ID]
     let siteIdLength = 4
     let participantIdLength = 4
+    
+    /// The loading spinner for the view
+    @IBOutlet public var loadingSpinner: UIActivityIndicatorView!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -161,59 +164,59 @@ class ExternalIDRegistrationViewController: BaseTextFieldStepViewController, UIT
     }
     
     func signUpAndSignIn(completion: @escaping SBBNetworkManagerCompletionBlock) {
-        guard let externalId = self.externalId(), !externalId.isEmpty else { return }
-        
-        if self.firstEntry == nil {
-            self.firstEntry = externalId
-            self.setRentryTitle()
-            self.clearTextField()
-            return
-        }
-        
-        if externalId != self.firstEntry {
-            self.firstEntry = nil
-            self.setMismatchedParticipantIDTitle()
-            self.clearTextField()
-            return
-        }
-        
-        let signUp: SBBSignUp = SBBSignUp()
-        signUp.checkForConsent = true
-        signUp.externalId = externalId
-        signUp.password = "\(externalId)foo#$H0"   // Add some additional characters match password requirements
-        signUp.dataGroups = ["test_user"]
-        signUp.sharingScope = "all_qualified_researchers"
-        
-        self.submitButton.isEnabled = false
-        // Causes the view to resign the first responder status.
-        dismissKeyboard()
-        
-        BridgeSDK.authManager.signUpStudyParticipant(signUp, completion: { (task, result, error) in
-
-            DispatchQueue.main.async {
-                self.submitButton.isEnabled = true
-            }
+        DispatchQueue.main.async {
+            guard let externalId = self.externalId(), !externalId.isEmpty else { return }
             
-            guard error == nil else {
-                completion(task, result, error)
+            if self.firstEntry == nil {
+                self.firstEntry = externalId
+                self.setRentryTitle()
+                self.clearTextField()
                 return
             }
             
-            // we're signed up so sign in
-            BridgeSDK.authManager.signIn(withExternalId: signUp.externalId!, password: signUp.password!, completion: { (task, result, error) in
-                completion(task, result, error)
+            if externalId != self.firstEntry {
+                self.firstEntry = nil
+                self.setMismatchedParticipantIDTitle()
+                self.clearTextField()
+                return
+            }
+            
+            let signUp: SBBSignUp = SBBSignUp()
+            signUp.checkForConsent = true
+            signUp.externalId = externalId
+            signUp.password = "\(externalId)foo#$H0"   // Add some additional characters match password requirements
+            signUp.dataGroups = ["test_user"]
+            signUp.sharingScope = "all_qualified_researchers"
+            
+            self.textField.isEnabled = false
+            self.loadingSpinner.isHidden = false
+            self.submitButton.isEnabled = false
+            // Causes the view to resign the first responder status.
+            self.dismissKeyboard()
+            
+            BridgeSDK.authManager.signUpStudyParticipant(signUp, completion: { (task, result, error) in
+                guard error == nil else {
+                    completion(task, result, error)
+                    return
+                }
+                
+                // we're signed up so sign in
+                BridgeSDK.authManager.signIn(withExternalId: signUp.externalId!, password: signUp.password!, completion: { (task, result, error) in
+                    completion(task, result, error)
+                })
             })
-        })
+        }
     }
     
     @IBAction override open func submitTapped() {
-        self.nextButton?.isEnabled = false
         self.signUpAndSignIn { (task, result, error) in
             DispatchQueue.main.async {
+                self.loadingSpinner.isHidden = true
+                self.submitButton.isEnabled = true
+                self.textField.isEnabled = true
                 if error == nil {
                    super.goForward()
                 } else {
-                    self.nextButton?.isEnabled = true
                     self.presentAlertWithOk(title: "Error attempting sign in", message: error!.localizedDescription, actionHandler: nil)
                     // TODO: emm 2018-04-25 handle error from Bridge
                     // 400 is the response for an invalid external ID
