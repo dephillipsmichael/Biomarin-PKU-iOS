@@ -136,16 +136,21 @@ class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDele
     }
     
     @IBAction func doneTapped() {
-        self.tableFooter?.doneButton?.isEnabled = true
+        DispatchQueue.main.async {
+            self.tableFooter?.doneButton?.isEnabled = false
+            self.tableFooter?.loadingSpinner?.isHidden = false
+        }
         SBBAuthManager.default().signOut { (task, anyObj, error) in
             DispatchQueue.main.async {
-                self.tableFooter?.doneButton?.isEnabled = false
+                self.tableFooter?.doneButton?.isEnabled = true
+                self.tableFooter?.loadingSpinner?.isHidden = true
                 // Remove all userdefaults date
                 let defaults = UserDefaults.standard
                 let dictionary = defaults.dictionaryRepresentation()
                 dictionary.keys.forEach { key in
                     defaults.removeObject(forKey: key)
                 }
+                ReminderManager.shared.cancelAllNotifications()
                 
                 // Show end of study completion screen
                 var navigator = RSDConditionalStepNavigatorObject(with: [self.studyCompleteStep()])
@@ -265,6 +270,8 @@ open class TaskTableHeaderView: UIView {
 open class TaskTableFooterView: UIView {
     /// Title label that is associated with this view.
     @IBOutlet open var titleLabel: UILabel?
-    // Done button for switch participant IDs
+    /// Done button for switch participant IDs
     @IBOutlet open var doneButton: RSDRoundedButton?
+    /// Loading spinner that shows when done button is tapped
+    @IBOutlet open var loadingSpinner: UIActivityIndicatorView?
 }
