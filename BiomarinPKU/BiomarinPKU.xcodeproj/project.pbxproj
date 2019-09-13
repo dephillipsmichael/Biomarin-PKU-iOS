@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		441651D222F10B8700E02DAC /* Tapping.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441651CF22F10B8500E02DAC /* Tapping.mp4 */; };
 		441651D322F10B8700E02DAC /* Tapping.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441651CF22F10B8500E02DAC /* Tapping.mp4 */; };
+		447CF7F1232B0B4200D99F81 /* BridgeAppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB5A8A72326D63A00CD9DCA /* BridgeAppUI.framework */; };
+		447CF7F2232B0B4200D99F81 /* BridgeAppUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CBB5A8A72326D63A00CD9DCA /* BridgeAppUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CB0D00A222E804B900F5DD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A122E804B900F5DD4D /* AppDelegate.swift */; };
 		CB0D00A322E804FF00F5DD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8061179227BA025005FCABF /* AppDelegate.swift */; };
 		CB0D00A722E80B1A00F5DD4D /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D00A622E80B1A00F5DD4D /* ActivityViewController.swift */; };
@@ -176,6 +178,7 @@
 				F8087B77227BC7B2005BDDEC /* BridgeSDK.framework in Embed Frameworks */,
 				F8087B7A227BC7B2005BDDEC /* BridgeApp.framework in Embed Frameworks */,
 				F83EEBBD229DA96500476F7F /* ResearchMotion.framework in Embed Frameworks */,
+				447CF7F2232B0B4200D99F81 /* BridgeAppUI.framework in Embed Frameworks */,
 				F8087B80227BC7B2005BDDEC /* Research.framework in Embed Frameworks */,
 				F8087B83227BC7B2005BDDEC /* ResearchUI.framework in Embed Frameworks */,
 			);
@@ -320,6 +323,7 @@
 				F8087B76227BC7B2005BDDEC /* BridgeSDK.framework in Frameworks */,
 				F8087B79227BC7B2005BDDEC /* BridgeApp.framework in Frameworks */,
 				F83EEBBC229DA96500476F7F /* ResearchMotion.framework in Frameworks */,
+				447CF7F1232B0B4200D99F81 /* BridgeAppUI.framework in Frameworks */,
 				F8087B7F227BC7B2005BDDEC /* Research.framework in Frameworks */,
 				F8087B82227BC7B2005BDDEC /* ResearchUI.framework in Frameworks */,
 			);
