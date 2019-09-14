@@ -72,7 +72,7 @@ public class ActivityScheduleManager : SBAScheduleManager {
             let idxA = endOfStudySortOrder.firstIndex(of: RSDIdentifier(rawValue: scheduleA.activityIdentifier ?? "")) ?? endOfStudySortOrder.count
             let idxB = endOfStudySortOrder.firstIndex(of: RSDIdentifier(rawValue: scheduleB.activityIdentifier ?? "")) ?? endOfStudySortOrder.count
             return idxA < idxB
-        })
+        }).filter({ endOfStudySortOrder.contains(RSDIdentifier($0.activityIdentifier ?? "")) })
     }
     
     // The current activity task the user is doing
