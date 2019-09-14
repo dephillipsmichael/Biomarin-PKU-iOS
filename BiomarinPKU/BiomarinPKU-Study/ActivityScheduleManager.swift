@@ -205,8 +205,7 @@ public class ActivityScheduleManager : SBAScheduleManager {
         }
     
         // Data is valid for upload
-        return (false, "Missing required right motion file result")
-        //return (true, nil)
+        return (true, nil)
     }
     
     fileprivate func hasNestedMotionResult(_ baseTaskResult: RSDTaskResult,
