@@ -174,10 +174,20 @@ class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDele
     
     func taskController(_ taskController: RSDTaskController, didFinishWith reason: RSDTaskFinishReason, error: Error?) {
         
+        let result = taskController.taskViewModel.taskResult
+        let dataValidity = self.scheduleManager.isDataValid(taskResult: result)
+        
+        let completed = (error == nil && reason == .completed && dataValidity.isValid)
+        
         // dismiss the view controller
         (taskController as? UIViewController)?.dismiss(animated: true, completion: {
             if taskController.task.identifier == self.endStudyCompleteTaskId {
                 (AppDelegate.shared as? AppDelegate)?.showAppropriateViewController(animated: true)
+            }
+            
+            // If data was invalid and we could not upload it, tell the user why
+            if reason == .completed && !dataValidity.isValid {
+                self.presentAlertWithOk(title: Localization.localizedString("DATA_ERROR_TITLE"), message: String(format: Localization.localizedString("DATA_ERROR_MSG_%@"), dataValidity.errorMsg ?? ""), actionHandler: nil)
             }
         })
         
@@ -188,7 +198,7 @@ class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDele
         // Let the schedule manager handle the cleanup.
         scheduleManager.taskController(taskController, didFinishWith: reason, error: error)
         
-        if error == nil && reason == .completed {
+        if completed {
             self.scheduleManager.completeEndOfStudy(taskIdentifier: taskController.task.identifier)
         }
         

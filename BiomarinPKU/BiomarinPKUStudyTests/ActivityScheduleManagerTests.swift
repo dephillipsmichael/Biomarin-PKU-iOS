@@ -260,6 +260,10 @@ class ActivityScheduleManagerTests: XCTestCase {
         }
     }
     
+    func testDataValidity() {
+        // TODO: mdephillips 9/14/19 unit test all conditions
+    }
+    
     private func studyDate(_ day: Int, _ hour: Int, _ min: Int, _ sec: Int) -> Date {
         return Calendar.current.date(from: DateComponents(year: 2019, month: 8, day: day, hour: hour, minute: min, second: sec))!
     }

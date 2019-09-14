@@ -128,4 +128,7 @@
 "ENTER_PIN_TITLE" = "Please ask the study coordinator for the PIN to end the study";
 "ENTER_PIN" = "Enter PIN";
 
+"DATA_ERROR_TITLE" = "Data Error";
+"DATA_ERROR_MSG_%@" = "We sorry, something went wrong on our end. Please complete the task again. When reporting this error, please reference the following reason: %@";
+
 
