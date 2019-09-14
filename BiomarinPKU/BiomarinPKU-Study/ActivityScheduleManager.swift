@@ -181,28 +181,6 @@ public class ActivityScheduleManager : SBAScheduleManager {
                 }
             }
         }
-        
-        // Tapping tasks must have hand selection
-        if taskResult.identifier == RSDIdentifier.tappingTask {
-                
-            guard let selectionValue = taskResult.findAnswerResult(with: MCTHandSelectionDataSource.selectionKey)?.value as? String else {
-                return (false, "Missing hand selection answer result")
-            }
-            
-            if selectionValue == MCTHandSelection.left.rawValue ||
-                selectionValue == MCTHandSelection.both.rawValue {
-                guard self.hasNestedMotionResult(taskResult, "left") else {
-                    return (false, "Missing required left motion file result")
-                }
-            }
-            
-            if selectionValue == MCTHandSelection.right.rawValue ||
-                selectionValue == MCTHandSelection.both.rawValue {
-                guard self.hasNestedMotionResult(taskResult, "right") else {
-                    return (false, "Missing required right motion file result")
-                }
-            }
-        }
     
         // Data is valid for upload
         return (true, nil)

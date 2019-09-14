@@ -129,6 +129,6 @@
 "ENTER_PIN" = "Enter PIN";
 
 "DATA_ERROR_TITLE" = "Data Error";
-"DATA_ERROR_MSG_%@" = "We sorry, something went wrong on our end. Please complete the task again. When reporting this error, please reference the following reason: %@";
+"DATA_ERROR_MSG_%@" = "We're sorry, something went wrong on our end. Please complete the task again. If reporting this error, please reference the following reason: %@";
 
 
