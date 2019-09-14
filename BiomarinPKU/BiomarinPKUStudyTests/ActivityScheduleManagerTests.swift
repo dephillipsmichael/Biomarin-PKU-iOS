@@ -34,6 +34,7 @@
 import Foundation
 import XCTest
 import BridgeApp
+import MotorControl
 @testable import BiomarinPKU_Study
 
 class ActivityScheduleManagerTests: XCTestCase {
@@ -258,6 +259,131 @@ class ActivityScheduleManagerTests: XCTestCase {
         for dayIdx in 8...21 {
             XCTAssertEqual(ActivityType.weeklyTypes(for: dayIdx).count, 2)
         }
+    }
+    
+    func testDataValidScenarios() {
+        // As of now, only resting kinetic tremor data can be invalid
+        // Make sure all tasks are valid
+        for identifier in scheduleManager.endOfStudySortOrder {
+            if identifier != .restingKineticTremorTask {
+                XCTAssertTrue(scheduleManager.isDataValid(taskResult: RSDTaskResultObject(identifier: identifier.rawValue)).isValid)
+            }
+        }
+        
+        // Test successful scenarios
+        var result = self.createValidResult(hand: .left)
+        var validity = scheduleManager.isDataValid(taskResult: result)
+        XCTAssertTrue(validity.isValid)
+        XCTAssertNil(validity.errorMsg)
+        
+        result = self.createValidResult(hand: .right)
+        validity = scheduleManager.isDataValid(taskResult: result)
+        XCTAssertTrue(validity.isValid)
+        XCTAssertNil(validity.errorMsg)
+        
+        result = self.createValidResult(hand: .both)
+        validity = scheduleManager.isDataValid(taskResult: result)
+        XCTAssertTrue(validity.isValid)
+        XCTAssertNil(validity.errorMsg)
+    }
+    
+    func testDataInvalidHandSelectionScenarios() {
+        // Test no hand selection
+        var result = self.createValidResult(hand: .left)
+        result.removeStepHistory(from: MCTHandSelectionDataSource.selectionKey)
+        let validity = scheduleManager.isDataValid(taskResult: result)
+        XCTAssertFalse(validity.isValid)
+        XCTAssertEqual(validity.errorMsg, "Missing hand selection answer result")
+    }
+    
+    func testDataInvalidLeftScenarios() {
+        // Test missing left resting hand motion data
+        var result = self.createValidResult(hand: .left)
+        result.appendStepHistory(with: self.removeMotionAsync(result, "restingLeft"))
+        var validity = scheduleManager.isDataValid(taskResult: result)
+        XCTAssertFalse(validity.isValid)
+        XCTAssertEqual(validity.errorMsg, "Missing required left resting motion file result")
+        
+        result = self.createValidResult(hand: .both)
+        result.appendStepHistory(with: self.removeMotionAsync(result, "restingLeft"))
+        validity = scheduleManager.isDataValid(taskResult: result)
+        XCTAssertFalse(validity.isValid)
+        XCTAssertEqual(validity.errorMsg, "Missing required left resting motion file result")
+        
+        // Test missing left kinetic hand motion data
+        result = self.createValidResult(hand: .left)
+        result.appendStepHistory(with: self.removeMotionAsync(result, "kineticLeft"))
+        validity = scheduleManager.isDataValid(taskResult: result)
+        XCTAssertFalse(validity.isValid)
+        XCTAssertEqual(validity.errorMsg, "Missing required left kinetic motion file result")
+        
+        result = self.createValidResult(hand: .both)
+        result.appendStepHistory(with: self.removeMotionAsync(result, "kineticLeft"))
+        validity = scheduleManager.isDataValid(taskResult: result)
+        XCTAssertFalse(validity.isValid)
+        XCTAssertEqual(validity.errorMsg, "Missing required left kinetic motion file result")
+    }
+    
+    func testDataInvalidRightScenarios() {
+        // Test missing right resting hand motion data
+        var result = self.createValidResult(hand: .right)
+        result.appendStepHistory(with: self.removeMotionAsync(result, "restingRight"))
+        var validity = scheduleManager.isDataValid(taskResult: result)
+        XCTAssertFalse(validity.isValid)
+        XCTAssertEqual(validity.errorMsg, "Missing required right resting motion file result")
+        
+        result = self.createValidResult(hand: .both)
+        result.appendStepHistory(with: self.removeMotionAsync(result, "restingRight"))
+        validity = scheduleManager.isDataValid(taskResult: result)
+        XCTAssertFalse(validity.isValid)
+        XCTAssertEqual(validity.errorMsg, "Missing required right resting motion file result")
+        
+        // Test missing right kinetic hand motion data
+        result = self.createValidResult(hand: .right)
+        result.appendStepHistory(with: self.removeMotionAsync(result, "kineticRight"))
+        validity = scheduleManager.isDataValid(taskResult: result)
+        XCTAssertFalse(validity.isValid)
+        XCTAssertEqual(validity.errorMsg, "Missing required right kinetic motion file result")
+        
+        result = self.createValidResult(hand: .both)
+        result.appendStepHistory(with: self.removeMotionAsync(result, "kineticRight"))
+        validity = scheduleManager.isDataValid(taskResult: result)
+        XCTAssertFalse(validity.isValid)
+        XCTAssertEqual(validity.errorMsg, "Missing required right kinetic motion file result")
+    }
+    
+    fileprivate func removeMotionAsync(_ result: RSDTaskResult, _ subtaskResultIdentifier: String) -> RSDTaskResultObject {
+        var motionTaskResult = result.findResult(with: subtaskResultIdentifier) as! RSDTaskResultObject
+        motionTaskResult.asyncResults!.remove(where: { $0.identifier == "motion" })
+        return motionTaskResult
+    }
+    
+    fileprivate func createValidResult(hand: MCTHandSelection) -> RSDTaskResultObject {
+        var result = RSDTaskResultObject(identifier: RSDIdentifier.restingKineticTremorTask.rawValue)
+        
+        result.appendStepHistory(with: RSDAnswerResultObject(identifier: MCTHandSelectionDataSource.selectionKey, answerType: .string, value: hand.rawValue))
+        
+        if hand == .left || hand == .both {
+            var subTaskResultResting = RSDTaskResultObject(identifier: "restingLeft")
+            subTaskResultResting.appendAsyncResult(with: RSDFileResultObject(identifier: "motion"))
+            result.appendStepHistory(with: subTaskResultResting)
+            
+            var subTaskResultKinetic = RSDTaskResultObject(identifier: "kineticLeft")
+            subTaskResultKinetic.appendAsyncResult(with: RSDFileResultObject(identifier: "motion"))
+            result.appendStepHistory(with: subTaskResultKinetic)
+        }
+        
+        if hand == .right || hand == .both {
+            var subTaskResultResting = RSDTaskResultObject(identifier: "restingRight")
+            subTaskResultResting.appendAsyncResult(with: RSDFileResultObject(identifier: "motion"))
+            result.appendStepHistory(with: subTaskResultResting)
+            
+            var subTaskResultKinetic = RSDTaskResultObject(identifier: "kineticRight")
+            subTaskResultKinetic.appendAsyncResult(with: RSDFileResultObject(identifier: "motion"))
+            result.appendStepHistory(with: subTaskResultKinetic)
+        }
+        
+        return result
     }
     
     private func studyDate(_ day: Int, _ hour: Int, _ min: Int, _ sec: Int) -> Date {

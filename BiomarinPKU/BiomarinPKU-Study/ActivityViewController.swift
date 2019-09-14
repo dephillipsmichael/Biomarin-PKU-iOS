@@ -421,7 +421,10 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         // Let the schedule manager handle the cleanup.
         scheduleManager.taskController(taskController, didFinishWith: reason, error: error)
         
-        let completed = (error == nil && reason == .completed)
+        let result = taskController.taskViewModel.taskResult
+        let dataValidity = self.scheduleManager.isDataValid(taskResult: result)
+        
+        let completed = (error == nil && reason == .completed && dataValidity.isValid)
         
         let taskId = taskController.task.identifier
         // If we completed the week 1 complete task, save its new state
@@ -436,7 +439,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
             if completed {
                 // The result may contain reminder information
                 // Send it to the reminder manager for processing
-                ReminderManager.shared.updateNotifications(for: taskController.taskViewModel.taskResult)
+                ReminderManager.shared.updateNotifications(for: result)
                 
                 if let activityUnwrapped = activity {
                     // Mark day as completed and refresh the UI
@@ -451,6 +454,11 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
                 }
                 
                 self.runDeepLinkIfApplicable()
+            }
+            
+            // If data was invalid and we could not upload it, tell the user why
+            if reason == .completed && !dataValidity.isValid {
+                self.presentAlertWithOk(title: Localization.localizedString("DATA_ERROR_TITLE"), message: String(format: Localization.localizedString("DATA_ERROR_MSG_%@"), dataValidity.errorMsg ?? ""), actionHandler: nil)
             }
         })
 

@@ -72,7 +72,7 @@ public class ActivityScheduleManager : SBAScheduleManager {
             let idxA = endOfStudySortOrder.firstIndex(of: RSDIdentifier(rawValue: scheduleA.activityIdentifier ?? "")) ?? endOfStudySortOrder.count
             let idxB = endOfStudySortOrder.firstIndex(of: RSDIdentifier(rawValue: scheduleB.activityIdentifier ?? "")) ?? endOfStudySortOrder.count
             return idxA < idxB
-        })
+        }).filter({ endOfStudySortOrder.contains(RSDIdentifier(rawValue: $0.activityIdentifier ?? "")) })
     }
     
     // The current activity task the user is doing
@@ -140,10 +140,56 @@ public class ActivityScheduleManager : SBAScheduleManager {
     /// Call from the view controller that is used to display the task when the task is ready to save.
     override open func taskController(_ taskController: RSDTaskController, readyToSave taskViewModel: RSDTaskViewModel) {
         
+        let dataValidity = self.isDataValid(taskResult: taskController.taskViewModel.taskResult)
+        guard dataValidity.isValid else {
+            debugPrint("Data is not valid, skipping upload. Reason: \(dataValidity.errorMsg ?? "")")
+            return
+        }
+        
         // It is a requirement for our app to always upload the day of the study
         taskController.taskViewModel.taskResult.stepHistory.append(RSDAnswerResultObject(identifier: "dayOfStudy", answerType: .integer, value: dayOfCurrentActivity))
         
         super.taskController(taskController, readyToSave: taskViewModel)
+    }
+    
+    public func isDataValid(taskResult: RSDTaskResult) -> (isValid: Bool, errorMsg: String?) {
+        
+        // Dual phone task must have hand selection and correspond json file results
+        if taskResult.identifier == RSDIdentifier.restingKineticTremorTask {
+            
+            guard let selectionValue = taskResult.findAnswerResult(with: MCTHandSelectionDataSource.selectionKey)?.value as? String else {
+                return (false, "Missing hand selection answer result")
+            }
+            
+            if selectionValue == MCTHandSelection.left.rawValue ||
+                selectionValue == MCTHandSelection.both.rawValue {
+                guard self.hasNestedMotionResult(taskResult, "restingLeft") else {
+                    return (false, "Missing required left resting motion file result")
+                }
+                guard self.hasNestedMotionResult(taskResult, "kineticLeft") else {
+                    return (false, "Missing required left kinetic motion file result")
+                }
+            }
+            
+            if selectionValue == MCTHandSelection.right.rawValue ||
+                selectionValue == MCTHandSelection.both.rawValue {
+                guard self.hasNestedMotionResult(taskResult, "restingRight") else {
+                    return (false, "Missing required right resting motion file result")
+                }
+                guard self.hasNestedMotionResult(taskResult, "kineticRight") else {
+                    return (false, "Missing required right kinetic motion file result")
+                }
+            }
+        }
+    
+        // Data is valid for upload
+        return (true, nil)
+    }
+    
+    fileprivate func hasNestedMotionResult(_ baseTaskResult: RSDTaskResult,
+                                           _ subTaskResultIdentifier: String) -> Bool {
+        
+        return ((baseTaskResult.findResult(with: subTaskResultIdentifier) as? RSDTaskResult)?.asyncResults?.first(where: { $0.identifier == "motion" }) as? RSDFileResult) != nil
     }
     
     func completeEndOfStudy(taskIdentifier: String) {
