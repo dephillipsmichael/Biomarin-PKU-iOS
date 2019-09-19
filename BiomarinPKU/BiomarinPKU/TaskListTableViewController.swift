@@ -122,6 +122,11 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
     }
     
     func didTapButton(on cell: RSDButtonCell) {
+        // Work-around fix for permission bug
+        // This will force the overview screen to check permission state every time
+        // Usually research framework caches it and the state becomes invalid
+        UserDefaults.standard.removeObject(forKey: "rsd_MotionAuthorizationStatus")
+        
         RSDFactory.shared = PKUTaskFactory()
         let taskInfo = self.scheduleManager.taskInfo(for: cell.indexPath)
         let taskViewModel = RSDTaskViewModel(taskInfo: taskInfo)
