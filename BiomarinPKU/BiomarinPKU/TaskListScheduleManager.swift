@@ -91,7 +91,7 @@ public class TaskListScheduleManager : SBAScheduleManager {
         case .kineticTremorTask:
             return "Finger-to-Nose"
         case .restingKineticTremorTask:
-            return "Tremor"
+            return "Dual Phone Hold"
         case .symbolSubstitutionTask:
             return "Digit Symbol Substitution"
         case .goNoGoTask:
