@@ -261,6 +261,11 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     }
     
     @IBAction func physicalTapped() {
+        // Work-around fix for permission bug
+        // This will force the overview screen to check permission state every time
+        // Usually research framework caches it and the state becomes invalid
+        UserDefaults.standard.removeObject(forKey: "rsd_MotionAuthorizationStatus")
+        
         self.presentTaskViewController(for: .physical)
     }
     
