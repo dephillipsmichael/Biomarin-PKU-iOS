@@ -35,6 +35,7 @@ import UIKit
 import BridgeApp
 import BridgeSDK
 import MotorControl
+import Network
 
 extension RSDIdentifier {
     static let pkuAffectedYourDayStep: RSDIdentifier = "pku_affected_your_day"
@@ -101,8 +102,13 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     let hasRunWeek1CompleteKey = "hasRunWeek1CompleteTask"
     let week1CompleteTaskId = "Week1Complete"
     
+    let networkMonitorQueue = DispatchQueue(label: "NetworkMonitor")
+    let networkMonitor = NWPathMonitor()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        networkMonitor.start(queue: networkMonitorQueue)
         
         ActivityScheduleManager.shared = ActivityScheduleManager()
         
@@ -261,15 +267,28 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
     }
     
     @IBAction func physicalTapped() {
-        // Work-around fix for permission bug
-        // This will force the overview screen to check permission state every time
-        // Usually research framework caches it and the state becomes invalid
-        UserDefaults.standard.removeObject(forKey: "rsd_MotionAuthorizationStatus")
-        
         self.presentTaskViewController(for: .physical)
     }
     
     func presentTaskViewController(for activity: ActivityType) {
+        
+        if activity == .physical {
+            // Work-around fix for permission bug
+            // This will force the overview screen to check permission state every time
+            // Usually research framework caches it and the state becomes invalid
+            UserDefaults.standard.removeObject(forKey: "rsd_MotionAuthorizationStatus")
+        }
+        
+        if activity == .cognition {
+            // != .satisfied means we do not currently have internet connectivity
+            // and due to a bug in BrainBaseline tasks not uploading properly
+            // without internet, we must notify the user they need internet to continue
+            if networkMonitor.currentPath.status != .satisfied {
+                self.presentAlertWithOk(title: nil, message: Localization.localizedString("NO_INTERNET_MSG"), actionHandler: nil)
+                return
+            }
+        }
+        
         let day = self.scheduleManager.dayOfStudy()
         guard !activity.isComplete(for: day) else { return }
         
