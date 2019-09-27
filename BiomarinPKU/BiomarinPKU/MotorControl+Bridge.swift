@@ -56,14 +56,7 @@ public extension RSDIdentifier {
                 self == .spatialMemoryTask ||
                 self == .nBackTask ||
                 self == .goNoGoTask
-    }
-    
-    func isActiveTask() -> Bool {
-        return self == .tappingTask ||
-            self == .tremorTask ||
-            self == .kineticTremorTask ||
-            self == .restingKineticTremorTask
-    }
+    }        
 }
 
 extension MCTTaskInfo : SBAActivityInfo {
