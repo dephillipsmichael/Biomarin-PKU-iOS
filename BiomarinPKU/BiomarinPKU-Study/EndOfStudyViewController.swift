@@ -130,6 +130,7 @@ class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDele
         if let schedule = self.scheduleManager.endOfStudySortedSchedules?[cell.indexPath.row] {
             let taskViewModel = scheduleManager.instantiateTaskViewModel(for: schedule)
             let taskVc = RSDTaskViewController(taskViewModel: taskViewModel)
+            taskVc.modalPresentationStyle = .fullScreen
             taskVc.delegate = self
             self.present(taskVc, animated: true, completion: nil)
         }
