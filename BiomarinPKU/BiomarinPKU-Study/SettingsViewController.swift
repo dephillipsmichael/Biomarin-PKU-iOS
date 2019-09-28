@@ -90,6 +90,7 @@ class SettingsViewController: UITableViewController, RSDTaskViewControllerDelega
     func presentTaskViewController(for type: ReminderType) {
         let task = type.taskViewModel(dayOfStudy: self.scheduleManager.dayOfStudy(), alwaysShow: true)
         let taskViewController = RSDTaskViewController(task: task)
+        taskViewController.modalPresentationStyle = .fullScreen
         taskViewController.delegate = self
         self.present(taskViewController, animated: true, completion: nil)
     }
