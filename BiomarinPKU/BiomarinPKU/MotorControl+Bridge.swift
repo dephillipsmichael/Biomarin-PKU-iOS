@@ -48,6 +48,15 @@ public extension RSDIdentifier {
     static let taskSwitchTask: RSDIdentifier = "Task Switch"
     static let dailyCheckInTask: RSDIdentifier = "Daily Check-In"
     static let sleepCheckInTask: RSDIdentifier = "Sleep Check-In"
+    
+    func isBrainbaselineTask() -> Bool {
+        return self == .taskSwitchTask ||
+                self == .attentionalBlinkTask ||
+                self == .symbolSubstitutionTask ||
+                self == .spatialMemoryTask ||
+                self == .nBackTask ||
+                self == .goNoGoTask
+    }        
 }
 
 extension MCTTaskInfo : SBAActivityInfo {

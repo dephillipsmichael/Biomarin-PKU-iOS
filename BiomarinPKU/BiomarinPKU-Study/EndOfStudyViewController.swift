@@ -36,6 +36,7 @@ import BridgeApp
 import BridgeAppUI
 import BridgeSDK
 import MotorControl
+import Network
 
 class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDelegate, RSDButtonCellDelegate {
     
@@ -53,8 +54,13 @@ class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDele
         return self.tableView.tableHeaderView as? TaskTableHeaderView
     }
     
+    let networkMonitorQueue = DispatchQueue(label: "NetworkMonitor")
+    let networkMonitor = NWPathMonitor()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        networkMonitor.start(queue: networkMonitorQueue)
         
         // Cancel all user reminders
         ReminderManager.shared.cancelAllNotifications()                
@@ -128,6 +134,26 @@ class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDele
     
     func didTapButton(on cell: RSDButtonCell) {
         if let schedule = self.scheduleManager.endOfStudySortedSchedules?[cell.indexPath.row] {
+            
+            let identifier = RSDIdentifier(rawValue: schedule.activityIdentifier ?? "")
+            
+            if identifier == .restingKineticTremorTask {
+                // Work-around fix for permission bug
+                // This will force the overview screen to check permission state every time
+                // Usually research framework caches it and the state becomes invalid
+                UserDefaults.standard.removeObject(forKey: "rsd_MotionAuthorizationStatus")
+            }
+            
+            if identifier.isBrainbaselineTask() {
+                // != .satisfied means we do not currently have internet connectivity
+                // and due to a bug in BrainBaseline tasks not uploading properly
+                // without internet, we must notify the user they need internet to continue
+                if networkMonitor.currentPath.status != .satisfied {
+                    self.presentAlertWithOk(title: nil, message: Localization.localizedString("NO_INTERNET_MSG"), actionHandler: nil)
+                    return
+                }
+            }
+            
             let taskViewModel = scheduleManager.instantiateTaskViewModel(for: schedule)
             let taskVc = RSDTaskViewController(taskViewModel: taskViewModel)
             taskVc.delegate = self
