@@ -158,6 +158,7 @@ class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDele
                 navigator.progressMarkers = []
                 let task = RSDTaskObject(identifier: self.endStudyCompleteTaskId, stepNavigator: navigator)
                 let vc = RSDTaskViewController(task: task)
+                vc.modalPresentationStyle = .fullScreen
                 vc.delegate = self
                 self.present(vc, animated: true, completion: nil)
             }
