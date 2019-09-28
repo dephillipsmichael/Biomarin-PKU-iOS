@@ -156,6 +156,7 @@ class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDele
             
             let taskViewModel = scheduleManager.instantiateTaskViewModel(for: schedule)
             let taskVc = RSDTaskViewController(taskViewModel: taskViewModel)
+            taskVc.modalPresentationStyle = .fullScreen
             taskVc.delegate = self
             self.present(taskVc, animated: true, completion: nil)
         }
@@ -183,6 +184,7 @@ class EndOfStudyViewController: UITableViewController, RSDTaskViewControllerDele
                 navigator.progressMarkers = []
                 let task = RSDTaskObject(identifier: self.endStudyCompleteTaskId, stepNavigator: navigator)
                 let vc = RSDTaskViewController(task: task)
+                vc.modalPresentationStyle = .fullScreen
                 vc.delegate = self
                 self.present(vc, animated: true, completion: nil)
             }

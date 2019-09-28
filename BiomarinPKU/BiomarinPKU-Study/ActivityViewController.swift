@@ -250,6 +250,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         navigator.progressMarkers = []
         let task = RSDTaskObject(identifier: endStudyTaskIdentifier, stepNavigator: navigator)
         let taskViewController = RSDTaskViewController(task: task)
+        taskViewController.modalPresentationStyle = .fullScreen
         taskViewController.delegate = self
         self.present(taskViewController, animated: true, completion: nil)
     }
@@ -312,6 +313,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         let taskViewModel = scheduleManager.instantiateTaskViewModel(for: schedule)
         
         let taskVc = RSDTaskViewController(taskViewModel: taskViewModel)
+        taskVc.modalPresentationStyle = .fullScreen
         taskVc.delegate = self
         self.present(taskVc, animated: true, completion: nil)
     }
@@ -494,6 +496,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         if !ReminderManager.shared.hasReminderBeenScheduled(type: type) {
             let task = type.taskViewModel(dayOfStudy: self.scheduleManager.dayOfStudy(), alwaysShow: false)
             let taskViewController = RSDTaskViewController(task: task)
+            taskViewController.modalPresentationStyle = .fullScreen
             taskViewController.delegate = self
             self.present(taskViewController, animated: true, completion: nil)
         }
@@ -526,6 +529,7 @@ class ActivityViewController: UIViewController, RSDTaskViewControllerDelegate {
         navigator.progressMarkers = []
         let task = RSDTaskObject(identifier: week1CompleteTaskId, stepNavigator: navigator)
         let taskViewController = RSDTaskViewController(task: task)
+        taskViewController.modalPresentationStyle = .fullScreen
         taskViewController.delegate = self
         self.present(taskViewController, animated: true, completion: nil)
     }

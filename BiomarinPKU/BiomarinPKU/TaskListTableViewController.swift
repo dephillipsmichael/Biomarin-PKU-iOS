@@ -130,9 +130,10 @@ class TaskListTableViewController: UITableViewController, RSDTaskViewControllerD
         RSDFactory.shared = PKUTaskFactory()
         let taskInfo = self.scheduleManager.taskInfo(for: cell.indexPath)
         let taskViewModel = RSDTaskViewModel(taskInfo: taskInfo)
-        let taskViewController = RSDTaskViewController(taskViewModel: taskViewModel)
-        taskViewController.delegate = self
-        self.present(taskViewController, animated: true, completion: nil)
+        let taskVc = RSDTaskViewController(taskViewModel: taskViewModel)
+        taskVc.modalPresentationStyle = .fullScreen
+        taskVc.delegate = self
+        self.present(taskVc, animated: true, completion: nil)
     }
 
     func taskController(_ taskController: RSDTaskController, didFinishWith reason: RSDTaskFinishReason, error: Error?) {
