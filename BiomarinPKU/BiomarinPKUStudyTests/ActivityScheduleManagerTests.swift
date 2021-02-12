@@ -42,7 +42,6 @@ class ActivityScheduleManagerTests: XCTestCase {
     let scheduleManager = TestableWeek1ScheduleManager()
     
     let PKUStudyTaskIdentifiers = [
-        "RestingKineticTremor",
         "Attentional Blink",
         "Daily Check-In",
         "Sleep Check-In",
