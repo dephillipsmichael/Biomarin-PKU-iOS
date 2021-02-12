@@ -50,6 +50,9 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     
     var deepLinkActivity: ActivityType?
     
+    // If set to true, fitbit auth will be skipped
+    var shouldSkipFitbitAuth = false
+    
     static let colorPalette = RSDColorPalette(version: 1,
                                               primary: RSDColorMatrix.shared.colorKey(for: .palette(.butterscotch),
                                                                                       shade: .medium),
@@ -80,7 +83,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     func showAppropriateViewController(animated: Bool) {
         let isFitbitConnected = UserDefaults.standard.bool(forKey: FitbitStep.isFitbitConnectedKey)
         let haveShownStudyIntro = UserDefaults.standard.bool(forKey: haveShownStudyIntroKey)
-        if BridgeSDK.authManager.isAuthenticated() && isFitbitConnected && haveShownStudyIntro {
+        if BridgeSDK.authManager.isAuthenticated() && (isFitbitConnected || shouldSkipFitbitAuth) && haveShownStudyIntro {
             if self.isStudyEnded() {
                 self.showEndOfStudyViewController(animated: animated)
             } else {
@@ -178,7 +181,14 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         let externalIDStep = ExternalIDRegistrationStep(identifier: "enterExternalID", type: "externalID")
         let fitbitStep = FitbitStep(identifier: "fitbit", type: "connectFitbit")
         
-        var navigator = RSDConditionalStepNavigatorObject(with: [externalIDStep, fitbitStep, studyIntroStep1(), studyIntroStep2()])
+        var signInSteps = [RSDStep]()
+        signInSteps.append(externalIDStep)
+        if !shouldSkipFitbitAuth {
+            signInSteps.append(fitbitStep)
+        }
+        signInSteps.append(contentsOf: [studyIntroStep1(), studyIntroStep2()])
+        
+        var navigator = RSDConditionalStepNavigatorObject(with: signInSteps)
         navigator.progressMarkers = []
         let task = RSDTaskObject(identifier: onboardingTaskId, stepNavigator: navigator)
         let vc = RSDTaskViewController(task: task)
