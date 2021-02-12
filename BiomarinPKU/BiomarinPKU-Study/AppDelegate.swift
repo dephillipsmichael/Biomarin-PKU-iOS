@@ -51,7 +51,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
     var deepLinkActivity: ActivityType?
     
     // If set to true, fitbit auth will be skipped
-    var shouldSkipFitbitAuth = false
+    var shouldSkipFitbitAuth = true
     
     static let colorPalette = RSDColorPalette(version: 1,
                                               primary: RSDColorMatrix.shared.colorKey(for: .palette(.butterscotch),
