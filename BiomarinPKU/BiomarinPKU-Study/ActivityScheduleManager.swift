@@ -56,11 +56,23 @@ public class ActivityScheduleManager : SBAScheduleManager {
         return ActivityType.daily.weekOfStudy(dayOfStudy: dayOfStudy)
     }
     
-    open var studyStartDate: Date {
+    open var studyStartDate: Date {            
         // The activites are scheduled when the user first requests them
         // Therefore, the day the user first signed in and started their study,
         // is the date that we can use as the study start date
-        return self.scheduledActivities.first?.scheduledOn.startOfDay() ?? today.startOfDay()
+        
+        // Ideally, Bridge will only ever issue the scheduled actvities once,
+        // But a bug was introduced temporarily that was causing the
+        // scheduled activities to not be ordered by oldest first.
+        // To prevent this in the future, we search all the scheduled activities
+        // and return the oldest date as the study start date
+        return self.scheduledActivities.reduce(today.startOfDay()) { (earliestDate, activity) -> Date in
+            let scheduledOnStartOfDay = activity.scheduledOn.startOfDay()
+            if scheduledOnStartOfDay < earliestDate {
+                return scheduledOnStartOfDay
+            }
+            return earliestDate
+        }
     }
     
     public let endOfStudySortOrder: [RSDIdentifier] =

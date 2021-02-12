@@ -41,6 +41,21 @@ class ActivityScheduleManagerTests: XCTestCase {
     
     let scheduleManager = TestableWeek1ScheduleManager()
     
+    let PKUStudyTaskIdentifiers = [
+        "RestingKineticTremor",
+        "Attentional Blink",
+        "Daily Check-In",
+        "Sleep Check-In",
+        "Task Switch",
+        "Go No Go",
+        "Tremor",
+        "N Back",
+        "RestingKineticTremor",
+        "Tapping",
+        "Kinetic Tremor",
+        "Spatial Memory",
+        "Symbol Substitution"]
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -287,6 +302,45 @@ class ActivityScheduleManagerTests: XCTestCase {
         XCTAssertNil(validity.errorMsg)
     }
     
+    func testMultipleScheduledActivities_studyStartDate() {
+        
+        let studyStart = studyDate(11, 9, 22, 0) // "2019-08-11T09:22:00Z"
+        let mockToday = studyDate2021Jan(28, 9, 22, 0) // "2021-01-28T09:22:00Z"
+        
+        let testScheduleManager = TestableWeek1ScheduleManager()
+        testScheduleManager.mockToday = mockToday
+        
+        // In late January 2021, there was a bug introduced
+        // to bridge which trigger a user's schedules to be
+        // re-created with a scheduledOn date equal to that day
+        // This caused the app to think it was on study day 1
+        //
+        // To fix this and test to avoid this in the future,
+        // let's duplicate activities, all dated after
+        // the intial schedule, and make sure the activity manager
+        // still knows the correct study start date
+        var scheduledActivities = [MockScheduledActivity]()
+
+        for taskId in PKUStudyTaskIdentifiers {
+            scheduledActivities.append(MockScheduledActivity(identifier: taskId, scheduledOnDate: mockToday))
+        }
+        
+        for taskId in PKUStudyTaskIdentifiers {
+            scheduledActivities.append(MockScheduledActivity(identifier: taskId, scheduledOnDate: studyStart))
+        }
+        
+        testScheduleManager.scheduledActivities = scheduledActivities
+        
+        // Test that we get the study start date start of day
+        XCTAssertEqual(studyStart.startOfDay(), testScheduleManager.studyStartDate)
+        
+        // Reverse the order of the scheduled activities and test again
+        // This tests that it is order independent, which was failing
+        // before with the study start date not being the oldest scheduledOn date
+        scheduleManager.scheduledActivities = scheduledActivities.reversed()
+        XCTAssertEqual(studyStart.startOfDay(), testScheduleManager.studyStartDate)
+    }
+    
     func testDataInvalidHandSelectionScenarios() {
         // Test no hand selection
         var result = self.createValidResult(hand: .left)
@@ -389,6 +443,10 @@ class ActivityScheduleManagerTests: XCTestCase {
     private func studyDate(_ day: Int, _ hour: Int, _ min: Int, _ sec: Int) -> Date {
         return Calendar.current.date(from: DateComponents(year: 2019, month: 8, day: day, hour: hour, minute: min, second: sec))!
     }
+    
+    private func studyDate2021Jan(_ day: Int, _ hour: Int, _ min: Int, _ sec: Int) -> Date {
+        return Calendar.current.date(from: DateComponents(year: 2021, month: 1, day: day, hour: hour, minute: min, second: sec))!
+    }
 }
 
 class TestableWeek1ScheduleManager: ActivityScheduleManager {
@@ -407,6 +465,7 @@ class TestableWeek1ScheduleManager: ActivityScheduleManager {
 class MockScheduledActivity: SBBScheduledActivity {
     
     var mockScheduledOn = Date()
+    var mockActivityIdentifier = String()
     
     override open var scheduledOn: Date {
         get {
@@ -417,9 +476,19 @@ class MockScheduledActivity: SBBScheduledActivity {
         }
     }
     
+    override open var activityIdentifier: String? {
+        return mockActivityIdentifier
+    }
+    
     init(scheduledOnDate: Date) {
         super.init()
         mockScheduledOn = scheduledOnDate
+    }
+    
+    init(identifier: String, scheduledOnDate: Date) {
+        super.init()
+        mockScheduledOn = scheduledOnDate
+        mockActivityIdentifier = identifier
     }
     
     required init?(coder aDecoder: NSCoder) {
